@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Overview</title>
+    
+    <!--link rel="stylesheet" href="../_static/css/site.css" type="text/css" /-->
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/site.css"/>
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX:  '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="top" title="Isso  documentation" href="../" />
+    <link rel="next" title="Installation" href="install/" /> 
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <header>
+                <img class="logo" src="../_static/isso.svg" alt="Wynaut by @veekun"/>
+                <div class="title">
+                    <a href=".././">
+                        <h1>Isso</h1>
+                        <h2>a commenting server similar to Disqus</h2>
+                    </a>
+                </div>
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="../faq/">FAQ</a></li>
+                    <li><a href="../contribute/">Contribute</a></li>
+                    <li><a href="#">Documentation</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="outer">
+            
+    <header>
+        <h1>Overview</h1>
+    </header>
+
+        </div>
+
+
+        <main>
+        
+    <div class="sidebar">
+    
+        
+
+<strong>Getting Started</strong>
+<ul>
+    
+    <li><a href="install/">Installation</a></li>
+
+    
+    <li><a href="quickstart/">Quickstart</a></li>
+
+    
+    <li><a href="troubleshooting/">Troubleshooting</a></li>
+
+</ul>
+<strong>Advanced Setup</strong>
+<ul>
+    
+    <li><a href="setup/sub-uri/">Sub URI</a></li>
+
+    
+    <li><a href="setup/multiple-sites/">Multiple Sites</a></li>
+
+</ul>
+<strong>Configuration</strong>
+<ul>
+    
+    <li><a href="configuration/server/">Server</a></li>
+
+    
+    <li><a href="configuration/client/">Client</a></li>
+
+</ul>
+<strong>Extras</strong>
+<ul>
+    
+    <li><a href="extras/deployment/">Deployment</a></li>
+
+    
+    <li><a href="extras/advanced-integration/">Advanced Integration</a></li>
+
+    
+    <li><a href="extras/advanced-migration/">Advanced Migration</a></li>
+
+    
+    <li><a href="extras/testing/">Testing</a></li>
+
+    
+    <li><a href="extras/api/">API</a></li>
+
+    
+    <li><a href="extras/contribs/">Community tools</a></li>
+
+</ul>
+    
+    </div>
+    <div class="docs">
+        <div class="section" id="overview">
+<h1>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h1>
+<p>Welcome to Isso’s documentation. This documentation will help you get started
+fast. If you run into any problems when using Isso, you can find the answer in
+troubleshooting guide or you can ask me on IRC or GitHub.</p>
+<p>Documentation overview:</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="install/">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart/">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="troubleshooting/">Troubleshooting</a></li>
+</ul>
+</div>
+<div class="section" id="what-s-isso">
+<h2>What’s Isso?<a class="headerlink" href="#what-s-isso" title="Permalink to this headline">¶</a></h2>
+<p>Isso is a lightweight commenting server similar to Disqus. It allows anonymous
+comments, maintains identity and is simple to administrate. It uses JavaScript
+and cross-origin ressource sharing for easy integration into (static) websites.</p>
+</div>
+<div class="section" id="no-i-meant-isso">
+<h2>No, I meant “Isso”<a class="headerlink" href="#no-i-meant-isso" title="Permalink to this headline">¶</a></h2>
+<p>Isso is an informal, german abbreviation for “Ich schrei sonst!”, which can
+roughly be translated to “I’m yelling otherwise”. It usually ends the
+discussion without any further arguments.</p>
+<p>In germany, Isso <a class="reference external" href="http://bulbapedia.bulbagarden.net/wiki/Wynaut_(Pok%C3%A9mon)">is also pokémon N° 360</a>.</p>
+</div>
+<div class="section" id="what-s-wrong-with-disqus">
+<h2>What’s wrong with Disqus?<a class="headerlink" href="#what-s-wrong-with-disqus" title="Permalink to this headline">¶</a></h2>
+<p>No anonymous comments (IP address, email and name recorded), hosted in the USA,
+third-party. Just like IntenseDebate, livefrye etc. When you embed Disqus, they
+can do anything with your readers (and probably mine Bitcoins, see the loading
+times).</p>
+<p>Isso is not the only open-source commenting server:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://commento.io/">commento</a>, written in Go. Requires a
+<a class="reference external" href="https://www.postgresql.org/">postgresql</a> database.</li>
+<li><a class="reference external" href="https://remark42.com/docs/1.6/">Remark42</a>, written in Go.</li>
+<li><a class="reference external" href="https://github.com/talkatv/talkatv">talkatv</a>, written in Python.
+Unfortunately, talkatv’s (read “talkative”) development stalled. Neither
+anonymous nor threaded comments.</li>
+<li><a class="reference external" href="https://github.com/phusion/juvia">Juvia</a>, written in Ruby (on Rails).
+No threaded comments, nice administration webinterface, but… yeah… Ruby.</li>
+<li><a class="reference external" href="http://www.tildehash.com/?article=why-im-reinventing-disqus">Tildehash.com</a>,
+written in <a class="reference external" href="http://www.cvedetails.com/vendor/74/PHP.html">PHP</a> (compare to <a class="reference external" href="http://www.cvedetails.com/vendor/10210/Python.html">Python</a>). Did I forgot something?</li>
+<li><a class="reference external" href="http://stackoverflow.com/q/2053217">Unobtrusive, self-hosted comments</a>,
+discussion on StackOverflow.</li>
+</ul>
+</div>
+</div>
+
+    </div>
+
+        </main>
+
+        <div class="push"></div>
+    </div>
+
+    <div class="outer footer">
+        <footer>
+        &copy; Copyright 2022, Martin Zimmermann & contributors.
+
+        Made with <a href="http://sphinx-doc.org/">Sphinx</a>.
+        </footer>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Installation</title>
+    
+    <!--link rel="stylesheet" href="../../_static/css/site.css" type="text/css" /-->
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/site.css"/>
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX:  '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="top" title="Isso  documentation" href="../../" />
+    <link rel="next" title="Quickstart" href="../quickstart/" />
+    <link rel="prev" title="Overview" href="../" /> 
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <header>
+                <img class="logo" src="../../_static/isso.svg" alt="Wynaut by @veekun"/>
+                <div class="title">
+                    <a href="../.././">
+                        <h1>Isso</h1>
+                        <h2>a commenting server similar to Disqus</h2>
+                    </a>
+                </div>
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="../../faq/">FAQ</a></li>
+                    <li><a href="../../contribute/">Contribute</a></li>
+                    <li><a href="../">Documentation</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="outer">
+            
+    <header>
+        <h1>Installation</h1>
+    </header>
+
+        </div>
+
+
+        <main>
+        
+    <div class="sidebar">
+    
+        
+
+<strong>Getting Started</strong>
+<ul>
+    <li class="active">
+    <a href="#">Installation</a></li>
+
+    
+    <li><a href="../quickstart/">Quickstart</a></li>
+
+    
+    <li><a href="../troubleshooting/">Troubleshooting</a></li>
+
+</ul>
+<strong>Advanced Setup</strong>
+<ul>
+    
+    <li><a href="../setup/sub-uri/">Sub URI</a></li>
+
+    
+    <li><a href="../setup/multiple-sites/">Multiple Sites</a></li>
+
+</ul>
+<strong>Configuration</strong>
+<ul>
+    
+    <li><a href="../configuration/server/">Server</a></li>
+
+    
+    <li><a href="../configuration/client/">Client</a></li>
+
+</ul>
+<strong>Extras</strong>
+<ul>
+    
+    <li><a href="../extras/deployment/">Deployment</a></li>
+
+    
+    <li><a href="../extras/advanced-integration/">Advanced Integration</a></li>
+
+    
+    <li><a href="../extras/advanced-migration/">Advanced Migration</a></li>
+
+    
+    <li><a href="../extras/testing/">Testing</a></li>
+
+    
+    <li><a href="../extras/api/">API</a></li>
+
+    
+    <li><a href="../extras/contribs/">Community tools</a></li>
+
+</ul>
+    
+    </div>
+    <div class="docs">
+        <div class="section" id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<p>Isso is a web application written in Python. If pip and virtualenv mean anything
+to you, continue with <a class="reference internal" href="#install-from-pypi"><span class="std std-ref">Install from PyPi</span></a>. If you are running
+Debian/Ubuntu, Gentoo, Archlinux or Fedora, you can use
+<a class="reference internal" href="#prebuilt-package"><span class="std std-ref">Prebuilt Packages</span></a>. If not, read the next section carefully.</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#interludium-python-is-not-php" id="id5">Interludium: Python is not PHP</a></li>
+<li><a class="reference internal" href="#install-from-pypi" id="id6">Install from PyPi</a></li>
+<li><a class="reference internal" href="#prebuilt-packages" id="id7">Prebuilt Packages</a></li>
+<li><a class="reference internal" href="#build-a-docker-image" id="id8">Build a Docker image</a></li>
+<li><a class="reference internal" href="#install-from-source" id="id9">Install from Source</a></li>
+<li><a class="reference internal" href="#init-scripts" id="id10">Init scripts</a></li>
+</ul>
+</div>
+<div class="section" id="interludium-python-is-not-php">
+<span id="install-interludium"></span><h2><a class="toc-backref" href="#id5">Interludium: Python is not PHP</a><a class="headerlink" href="#interludium-python-is-not-php" title="Permalink to this headline">¶</a></h2>
+<p>If you think hosting a web application written in Python is as easy as one
+written in PHP, you are wrong. Unlike for PHP, many Linux distribution use
+Python for internal tools. Your package manager already ships several python
+libraries, but most likely not all required by Isso (or in an up-to-date
+version – looking at you, Debian!).</p>
+<p>That’s why most Python developers use the <a class="reference external" href="https://pypi.python.org/pypi">Python Package Index</a> to get their
+dependencies. The most important rule to follow is to never install <em>anything</em> from PyPi
+as root. Not because of malicious software, but because you <em>will</em> break your
+system.
+<code class="docutils literal notranslate"><span class="pre">easy_install</span></code> is one tool to mess up your system. Another package manager is
+<code class="docutils literal notranslate"><span class="pre">pip</span></code>. If you ever searched for an issue with Python/pip and Stackoverflow is
+suggesting you <code class="docutils literal notranslate"><span class="pre">easy_install</span> <span class="pre">pip</span></code> or <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span> <span class="pre">pip</span></code> (as root
+of course!), you are doing it wrong. <a class="reference external" href="https://workaround.org/easy-install-debian">Why you should not use Python’s
+easy_install carelessly on Debian</a> is worth the read.</p>
+<p>Fortunately, Python has a way to install packages (both as root and as user)
+without interfering with your globally installed packages: <cite>virtualenv</cite>. Use
+this <em>always</em> if you are installing software unavailable in your favourite
+package manager.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="c1"># for Debian/Ubuntu</span>
+~&gt; sudo apt-get install python-setuptools python-virtualenv python-dev
+
+<span class="c1"># Fedora/Red Hat</span>
+~&gt; sudo yum install python-setuptools python-virtualenv python-devel
+</pre></div>
+</div>
+<p>The next steps should be done as regular user, not as root (although possible
+but not recommended):</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~&gt; virtualenv /opt/isso
+~&gt; <span class="nb">source</span> /opt/isso/bin/activate
+</pre></div>
+</div>
+<p>After calling <cite>source</cite>, you can now install packages from PyPi locally into this
+virtual environment. If you don’t like Isso anymore, you just <cite>rm -rf</cite> the
+folder. Inside this virtual environment, you may also execute the example
+commands from above to upgrade your Python Package Manager (although it barely
+makes sense), it is completely independent from your global system.</p>
+<p>To use Isso installed in a virtual environment outside of the virtual
+environment, you just need to add <em>/opt/isso/bin</em> to your <span class="target" id="index-0"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code> or
+execute <em>/opt/isso/bin/isso</em> directly. It will launch Isso from within the
+virtual environment.</p>
+<p>With a virtualenv active, you may now continue to <a class="reference internal" href="#install-from-pypi"><span class="std std-ref">Install from PyPi</span></a>!
+Of course you may not need a virtualenv when you are running dedicated virtual
+machines or a shared host (e.g. Uberspace.de).</p>
+</div>
+<div class="section" id="install-from-pypi">
+<span id="id1"></span><h2><a class="toc-backref" href="#id6">Install from PyPi</a><a class="headerlink" href="#install-from-pypi" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="requirements">
+<h3>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Python 3.5+ (+ devel headers)</li>
+<li>SQLite 3.3.8 or later</li>
+<li>a working C compiler</li>
+</ul>
+<p>For Debian/Ubuntu just <a class="reference external" href="http://thejh.net/misc/website-terminal-copy-paste">copy and paste</a> to your terminal:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~&gt; sudo apt-get install python-dev sqlite3 build-essential
+</pre></div>
+</div>
+<p>Similar for Fedora (and derivates):</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~&gt; sudo yum install python-devel sqlite
+~&gt; sudo yum groupinstall “Development Tools”
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Installation<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Install Isso with <a class="reference external" href="http://www.pip-installer.org/en/latest/">pip</a>:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~&gt; pip install isso
+</pre></div>
+</div>
+<p><a class="reference external" href="https://twitter.com/gardaud/status/357638468572151808">Don’t have pip?</a></p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~&gt; easy_install isso  <span class="c1"># cross your fingers</span>
+</pre></div>
+</div>
+<p>For easier execution, you can symlink the executable to a location in your
+<span class="target" id="index-1"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code>.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~&gt; ln -s /opt/isso/bin/isso /usr/local/bin/isso
+</pre></div>
+</div>
+</div>
+<div class="section" id="upgrade">
+<h3>Upgrade<a class="headerlink" href="#upgrade" title="Permalink to this headline">¶</a></h3>
+<p>To upgrade Isso, activate your virtual environment again, and run</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~&gt; <span class="nb">source</span> /opt/isso/bin/activate  <span class="c1"># optional</span>
+~&gt; pip install --upgrade isso
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="prebuilt-packages">
+<span id="prebuilt-package"></span><h2><a class="toc-backref" href="#id7">Prebuilt Packages</a><a class="headerlink" href="#prebuilt-packages" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Debian (since Buster): <a class="reference external" href="https://packages.debian.org/search?keywords=isso">https://packages.debian.org/search?keywords=isso</a></li>
+<li>Gentoo: <a class="reference external" href="http://eroen.eu/cgit/cgit.cgi/eroen-overlay/tree/www-apps/isso?h=isso">http://eroen.eu/cgit/cgit.cgi/eroen-overlay/tree/www-apps/isso?h=isso</a>
+– not yet available in Portage, but you can use the ebuild to build Isso.</li>
+<li>Arch Linux: <a class="reference external" href="https://aur.archlinux.org/packages/isso/">https://aur.archlinux.org/packages/isso/</a>
+– install with <cite>yaourt isso</cite>.</li>
+<li>Fedora: <a class="reference external" href="https://copr.fedoraproject.org/coprs/jujens/isso/">https://copr.fedoraproject.org/coprs/jujens/isso/</a> — copr
+repository. Built from Pypi, includes a systemctl unit script.</li>
+</ul>
+</div>
+<div class="section" id="build-a-docker-image">
+<h2><a class="toc-backref" href="#id8">Build a Docker image</a><a class="headerlink" href="#build-a-docker-image" title="Permalink to this headline">¶</a></h2>
+<p>You can get a Docker image by running <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">build</span> <span class="pre">.</span> <span class="pre">-t</span>
+<span class="pre">isso</span></code>. Assuming you have your configuration in <code class="docutils literal notranslate"><span class="pre">/opt/isso</span></code>, you can
+use the following command to spawn the Docker container:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~&gt; docker run -d --rm --name isso -p <span class="m">127</span>.0.0.1:8080:8080 -v /opt/isso:/config -v /opt/isso:/db isso
+</pre></div>
+</div>
+<p>Then, you can use a reverse proxy to expose port 8080.</p>
+</div>
+<div class="section" id="install-from-source">
+<h2><a class="toc-backref" href="#id9">Install from Source</a><a class="headerlink" href="#install-from-source" title="Permalink to this headline">¶</a></h2>
+<p>If you want to hack on Isso or track down issues, there’s an alternate
+way to set up Isso. It requires a lot more dependencies and effort:</p>
+<ul class="simple">
+<li>Python 3.5+ (+ devel headers)</li>
+<li>Virtualenv</li>
+<li>SQLite 3.3.8 or later</li>
+<li>a working C compiler</li>
+<li>Node.js, <a class="reference external" href="https://npmjs.org/">NPM</a> - <em>required for frontend</em></li>
+<li><a class="reference external" href="http://www.sphinx-doc.org/">sphinx</a>,
+<a class="reference external" href="https://github.com/sass/sassc">sassc</a> (for compiling
+<a class="reference external" href="https://sass-lang.com/">.scss</a> to css) - <em>optional - only for docs</em></li>
+</ul>
+<p>Get a fresh copy of Isso:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~&gt; git clone https://github.com/posativ/isso.git
+~&gt; <span class="nb">cd</span> isso/
+</pre></div>
+</div>
+<p>To create a virtual environment (recommended), run:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~&gt; virtualenv .
+~&gt; <span class="nb">source</span> ./bin/activate
+</pre></div>
+</div>
+<p>Install JavaScript modules using <code class="docutils literal notranslate"><span class="pre">npm</span></code>:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~&gt; make init
+</pre></div>
+</div>
+<p>Build JavaScript frontend code:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~&gt; make js
+</pre></div>
+</div>
+<p>Install Isso and its dependencies:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~&gt; python setup.py develop  <span class="c1"># or `pip install -e .`</span>
+~&gt; isso run
+</pre></div>
+</div>
+<p>Install <a class="reference external" href="http://www.sphinx-doc.org/">sphinx</a> for generating docs:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~&gt; pip install sphinx
+</pre></div>
+</div>
+<p>Generate docs:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~&gt; make site
+</pre></div>
+</div>
+</div>
+<div class="section" id="init-scripts">
+<span id="id4"></span><h2><a class="toc-backref" href="#id10">Init scripts</a><a class="headerlink" href="#init-scripts" title="Permalink to this headline">¶</a></h2>
+<p>Init scripts to run Isso as a service (check your distribution’s documentation
+for your init-system; e.g. Debian uses SysVinit, Fedora uses systemd) if you
+don’t use FastCGi or uWSGI:</p>
+<ul class="simple">
+<li>systemd (Isso + Gunicorn): <a class="reference external" href="https://salsa.debian.org/jelmer/isso/-/blob/master/debian/isso.service">https://salsa.debian.org/jelmer/isso/-/blob/master/debian/isso.service</a></li>
+<li>SysVinit (Isso + Gunicorn): <a class="reference external" href="https://salsa.debian.org/jelmer/isso/-/blob/master/debian/isso.init">https://salsa.debian.org/jelmer/isso/-/blob/master/debian/isso.init</a></li>
+<li>OpenBSD: <a class="reference external" href="https://gist.github.com/noqqe/7397719">https://gist.github.com/noqqe/7397719</a></li>
+<li>FreeBSD: <a class="reference external" href="https://gist.github.com/ckoepp/52f6f0262de04cee1b88ef4a441e276d">https://gist.github.com/ckoepp/52f6f0262de04cee1b88ef4a441e276d</a></li>
+<li>Supervisor: <a class="reference external" href="https://github.com/posativ/isso/issues/47">https://github.com/posativ/isso/issues/47</a></li>
+</ul>
+<p>If you’re writing your own init script, you can utilize <code class="docutils literal notranslate"><span class="pre">start-stop-daemon</span></code>
+to run Isso in the background (Isso runs in the foreground usually). Below you
+will find a very basic SysVinit script which you can use for inspiration:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/bin/sh</span>
+<span class="c1">### BEGIN INIT INFO</span>
+<span class="c1"># Provides:          isso</span>
+<span class="c1"># Required-Start:    $local_fs $network</span>
+<span class="c1"># Default-Start:     2 3 4 5</span>
+<span class="c1"># Default-Stop:      0 1 6</span>
+<span class="c1"># Description:       lightweight Disqus alternative</span>
+<span class="c1">### END INIT INFO</span>
+
+<span class="nv">EXEC</span><span class="o">=</span>/opt/isso/bin/isso
+<span class="nv">EXEC_OPTS</span><span class="o">=</span><span class="s2">&quot;-c /etc/isso.cfg run&quot;</span>
+
+<span class="nv">RUNAS</span><span class="o">=</span>isso
+<span class="nv">PIDFILE</span><span class="o">=</span>/var/run/isso.pid
+
+start<span class="o">()</span> <span class="o">{</span>
+  <span class="nb">echo</span> <span class="s1">&#39;Starting service…&#39;</span> &gt;<span class="p">&amp;</span><span class="m">2</span>
+  start-stop-daemon --start --user <span class="s2">&quot;</span><span class="nv">$RUNAS</span><span class="s2">&quot;</span> --background --make-pidfile --pidfile <span class="nv">$PIDFILE</span> <span class="se">\</span>
+                    --exec <span class="nv">$EXEC</span> -- <span class="nv">$EXEC_OPTS</span>
+<span class="o">}</span>
+
+stop<span class="o">()</span> <span class="o">{</span>
+  <span class="nb">echo</span> <span class="s1">&#39;Stopping service…&#39;</span> &gt;<span class="p">&amp;</span><span class="m">2</span>
+  start-stop-daemon --stop --user <span class="s2">&quot;</span><span class="nv">$RUNAS</span><span class="s2">&quot;</span> --pidfile <span class="nv">$PIDFILE</span> --exec <span class="nv">$EXEC</span>
+<span class="o">}</span>
+
+<span class="k">case</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> in
+  start<span class="o">)</span>
+    start
+    <span class="p">;;</span>
+  stop<span class="o">)</span>
+    stop
+    <span class="p">;;</span>
+  restart<span class="o">)</span>
+    stop
+    start
+    <span class="p">;;</span>
+  *<span class="o">)</span>
+    <span class="nb">echo</span> <span class="s2">&quot;Usage: </span><span class="nv">$0</span><span class="s2"> {start|stop|restart}&quot;</span>
+<span class="k">esac</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+    </div>
+
+        </main>
+
+        <div class="push"></div>
+    </div>
+
+    <div class="outer footer">
+        <footer>
+        &copy; Copyright 2022, Martin Zimmermann & contributors.
+
+        Made with <a href="http://sphinx-doc.org/">Sphinx</a>.
+        </footer>
+    </div>
+  </body>
+</html>

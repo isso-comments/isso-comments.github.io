@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Testing</title>
+    
+    <!--link rel="stylesheet" href="../../../_static/css/site.css" type="text/css" /-->
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/site.css"/>
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX:  '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="search" title="Search" href="../../../search/" />
+    <link rel="top" title="Isso  documentation" href="../../../" /> 
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <header>
+                <img class="logo" src="../../../_static/isso.svg" alt="Wynaut by @veekun"/>
+                <div class="title">
+                    <a href="../../.././">
+                        <h1>Isso</h1>
+                        <h2>a commenting server similar to Disqus</h2>
+                    </a>
+                </div>
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="../../../faq/">FAQ</a></li>
+                    <li><a href="../../../contribute/">Contribute</a></li>
+                    <li><a href="../../">Documentation</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="outer">
+            
+    <header>
+        <h1>Testing</h1>
+    </header>
+
+        </div>
+
+
+        <main>
+        
+    <div class="sidebar">
+    
+        
+
+<strong>Getting Started</strong>
+<ul>
+    
+    <li><a href="../../install/">Installation</a></li>
+
+    
+    <li><a href="../../quickstart/">Quickstart</a></li>
+
+    
+    <li><a href="../../troubleshooting/">Troubleshooting</a></li>
+
+</ul>
+<strong>Advanced Setup</strong>
+<ul>
+    
+    <li><a href="../../setup/sub-uri/">Sub URI</a></li>
+
+    
+    <li><a href="../../setup/multiple-sites/">Multiple Sites</a></li>
+
+</ul>
+<strong>Configuration</strong>
+<ul>
+    
+    <li><a href="../../configuration/server/">Server</a></li>
+
+    
+    <li><a href="../../configuration/client/">Client</a></li>
+
+</ul>
+<strong>Extras</strong>
+<ul>
+    
+    <li><a href="../deployment/">Deployment</a></li>
+
+    
+    <li><a href="../advanced-integration/">Advanced Integration</a></li>
+
+    
+    <li><a href="../advanced-migration/">Advanced Migration</a></li>
+
+    <li class="active">
+    <a href="#">Testing</a></li>
+
+    
+    <li><a href="../api/">API</a></li>
+
+    
+    <li><a href="../contribs/">Community tools</a></li>
+
+</ul>
+    
+    </div>
+    <div class="docs">
+        <div class="section" id="testing">
+<h1>Testing<a class="headerlink" href="#testing" title="Permalink to this headline">¶</a></h1>
+<p>Isso is tested by the <a class="reference external" href="https://docs.pytest.org/">pytest</a> tool. You should also install the <a class="reference external" href="https://coverage.readthedocs.io/en/latest/">coverage</a>
+module with the <a class="reference external" href="https://github.com/pytest-dev/pytest-cov">pytest-cov</a> plugin to receive code coverage statistics.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pip install pytest pytest-cov coverage
+</pre></div>
+</div>
+<p>Pytest needs your Isso package to be installed as a site package to work, else it
+will complain with:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pkg_resources.DistributionNotFound: The <span class="s1">&#39;isso&#39;</span> distribution was not found and is required by the application
+</pre></div>
+</div>
+<p>When running Isso via <code class="docutils literal notranslate"><span class="pre">pytest</span></code>, you need to be aware that it will use the
+packaged version of Isso in your <code class="docutils literal notranslate"><span class="pre">site-packages</span></code>, not the one you have in
+your current working directory.</p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> to install Isso as an “editable” package (the package
+in <code class="docutils literal notranslate"><span class="pre">site-packages</span></code> will be a symlink to your current development directory).</p>
+<p>You can run tests independently via <code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">[options]</span> <span class="pre">isso/</span></code> or use Isso’s
+standard test suite via <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">tests</span> <span class="pre">coverage</span></code>.</p>
+</div>
+
+    </div>
+
+        </main>
+
+        <div class="push"></div>
+    </div>
+
+    <div class="outer footer">
+        <footer>
+        &copy; Copyright 2022, Martin Zimmermann & contributors.
+
+        Made with <a href="http://sphinx-doc.org/">Sphinx</a>.
+        </footer>
+    </div>
+  </body>
+</html>

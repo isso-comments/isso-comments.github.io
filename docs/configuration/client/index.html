@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Client Configuration</title>
+    
+    <!--link rel="stylesheet" href="../../../_static/css/site.css" type="text/css" /-->
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/site.css"/>
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX:  '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="search" title="Search" href="../../../search/" />
+    <link rel="top" title="Isso  documentation" href="../../../" /> 
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <header>
+                <img class="logo" src="../../../_static/isso.svg" alt="Wynaut by @veekun"/>
+                <div class="title">
+                    <a href="../../.././">
+                        <h1>Isso</h1>
+                        <h2>a commenting server similar to Disqus</h2>
+                    </a>
+                </div>
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="../../../faq/">FAQ</a></li>
+                    <li><a href="../../../contribute/">Contribute</a></li>
+                    <li><a href="../../">Documentation</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="outer">
+            
+    <header>
+        <h1>Client Configuration</h1>
+    </header>
+
+        </div>
+
+
+        <main>
+        
+    <div class="sidebar">
+    
+        
+
+<strong>Getting Started</strong>
+<ul>
+    
+    <li><a href="../../install/">Installation</a></li>
+
+    
+    <li><a href="../../quickstart/">Quickstart</a></li>
+
+    
+    <li><a href="../../troubleshooting/">Troubleshooting</a></li>
+
+</ul>
+<strong>Advanced Setup</strong>
+<ul>
+    
+    <li><a href="../../setup/sub-uri/">Sub URI</a></li>
+
+    
+    <li><a href="../../setup/multiple-sites/">Multiple Sites</a></li>
+
+</ul>
+<strong>Configuration</strong>
+<ul>
+    
+    <li><a href="../server/">Server</a></li>
+
+    <li class="active">
+    <a href="#">Client</a></li>
+
+</ul>
+<strong>Extras</strong>
+<ul>
+    
+    <li><a href="../../extras/deployment/">Deployment</a></li>
+
+    
+    <li><a href="../../extras/advanced-integration/">Advanced Integration</a></li>
+
+    
+    <li><a href="../../extras/advanced-migration/">Advanced Migration</a></li>
+
+    
+    <li><a href="../../extras/testing/">Testing</a></li>
+
+    
+    <li><a href="../../extras/api/">API</a></li>
+
+    
+    <li><a href="../../extras/contribs/">Community tools</a></li>
+
+</ul>
+    
+    </div>
+    <div class="docs">
+        <div class="section" id="client-configuration">
+<h1>Client Configuration<a class="headerlink" href="#client-configuration" title="Permalink to this headline">¶</a></h1>
+<p>You can configure the client (the JS part) with custom data attributes,
+preferably in the script tag which embeds the JS:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-isso</span><span class="o">=</span><span class="s">&quot;/prefix/&quot;</span>
+        <span class="na">data-isso-id</span><span class="o">=</span><span class="s">&quot;thread-id&quot;</span>
+        <span class="na">data-isso-css</span><span class="o">=</span><span class="s">&quot;true&quot;</span>
+        <span class="na">data-isso-css-url</span><span class="o">=</span><span class="s">&quot;null&quot;</span>
+        <span class="na">data-isso-lang</span><span class="o">=</span><span class="s">&quot;ru&quot;</span>
+        <span class="na">data-isso-max-comments-top</span><span class="o">=</span><span class="s">&quot;10&quot;</span>
+        <span class="na">data-isso-max-comments-nested</span><span class="o">=</span><span class="s">&quot;5&quot;</span>
+        <span class="na">data-isso-reveal-on-click</span><span class="o">=</span><span class="s">&quot;5&quot;</span>
+        <span class="na">data-isso-avatar</span><span class="o">=</span><span class="s">&quot;true&quot;</span>
+        <span class="na">data-isso-avatar-bg</span><span class="o">=</span><span class="s">&quot;#f0f0f0&quot;</span>
+        <span class="na">data-isso-avatar-fg</span><span class="o">=</span><span class="s">&quot;#9abf88 #5698c4 #e279a3 #9163b6 ...&quot;</span>
+        <span class="na">data-isso-vote</span><span class="o">=</span><span class="s">&quot;true&quot;</span>
+        <span class="na">data-isso-vote-levels</span><span class="o">=</span><span class="s">&quot;&quot;</span>
+        <span class="na">data-isso-feed</span><span class="o">=</span><span class="s">&quot;false&quot;</span>
+        <span class="na">src</span><span class="o">=</span><span class="s">&quot;/prefix/js/embed.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Furthermore you can override the automatic title detection inside
+the embed tag, as well as the thread ID, e.g.:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">section</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;isso-thread&quot;</span> <span class="na">data-title</span><span class="o">=</span><span class="s">&quot;Foo!&quot;</span> <span class="na">data-isso-id</span><span class="o">=</span><span class="s">&quot;/path/to/resource&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Additionally, you can override any translation string for any language by adding
+a <code class="docutils literal notranslate"><span class="pre">data-isso-</span></code> attribute that is equal to the translation key (found <a class="reference external" href="https://github.com/posativ/isso/blob/master/isso/js/app/i18n/en.js">here</a>) with
+<code class="docutils literal notranslate"><span class="pre">-text-[lang]</span></code> appended to it. So, for example, if you want to override the
+english translation of the <code class="docutils literal notranslate"><span class="pre">postbox-notification</span></code> message, you could add:</p>
+<p><code class="docutils literal notranslate"><span class="pre">data-isso-postbox-notification-text-en=&quot;Select</span> <span class="pre">to</span> <span class="pre">be</span> <span class="pre">notified</span> <span class="pre">of</span> <span class="pre">replies</span> <span class="pre">to</span> <span class="pre">your</span> <span class="pre">comment&quot;</span></code></p>
+<div class="section" id="lazy-loading-on-scroll">
+<h2>Lazy-loading on scroll<a class="headerlink" href="#lazy-loading-on-scroll" title="Permalink to this headline">¶</a></h2>
+<p>You can defer loading the <code class="docutils literal notranslate"><span class="pre">embed.min.js</span></code> script until the user has scrolled
+to the bottom of the page:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;</span>
+    <span class="c1">// Lazy-load isso only when page end is in view</span>
+    <span class="kd">function</span> <span class="nx">loadIsso</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">script</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;script&quot;</span><span class="p">);</span>
+        <span class="nx">script</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="s2">&quot;text/javascript&quot;</span><span class="p">);</span>
+        <span class="nx">script</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;src&quot;</span><span class="p">,</span> <span class="s2">&quot;/prefix/js/embed.min.js&quot;</span><span class="p">);</span>
+        <span class="c1">// add relevant data-isso attributes here</span>
+        <span class="nx">script</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;data-isso&quot;</span><span class="p">,</span> <span class="s2">&quot;/prefix/&quot;</span><span class="p">);</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">&quot;head&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">script</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="kd">let</span> <span class="nx">offset</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span> <span class="c1">// Start loading 50px before reaching bottom</span>
+    <span class="kd">function</span> <span class="nx">scrollBottomListener</span><span class="p">(</span><span class="nx">ev</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">((</span><span class="nb">window</span><span class="p">.</span><span class="nx">scrollY</span> <span class="o">+</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="p">)</span>
+                <span class="o">&gt;=</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">scrollHeight</span> <span class="o">-</span> <span class="nx">offset</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nx">loadIsso</span><span class="p">();</span>
+            <span class="nb">window</span><span class="p">.</span><span class="nx">removeEventListener</span><span class="p">(</span><span class="s1">&#39;scroll&#39;</span><span class="p">,</span> <span class="nx">scrollBottomListener</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// If viewport &gt;= page height, load immediately</span>
+      <span class="k">if</span> <span class="p">((</span><span class="nb">window</span><span class="p">.</span><span class="nx">scrollY</span> <span class="o">+</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="p">)</span>
+                <span class="o">&gt;=</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">scrollHeight</span> <span class="o">-</span> <span class="nx">offset</span><span class="p">))</span> <span class="p">{</span>
+          <span class="nx">loadIsso</span><span class="p">();</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+          <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;scroll&#39;</span><span class="p">,</span> <span class="nx">scrollBottomListener</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p><em>Note that loading additional content only after user interaction is bad for
+SEO. Additionally, users could experience a “jank” effect.</em></p>
+<p>Use lazy-loading only if you are desperately trying to save bandwidth. By
+specifying <code class="docutils literal notranslate"><span class="pre">async</span></code> in the <code class="docutils literal notranslate"><span class="pre">&lt;script</span></code> tag, loading the Isso Javascript will
+not render-block anyway.</p>
+</div>
+<div class="section" id="data-isso">
+<h2>data-isso<a class="headerlink" href="#data-isso" title="Permalink to this headline">¶</a></h2>
+<p>Isso usually detects the REST API automatically, but when you serve the JS
+script on a different location, this may fail. Use <cite>data-isso</cite> to
+override the API location:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-isso</span><span class="o">=</span><span class="s">&quot;/isso&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/path/to/embed.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="data-isso-css-url">
+<h2>data-isso-css-url<a class="headerlink" href="#data-isso-css-url" title="Permalink to this headline">¶</a></h2>
+<p>Set URL from which to fetch <code class="docutils literal notranslate"><span class="pre">isso.css</span></code>, e.g. from a CDN.
+Defaults to fetching from the API endpoint.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;...&quot;</span> <span class="na">data-isso-css-url</span><span class="o">=</span><span class="s">&quot;/path/to/isso.css&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="data-isso-css">
+<h2>data-isso-css<a class="headerlink" href="#data-isso-css" title="Permalink to this headline">¶</a></h2>
+<p>Set to <cite>false</cite> prevents Isso from automatically appending the stylesheet.
+Defaults to <cite>true</cite>.</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;...&quot;</span> <span class="na">data-isso-css</span><span class="o">=</span><span class="s">&quot;false&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="data-isso-lang">
+<h2>data-isso-lang<a class="headerlink" href="#data-isso-lang" title="Permalink to this headline">¶</a></h2>
+<p>Always render the Isso UI in this language, ignoring what the
+user-agent says is the preferred language.  The default is to
+honor the user-agent’s preferred language, and this can be
+specified explicitly by using <code class="docutils literal notranslate"><span class="pre">data-isso-lang=&quot;&quot;</span></code>.</p>
+<p>The value of this property should be a <a class="reference external" href="https://tools.ietf.org/html/bcp47">BCP 47 language tag</a>, such as “en”, “ru”, or “pt-BR”.
+Language tags are processed case-insensitively, and may use
+underscores as separators instead of dashes (e.g. “pt_br” is treated
+the same as same as “pt-BR”).</p>
+<p>You can find a list of all supported languages by browsing the
+<a class="reference external" href="https://github.com/posativ/isso/tree/master/isso/js/app/i18n">i18n directory</a> of
+the source tree.</p>
+</div>
+<div class="section" id="data-isso-default-lang">
+<h2>data-isso-default-lang<a class="headerlink" href="#data-isso-default-lang" title="Permalink to this headline">¶</a></h2>
+<p>Render the Isso UI in this language when the user-agent does not
+specify a preferred language, or if the language it specifies is not
+supported.  Like <code class="docutils literal notranslate"><span class="pre">data-isso-lang</span></code>, the value of this property should
+be a BCP 47 language tag.  Defaults to “en”.</p>
+<p>If you specify both <code class="docutils literal notranslate"><span class="pre">data-isso-default-lang</span></code> and <code class="docutils literal notranslate"><span class="pre">data-isso-lang</span></code>,
+<code class="docutils literal notranslate"><span class="pre">data-isso-lang</span></code> takes precedence.</p>
+</div>
+<div class="section" id="data-isso-max-comments-top-and-data-isso-max-comments-nested">
+<h2>data-isso-max-comments-top and data-isso-max-comments-nested<a class="headerlink" href="#data-isso-max-comments-top-and-data-isso-max-comments-nested" title="Permalink to this headline">¶</a></h2>
+<p>Number of top level (or nested) comments to show by default. If some
+comments are not shown, an “X Hidden” link is shown.</p>
+<p>Set to <cite>“inf”</cite> to show all, or <cite>“0”</cite> to hide all.</p>
+</div>
+<div class="section" id="data-isso-reveal-on-click">
+<h2>data-isso-reveal-on-click<a class="headerlink" href="#data-isso-reveal-on-click" title="Permalink to this headline">¶</a></h2>
+<p>Number of comments to reveal on clicking the “X Hidden” link.</p>
+</div>
+<div class="section" id="data-isso-avatar">
+<h2>data-isso-avatar<a class="headerlink" href="#data-isso-avatar" title="Permalink to this headline">¶</a></h2>
+<p>Enable or disable avatar generation. Ignored if gravatar is enabled on
+server side, since gravatars will take precedence and disable avatar
+generation.</p>
+</div>
+<div class="section" id="data-isso-avatar-bg">
+<h2>data-isso-avatar-bg<a class="headerlink" href="#data-isso-avatar-bg" title="Permalink to this headline">¶</a></h2>
+<p>Set avatar background color. Any valid CSS color will do.</p>
+</div>
+<div class="section" id="data-isso-avatar-fg">
+<h2>data-isso-avatar-fg<a class="headerlink" href="#data-isso-avatar-fg" title="Permalink to this headline">¶</a></h2>
+<p>Set avatar foreground color. Up to 8 colors are possible. The default color
+scheme is based in <a class="reference external" href="http://colrd.com/palette/19308/">this color palette</a>.
+Multiple colors must be separated by space. If you use less than eight colors
+and not a multiple of 2, the color distribution is not even.</p>
+</div>
+<div class="section" id="data-isso-vote">
+<h2>data-isso-vote<a class="headerlink" href="#data-isso-vote" title="Permalink to this headline">¶</a></h2>
+<p>Enable or disable voting feature on the client side.</p>
+</div>
+<div class="section" id="data-isso-vote-levels">
+<h2>data-isso-vote-levels<a class="headerlink" href="#data-isso-vote-levels" title="Permalink to this headline">¶</a></h2>
+<p>List of vote levels used to customize comment appearance based on score.
+Provide a comma-separated values (eg. <cite>“0,5,10,25,100”</cite>) or a JSON array (eg. <cite>“[-5,5,15]”</cite>).</p>
+<p>For example, the value <cite>“-5,5”</cite> will cause each <cite>isso-comment</cite> to be given one of these 3 classes:</p>
+<ul class="simple">
+<li><cite>isso-vote-level-0</cite> for scores lower than <cite>-5</cite></li>
+<li><cite>isso-vote-level-1</cite> for scores between <cite>-5</cite> and <cite>4</cite></li>
+<li><cite>isso-vote-level-2</cite> for scores of <cite>5</cite> and greater</li>
+</ul>
+<p>These classes can then be used to customize the appearance of comments (eg. put a star on popular comments)</p>
+</div>
+<div class="section" id="data-isso-feed">
+<h2>data-isso-feed<a class="headerlink" href="#data-isso-feed" title="Permalink to this headline">¶</a></h2>
+<p>Enable or disable the addition of a link to the feed for the comment
+thread. The link will only be valid if the appropriate setting, in
+<code class="docutils literal notranslate"><span class="pre">[rss]</span></code> section, is also enabled server-side.</p>
+</div>
+</div>
+<div class="section" id="deprecated-client-settings">
+<h1>Deprecated Client Settings<a class="headerlink" href="#deprecated-client-settings" title="Permalink to this headline">¶</a></h1>
+<p>In earlier versions the following settings had to mirror the
+corresponding settings in the server configuration, but they are now
+read out from the server automatically.</p>
+<div class="section" id="data-isso-reply-to-self">
+<h2>data-isso-reply-to-self<a class="headerlink" href="#data-isso-reply-to-self" title="Permalink to this headline">¶</a></h2>
+<p>Set to <cite>true</cite> when spam guard is configured with <cite>reply-to-self = true</cite>.</p>
+</div>
+<div class="section" id="data-isso-require-author">
+<h2>data-isso-require-author<a class="headerlink" href="#data-isso-require-author" title="Permalink to this headline">¶</a></h2>
+<p>Set to <cite>true</cite> when spam guard is configured with <cite>require-author = true</cite>.</p>
+</div>
+<div class="section" id="data-isso-require-email">
+<h2>data-isso-require-email<a class="headerlink" href="#data-isso-require-email" title="Permalink to this headline">¶</a></h2>
+<p>Set to <cite>true</cite> when spam guard is configured with <cite>require-email = true</cite>.</p>
+</div>
+<div class="section" id="data-isso-reply-notifications">
+<h2>data-isso-reply-notifications<a class="headerlink" href="#data-isso-reply-notifications" title="Permalink to this headline">¶</a></h2>
+<p>Set to <cite>true</cite> when reply notifications is configured with <cite>reply-notifications = true</cite>.</p>
+</div>
+<div class="section" id="data-isso-gravatar">
+<h2>data-isso-gravatar<a class="headerlink" href="#data-isso-gravatar" title="Permalink to this headline">¶</a></h2>
+<p>Set to <cite>true</cite> when gravatars are enabled with <cite>gravatar = true</cite> in the
+server configuration.</p>
+</div>
+</div>
+
+    </div>
+
+        </main>
+
+        <div class="push"></div>
+    </div>
+
+    <div class="outer footer">
+        <footer>
+        &copy; Copyright 2022, Martin Zimmermann & contributors.
+
+        Made with <a href="http://sphinx-doc.org/">Sphinx</a>.
+        </footer>
+    </div>
+  </body>
+</html>

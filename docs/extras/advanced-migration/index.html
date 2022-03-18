@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Advanced Migration</title>
+    
+    <!--link rel="stylesheet" href="../../../_static/css/site.css" type="text/css" /-->
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/site.css"/>
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX:  '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="search" title="Search" href="../../../search/" />
+    <link rel="top" title="Isso  documentation" href="../../../" /> 
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <header>
+                <img class="logo" src="../../../_static/isso.svg" alt="Wynaut by @veekun"/>
+                <div class="title">
+                    <a href="../../.././">
+                        <h1>Isso</h1>
+                        <h2>a commenting server similar to Disqus</h2>
+                    </a>
+                </div>
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="../../../faq/">FAQ</a></li>
+                    <li><a href="../../../contribute/">Contribute</a></li>
+                    <li><a href="../../">Documentation</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="outer">
+            
+    <header>
+        <h1>Advanced Migration</h1>
+    </header>
+
+        </div>
+
+
+        <main>
+        
+    <div class="sidebar">
+    
+        
+
+<strong>Getting Started</strong>
+<ul>
+    
+    <li><a href="../../install/">Installation</a></li>
+
+    
+    <li><a href="../../quickstart/">Quickstart</a></li>
+
+    
+    <li><a href="../../troubleshooting/">Troubleshooting</a></li>
+
+</ul>
+<strong>Advanced Setup</strong>
+<ul>
+    
+    <li><a href="../../setup/sub-uri/">Sub URI</a></li>
+
+    
+    <li><a href="../../setup/multiple-sites/">Multiple Sites</a></li>
+
+</ul>
+<strong>Configuration</strong>
+<ul>
+    
+    <li><a href="../../configuration/server/">Server</a></li>
+
+    
+    <li><a href="../../configuration/client/">Client</a></li>
+
+</ul>
+<strong>Extras</strong>
+<ul>
+    
+    <li><a href="../deployment/">Deployment</a></li>
+
+    
+    <li><a href="../advanced-integration/">Advanced Integration</a></li>
+
+    <li class="active">
+    <a href="#">Advanced Migration</a></li>
+
+    
+    <li><a href="../testing/">Testing</a></li>
+
+    
+    <li><a href="../api/">API</a></li>
+
+    
+    <li><a href="../contribs/">Community tools</a></li>
+
+</ul>
+    
+    </div>
+    <div class="docs">
+        <div class="section" id="advanced-migration">
+<h1>Advanced Migration<a class="headerlink" href="#advanced-migration" title="Permalink to this headline">¶</a></h1>
+<p>In quickstart we saw you can import comments from Disqus or WordPress. But there
+are a many other comments system and you could be using one of them.</p>
+<p>Isso provides a way to import such comments, however it’s up to you to to:</p>
+<ul>
+<li><p class="first">dump comments</p>
+</li>
+<li><p class="first">fit the data to the following JSON format:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>A list of threads, each item being a dict with the following data:
+
+- id: a text representing the unique thread id (note: by default isso
+      associates this ID to the article URL, but it can be changed on
+      client side with &quot;data-isso-id&quot; - see :doc:`client configuration &lt;../configuration/client&gt;` )
+- title: the title of the thread
+- comments: the list of comments
+
+    Each item in that list of comments is a dict with the following data:
+
+    - id: an integer with the unique id of the comment inside the thread
+      (it can be repeated among different threads); this will be used to
+      order the comment inside the thread
+    - author: the author&#39;s name
+    - email: the author&#39;s email
+    - website: the author&#39;s website
+    - remote_addr: the author&#39;s IP
+    - created: a timestamp, in the format &quot;%Y-%m-%d %H:%M:%S&quot;
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Example:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;/blog/article1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;First article!&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;James&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;created&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-11-28 17:24:23&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;email@mail.com&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;remote_addr&quot;</span><span class="p">:</span> <span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Great article!&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;website&quot;</span><span class="p">:</span> <span class="s2">&quot;http://fefzfzef.frzr&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;Harold&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;created&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-11-28 17:58:03&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;email2@mail.com&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;remote_addr&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;I hated it...&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;website&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Keep in mind that isso expects to have an array, so keep the opening and ending square bracket even if you have only one article thread!</p>
+<p>Next you can import you json dump:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~&gt; isso -c /path/to/isso.cfg import -t generic comment-dump.json
+<span class="o">[</span><span class="m">100</span>%<span class="o">]</span>  <span class="m">53</span> threads, <span class="m">192</span> comments
+</pre></div>
+</div>
+</div>
+
+    </div>
+
+        </main>
+
+        <div class="push"></div>
+    </div>
+
+    <div class="outer footer">
+        <footer>
+        &copy; Copyright 2022, Martin Zimmermann & contributors.
+
+        Made with <a href="http://sphinx-doc.org/">Sphinx</a>.
+        </footer>
+    </div>
+  </body>
+</html>

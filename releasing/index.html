@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Releasing steps</title>
+    
+    <!--link rel="stylesheet" href="../_static/css/site.css" type="text/css" /-->
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/css/site.css"/>
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX:  '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+    <link rel="search" title="Search" href="../search/" />
+    <link rel="top" title="Isso  documentation" href="../" /> 
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <header>
+                <img class="logo" src="../_static/isso.svg" alt="Wynaut by @veekun"/>
+                <div class="title">
+                    <a href=".././">
+                        <h1>Isso</h1>
+                        <h2>a commenting server similar to Disqus</h2>
+                    </a>
+                </div>
+            </header>
+            <nav>
+                <ul>
+                    <li><a href="../faq/">FAQ</a></li>
+                    <li><a href="../contribute/">Contribute</a></li>
+                    <li><a href="../docs/">Documentation</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="outer">
+            
+    <header>
+        <h1>Releasing steps</h1>
+    </header>
+
+        </div>
+
+
+        <main>
+        
+    <div class="sidebar">
+    
+    </div>
+    <div class="docs">
+        <div class="section" id="releasing-steps">
+<h1>Releasing steps<a class="headerlink" href="#releasing-steps" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li>Run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">test</span></code></li>
+<li>Update version number in <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> and <code class="docutils literal notranslate"><span class="pre">CHANGES.rst</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span> <span class="pre">&quot;Preparing</span> <span class="pre">${VERSION}&quot;</span> <span class="pre">setup.py</span> <span class="pre">CHANGES.rst</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">tag</span> <span class="pre">-as</span> <span class="pre">${VERSION}</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">init</span> <span class="pre">all</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">setup.py</span> <span class="pre">sdist</span></code></li>
+<li><code class="docutils literal notranslate"><span class="pre">twine</span> <span class="pre">upload</span> <span class="pre">--sign</span> <span class="pre">dist/isso-${VERSION}.tar.gz</span></code></li>
+</ul>
+</div>
+
+    </div>
+
+        </main>
+
+        <div class="push"></div>
+    </div>
+
+    <div class="outer footer">
+        <footer>
+        &copy; Copyright 2022, Martin Zimmermann & contributors.
+
+        Made with <a href="http://sphinx-doc.org/">Sphinx</a>.
+        </footer>
+    </div>
+  </body>
+</html>

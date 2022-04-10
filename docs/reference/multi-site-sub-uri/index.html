@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Multiple Sites &amp; Sub-URI</title>
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/site.css"/>
+    
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="search" title="Search" href="../../../search/" />
+    <link rel="top" title="Isso  documentation" href="../../../" />
+    <link rel="next" title="API" href="../server-api/" />
+    <link rel="prev" title="Deployment" href="../deployment/" /> 
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <header>
+                <img class="logo" src="../../../_static/isso.svg" alt="Wynaut by @veekun"/>
+                <div class="title">
+                    <a href="../../.././">
+                        <h1>Isso</h1>
+                        <h2>a commenting server similar to Disqus</h2>
+                    </a>
+                </div>
+            </header>
+            <nav>
+                <a href="../../">Documentation</a>
+                <a href="../../../news/">News</a>
+                <a href="../../contributing/">Contribute</a>
+                <a href="../../../community/">community</a>
+            </nav>
+        </div>
+
+        <div class="outer">
+            
+    <header>
+        <h1>Multiple Sites &amp; Sub-URI</h1>
+    </header>
+
+        </div>
+
+
+        <main>
+        
+    <div class="sidebar">
+    
+        
+    <p class="caption"><span class="caption-text">Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/quickstart/">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/tips-and-tricks/">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/troubleshooting/">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/advanced-integration/">Advanced Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/faq/">FAQ</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server-config/">Server Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../client-config/">Client Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deployment/">Deployment</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Multiple Sites &amp; Sub-URI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server-api/">Server API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Technical documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/server/">Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/client/">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/testing/">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/testing-client/">Testing the Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/testing-server/">Testing the Server</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contributing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/">Contributing to Isso</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/documentation/">Writing Documentation</a></li>
+</ul>
+
+<div id="searchbox" style="display: none">
+  <h2>Quick search</h2>
+    <form class="search" action="../../../search/" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+    
+    </div>
+    <div class="docs">
+          <div class="vcs-edit-container">
+          <a href="https://github.com/posativ/isso/blob/master/docs/docs/reference/multi-site-sub-uri.rst" class="vcs-edit"><img src="../../../_static/github.svg" /> Edit on GitHub</a>
+          </div>
+        <div class="section" id="multiple-sites-sub-uri">
+<h2>Multiple Sites &amp; Sub-URI<a class="headerlink" href="#multiple-sites-sub-uri" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="multiple-sites">
+<span id="configure-multiple-sites"></span><h3>Multiple Sites<a class="headerlink" href="#multiple-sites" title="Permalink to this headline">¶</a></h3>
+<p>Isso is designed to serve comments for a single website and therefore stores
+comments for a relative URL. This is done to support HTTP, HTTPS and even domain transfers
+without manual intervention. You can chain Isso to support multiple
+websites on different domains.</p>
+<p>The following example uses <a class="reference external" href="http://gunicorn.org/">gunicorn</a> as WSGI server (
+you can use uWSGI as well). Let’s say you maintain two websites, like
+foo.example and other.bar:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ cat /etc/isso.d/foo.example.cfg
+<span class="o">[</span>general<span class="o">]</span>
+<span class="nv">name</span> <span class="o">=</span> foo
+<span class="nv">host</span> <span class="o">=</span> http://foo.example/
+<span class="nv">dbpath</span> <span class="o">=</span> /var/lib/isso/foo.example.db
+
+$ cat /etc/isso.d/other.bar.cfg
+<span class="o">[</span>general<span class="o">]</span>
+<span class="nv">name</span> <span class="o">=</span> bar
+<span class="nv">host</span> <span class="o">=</span> http://other.bar/
+<span class="nv">dbpath</span> <span class="o">=</span> /var/lib/isso/other.bar.db
+</pre></div>
+</div>
+<p>Then you run Isso with gunicorn (separate multiple configuration files by
+semicolon):</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">export</span> <span class="nv">ISSO_SETTINGS</span><span class="o">=</span><span class="s2">&quot;/etc/isso.d/foo.example.cfg;/etc/isso.d/other.bar.cfg&quot;</span>
+$ gunicorn isso.dispatch -b localhost:8080
+</pre></div>
+</div>
+<p>In your webserver configuration, proxy Isso as usual:</p>
+<div class="highlight-nginx notranslate"><div class="highlight"><pre><span></span><span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span> <span class="s">[::]:80</span><span class="p">;</span>
+    <span class="kn">server_name</span> <span class="s">comments.example</span><span class="p">;</span>
+
+    <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
+        <span class="kn">proxy_pass</span> <span class="s">http://localhost:8080</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>When you now visit <a class="reference external" href="http://comments.example/">http://comments.example/</a>, you will see your different Isso
+configuration separated by /<cite>name</cite>.</p>
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>$ curl http://comments.example/
+/foo
+/bar
+</pre></div>
+</div>
+<p>Just embed the JavaScript including the new relative path, e.g.
+<em>http://comments.example/foo/js/embed.min.js</em>. Make sure, you don’t mix the
+URLs on both sites as it will most likely cause CORS-related errors.</p>
+</div>
+<div class="section" id="sub-uri">
+<span id="configure-sub-uri"></span><h3>Sub-URI<a class="headerlink" href="#sub-uri" title="Permalink to this headline">¶</a></h3>
+<p>You can run Isso on the same domain as your website, which circumvents issues
+originating from <a class="reference external" href="https://developer.mozilla.org/en/docs/HTTP/Access_control_CORS">CORS</a>. Also, privacy-protecting browser addons such as
+<a class="reference external" href="https://www.requestpolicy.com/">Request Policy</a> wont block comments.</p>
+<div class="highlight-nginx notranslate"><div class="highlight"><pre><span></span><span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span>       <span class="s">[::]:80</span><span class="p">;</span>
+    <span class="kn">listen</span>       <span class="s">[::]:443</span> <span class="s">ssl</span><span class="p">;</span>
+    <span class="kn">server_name</span>  <span class="s">example.tld</span><span class="p">;</span>
+    <span class="kn">root</span>         <span class="s">/var/www/example.tld</span><span class="p">;</span>
+
+    <span class="kn">location</span> <span class="s">/isso</span> <span class="p">{</span>
+        <span class="kn">proxy_set_header</span> <span class="s">X-Forwarded-For</span> <span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">X-Script-Name</span> <span class="s">/isso</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">Host</span> <span class="nv">$host</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">X-Forwarded-Proto</span> <span class="nv">$scheme</span><span class="p">;</span>
+        <span class="kn">proxy_pass</span> <span class="s">http://localhost:8080</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Now, the website integration is just as described in <a class="reference internal" href="../../quickstart/"><span class="doc">Quickstart</span></a> but
+with a different location.</p>
+</div>
+</div>
+
+    </div>
+
+        </main>
+
+        <div class="push"></div>
+    </div>
+
+    <div class="outer footer">
+        <footer>
+        &copy; Copyright 2022, Martin Zimmermann & contributors.
+
+        Made with <a href="http://sphinx-doc.org/">Sphinx</a>.
+        </footer>
+    </div>
+  </body>
+</html>

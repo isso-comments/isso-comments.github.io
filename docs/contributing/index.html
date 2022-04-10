@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Contribute</title>
+    
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/css/site.css"/>
+    
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+    <link rel="search" title="Search" href="../../search/" />
+    <link rel="top" title="Isso  documentation" href="../../" />
+    <link rel="next" title="Writing Documentation" href="documentation/" />
+    <link rel="prev" title="Testing the Server" href="../technical-docs/testing-server/" /> 
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <header>
+                <img class="logo" src="../../_static/isso.svg" alt="Wynaut by @veekun"/>
+                <div class="title">
+                    <a href="../.././">
+                        <h1>Isso</h1>
+                        <h2>a commenting server similar to Disqus</h2>
+                    </a>
+                </div>
+            </header>
+            <nav>
+                <a href="../">Documentation</a>
+                <a href="../../news/">News</a>
+                <a href="#">Contribute</a>
+                <a href="../../community/">community</a>
+            </nav>
+        </div>
+
+        <div class="outer">
+            
+    <header>
+        <h1>Contribute</h1>
+    </header>
+
+        </div>
+
+
+        <main>
+        
+    <div class="sidebar">
+    
+        
+    <p class="caption"><span class="caption-text">Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../guides/quickstart/">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/tips-and-tricks/">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/troubleshooting/">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/advanced-integration/">Advanced Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/faq/">FAQ</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../reference/installation/">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/server-config/">Server Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/client-config/">Client Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/deployment/">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/multi-site-sub-uri/">Multiple Sites &amp; Sub-URI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/server-api/">Server API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Technical documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../technical-docs/server/">Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../technical-docs/client/">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../technical-docs/testing/">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../technical-docs/testing-client/">Testing the Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../technical-docs/testing-server/">Testing the Server</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contributing</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Contributing to Isso</a></li>
+<li class="toctree-l1"><a class="reference internal" href="documentation/">Writing Documentation</a></li>
+</ul>
+
+<div id="searchbox" style="display: none">
+  <h2>Quick search</h2>
+    <form class="search" action="../../search/" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+    
+    </div>
+    <div class="docs">
+          <div class="vcs-edit-container">
+          <a href="https://github.com/posativ/isso/blob/master/docs/docs/contributing/index.rst" class="vcs-edit"><img src="../../_static/github.svg" /> Edit on GitHub</a>
+          </div>
+        <div class="section" id="contribute">
+<h2>Contribute<a class="headerlink" href="#contribute" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="write-some-code">
+<h3>Write some code.<a class="headerlink" href="#write-some-code" title="Permalink to this headline">¶</a></h3>
+<p>I appreciate any help and love pull requests. Here are some things you
+need to respect:</p>
+<ul class="simple">
+<li>no hard-wired external services (e.g. Gravatar, Akismet)</li>
+<li>no support for ancient browsers (e.g. IE6-9)</li>
+</ul>
+<p>If you create a feature request, start a new branch. If you fix an
+issue, start off the <em>master</em> branch and pull request against the
+master. I’ll cherry-pick/backport the fix onto the current legacy
+(maintenance) release.</p>
+</div>
+<div class="section" id="report-issues">
+<h3>Report issues<a class="headerlink" href="#report-issues" title="Permalink to this headline">¶</a></h3>
+<ul class="simple" id="contribute-report-issues">
+<li><strong>Disqus import fails</strong> – if <code class="docutils literal notranslate"><span class="pre">isso</span> <span class="pre">import</span> <span class="pre">/path/to/disqus.xml</span></code> fails,
+please do <em>NOT</em> attach the raw dump file to GH:Issues. Please anonymize all
+IP addresses inside the <code class="docutils literal notranslate"><span class="pre">&lt;ipAddress&gt;</span></code> tag first, as second step, replace
+all <code class="docutils literal notranslate"><span class="pre">&lt;email&gt;</span></code> addresses with a generic one.</li>
+<li><strong>embed.min.js-related issues</strong> –  if you get a cryptic JavaScript error in
+the console, embed <code class="docutils literal notranslate"><span class="pre">embed.dev.js</span></code> instead of <code class="docutils literal notranslate"><span class="pre">embed.min.js</span></code> and create an
+issue with ±10 lines of code around the error.</li>
+<li><strong>Isso-related issues</strong> – Copy and paste traceback into a ticket and provide
+some details of your usage.</li>
+</ul>
+</div>
+<div class="section" id="translations">
+<h3>Translations<a class="headerlink" href="#translations" title="Permalink to this headline">¶</a></h3>
+<p id="contribute-translations">Isso supports multiple languages and it is fairly easy to add new translations.
+You can use the <a class="reference external" href="https://github.com/posativ/isso/blob/master/isso/js/app/i18n/en.js">english translation file</a> and <a class="reference external" href="https://github.com/posativ/isso/blob/master/isso/js/app/i18n/">other translations</a> as a referece and open a Pull
+Request.</p>
+<p>You may notice some “weird” newlines in translations – that’s the separator
+for <a class="reference external" href="http://docs.translatehouse.org/projects/localization-guide/en/latest/l10n/pluralforms.html?id=l10n/pluralforms">pluralforms</a> in the templating engine.</p>
+</div>
+<div class="section" id="where-i-need-help">
+<h3>Where I need help.<a class="headerlink" href="#where-i-need-help" title="Permalink to this headline">¶</a></h3>
+<p>Isso is my first projects which involves JavaScript. If you are more
+experienced in JS, please take a look at the code (that does not mean, the
+Python code is perfect ;-). A few feature requests and issues, where I
+definitely need help:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/posativ/isso/issues/10">Admin Web Interface</a> –
+administration via email is cumbersome with a high amount of comments. A
+administration web interface should include the ability to:<ul>
+<li>delete or activate comments matching a filter (e.g. name, email, ip address)</li>
+<li>close threads and remove threads completely</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+    </div>
+
+        </main>
+
+        <div class="push"></div>
+    </div>
+
+    <div class="outer footer">
+        <footer>
+        &copy; Copyright 2022, Martin Zimmermann & contributors.
+
+        Made with <a href="http://sphinx-doc.org/">Sphinx</a>.
+        </footer>
+    </div>
+  </body>
+</html>

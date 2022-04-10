@@ -1,26 +1,14 @@
 <!DOCTYPE html>
 
-
 <html>
   <head>
     <meta charset="utf-8">
     
     <title>Frequently asked question</title>
     
-    <!--link rel="stylesheet" href="../_static/css/site.css" type="text/css" /-->
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/css/site.css"/>
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX:  '.txt'
-      };
-    </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
@@ -42,11 +30,10 @@
                 </div>
             </header>
             <nav>
-                <ul>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="../contribute/">Contribute</a></li>
-                    <li><a href="../docs/">Documentation</a></li>
-                </ul>
+                <a href="../docs/">Documentation</a>
+                <a href="../news/">News</a>
+                <a href="../docs/contributing/">Contribute</a>
+                <a href="../community/">community</a>
             </nav>
         </div>
 
@@ -65,10 +52,13 @@
     
     </div>
     <div class="docs">
+          <div class="vcs-edit-container">
+          <a href="https://github.com/posativ/isso/blob/master/docs/faq.rst" class="vcs-edit"><img src="../_static/github.svg" /> Edit on GitHub</a>
+          </div>
         <div class="section" id="frequently-asked-question">
-<h1>Frequently asked question<a class="headerlink" href="#frequently-asked-question" title="Permalink to this headline">¶</a></h1>
+<h2>Frequently asked question<a class="headerlink" href="#frequently-asked-question" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="why-sqlite3">
-<h2>Why SQLite3?<a class="headerlink" href="#why-sqlite3" title="Permalink to this headline">¶</a></h2>
+<h3>Why SQLite3?<a class="headerlink" href="#why-sqlite3" title="Permalink to this headline">¶</a></h3>
 <p>Although partially answered on the index page, here is a more complete answer: If
 you manage massive amounts of comments, Isso is a really bad choice. Isso is
 designed to be simple and easy to setup, it is not optimized for high-traffic

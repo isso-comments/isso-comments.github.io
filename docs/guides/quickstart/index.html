@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Quickstart</title>
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/site.css"/>
+    
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="search" title="Search" href="../../../search/" />
+    <link rel="top" title="Isso  documentation" href="../../../" />
+    <link rel="next" title="Tips &amp; Tricks" href="../tips-and-tricks/" />
+    <link rel="prev" title="&lt;no title&gt;" href="../../toc/" /> 
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <header>
+                <img class="logo" src="../../../_static/isso.svg" alt="Wynaut by @veekun"/>
+                <div class="title">
+                    <a href="../../.././">
+                        <h1>Isso</h1>
+                        <h2>a commenting server similar to Disqus</h2>
+                    </a>
+                </div>
+            </header>
+            <nav>
+                <a href="../../">Documentation</a>
+                <a href="../../../news/">News</a>
+                <a href="../../contributing/">Contribute</a>
+                <a href="../../../community/">community</a>
+            </nav>
+        </div>
+
+        <div class="outer">
+            
+    <header>
+        <h1>Quickstart</h1>
+    </header>
+
+        </div>
+
+
+        <main>
+        
+    <div class="sidebar">
+    
+        
+    <p class="caption"><span class="caption-text">Guides</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tips-and-tricks/">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced-integration/">Advanced Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/installation/">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/server-config/">Server Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/client-config/">Client Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/deployment/">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/multi-site-sub-uri/">Multiple Sites &amp; Sub-URI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/server-api/">Server API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Technical documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/server/">Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/client/">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/testing/">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/testing-client/">Testing the Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/testing-server/">Testing the Server</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contributing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/">Contributing to Isso</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/documentation/">Writing Documentation</a></li>
+</ul>
+
+<div id="searchbox" style="display: none">
+  <h2>Quick search</h2>
+    <form class="search" action="../../../search/" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+    
+    </div>
+    <div class="docs">
+          <div class="vcs-edit-container">
+          <a href="https://github.com/posativ/isso/blob/master/docs/docs/guides/quickstart.rst" class="vcs-edit"><img src="../../../_static/github.svg" /> Edit on GitHub</a>
+          </div>
+        <div class="section" id="quickstart">
+<h2>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h2>
+<p>Assuming you have successfully <span class="xref std std-doc">installed</span> Isso, here’s
+a quickstart guide that covers the most common setup. Sections covered:</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#configuration" id="id1">Configuration</a></li>
+<li><a class="reference internal" href="#migration" id="id2">Migration</a></li>
+<li><a class="reference internal" href="#running-isso" id="id3">Running Isso</a></li>
+<li><a class="reference internal" href="#integration" id="id4">Integration</a></li>
+<li><a class="reference internal" href="#going-further" id="id5">Going Further</a></li>
+</ul>
+</div>
+<div class="section" id="configuration">
+<h3><a class="toc-backref" href="#id1">Configuration</a><a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
+<p>You must provide a custom configuration to set <cite>dbpath</cite> (your database
+location) and <cite>host</cite> (a list of websites for <a class="reference external" href="https://developer.mozilla.org/en/docs/HTTP/Access_control_CORS">CORS</a>). All other options have
+sane defaults.</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[general]</span>
+<span class="c1">; database location, check permissions, automatically created if it</span>
+<span class="c1">; does not exist</span>
+<span class="na">dbpath</span> <span class="o">=</span> <span class="s">/var/lib/isso/comments.db</span>
+<span class="c1">; your website or blog (not the location of Isso!)</span>
+<span class="na">host</span> <span class="o">=</span> <span class="s">http://example.tld/</span>
+<span class="c1">; you can add multiple hosts for local development</span>
+<span class="c1">; or SSL connections. There is no wildcard to allow</span>
+<span class="c1">; any domain.</span>
+<span class="na">host</span> <span class="o">=</span><span class="s"></span>
+<span class="s">    http://localhost:1234/</span>
+<span class="s">    http://example.tld/</span>
+<span class="s">    https://example.tld/</span>
+</pre></div>
+</div>
+<p>Note, that multiple, <em>different</em> websites are <strong>not</strong> supported in a single
+configuration. To serve comments for different websites, refer to
+<a class="reference internal" href="../../setup/multiple-sites/#configure-multiple-sites"><span class="std std-ref">Multiple Sites</span></a>.</p>
+<p>The moderation is done with signed URLs sent by email or logged to stdout.
+By default, comments are accepted and immediately shown to other users. To
+enable moderation queue, add:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[moderation]</span>
+<span class="na">enabled</span> <span class="o">=</span> <span class="s">true</span>
+</pre></div>
+</div>
+<p>To moderate comments, either use the activation or deletion URL in the logs or
+<a class="reference internal" href="../../reference/server-config/#configure-smtp"><span class="std std-ref">use SMTP</span></a> to get notified of new comments, including the
+URLs for activation and deletion:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[general]</span>
+<span class="na">notify</span> <span class="o">=</span> <span class="s">smtp</span>
+<span class="k">[smtp]</span>
+<span class="c1">; SMTP settings</span>
+</pre></div>
+</div>
+<p>For more options, see <span class="xref std std-doc">server</span> and <span class="xref std std-doc">client</span> configuration.</p>
+</div>
+<div class="section" id="migration">
+<h3><a class="toc-backref" href="#id2">Migration</a><a class="headerlink" href="#migration" title="Permalink to this headline">¶</a></h3>
+<p>Isso provides a tool for importing comments from <a class="reference external" href="https://disqus.com/">Disqus</a> or <a class="reference external" href="https://wordpress.org/">WordPress</a>.
+You can also import comments from any other comment system, but this topic is more
+complex and is covered in <span class="xref std std-doc">advanced migration</span>.</p>
+<p>To export your comments from Disqus, log into Disqus, go to your website, click
+on <em>Discussions</em> and select the <em>Export</em> tab. You’ll receive an email with your
+comments. Unfortunately, Disqus does not export up- and downvotes.</p>
+<p>To export comments from your previous WordPress installation, go to <em>Tools</em>,
+export your data. It has been reported that WordPress may generate broken XML.
+Try to repair the file using <code class="docutils literal notranslate"><span class="pre">xmllint</span></code> before you continue with the import.</p>
+<p>Now import the XML dump:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~&gt; isso -c /path/to/isso.cfg import -t <span class="o">[</span>disqus<span class="p">|</span>wordpress<span class="o">]</span> disqus-or-wordpress.xml
+<span class="o">[</span><span class="m">100</span>%<span class="o">]</span>  <span class="m">53</span> threads, <span class="m">192</span> comments
+</pre></div>
+</div>
+</div>
+<div class="section" id="running-isso">
+<h3><a class="toc-backref" href="#id3">Running Isso</a><a class="headerlink" href="#running-isso" title="Permalink to this headline">¶</a></h3>
+<p>To run Isso, simply execute:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ isso -c /path/to/isso.cfg run
+<span class="m">2013</span>-11-25 <span class="m">15</span>:31:34,773 INFO: connected to HTTP server
+</pre></div>
+</div>
+<p>Next, we configure <a class="reference external" href="http://nginx.org/">Nginx</a> to proxy Isso. Do not run Isso on a public interface!
+A popular but often error-prone (because of <a class="reference external" href="https://developer.mozilla.org/en/docs/HTTP/Access_control_CORS">CORS</a>) setup to host Isso uses a
+dedicated domain such as <code class="docutils literal notranslate"><span class="pre">comments.example.tld</span></code>.</p>
+<p>Assuming both, your website and Isso are on the same server, the nginx
+configuration looks like this:</p>
+<div class="highlight-nginx notranslate"><div class="highlight"><pre><span></span><span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span> <span class="s">[::]:80</span> <span class="s">default</span> <span class="s">ipv6only=off</span><span class="p">;</span>
+    <span class="kn">server_name</span> <span class="s">example.tld</span><span class="p">;</span>
+    <span class="kn">root</span> <span class="s">...</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="k">server</span> <span class="p">{</span>
+    <span class="kn">listen</span> <span class="s">[::]:80</span><span class="p">;</span>
+    <span class="kn">server_name</span> <span class="s">comments.example.tld</span><span class="p">;</span>
+
+    <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
+        <span class="kn">proxy_pass</span> <span class="s">http://localhost:8080</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">X-Forwarded-For</span> <span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">Host</span> <span class="nv">$host</span><span class="p">;</span>
+        <span class="kn">proxy_set_header</span> <span class="s">X-Forwarded-Proto</span> <span class="nv">$scheme</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="integration">
+<h3><a class="toc-backref" href="#id4">Integration</a><a class="headerlink" href="#integration" title="Permalink to this headline">¶</a></h3>
+<p>Now, you embed Isso to your website:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-isso</span><span class="o">=</span><span class="s">&quot;//comments.example.tld/&quot;</span>
+        <span class="na">src</span><span class="o">=</span><span class="s">&quot;//comments.example.tld/js/embed.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+
+<span class="p">&lt;</span><span class="nt">section</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;isso-thread&quot;</span><span class="p">&gt;</span>
+    <span class="p">&lt;</span><span class="nt">noscript</span><span class="p">&gt;</span>Javascript needs to be activated to view comments.<span class="p">&lt;/</span><span class="nt">noscript</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>Note, that <cite>data-isso</cite> is optional, but when a website includes a script using
+<code class="docutils literal notranslate"><span class="pre">async</span></code> it is no longer possible to determine the script’s external URL.</p>
+<p>That’s it. When you open your website, you should see a commenting form. Leave
+a comment to see if the setup works. If not, see <a class="reference internal" href="../troubleshooting/"><span class="doc">Troubleshooting</span></a>.</p>
+</div>
+<div class="section" id="going-further">
+<h3><a class="toc-backref" href="#id5">Going Further</a><a class="headerlink" href="#going-further" title="Permalink to this headline">¶</a></h3>
+<p>There are several server and client configuration options not covered in this
+quickstart, check out <span class="xref std std-doc">configuration/server</span> and
+<span class="xref std std-doc">configuration/client</span> for more information. For further website
+integration, see <span class="xref std std-doc">extras/advanced-integration</span>.</p>
+<p>To launch Isso automatically, check the <a class="reference internal" href="../../reference/installation/#init-scripts"><span class="std std-ref">Init scripts</span></a> section from the
+installation guide. A different approach to deploy a web application is
+written here: <span class="xref std std-doc">Deployment of Isso</span>.</p>
+</div>
+</div>
+
+    </div>
+
+        </main>
+
+        <div class="push"></div>
+    </div>
+
+    <div class="outer footer">
+        <footer>
+        &copy; Copyright 2022, Martin Zimmermann & contributors.
+
+        Made with <a href="http://sphinx-doc.org/">Sphinx</a>.
+        </footer>
+    </div>
+  </body>
+</html>

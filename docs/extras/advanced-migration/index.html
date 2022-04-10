@@ -1,26 +1,14 @@
 <!DOCTYPE html>
 
-
 <html>
   <head>
     <meta charset="utf-8">
     
     <title>Advanced Migration</title>
     
-    <!--link rel="stylesheet" href="../../../_static/css/site.css" type="text/css" /-->
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/css/site.css"/>
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../../',
-        VERSION:     '',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX:  '.txt'
-      };
-    </script>
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
@@ -42,11 +30,10 @@
                 </div>
             </header>
             <nav>
-                <ul>
-                    <li><a href="../../../faq/">FAQ</a></li>
-                    <li><a href="../../../contribute/">Contribute</a></li>
-                    <li><a href="../../">Documentation</a></li>
-                </ul>
+                <a href="../../">Documentation</a>
+                <a href="../../../news/">News</a>
+                <a href="../../contributing/">Contribute</a>
+                <a href="../../../community/">community</a>
             </nav>
         </div>
 
@@ -64,63 +51,55 @@
     <div class="sidebar">
     
         
-
-<strong>Getting Started</strong>
+    <p class="caption"><span class="caption-text">Guides</span></p>
 <ul>
-    
-    <li><a href="../../install/">Installation</a></li>
-
-    
-    <li><a href="../../quickstart/">Quickstart</a></li>
-
-    
-    <li><a href="../../troubleshooting/">Troubleshooting</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="../../guides/quickstart/">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/tips-and-tricks/">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/troubleshooting/">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/advanced-integration/">Advanced Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/faq/">FAQ</a></li>
 </ul>
-<strong>Advanced Setup</strong>
+<p class="caption"><span class="caption-text">Reference</span></p>
 <ul>
-    
-    <li><a href="../../setup/sub-uri/">Sub URI</a></li>
-
-    
-    <li><a href="../../setup/multiple-sites/">Multiple Sites</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="../../reference/installation/">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/server-config/">Server Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/client-config/">Client Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/deployment/">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/multi-site-sub-uri/">Multiple Sites &amp; Sub-URI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/server-api/">Server API</a></li>
 </ul>
-<strong>Configuration</strong>
+<p class="caption"><span class="caption-text">Technical documentation</span></p>
 <ul>
-    
-    <li><a href="../../configuration/server/">Server</a></li>
-
-    
-    <li><a href="../../configuration/client/">Client</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/server/">Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/client/">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/testing/">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/testing-client/">Testing the Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/testing-server/">Testing the Server</a></li>
 </ul>
-<strong>Extras</strong>
+<p class="caption"><span class="caption-text">Contributing</span></p>
 <ul>
-    
-    <li><a href="../deployment/">Deployment</a></li>
-
-    
-    <li><a href="../advanced-integration/">Advanced Integration</a></li>
-
-    <li class="active">
-    <a href="#">Advanced Migration</a></li>
-
-    
-    <li><a href="../testing/">Testing</a></li>
-
-    
-    <li><a href="../api/">API</a></li>
-
-    
-    <li><a href="../contribs/">Community tools</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/">Contributing to Isso</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/documentation/">Writing Documentation</a></li>
 </ul>
+
+<div id="searchbox" style="display: none">
+  <h2>Quick search</h2>
+    <form class="search" action="../../../search/" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
     
     </div>
     <div class="docs">
+          <div class="vcs-edit-container">
+          <a href="https://github.com/posativ/isso/blob/master/docs/docs/extras/advanced-migration.rst" class="vcs-edit"><img src="../../../_static/github.svg" /> Edit on GitHub</a>
+          </div>
         <div class="section" id="advanced-migration">
-<h1>Advanced Migration<a class="headerlink" href="#advanced-migration" title="Permalink to this headline">¶</a></h1>
+<h2>Advanced Migration<a class="headerlink" href="#advanced-migration" title="Permalink to this headline">¶</a></h2>
 <p>In quickstart we saw you can import comments from Disqus or WordPress. But there
 are a many other comments system and you could be using one of them.</p>
 <p>Isso provides a way to import such comments, however it’s up to you to to:</p>

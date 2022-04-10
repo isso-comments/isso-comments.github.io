@@ -1,26 +1,14 @@
 <!DOCTYPE html>
 
-
 <html>
   <head>
     <meta charset="utf-8">
     
     <title>Releasing steps</title>
     
-    <!--link rel="stylesheet" href="../_static/css/site.css" type="text/css" /-->
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/css/site.css"/>
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX:  '.txt'
-      };
-    </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
@@ -42,11 +30,10 @@
                 </div>
             </header>
             <nav>
-                <ul>
-                    <li><a href="../faq/">FAQ</a></li>
-                    <li><a href="../contribute/">Contribute</a></li>
-                    <li><a href="../docs/">Documentation</a></li>
-                </ul>
+                <a href="../docs/">Documentation</a>
+                <a href="../news/">News</a>
+                <a href="../docs/contributing/">Contribute</a>
+                <a href="../community/">community</a>
             </nav>
         </div>
 
@@ -65,8 +52,11 @@
     
     </div>
     <div class="docs">
+          <div class="vcs-edit-container">
+          <a href="https://github.com/posativ/isso/blob/master/docs/releasing.rst" class="vcs-edit"><img src="../_static/github.svg" /> Edit on GitHub</a>
+          </div>
         <div class="section" id="releasing-steps">
-<h1>Releasing steps<a class="headerlink" href="#releasing-steps" title="Permalink to this headline">¶</a></h1>
+<h2>Releasing steps<a class="headerlink" href="#releasing-steps" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">test</span></code></li>
 <li>Update version number in <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> and <code class="docutils literal notranslate"><span class="pre">CHANGES.rst</span></code></li>

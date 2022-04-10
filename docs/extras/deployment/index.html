@@ -1,26 +1,14 @@
 <!DOCTYPE html>
 
-
 <html>
   <head>
     <meta charset="utf-8">
     
     <title>Deployment</title>
     
-    <!--link rel="stylesheet" href="../../../_static/css/site.css" type="text/css" /-->
     <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../../../_static/css/site.css"/>
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../../../',
-        VERSION:     '',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX:  '.txt'
-      };
-    </script>
     <script type="text/javascript" src="../../../_static/jquery.js"></script>
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
@@ -42,11 +30,10 @@
                 </div>
             </header>
             <nav>
-                <ul>
-                    <li><a href="../../../faq/">FAQ</a></li>
-                    <li><a href="../../../contribute/">Contribute</a></li>
-                    <li><a href="../../">Documentation</a></li>
-                </ul>
+                <a href="../../">Documentation</a>
+                <a href="../../../news/">News</a>
+                <a href="../../contributing/">Contribute</a>
+                <a href="../../../community/">community</a>
             </nav>
         </div>
 
@@ -64,63 +51,55 @@
     <div class="sidebar">
     
         
-
-<strong>Getting Started</strong>
+    <p class="caption"><span class="caption-text">Guides</span></p>
 <ul>
-    
-    <li><a href="../../install/">Installation</a></li>
-
-    
-    <li><a href="../../quickstart/">Quickstart</a></li>
-
-    
-    <li><a href="../../troubleshooting/">Troubleshooting</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="../../guides/quickstart/">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/tips-and-tricks/">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/troubleshooting/">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/advanced-integration/">Advanced Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/faq/">FAQ</a></li>
 </ul>
-<strong>Advanced Setup</strong>
+<p class="caption"><span class="caption-text">Reference</span></p>
 <ul>
-    
-    <li><a href="../../setup/sub-uri/">Sub URI</a></li>
-
-    
-    <li><a href="../../setup/multiple-sites/">Multiple Sites</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="../../reference/installation/">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/server-config/">Server Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/client-config/">Client Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/deployment/">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/multi-site-sub-uri/">Multiple Sites &amp; Sub-URI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/server-api/">Server API</a></li>
 </ul>
-<strong>Configuration</strong>
+<p class="caption"><span class="caption-text">Technical documentation</span></p>
 <ul>
-    
-    <li><a href="../../configuration/server/">Server</a></li>
-
-    
-    <li><a href="../../configuration/client/">Client</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/server/">Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/client/">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/testing/">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/testing-client/">Testing the Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/testing-server/">Testing the Server</a></li>
 </ul>
-<strong>Extras</strong>
+<p class="caption"><span class="caption-text">Contributing</span></p>
 <ul>
-    <li class="active">
-    <a href="#">Deployment</a></li>
-
-    
-    <li><a href="../advanced-integration/">Advanced Integration</a></li>
-
-    
-    <li><a href="../advanced-migration/">Advanced Migration</a></li>
-
-    
-    <li><a href="../testing/">Testing</a></li>
-
-    
-    <li><a href="../api/">API</a></li>
-
-    
-    <li><a href="../contribs/">Community tools</a></li>
-
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/">Contributing to Isso</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/documentation/">Writing Documentation</a></li>
 </ul>
+
+<div id="searchbox" style="display: none">
+  <h2>Quick search</h2>
+    <form class="search" action="../../../search/" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
     
     </div>
     <div class="docs">
+          <div class="vcs-edit-container">
+          <a href="https://github.com/posativ/isso/blob/master/docs/docs/extras/deployment.rst" class="vcs-edit"><img src="../../../_static/github.svg" /> Edit on GitHub</a>
+          </div>
         <div class="section" id="deployment">
-<h1>Deployment<a class="headerlink" href="#deployment" title="Permalink to this headline">¶</a></h1>
+<h2>Deployment<a class="headerlink" href="#deployment" title="Permalink to this headline">¶</a></h2>
 <p>Isso ships with a built-in web server, which is useful for the initial setup
 and may be used in production for low-traffic sites (up to 20 requests per
 second). Running a “real” WSGI server supports nice things such as UNIX domain
@@ -136,7 +115,7 @@ and web-scale than the built-in web server.</p>
 <li>Openshift, Isso has a one click installer</li>
 </ul>
 <div class="section" id="gevent">
-<h2><a class="reference external" href="http://www.gevent.org/">gevent</a><a class="headerlink" href="#gevent" title="Permalink to this headline">¶</a></h2>
+<h3><a class="reference external" href="http://www.gevent.org/">gevent</a><a class="headerlink" href="#gevent" title="Permalink to this headline">¶</a></h3>
 <p>Probably the easiest deployment method. Install with PIP (requires libevent):</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pip install gevent
 </pre></div>
@@ -150,7 +129,7 @@ standard library to work with greenlets.</p>
 <p>Unfortunately, gevent 0.13.2 does not support UNIX domain sockets (see <a class="reference external" href="https://github.com/surfly/gevent/issues/295">#295</a> and <a class="reference external" href="https://github.com/surfly/gevent/issues/299">#299</a> for details).</p>
 </div>
 <div class="section" id="uwsgi">
-<h2><a class="reference external" href="http://uwsgi-docs.readthedocs.org/en/latest/">uWSGI</a><a class="headerlink" href="#uwsgi" title="Permalink to this headline">¶</a></h2>
+<h3><a class="reference external" href="http://uwsgi-docs.readthedocs.org/en/latest/">uWSGI</a><a class="headerlink" href="#uwsgi" title="Permalink to this headline">¶</a></h3>
 <p>Isso has special support for uWSGI, namely fast IPC caching, job spooling and
 delayed jobs. It is the author’s choice, but not the only one. You need
 uWSGI 1.9 or higher, fortunately you can install it from PyPi:</p>
@@ -181,7 +160,7 @@ supply everything as command-line arguments):</p>
 </div>
 </div>
 <div class="section" id="gunicorn">
-<h2><a class="reference external" href="http://gunicorn.org">gunicorn</a><a class="headerlink" href="#gunicorn" title="Permalink to this headline">¶</a></h2>
+<h3><a class="reference external" href="http://gunicorn.org">gunicorn</a><a class="headerlink" href="#gunicorn" title="Permalink to this headline">¶</a></h3>
 <p>Gunicorn ‘Green Unicorn’ is a Python WSGI HTTP Server for UNIX with a pre-fork
 worker ported from Ruby’s Unicorn project. Install <a class="reference internal" href="#gunicorn">gunicorn</a> via PIP:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pip install gunicorn
@@ -194,7 +173,7 @@ $ gunicorn -b localhost:8080 -w <span class="m">4</span> --preload isso.run
 </div>
 </div>
 <div class="section" id="mod-wsgi">
-<h2><a class="reference external" href="https://code.google.com/p/modwsgi/">mod_wsgi</a><a class="headerlink" href="#mod-wsgi" title="Permalink to this headline">¶</a></h2>
+<h3><a class="reference external" href="https://code.google.com/p/modwsgi/">mod_wsgi</a><a class="headerlink" href="#mod-wsgi" title="Permalink to this headline">¶</a></h3>
 <p>First, create a startup script, called <cite>isso.wsgi</cite>. If Isso is in your system module
 search path, then the script is quite simple. This script is included in the
 isso distribution as <cite>run.py</cite>:</p>
@@ -285,7 +264,7 @@ database only is not enough, since SQLite will need to create a lock file in the
 directory.</p>
 </div>
 <div class="section" id="mod-fastcgi">
-<h2><a class="reference external" href="http://www.fastcgi.com/mod_fastcgi/docs/mod_fastcgi.html">mod_fastcgi</a><a class="headerlink" href="#mod-fastcgi" title="Permalink to this headline">¶</a></h2>
+<h3><a class="reference external" href="http://www.fastcgi.com/mod_fastcgi/docs/mod_fastcgi.html">mod_fastcgi</a><a class="headerlink" href="#mod-fastcgi" title="Permalink to this headline">¶</a></h3>
 <p>You can use this method if your hosting provider doesn’t allow you to have long
 running processes. If FastCGI has not yet been configured in your server,
 please follow these steps:</p>
@@ -336,7 +315,7 @@ PIP:</p>
 </div>
 </div>
 <div class="section" id="openshift">
-<h2><a class="reference external" href="http://openshift.com">Openshift</a><a class="headerlink" href="#openshift" title="Permalink to this headline">¶</a></h2>
+<h3><a class="reference external" href="http://openshift.com">Openshift</a><a class="headerlink" href="#openshift" title="Permalink to this headline">¶</a></h3>
 <p>With <a class="reference external" href="https://github.com/avinassh/isso-openshift">Isso Openshift Deployment Kit</a>, Isso can be installed on Open
 Shift with just one click. Make sure you already have installed <code class="docutils literal notranslate"><span class="pre">rhc</span></code>
 (<a class="reference external" href="https://developers.openshift.com/en/managing-client-tools.html">instructions</a>) and completed the setup.</p>

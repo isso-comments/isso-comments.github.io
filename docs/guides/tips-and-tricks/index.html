@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Tips &amp; Tricks</title>
+    
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/css/site.css"/>
+    
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="search" title="Search" href="../../../search/" />
+    <link rel="top" title="Isso  documentation" href="../../../" />
+    <link rel="next" title="Troubleshooting" href="../troubleshooting/" />
+    <link rel="prev" title="Quickstart" href="../quickstart/" /> 
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <header>
+                <img class="logo" src="../../../_static/isso.svg" alt="Wynaut by @veekun"/>
+                <div class="title">
+                    <a href="../../.././">
+                        <h1>Isso</h1>
+                        <h2>a commenting server similar to Disqus</h2>
+                    </a>
+                </div>
+            </header>
+            <nav>
+                <a href="../../">Documentation</a>
+                <a href="../../../news/">News</a>
+                <a href="../../contributing/">Contribute</a>
+                <a href="../../../community/">community</a>
+            </nav>
+        </div>
+
+        <div class="outer">
+            
+    <header>
+        <h1>Tips &amp; Tricks</h1>
+    </header>
+
+        </div>
+
+
+        <main>
+        
+    <div class="sidebar">
+    
+        
+    <p class="caption"><span class="caption-text">Guides</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../quickstart/">Quickstart</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../advanced-integration/">Advanced Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/installation/">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/server-config/">Server Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/client-config/">Client Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/deployment/">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/multi-site-sub-uri/">Multiple Sites &amp; Sub-URI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/server-api/">Server API</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Technical documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/server/">Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/client/">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/testing/">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/testing-client/">Testing the Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/testing-server/">Testing the Server</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Contributing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/">Contributing to Isso</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/documentation/">Writing Documentation</a></li>
+</ul>
+
+<div id="searchbox" style="display: none">
+  <h2>Quick search</h2>
+    <form class="search" action="../../../search/" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+    
+    </div>
+    <div class="docs">
+          <div class="vcs-edit-container">
+          <a href="https://github.com/posativ/isso/blob/master/docs/docs/guides/tips-and-tricks.rst" class="vcs-edit"><img src="../../../_static/github.svg" /> Edit on GitHub</a>
+          </div>
+        <div class="section" id="tips-tricks">
+<h2>Tips &amp; Tricks<a class="headerlink" href="#tips-tricks" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Removing unused languages</li>
+<li>Importing &amp; exporting comments (integrate migration docs)</li>
+<li>Keeping compat using babel</li>
+</ul>
+<div class="section" id="lazy-loading-on-scroll">
+<h3>Lazy-loading on scroll<a class="headerlink" href="#lazy-loading-on-scroll" title="Permalink to this headline">¶</a></h3>
+<p>You can defer loading the <code class="docutils literal notranslate"><span class="pre">embed.min.js</span></code> script until the user has scrolled
+to the bottom of the page:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;</span>
+    <span class="c1">// Lazy-load isso only when page end is in view</span>
+    <span class="kd">function</span> <span class="nx">loadIsso</span><span class="p">()</span> <span class="p">{</span>
+        <span class="kd">var</span> <span class="nx">script</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;script&quot;</span><span class="p">);</span>
+        <span class="nx">script</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="s2">&quot;text/javascript&quot;</span><span class="p">);</span>
+        <span class="nx">script</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;src&quot;</span><span class="p">,</span> <span class="s2">&quot;/prefix/js/embed.min.js&quot;</span><span class="p">);</span>
+        <span class="c1">// add relevant data-isso attributes here</span>
+        <span class="nx">script</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;data-isso&quot;</span><span class="p">,</span> <span class="s2">&quot;/prefix/&quot;</span><span class="p">);</span>
+        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">&quot;head&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">script</span><span class="p">);</span>
+    <span class="p">}</span>
+    <span class="kd">let</span> <span class="nx">offset</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span> <span class="c1">// Start loading 50px before reaching bottom</span>
+    <span class="kd">function</span> <span class="nx">scrollBottomListener</span><span class="p">(</span><span class="nx">ev</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">((</span><span class="nb">window</span><span class="p">.</span><span class="nx">scrollY</span> <span class="o">+</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="p">)</span>
+                <span class="o">&gt;=</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">scrollHeight</span> <span class="o">-</span> <span class="nx">offset</span><span class="p">))</span> <span class="p">{</span>
+            <span class="nx">loadIsso</span><span class="p">();</span>
+            <span class="nb">window</span><span class="p">.</span><span class="nx">removeEventListener</span><span class="p">(</span><span class="s1">&#39;scroll&#39;</span><span class="p">,</span> <span class="nx">scrollBottomListener</span><span class="p">);</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+      <span class="c1">// If viewport &gt;= page height, load immediately</span>
+      <span class="k">if</span> <span class="p">((</span><span class="nb">window</span><span class="p">.</span><span class="nx">scrollY</span> <span class="o">+</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="p">)</span>
+                <span class="o">&gt;=</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">scrollHeight</span> <span class="o">-</span> <span class="nx">offset</span><span class="p">))</span> <span class="p">{</span>
+          <span class="nx">loadIsso</span><span class="p">();</span>
+      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+          <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;scroll&#39;</span><span class="p">,</span> <span class="nx">scrollBottomListener</span><span class="p">);</span>
+      <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p><em>Note that loading additional content only after user interaction is bad for
+SEO. Additionally, users could experience a “jank” effect.</em></p>
+<p>Use lazy-loading only if you are desperately trying to save bandwidth. By
+specifying <code class="docutils literal notranslate"><span class="pre">async</span></code> in the <code class="docutils literal notranslate"><span class="pre">&lt;script</span></code> tag, loading the Isso Javascript will
+not render-block anyway.</p>
+</div>
+<div class="section" id="advanced-migration">
+<h3>Advanced Migration<a class="headerlink" href="#advanced-migration" title="Permalink to this headline">¶</a></h3>
+<p>In quickstart we saw you can import comments from Disqus or WordPress. But there
+are a many other comments system and you could be using one of them.</p>
+<p>Isso provides a way to import such comments, however it’s up to you to to:</p>
+<ul>
+<li><p class="first">dump comments</p>
+</li>
+<li><p class="first">fit the data to the following JSON format:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>A list of threads, each item being a dict with the following data:
+
+- id: a text representing the unique thread id (note: by default isso
+      associates this ID to the article URL, but it can be changed on
+      client side with &quot;data-isso-id&quot; - see :doc:`client configuration &lt;../configuration/client&gt;` )
+- title: the title of the thread
+- comments: the list of comments
+
+    Each item in that list of comments is a dict with the following data:
+
+    - id: an integer with the unique id of the comment inside the thread
+      (it can be repeated among different threads); this will be used to
+      order the comment inside the thread
+    - author: the author&#39;s name
+    - email: the author&#39;s email
+    - website: the author&#39;s website
+    - remote_addr: the author&#39;s IP
+    - created: a timestamp, in the format &quot;%Y-%m-%d %H:%M:%S&quot;
+</pre></div>
+</div>
+</li>
+</ul>
+<p>Example:</p>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;/blog/article1&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;First article!&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;James&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;created&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-11-28 17:24:23&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;email@mail.com&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;remote_addr&quot;</span><span class="p">:</span> <span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Great article!&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;website&quot;</span><span class="p">:</span> <span class="s2">&quot;http://fefzfzef.frzr&quot;</span>
+            <span class="p">},</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;Harold&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;created&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-11-28 17:58:03&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;email2@mail.com&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;remote_addr&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;I hated it...&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;website&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
+            <span class="p">}</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</pre></div>
+</div>
+<p>Keep in mind that isso expects to have an array, so keep the opening and ending square bracket even if you have only one article thread!</p>
+<p>Next you can import you json dump:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~&gt; isso -c /path/to/isso.cfg import -t generic comment-dump.json
+<span class="o">[</span><span class="m">100</span>%<span class="o">]</span>  <span class="m">53</span> threads, <span class="m">192</span> comments
+</pre></div>
+</div>
+</div>
+</div>
+
+    </div>
+
+        </main>
+
+        <div class="push"></div>
+    </div>
+
+    <div class="outer footer">
+        <footer>
+        &copy; Copyright 2022, Martin Zimmermann & contributors.
+
+        Made with <a href="http://sphinx-doc.org/">Sphinx</a>.
+        </footer>
+    </div>
+  </body>
+</html>

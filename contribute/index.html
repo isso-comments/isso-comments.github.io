@@ -1,26 +1,14 @@
 <!DOCTYPE html>
 
-
 <html>
   <head>
     <meta charset="utf-8">
     
     <title>Contribute</title>
     
-    <!--link rel="stylesheet" href="../_static/css/site.css" type="text/css" /-->
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
     <link rel="stylesheet" href="../_static/css/site.css"/>
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '../',
-        VERSION:     '',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX:  '.txt'
-      };
-    </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
@@ -42,11 +30,10 @@
                 </div>
             </header>
             <nav>
-                <ul>
-                    <li><a href="../faq/">FAQ</a></li>
-                    <li><a href="#">Contribute</a></li>
-                    <li><a href="../docs/">Documentation</a></li>
-                </ul>
+                <a href="../docs/">Documentation</a>
+                <a href="../news/">News</a>
+                <a href="../docs/contributing/">Contribute</a>
+                <a href="../community/">community</a>
             </nav>
         </div>
 
@@ -65,10 +52,13 @@
     
     </div>
     <div class="docs">
+          <div class="vcs-edit-container">
+          <a href="https://github.com/posativ/isso/blob/master/docs/contribute.rst" class="vcs-edit"><img src="../_static/github.svg" /> Edit on GitHub</a>
+          </div>
         <div class="section" id="contribute">
-<h1>Contribute<a class="headerlink" href="#contribute" title="Permalink to this headline">¶</a></h1>
+<h2>Contribute<a class="headerlink" href="#contribute" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="write-some-code">
-<h2>Write some code.<a class="headerlink" href="#write-some-code" title="Permalink to this headline">¶</a></h2>
+<h3>Write some code.<a class="headerlink" href="#write-some-code" title="Permalink to this headline">¶</a></h3>
 <p>I appreciate any help and love pull requests. Here are some things you
 need to respect:</p>
 <ul class="simple">
@@ -81,7 +71,7 @@ master. I’ll cherry-pick/backport the fix onto the current legacy
 (maintenance) release.</p>
 </div>
 <div class="section" id="report-issues">
-<h2>Report issues<a class="headerlink" href="#report-issues" title="Permalink to this headline">¶</a></h2>
+<h3>Report issues<a class="headerlink" href="#report-issues" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><strong>Disqus import fails</strong> – if <code class="docutils literal notranslate"><span class="pre">isso</span> <span class="pre">import</span> <span class="pre">/path/to/disqus.xml</span></code> fails,
 please do <em>NOT</em> attach the raw dump file to GH:Issues. Please anonymize all
@@ -95,7 +85,7 @@ some details of your usage.</li>
 </ul>
 </div>
 <div class="section" id="translations">
-<h2>Translations<a class="headerlink" href="#translations" title="Permalink to this headline">¶</a></h2>
+<h3>Translations<a class="headerlink" href="#translations" title="Permalink to this headline">¶</a></h3>
 <p>Isso supports multiple languages and it is fairly easy to add new translations.
 You can either use the <a class="reference external" href="https://github.com/posativ/isso/blob/master/isso/js/app/i18n/en.js">english translation file</a> or use <a class="reference external" href="https://www.transifex.com/projects/p/isso/">Transifex</a>. Contact
 me on IRC (&#64;posativ) if you want to be the main contributor for a language.</p>
@@ -103,7 +93,7 @@ me on IRC (&#64;posativ) if you want to be the main contributor for a language.<
 for <a class="reference external" href="http://docs.translatehouse.org/projects/localization-guide/en/latest/l10n/pluralforms.html?id=l10n/pluralforms">pluralforms</a> in the templating engine.</p>
 </div>
 <div class="section" id="where-i-need-help">
-<h2>Where I need help.<a class="headerlink" href="#where-i-need-help" title="Permalink to this headline">¶</a></h2>
+<h3>Where I need help.<a class="headerlink" href="#where-i-need-help" title="Permalink to this headline">¶</a></h3>
 <p>Isso is my first projects which involves JavaScript. If you are more
 experienced in JS, please take a look at the code (that does not mean, the
 Python code is perfect ;-). A few feature requests and issues, where I

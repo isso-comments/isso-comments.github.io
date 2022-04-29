@@ -1,6 +1,5 @@
-########
 Overview
-########
+========
 
 Welcome to Isso's documentation. This documentation will help you get started
 fast. If you run into any problems when using Isso, you can find the answer in
@@ -11,9 +10,9 @@ Documentation overview:
 .. toctree::
    :maxdepth: 1
 
-   install
-   quickstart
-   troubleshooting
+   guides/quickstart
+   reference/installation
+   guides/troubleshooting
 
 What's Isso?
 ------------

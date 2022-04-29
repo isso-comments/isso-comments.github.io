@@ -177,12 +177,6 @@ main {
   margin-bottom: 2em;
   line-height: 1.6em;
 
-  /*
-  h2:before {
-    content: "» ";
-  }
-  */
-
   .links {
     @include span-columns(1 of 3);
 
@@ -296,13 +290,6 @@ main {
         font-weight: bold;
         text-transform: uppercase;
         font-size: 14px;
-
-        /* Disable '»' */
-        /*
-        &:before {
-          content: "";
-        }
-        */
       }
     }
   }
@@ -333,13 +320,17 @@ main {
       font-weight: bold;
     }
 
-    pre, code {
+    pre {
       color: rgb(77, 77, 76);
+    }
+
+    pre, code {
       font-size: 14px;
       font-family: Monaco, Menlo, Consolas, monospace;
     }
 
     code {
+      color: #002e40;
       background-color: #eeeeee;
       padding: 0.2em 0.3em;
     }

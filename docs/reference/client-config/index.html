@@ -13,7 +13,7 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
-    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="shortcut icon" href="../../../_static/isso.svg"/>
     <link rel="search" title="Search" href="../../../search/" />
     <link rel="top" title="Isso  documentation" href="../../../" />
     <link rel="next" title="Deployment" href="../deployment/" />
@@ -126,11 +126,16 @@ the embed tag, as well as the thread ID, e.g.:</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">section</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;isso-thread&quot;</span> <span class="na">data-title</span><span class="o">=</span><span class="s">&quot;Foo!&quot;</span> <span class="na">data-isso-id</span><span class="o">=</span><span class="s">&quot;/path/to/resource&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
 </pre></div>
 </div>
+<div class="section" id="overriding-translation-strings">
+<h3>Overriding translation strings<a class="headerlink" href="#overriding-translation-strings" title="Permalink to this headline">¶</a></h3>
 <p>Additionally, you can override any translation string for any language by adding
 a <code class="docutils literal notranslate"><span class="pre">data-isso-</span></code> attribute that is equal to the translation key (found <a class="reference external" href="https://github.com/posativ/isso/blob/master/isso/js/app/i18n/en.js">here</a>) with
 <code class="docutils literal notranslate"><span class="pre">-text-[lang]</span></code> appended to it. So, for example, if you want to override the
 english translation of the <code class="docutils literal notranslate"><span class="pre">postbox-notification</span></code> message, you could add:</p>
-<p><code class="docutils literal notranslate"><span class="pre">data-isso-postbox-notification-text-en=&quot;Select</span> <span class="pre">to</span> <span class="pre">be</span> <span class="pre">notified</span> <span class="pre">of</span> <span class="pre">replies</span> <span class="pre">to</span> <span class="pre">your</span> <span class="pre">comment&quot;</span></code></p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>data-isso-postbox-notification-text-en=&quot;Select to be notified of replies to your comment&quot;
+</pre></div>
+</div>
+</div>
 <div class="section" id="data-isso-directives">
 <h3>data-isso-* directives<a class="headerlink" href="#data-isso-directives" title="Permalink to this headline">¶</a></h3>
 <dl class="docutils">

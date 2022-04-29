@@ -13,7 +13,7 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
-    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="shortcut icon" href="../../../_static/isso.svg"/>
     <link rel="search" title="Search" href="../../../search/" />
     <link rel="top" title="Isso  documentation" href="../../../" />
     <link rel="prev" title="Contribute" href="../" /> 
@@ -105,6 +105,19 @@
 <li>Sphinx</li>
 <li>How to write good docs</li>
 </ul>
+<div class="section" id="help">
+<h3>Help<a class="headerlink" href="#help" title="Permalink to this headline">¶</a></h3>
+<p>Helpful links:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.readthedocs.io/en/stable/guides/cross-referencing-with-sphinx.html">Cross-referencing with Sphinx</a></li>
+</ul>
+<p>Debugging cross-references:</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python -m sphinx.ext.intersphinx docs/_build/html/objects.inv
+</pre></div>
+</div>
+<p>Also make sure you have used <code class="docutils literal notranslate"><span class="pre">:ref:</span></code> or <code class="docutils literal notranslate"><span class="pre">:doc</span></code>
+correctly and not confused the two.</p>
+</div>
 </div>
 
     </div>

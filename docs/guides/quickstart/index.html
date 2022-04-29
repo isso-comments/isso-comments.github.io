@@ -13,7 +13,7 @@
     <script type="text/javascript" src="../../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../../_static/doctools.js"></script>
     <script type="text/javascript" src="../../../_static/language_data.js"></script>
-    <link rel="shortcut icon" href="../../../_static/favicon.ico"/>
+    <link rel="shortcut icon" href="../../../_static/isso.svg"/>
     <link rel="search" title="Search" href="../../../search/" />
     <link rel="top" title="Isso  documentation" href="../../../" />
     <link rel="next" title="Tips &amp; Tricks" href="../tips-and-tricks/" />
@@ -102,8 +102,9 @@
           </div>
         <div class="section" id="quickstart">
 <h2>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this headline">¶</a></h2>
-<p>Assuming you have successfully <span class="xref std std-doc">installed</span> Isso, here’s
-a quickstart guide that covers the most common setup. Sections covered:</p>
+<p>Assuming you have successfully <a class="reference internal" href="../../reference/installation/"><span class="doc">installed</span></a>
+Isso, here’s a quickstart guide that covers the most common setup. Sections
+covered:</p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
 <li><a class="reference internal" href="#configuration" id="id1">Configuration</a></li>
@@ -135,7 +136,7 @@ sane defaults.</p>
 </div>
 <p>Note, that multiple, <em>different</em> websites are <strong>not</strong> supported in a single
 configuration. To serve comments for different websites, refer to
-<a class="reference internal" href="../../setup/multiple-sites/#configure-multiple-sites"><span class="std std-ref">Multiple Sites</span></a>.</p>
+<a class="reference internal" href="../../reference/multi-site-sub-uri/#configure-multiple-sites"><span class="std std-ref">Multiple Sites</span></a>.</p>
 <p>The moderation is done with signed URLs sent by email or logged to stdout.
 By default, comments are accepted and immediately shown to other users. To
 enable moderation queue, add:</p>
@@ -152,13 +153,14 @@ URLs for activation and deletion:</p>
 <span class="c1">; SMTP settings</span>
 </pre></div>
 </div>
-<p>For more options, see <span class="xref std std-doc">server</span> and <span class="xref std std-doc">client</span> configuration.</p>
+<p>For more options, see <a class="reference internal" href="../../reference/server-config/"><span class="doc">server</span></a>
+and <a class="reference internal" href="../../reference/client-config/"><span class="doc">client</span></a> configuration.</p>
 </div>
 <div class="section" id="migration">
 <h3><a class="toc-backref" href="#id2">Migration</a><a class="headerlink" href="#migration" title="Permalink to this headline">¶</a></h3>
 <p>Isso provides a tool for importing comments from <a class="reference external" href="https://disqus.com/">Disqus</a> or <a class="reference external" href="https://wordpress.org/">WordPress</a>.
 You can also import comments from any other comment system, but this topic is more
-complex and is covered in <span class="xref std std-doc">advanced migration</span>.</p>
+complex and is covered in <a class="reference internal" href="../tips-and-tricks/#advanced-migration"><span class="std std-ref">advanced migration</span></a>.</p>
 <p>To export your comments from Disqus, log into Disqus, go to your website, click
 on <em>Discussions</em> and select the <em>Export</em> tab. You’ll receive an email with your
 comments. Unfortunately, Disqus does not export up- and downvotes.</p>
@@ -222,12 +224,12 @@ a comment to see if the setup works. If not, see <a class="reference internal" h
 <div class="section" id="going-further">
 <h3><a class="toc-backref" href="#id5">Going Further</a><a class="headerlink" href="#going-further" title="Permalink to this headline">¶</a></h3>
 <p>There are several server and client configuration options not covered in this
-quickstart, check out <span class="xref std std-doc">configuration/server</span> and
-<span class="xref std std-doc">configuration/client</span> for more information. For further website
-integration, see <span class="xref std std-doc">extras/advanced-integration</span>.</p>
+quickstart, check out <a class="reference internal" href="../../reference/server-config/"><span class="doc">Server Configuration</span></a> and
+<a class="reference internal" href="../../reference/client-config/"><span class="doc">Client Configuration</span></a> for more information. For further website
+integration, see <a class="reference internal" href="../advanced-integration/"><span class="doc">Advanced integration</span></a>.</p>
 <p>To launch Isso automatically, check the <a class="reference internal" href="../../reference/installation/#init-scripts"><span class="std std-ref">Init scripts</span></a> section from the
 installation guide. A different approach to deploy a web application is
-written here: <span class="xref std std-doc">Deployment of Isso</span>.</p>
+written here: <a class="reference internal" href="../../reference/deployment/"><span class="doc">Deployment of Isso</span></a>.</p>
 </div>
 </div>
 

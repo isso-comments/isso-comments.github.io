@@ -40,5 +40,13 @@ Admonitions
 .. warning::
    Testing a note
 
-.. admonition::
-   Testing a note
+.. admonition:: Take note
+
+   Testing an admonition which needs its own content block. Does not render
+   correctly and there shouldn't be a need to use it.
+
+TODOs
+-----
+
+.. todo:
+   This is a TODO. It should not be visible.

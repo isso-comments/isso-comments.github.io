@@ -6,16 +6,13 @@
     
     <title>Overview</title>
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/css/site.css"/>
-    
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/language_data.js"></script>
     <link rel="shortcut icon" href="../_static/isso.svg"/>
     <link rel="search" title="Search" href="../search/" />
-    <link rel="top" title="Isso  documentation" href="../" /> 
+    <link rel="top" title="Isso  documentation" href="../" />
 </head>
 <body>
     <div class="wrapper">
@@ -48,9 +45,24 @@
 
         <main>
         
-    <div class="sidebar">
-    
-        
+            
+          <div role="navigation" class="sidebar">
+<div role="search" id="searchbox" style="display: none">
+  <h2>Quick search</h2>
+    <form class="search" action="../search/" method="get">
+      <input type="text"
+             name="q"
+             aria-labelledby="searchlabel"
+             autocomplete="off"
+             autocorrect="off"
+             autocapitalize="off"
+             spellcheck="false"
+      />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
     <p class="caption"><span class="caption-text">Guides</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="guides/quickstart/">Quickstart</a></li>
@@ -82,23 +94,17 @@
 <li class="toctree-l1"><a class="reference internal" href="contributing/documentation/">Writing Documentation</a></li>
 </ul>
 
-<div id="searchbox" style="display: none">
-  <h2>Quick search</h2>
-    <form class="search" action="../search/" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-    
-    </div>
-    <div class="docs">
-          <div class="vcs-edit-container">
-          <a href="https://github.com/posativ/isso/blob/master/docs/docs/index.rst" class="vcs-edit"><img src="../_static/github.svg" /> Edit on GitHub</a>
           </div>
-        <div class="section" id="overview">
+
+            <div class="docs">
+                
+<div class="vcs-edit-container">
+<a href="https://github.com/posativ/isso/blob/master/docs/docs/index.rst" class="vcs-edit"><img src="../_static/github.svg" /> Edit on GitHub</a>
+</div>
+
+                <div role="main">
+                
+                <div class="section" id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>Welcome to Isso’s documentation. This documentation will help you get started
 fast. If you run into any problems when using Isso, you can find the answer in
@@ -147,8 +153,10 @@ directly to repository of static sites.</li>
 </div>
 </div>
 
-    </div>
-
+                
+                </div>
+            </div>
+        
         </main>
 
         <div class="push"></div>

@@ -6,9 +6,6 @@
     
     <title>Search</title>
     
-    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/css/site.css"/>
-    
     <script type="text/javascript" src="../_static/jquery.js"></script>
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
@@ -18,13 +15,6 @@
     <link rel="shortcut icon" href="../_static/isso.svg"/>
     <link rel="search" title="Search" href="#" />
     <link rel="top" title="Isso  documentation" href="../" />
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("../searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
-   
-
 </head>
 <body>
     <div class="wrapper">
@@ -57,13 +47,14 @@
 
         <main>
         
+<div class="docs">
+  <noscript>
   <div id="fallback" class="admonition warning">
-  <script type="text/javascript">$('#fallback').hide();</script>
-  <p>
-    Please activate JavaScript to enable the search
-    functionality.
-  </p>
+    <p class="last">
+      Please activate JavaScript to enable the search functionality.
+    </p>
   </div>
+  </noscript>
   <p>
     From here you can search these documents. Enter your search
     words into the box below and click "search". Note that the search
@@ -79,6 +70,7 @@
   <div id="search-results">
   
   </div>
+</div>
 
         </main>
 
@@ -86,11 +78,18 @@
     </div>
 
     <div class="outer footer">
+  <script type="text/javascript">
+    jQuery(function() { Search.loadIndex("../searchindex.js"); });
+  </script>
+  
+  <script type="text/javascript" id="searchindexloader"></script>
+  
         <footer>
         &copy; Copyright 2022, Martin Zimmermann & contributors.
 
         Made with <a href="http://sphinx-doc.org/">Sphinx</a>.
         </footer>
     </div>
+
   </body>
 </html>

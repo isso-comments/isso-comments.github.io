@@ -3,13 +3,16 @@
 <html>
   <head>
     <meta charset="utf-8">
-    
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Deployment</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/site.css" />
     
-    <script type="text/javascript" src="../../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
     <link rel="shortcut icon" href="../../../_static/isso.svg"/>
     <link rel="search" title="Search" href="../../../search/" />
     <link rel="top" title="Isso  documentation" href="../../../" />
@@ -65,7 +68,7 @@
     </form>
 </div>
 <script>document.getElementById('searchbox').style.display = "block"</script>
-    <p class="caption"><span class="caption-text">Guides</span></p>
+    <p class="caption" role="heading"><span class="caption-text">Guides</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/quickstart/">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/tips-and-tricks/">Tips &amp; Tricks</a></li>
@@ -73,7 +76,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../guides/advanced-integration/">Advanced Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/faq/">FAQ</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Reference</span></p>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../server-config/">Server Configuration</a></li>
@@ -82,7 +85,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../multi-site-sub-uri/">Multiple Sites &amp; Sub-URI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../server-api/">Server API</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Technical documentation</span></p>
+<p class="caption" role="heading"><span class="caption-text">Technical documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../technical-docs/server/">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../technical-docs/client/">Client</a></li>
@@ -90,7 +93,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../technical-docs/testing-client/">Testing the Client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../technical-docs/testing-server/">Testing the Server</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Contributing</span></p>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing/">Contributing to Isso</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing/documentation/">Writing Documentation</a></li>
@@ -106,7 +109,7 @@
 
                 <div role="main">
                 
-                <div class="section" id="deployment">
+                <section id="deployment">
 <h2>Deployment<a class="headerlink" href="#deployment" title="Permalink to this headline">¶</a></h2>
 <p>Isso ships with a built-in web server, which is useful for the initial setup
 and may be used in production for low-traffic sites (up to 20 requests per
@@ -114,14 +117,14 @@ second). Running a “real” WSGI server supports nice things such as UNIX doma
 sockets, daemonization and solid HTTP handler. WSGI servers are more stable, secure
 and web-scale than the built-in web server.</p>
 <ul class="simple">
-<li><a class="reference internal" href="#gevent">gevent</a>, coroutine-based network library</li>
-<li><a class="reference internal" href="#uwsgi">uWSGI</a>, full-featured uWSGI server</li>
-<li><a class="reference internal" href="#gunicorn">gunicorn</a>, Python WSGI HTTP Server for UNIX</li>
-<li><a class="reference internal" href="#mod-wsgi">mod_wsgi</a>, Apache interface to WSGI</li>
-<li><a class="reference internal" href="#mod-fastcgi">mod_fastcgi</a>, Apache  interface to FastCGI</li>
-<li>uberspace.de, <a class="reference external" href="http://blog.posativ.org/2014/isso-und-uberspace-de/">try this guide (in german)</a></li>
+<li><p><a class="reference internal" href="#gevent">gevent</a>, coroutine-based network library</p></li>
+<li><p><a class="reference internal" href="#uwsgi">uWSGI</a>, full-featured uWSGI server</p></li>
+<li><p><a class="reference internal" href="#gunicorn">gunicorn</a>, Python WSGI HTTP Server for UNIX</p></li>
+<li><p><a class="reference internal" href="#mod-wsgi">mod_wsgi</a>, Apache interface to WSGI</p></li>
+<li><p><a class="reference internal" href="#mod-fastcgi">mod_fastcgi</a>, Apache  interface to FastCGI</p></li>
+<li><p>uberspace.de, <a class="reference external" href="http://blog.posativ.org/2014/isso-und-uberspace-de/">try this guide (in german)</a></p></li>
 </ul>
-<div class="section" id="gevent">
+<section id="gevent">
 <h3><a class="reference external" href="http://www.gevent.org/">gevent</a><a class="headerlink" href="#gevent" title="Permalink to this headline">¶</a></h3>
 <p>Probably the easiest deployment method. Install with PIP (requires libevent):</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pip install gevent
@@ -134,8 +137,8 @@ standard library to work with greenlets.</p>
 </pre></div>
 </div>
 <p>Unfortunately, gevent 0.13.2 does not support UNIX domain sockets (see <a class="reference external" href="https://github.com/surfly/gevent/issues/295">#295</a> and <a class="reference external" href="https://github.com/surfly/gevent/issues/299">#299</a> for details).</p>
-</div>
-<div class="section" id="uwsgi">
+</section>
+<section id="uwsgi">
 <h3><a class="reference external" href="http://uwsgi-docs.readthedocs.org/en/latest/">uWSGI</a><a class="headerlink" href="#uwsgi" title="Permalink to this headline">¶</a></h3>
 <p>Isso has special support for uWSGI, namely fast IPC caching, job spooling and
 delayed jobs. It is the author’s choice, but not the only one. You need
@@ -146,18 +149,18 @@ uWSGI 1.9 or higher, fortunately you can install it from PyPi:</p>
 </div>
 <p>For convenience, I recommend a INI-style configuration (you can also
 supply everything as command-line arguments):</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[uwsgi]</span>
-<span class="na">http</span> <span class="o">=</span> <span class="s">:8080</span>
-<span class="na">master</span> <span class="o">=</span> <span class="s">true</span>
-<span class="c1">; set to `nproc`</span>
-<span class="na">processes</span> <span class="o">=</span> <span class="s">4</span>
-<span class="na">cache2</span> <span class="o">=</span> <span class="s">name=hash,items=1024,blocksize=32</span>
-<span class="c1">; you may change this</span>
-<span class="na">spooler</span> <span class="o">=</span> <span class="s">/tmp/isso/mail</span>
-<span class="na">module</span> <span class="o">=</span> <span class="s">isso.run</span>
-<span class="c1">; uncomment if you use a virtual environment</span>
-<span class="c1">; virtualenv = /path/to/isso</span>
-<span class="na">env</span> <span class="o">=</span> <span class="s">ISSO_SETTINGS=/path/to/isso.cfg</span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[uwsgi]</span><span class="w"></span>
+<span class="na">http</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">:8080</span><span class="w"></span>
+<span class="na">master</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span><span class="w"></span>
+<span class="c1">; set to `nproc`</span><span class="w"></span>
+<span class="na">processes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">4</span><span class="w"></span>
+<span class="na">cache2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">name=hash,items=1024,blocksize=32</span><span class="w"></span>
+<span class="c1">; you may change this</span><span class="w"></span>
+<span class="na">spooler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/tmp/isso/mail</span><span class="w"></span>
+<span class="na">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">isso.run</span><span class="w"></span>
+<span class="c1">; uncomment if you use a virtual environment</span><span class="w"></span>
+<span class="c1">; virtualenv = /path/to/isso</span><span class="w"></span>
+<span class="na">env</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">ISSO_SETTINGS=/path/to/isso.cfg</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Then, create the spooling directory and start Isso via uWSGI:</p>
@@ -165,8 +168,8 @@ supply everything as command-line arguments):</p>
 ~&gt; uwsgi /path/to/uwsgi.ini
 </pre></div>
 </div>
-</div>
-<div class="section" id="gunicorn">
+</section>
+<section id="gunicorn">
 <h3><a class="reference external" href="http://gunicorn.org">gunicorn</a><a class="headerlink" href="#gunicorn" title="Permalink to this headline">¶</a></h3>
 <p>Gunicorn ‘Green Unicorn’ is a Python WSGI HTTP Server for UNIX with a pre-fork
 worker ported from Ruby’s Unicorn project. Install <a class="reference internal" href="#gunicorn">gunicorn</a> via PIP:</p>
@@ -178,8 +181,8 @@ worker ported from Ruby’s Unicorn project. Install <a class="reference interna
 $ gunicorn -b localhost:8080 -w <span class="m">4</span> --preload isso.run
 </pre></div>
 </div>
-</div>
-<div class="section" id="mod-wsgi">
+</section>
+<section id="mod-wsgi">
 <h3><a class="reference external" href="https://code.google.com/p/modwsgi/">mod_wsgi</a><a class="headerlink" href="#mod-wsgi" title="Permalink to this headline">¶</a></h3>
 <p>First, create a startup script, called <cite>isso.wsgi</cite>. If Isso is in your system module
 search path, then the script is quite simple. This script is included in the
@@ -195,7 +198,7 @@ isso distribution as <cite>run.py</cite>:</p>
 <span class="n">config</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
     <span class="n">config</span><span class="o">.</span><span class="n">default_file</span><span class="p">(),</span>
     <span class="s2">&quot;/path/to/isso.cfg&quot;</span><span class="p">),</span>
-<span class="n">multiprocessing</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">multiprocessing</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>If you have installed Isso in a virtual environment, then you will have to add the path
@@ -214,7 +217,7 @@ of the virtualenv to the site-specific paths of Python:</p>
 <span class="n">config</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
     <span class="n">config</span><span class="o">.</span><span class="n">default_file</span><span class="p">(),</span>
     <span class="s2">&quot;/path/to/isso.cfg&quot;</span><span class="p">,</span>
-<span class="n">multiprocessing</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">multiprocessing</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Using the aforementioned script will load system modules when available and modules
@@ -247,18 +250,18 @@ the virtualenv have priority over system modules, the following script does the 
 <span class="n">config</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
     <span class="n">config</span><span class="o">.</span><span class="n">default_file</span><span class="p">(),</span>
     <span class="s2">&quot;/path/to/isso.cfg&quot;</span><span class="p">,</span>
-<span class="n">multiprocessing</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">multiprocessing</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The last two scripts are based on those given by
 <a class="reference external" href="https://code.google.com/p/modwsgi/wiki/VirtualEnvironments">mod_wsgi documentation</a>.</p>
 <p>The Apache configuration will then be similar to the following:</p>
-<div class="highlight-apache notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;VirtualHost</span> <span class="s">*</span><span class="nt">&gt;</span>
-    <span class="nb">ServerName</span> example.org
+<div class="highlight-apache notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;VirtualHost</span><span class="w"> </span><span class="s">*</span><span class="nt">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nb">ServerName</span><span class="w"> </span>example.org<span class="w"></span>
 
-    <span class="nb">WSGIDaemonProcess</span> isso <span class="k">user</span>=www-data <span class="k">group</span>=www-data threads=5
-    <span class="nb">WSGIScriptAlias</span> <span class="sx">/mounted_isso_path</span> <span class="sx">/path/to/isso.wsgi</span>
-<span class="nt">&lt;/VirtualHost&gt;</span>
+<span class="w">    </span><span class="nb">WSGIDaemonProcess</span><span class="w"> </span>isso<span class="w"> </span><span class="k">user</span>=www-data<span class="w"> </span><span class="k">group</span>=www-data<span class="w"> </span>threads=5<span class="w"></span>
+<span class="w">    </span><span class="nb">WSGIScriptAlias</span><span class="w"> </span><span class="sx">/mounted_isso_path</span><span class="w"> </span><span class="sx">/path/to/isso.wsgi</span><span class="w"></span>
+<span class="nt">&lt;/VirtualHost&gt;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>You will need to adjust the user and group according to your Apache installation and
@@ -266,32 +269,32 @@ security policy. Be aware that the directory containing the comments database mu
 be writable by the user or group running the WSGI daemon process: having a writable
 database only is not enough, since SQLite will need to create a lock file in the same
 directory.</p>
-</div>
-<div class="section" id="mod-fastcgi">
+</section>
+<section id="mod-fastcgi">
 <h3><a class="reference external" href="http://www.fastcgi.com/mod_fastcgi/docs/mod_fastcgi.html">mod_fastcgi</a><a class="headerlink" href="#mod-fastcgi" title="Permalink to this headline">¶</a></h3>
 <p>You can use this method if your hosting provider doesn’t allow you to have long
 running processes. If FastCGI has not yet been configured in your server,
 please follow these steps:</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
+<p class="admonition-title">Note</p>
 <p>This information may be incorrect, if you have more knowledge on how
 to deploy Python via <cite>mod_fastcgi</cite>, consider extending/correcting this section.</p>
-<p class="last">For more information, see <a class="reference external" href="http://flask.pocoo.org/docs/deploying/fastcgi/#configuring-apache">Flask: Configuring Apache</a>.</p>
+<p>For more information, see <a class="reference external" href="http://flask.pocoo.org/docs/deploying/fastcgi/#configuring-apache">Flask: Configuring Apache</a>.</p>
 </div>
-<div class="highlight-apache notranslate"><div class="highlight"><pre><span></span><span class="nb">LoadModule</span> fastcgi_module <span class="sx">/usr/lib64/httpd/modules/mod_fastcgi.so</span>
+<div class="highlight-apache notranslate"><div class="highlight"><pre><span></span><span class="nb">LoadModule</span><span class="w"> </span>fastcgi_module<span class="w"> </span><span class="sx">/usr/lib64/httpd/modules/mod_fastcgi.so</span><span class="w"></span>
 
-<span class="nb">FastCgiServer</span> <span class="sx">/var/www/html/yourapplication/app.fcgi</span> -idle-timeout <span class="m">300</span> -processes <span class="m">5</span>
+<span class="nb">FastCgiServer</span><span class="w"> </span><span class="sx">/var/www/html/yourapplication/app.fcgi</span><span class="w"> </span>-idle-timeout<span class="w"> </span><span class="m">300</span><span class="w"> </span>-processes<span class="w"> </span><span class="m">5</span><span class="w"></span>
 
-<span class="nt">&lt;VirtualHost</span> <span class="s">*</span><span class="nt">&gt;</span>
-    <span class="nb">ServerName</span> example.org
+<span class="nt">&lt;VirtualHost</span><span class="w"> </span><span class="s">*</span><span class="nt">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nb">ServerName</span><span class="w"> </span>example.org<span class="w"></span>
 
-    <span class="nb">AddHandler</span> fastcgi-script fcgi
-    <span class="nb">ScriptAlias</span> / <span class="sx">/var/www/isso.fcgi</span>
+<span class="w">    </span><span class="nb">AddHandler</span><span class="w"> </span>fastcgi-script<span class="w"> </span>fcgi<span class="w"></span>
+<span class="w">    </span><span class="nb">ScriptAlias</span><span class="w"> </span>/<span class="w"> </span><span class="sx">/var/www/isso.fcgi</span><span class="w"></span>
 
-    <span class="nt">&lt;Location</span> <span class="s">/</span><span class="nt">&gt;</span>
-        <span class="nb">SetHandler</span> fastcgi-script
-    <span class="nt">&lt;/Location&gt;</span>
-<span class="nt">&lt;/VirtualHost&gt;</span>
+<span class="w">    </span><span class="nt">&lt;Location</span><span class="w"> </span><span class="s">/</span><span class="nt">&gt;</span><span class="w"></span>
+<span class="w">        </span><span class="nb">SetHandler</span><span class="w"> </span>fastcgi-script<span class="w"></span>
+<span class="w">    </span><span class="nt">&lt;/Location&gt;</span><span class="w"></span>
+<span class="nt">&lt;/VirtualHost&gt;</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Next, to run isso as a FastCGI script you’ll need to install <code class="docutils literal notranslate"><span class="pre">flup</span></code> with
@@ -316,8 +319,8 @@ PIP:</p>
 <span class="n">WSGIServer</span><span class="p">(</span><span class="n">application</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
                 
                 </div>

@@ -3,13 +3,16 @@
 <html>
   <head>
     <meta charset="utf-8">
-    
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Multiple Sites &amp; Sub-URI</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/site.css" />
     
-    <script type="text/javascript" src="../../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
     <link rel="shortcut icon" href="../../../_static/isso.svg"/>
     <link rel="search" title="Search" href="../../../search/" />
     <link rel="top" title="Isso  documentation" href="../../../" />
@@ -65,7 +68,7 @@
     </form>
 </div>
 <script>document.getElementById('searchbox').style.display = "block"</script>
-    <p class="caption"><span class="caption-text">Guides</span></p>
+    <p class="caption" role="heading"><span class="caption-text">Guides</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/quickstart/">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/tips-and-tricks/">Tips &amp; Tricks</a></li>
@@ -73,7 +76,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../guides/advanced-integration/">Advanced Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/faq/">FAQ</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Reference</span></p>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../server-config/">Server Configuration</a></li>
@@ -82,7 +85,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Multiple Sites &amp; Sub-URI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../server-api/">Server API</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Technical documentation</span></p>
+<p class="caption" role="heading"><span class="caption-text">Technical documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../technical-docs/server/">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../technical-docs/client/">Client</a></li>
@@ -90,7 +93,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../technical-docs/testing-client/">Testing the Client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../technical-docs/testing-server/">Testing the Server</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Contributing</span></p>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing/">Contributing to Isso</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing/documentation/">Writing Documentation</a></li>
@@ -106,9 +109,9 @@
 
                 <div role="main">
                 
-                <div class="section" id="multiple-sites-sub-uri">
+                <section id="multiple-sites-sub-uri">
 <h2>Multiple Sites &amp; Sub-URI<a class="headerlink" href="#multiple-sites-sub-uri" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="multiple-sites">
+<section id="multiple-sites">
 <span id="configure-multiple-sites"></span><h3>Multiple Sites<a class="headerlink" href="#multiple-sites" title="Permalink to this headline">¶</a></h3>
 <p>Isso is designed to serve comments for a single website and therefore stores
 comments for a relative URL. This is done to support HTTP, HTTPS and even domain transfers
@@ -137,14 +140,14 @@ $ gunicorn isso.dispatch -b localhost:8080
 </pre></div>
 </div>
 <p>In your webserver configuration, proxy Isso as usual:</p>
-<div class="highlight-nginx notranslate"><div class="highlight"><pre><span></span><span class="k">server</span> <span class="p">{</span>
-    <span class="kn">listen</span> <span class="s">[::]:80</span><span class="p">;</span>
-    <span class="kn">server_name</span> <span class="s">comments.example</span><span class="p">;</span>
+<div class="highlight-nginx notranslate"><div class="highlight"><pre><span></span><span class="k">server</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kn">listen</span><span class="w"> </span><span class="s">[::]:80</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kn">server_name</span><span class="w"> </span><span class="s">comments.example</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kn">location</span> <span class="s">/</span> <span class="p">{</span>
-        <span class="kn">proxy_pass</span> <span class="s">http://localhost:8080</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://localhost:8080</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>When you now visit <a class="reference external" href="http://comments.example/">http://comments.example/</a>, you will see your different Isso
@@ -157,32 +160,32 @@ configuration separated by /<cite>name</cite>.</p>
 <p>Just embed the JavaScript including the new relative path, e.g.
 <em>http://comments.example/foo/js/embed.min.js</em>. Make sure, you don’t mix the
 URLs on both sites as it will most likely cause CORS-related errors.</p>
-</div>
-<div class="section" id="sub-uri">
+</section>
+<section id="sub-uri">
 <span id="configure-sub-uri"></span><h3>Sub-URI<a class="headerlink" href="#sub-uri" title="Permalink to this headline">¶</a></h3>
 <p>You can run Isso on the same domain as your website, which circumvents issues
 originating from <a class="reference external" href="https://developer.mozilla.org/en/docs/HTTP/Access_control_CORS">CORS</a>. Also, privacy-protecting browser addons such as
 <a class="reference external" href="https://www.requestpolicy.com/">Request Policy</a> wont block comments.</p>
-<div class="highlight-nginx notranslate"><div class="highlight"><pre><span></span><span class="k">server</span> <span class="p">{</span>
-    <span class="kn">listen</span>       <span class="s">[::]:80</span><span class="p">;</span>
-    <span class="kn">listen</span>       <span class="s">[::]:443</span> <span class="s">ssl</span><span class="p">;</span>
-    <span class="kn">server_name</span>  <span class="s">example.tld</span><span class="p">;</span>
-    <span class="kn">root</span>         <span class="s">/var/www/example.tld</span><span class="p">;</span>
+<div class="highlight-nginx notranslate"><div class="highlight"><pre><span></span><span class="k">server</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="kn">listen</span><span class="w">       </span><span class="s">[::]:80</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kn">listen</span><span class="w">       </span><span class="s">[::]:443</span><span class="w"> </span><span class="s">ssl</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kn">server_name</span><span class="w">  </span><span class="s">example.tld</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="kn">root</span><span class="w">         </span><span class="s">/var/www/example.tld</span><span class="p">;</span><span class="w"></span>
 
-    <span class="kn">location</span> <span class="s">/isso</span> <span class="p">{</span>
-        <span class="kn">proxy_set_header</span> <span class="s">X-Forwarded-For</span> <span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span>
-        <span class="kn">proxy_set_header</span> <span class="s">X-Script-Name</span> <span class="s">/isso</span><span class="p">;</span>
-        <span class="kn">proxy_set_header</span> <span class="s">Host</span> <span class="nv">$host</span><span class="p">;</span>
-        <span class="kn">proxy_set_header</span> <span class="s">X-Forwarded-Proto</span> <span class="nv">$scheme</span><span class="p">;</span>
-        <span class="kn">proxy_pass</span> <span class="s">http://localhost:8080</span><span class="p">;</span>
-    <span class="p">}</span>
-<span class="p">}</span>
+<span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/isso</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-For</span><span class="w"> </span><span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Script-Name</span><span class="w"> </span><span class="s">/isso</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Host</span><span class="w"> </span><span class="nv">$host</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-Proto</span><span class="w"> </span><span class="nv">$scheme</span><span class="p">;</span><span class="w"></span>
+<span class="w">        </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://localhost:8080</span><span class="p">;</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Now, the website integration is just as described in
 <a class="reference internal" href="../../guides/quickstart/"><span class="doc">Quickstart</span></a> but with a different location.</p>
-</div>
-</div>
+</section>
+</section>
 
                 
                 </div>

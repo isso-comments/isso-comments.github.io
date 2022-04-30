@@ -3,13 +3,16 @@
 <html>
   <head>
     <meta charset="utf-8">
-    
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Releasing steps</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/site.css" />
     
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
     <link rel="shortcut icon" href="../_static/isso.svg"/>
     <link rel="search" title="Search" href="../search/" />
     <link rel="top" title="Isso  documentation" href="../" />
@@ -80,18 +83,18 @@
 
                 <div role="main">
                 
-                <div class="section" id="releasing-steps">
+                <section id="releasing-steps">
 <h2>Releasing steps<a class="headerlink" href="#releasing-steps" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">test</span></code></li>
-<li>Update version number in <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> and <code class="docutils literal notranslate"><span class="pre">CHANGES.rst</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span> <span class="pre">&quot;Preparing</span> <span class="pre">${VERSION}&quot;</span> <span class="pre">setup.py</span> <span class="pre">CHANGES.rst</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">tag</span> <span class="pre">-as</span> <span class="pre">${VERSION}</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">init</span> <span class="pre">all</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">setup.py</span> <span class="pre">sdist</span></code></li>
-<li><code class="docutils literal notranslate"><span class="pre">twine</span> <span class="pre">upload</span> <span class="pre">--sign</span> <span class="pre">dist/isso-${VERSION}.tar.gz</span></code></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">test</span></code></p></li>
+<li><p>Update version number in <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> and <code class="docutils literal notranslate"><span class="pre">CHANGES.rst</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span> <span class="pre">&quot;Preparing</span> <span class="pre">${VERSION}&quot;</span> <span class="pre">setup.py</span> <span class="pre">CHANGES.rst</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">tag</span> <span class="pre">-as</span> <span class="pre">${VERSION}</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">init</span> <span class="pre">all</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">setup.py</span> <span class="pre">sdist</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">twine</span> <span class="pre">upload</span> <span class="pre">--sign</span> <span class="pre">dist/isso-${VERSION}.tar.gz</span></code></p></li>
 </ul>
-</div>
+</section>
 
                 
                 </div>

@@ -3,13 +3,16 @@
 <html>
   <head>
     <meta charset="utf-8">
-    
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Overview</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/site.css" />
     
-    <script type="text/javascript" src="../_static/jquery.js"></script>
-    <script type="text/javascript" src="../_static/underscore.js"></script>
-    <script type="text/javascript" src="../_static/doctools.js"></script>
-    <script type="text/javascript" src="../_static/language_data.js"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
     <link rel="shortcut icon" href="../_static/isso.svg"/>
     <link rel="search" title="Search" href="../search/" />
     <link rel="top" title="Isso  documentation" href="../" />
@@ -63,7 +66,7 @@
     </form>
 </div>
 <script>document.getElementById('searchbox').style.display = "block"</script>
-    <p class="caption"><span class="caption-text">Guides</span></p>
+    <p class="caption" role="heading"><span class="caption-text">Guides</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="guides/quickstart/">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guides/tips-and-tricks/">Tips &amp; Tricks</a></li>
@@ -71,7 +74,7 @@
 <li class="toctree-l1"><a class="reference internal" href="guides/advanced-integration/">Advanced Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="guides/faq/">FAQ</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Reference</span></p>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="reference/installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reference/server-config/">Server Configuration</a></li>
@@ -80,7 +83,7 @@
 <li class="toctree-l1"><a class="reference internal" href="reference/multi-site-sub-uri/">Multiple Sites &amp; Sub-URI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reference/server-api/">Server API</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Technical documentation</span></p>
+<p class="caption" role="heading"><span class="caption-text">Technical documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="technical-docs/server/">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="technical-docs/client/">Client</a></li>
@@ -88,7 +91,7 @@
 <li class="toctree-l1"><a class="reference internal" href="technical-docs/testing-client/">Testing the Client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="technical-docs/testing-server/">Testing the Server</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Contributing</span></p>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="contributing/">Contributing to Isso</a></li>
 <li class="toctree-l1"><a class="reference internal" href="contributing/documentation/">Writing Documentation</a></li>
@@ -104,7 +107,7 @@
 
                 <div role="main">
                 
-                <div class="section" id="overview">
+                <section id="overview">
 <h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
 <p>Welcome to Isso’s documentation. This documentation will help you get started
 fast. If you run into any problems when using Isso, you can find the answer in
@@ -117,41 +120,41 @@ troubleshooting guide or you can ask me on IRC or GitHub.</p>
 <li class="toctree-l1"><a class="reference internal" href="guides/troubleshooting/">Troubleshooting</a></li>
 </ul>
 </div>
-<div class="section" id="what-s-isso">
+<section id="what-s-isso">
 <h3>What’s Isso?<a class="headerlink" href="#what-s-isso" title="Permalink to this headline">¶</a></h3>
 <p>Isso is a lightweight commenting server similar to Disqus. It allows anonymous
 comments, maintains identity and is simple to administrate. It uses JavaScript
 and cross-origin ressource sharing for easy integration into (static) websites.</p>
-</div>
-<div class="section" id="no-i-meant-isso">
+</section>
+<section id="no-i-meant-isso">
 <h3>No, I meant “Isso”<a class="headerlink" href="#no-i-meant-isso" title="Permalink to this headline">¶</a></h3>
 <p>Isso is an informal, german abbreviation for “Ich schrei sonst!”, which can
 roughly be translated to “I’m yelling otherwise”. It usually ends the
 discussion without any further arguments.</p>
 <p>In germany, Isso <a class="reference external" href="http://bulbapedia.bulbagarden.net/wiki/Wynaut_(Pok%C3%A9mon)">is also pokémon N° 360</a>.</p>
-</div>
-<div class="section" id="what-s-wrong-with-disqus">
+</section>
+<section id="what-s-wrong-with-disqus">
 <h3>What’s wrong with Disqus?<a class="headerlink" href="#what-s-wrong-with-disqus" title="Permalink to this headline">¶</a></h3>
 <p>No anonymous comments (IP address, email and name recorded), hosted in the USA,
 third-party. Just like IntenseDebate etc. When you embed Disqus, they
 can do anything with your readers (and probably mine Bitcoins, see the loading
 times).</p>
-</div>
-<div class="section" id="other-options">
+</section>
+<section id="other-options">
 <h3>Other options<a class="headerlink" href="#other-options" title="Permalink to this headline">¶</a></h3>
 <p>Isso is not the only open-source commenting server. You can find an overview at
 <a class="reference external" href="https://lisakov.com/projects/open-source-comments/">lisakov.com: Open source comments</a>.</p>
 <p>Some popular options are:</p>
 <ul class="simple">
-<li><a class="reference external" href="https://commento.io/">Commento</a>, written in Go. Requires a
-<a class="reference external" href="https://www.postgresql.org/">PostgreSQL</a> database.</li>
-<li><a class="reference external" href="https://remark42.com/">Remark42</a>, written in Go.</li>
-<li><a class="reference external" href="https://staticman.net/">Staticman</a>, written in Node.js. Adds comments
-directly to repository of static sites.</li>
-<li><a class="reference external" href="https://schnack.cool/">schnack</a>, written in Node.js.</li>
+<li><p><a class="reference external" href="https://commento.io/">Commento</a>, written in Go. Requires a
+<a class="reference external" href="https://www.postgresql.org/">PostgreSQL</a> database.</p></li>
+<li><p><a class="reference external" href="https://remark42.com/">Remark42</a>, written in Go.</p></li>
+<li><p><a class="reference external" href="https://staticman.net/">Staticman</a>, written in Node.js. Adds comments
+directly to repository of static sites.</p></li>
+<li><p><a class="reference external" href="https://schnack.cool/">schnack</a>, written in Node.js.</p></li>
 </ul>
-</div>
-</div>
+</section>
+</section>
 
                 
                 </div>

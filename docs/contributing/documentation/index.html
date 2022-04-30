@@ -3,13 +3,16 @@
 <html>
   <head>
     <meta charset="utf-8">
-    
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Writing Documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/site.css" />
     
-    <script type="text/javascript" src="../../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
     <link rel="shortcut icon" href="../../../_static/isso.svg"/>
     <link rel="search" title="Search" href="../../../search/" />
     <link rel="top" title="Isso  documentation" href="../../../" />
@@ -64,7 +67,7 @@
     </form>
 </div>
 <script>document.getElementById('searchbox').style.display = "block"</script>
-    <p class="caption"><span class="caption-text">Guides</span></p>
+    <p class="caption" role="heading"><span class="caption-text">Guides</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/quickstart/">Quickstart</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/tips-and-tricks/">Tips &amp; Tricks</a></li>
@@ -72,7 +75,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../guides/advanced-integration/">Advanced Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/faq/">FAQ</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Reference</span></p>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../reference/installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../reference/server-config/">Server Configuration</a></li>
@@ -81,7 +84,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../reference/multi-site-sub-uri/">Multiple Sites &amp; Sub-URI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../reference/server-api/">Server API</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Technical documentation</span></p>
+<p class="caption" role="heading"><span class="caption-text">Technical documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../technical-docs/server/">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../technical-docs/client/">Client</a></li>
@@ -89,7 +92,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../technical-docs/testing-client/">Testing the Client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../technical-docs/testing-server/">Testing the Server</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Contributing</span></p>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../">Contributing to Isso</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Writing Documentation</a></li>
@@ -105,10 +108,10 @@
 
                 <div role="main">
                 
-                <div class="section" id="writing-documentation">
+                <section id="writing-documentation">
 <h2>Writing Documentation<a class="headerlink" href="#writing-documentation" title="Permalink to this headline">¶</a></h2>
 <div class="admonition attention">
-<p class="first admonition-title">Attention</p>
+<p class="admonition-title">Attention</p>
 <p>This section of the Isso documentation is incomplete. Please help by expanding it.</p>
 <p>Click the <code class="docutils literal notranslate"><span class="pre">Edit</span> <span class="pre">on</span> <span class="pre">GitHub</span></code> button in the top right corner and read the
 GitHub Issue named
@@ -116,19 +119,19 @@ GitHub Issue named
 for further information.</p>
 <p><strong>What’s missing?</strong></p>
 <ul class="simple">
-<li>How to run Sphinx</li>
-<li>How Sphinx works, what its philosphy is</li>
-<li>Small reST intro, also link to the
-<a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html">reStructuredText Primer</a></li>
-<li>How to write good documentation, maybe link to a few guides and example sites</li>
+<li><p>How to run Sphinx</p></li>
+<li><p>How Sphinx works, what its philosphy is</p></li>
+<li><p>Small reST intro, also link to the
+<a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html">reStructuredText Primer</a></p></li>
+<li><p>How to write good documentation, maybe link to a few guides and example sites</p></li>
 </ul>
-<p class="last">… and other things about documentation that should be documented.</p>
+<p>… and other things about documentation that should be documented.</p>
 </div>
-<div class="section" id="help">
+<section id="help">
 <h3>Help<a class="headerlink" href="#help" title="Permalink to this headline">¶</a></h3>
 <p>Helpful links:</p>
 <ul class="simple">
-<li><a class="reference external" href="https://docs.readthedocs.io/en/stable/guides/cross-referencing-with-sphinx.html">Cross-referencing with Sphinx</a></li>
+<li><p><a class="reference external" href="https://docs.readthedocs.io/en/stable/guides/cross-referencing-with-sphinx.html">Cross-referencing with Sphinx</a></p></li>
 </ul>
 <p>Debugging cross-references:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python -m sphinx.ext.intersphinx docs/_build/html/objects.inv
@@ -136,8 +139,8 @@ for further information.</p>
 </div>
 <p>Also make sure you have used <code class="docutils literal notranslate"><span class="pre">:ref:</span></code> or <code class="docutils literal notranslate"><span class="pre">:doc</span></code>
 correctly and not confused the two.</p>
-</div>
-</div>
+</section>
+</section>
 
                 
                 </div>

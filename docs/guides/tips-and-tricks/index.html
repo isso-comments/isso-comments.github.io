@@ -3,13 +3,16 @@
 <html>
   <head>
     <meta charset="utf-8">
-    
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>Tips &amp; Tricks</title>
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/site.css" />
     
-    <script type="text/javascript" src="../../../_static/jquery.js"></script>
-    <script type="text/javascript" src="../../../_static/underscore.js"></script>
-    <script type="text/javascript" src="../../../_static/doctools.js"></script>
-    <script type="text/javascript" src="../../../_static/language_data.js"></script>
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
     <link rel="shortcut icon" href="../../../_static/isso.svg"/>
     <link rel="search" title="Search" href="../../../search/" />
     <link rel="top" title="Isso  documentation" href="../../../" />
@@ -65,7 +68,7 @@
     </form>
 </div>
 <script>document.getElementById('searchbox').style.display = "block"</script>
-    <p class="caption"><span class="caption-text">Guides</span></p>
+    <p class="caption" role="heading"><span class="caption-text">Guides</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../quickstart/">Quickstart</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Tips &amp; Tricks</a></li>
@@ -73,7 +76,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../advanced-integration/">Advanced Integration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Reference</span></p>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../reference/installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../reference/server-config/">Server Configuration</a></li>
@@ -82,7 +85,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../reference/multi-site-sub-uri/">Multiple Sites &amp; Sub-URI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../reference/server-api/">Server API</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Technical documentation</span></p>
+<p class="caption" role="heading"><span class="caption-text">Technical documentation</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../technical-docs/server/">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../technical-docs/client/">Client</a></li>
@@ -90,7 +93,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../technical-docs/testing-client/">Testing the Client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../technical-docs/testing-server/">Testing the Server</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Contributing</span></p>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing/">Contributing to Isso</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../contributing/documentation/">Writing Documentation</a></li>
@@ -106,39 +109,39 @@
 
                 <div role="main">
                 
-                <div class="section" id="tips-tricks">
+                <section id="tips-tricks">
 <h2>Tips &amp; Tricks<a class="headerlink" href="#tips-tricks" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="lazy-loading-on-scroll">
+<section id="lazy-loading-on-scroll">
 <h3>Lazy-loading on scroll<a class="headerlink" href="#lazy-loading-on-scroll" title="Permalink to this headline">¶</a></h3>
 <p>You can defer loading the <code class="docutils literal notranslate"><span class="pre">embed.min.js</span></code> script until the user has scrolled
 to the bottom of the page:</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;</span>
-    <span class="c1">// Lazy-load isso only when page end is in view</span>
-    <span class="kd">function</span> <span class="nx">loadIsso</span><span class="p">()</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">script</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;script&quot;</span><span class="p">);</span>
-        <span class="nx">script</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="s2">&quot;text/javascript&quot;</span><span class="p">);</span>
-        <span class="nx">script</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;src&quot;</span><span class="p">,</span> <span class="s2">&quot;/prefix/js/embed.min.js&quot;</span><span class="p">);</span>
-        <span class="c1">// add relevant data-isso attributes here</span>
-        <span class="nx">script</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;data-isso&quot;</span><span class="p">,</span> <span class="s2">&quot;/prefix/&quot;</span><span class="p">);</span>
-        <span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">&quot;head&quot;</span><span class="p">)[</span><span class="mi">0</span><span class="p">].</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">script</span><span class="p">);</span>
-    <span class="p">}</span>
-    <span class="kd">let</span> <span class="nx">offset</span> <span class="o">=</span> <span class="mi">50</span><span class="p">;</span> <span class="c1">// Start loading 50px before reaching bottom</span>
-    <span class="kd">function</span> <span class="nx">scrollBottomListener</span><span class="p">(</span><span class="nx">ev</span><span class="p">)</span> <span class="p">{</span>
-        <span class="k">if</span> <span class="p">((</span><span class="nb">window</span><span class="p">.</span><span class="nx">scrollY</span> <span class="o">+</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="p">)</span>
-                <span class="o">&gt;=</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">scrollHeight</span> <span class="o">-</span> <span class="nx">offset</span><span class="p">))</span> <span class="p">{</span>
-            <span class="nx">loadIsso</span><span class="p">();</span>
-            <span class="nb">window</span><span class="p">.</span><span class="nx">removeEventListener</span><span class="p">(</span><span class="s1">&#39;scroll&#39;</span><span class="p">,</span> <span class="nx">scrollBottomListener</span><span class="p">);</span>
-        <span class="p">}</span>
-    <span class="p">}</span>
-    <span class="nb">window</span><span class="p">.</span><span class="nx">onload</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-      <span class="c1">// If viewport &gt;= page height, load immediately</span>
-      <span class="k">if</span> <span class="p">((</span><span class="nb">window</span><span class="p">.</span><span class="nx">scrollY</span> <span class="o">+</span> <span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="p">)</span>
-                <span class="o">&gt;=</span> <span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">scrollHeight</span> <span class="o">-</span> <span class="nx">offset</span><span class="p">))</span> <span class="p">{</span>
-          <span class="nx">loadIsso</span><span class="p">();</span>
-      <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
-          <span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;scroll&#39;</span><span class="p">,</span> <span class="nx">scrollBottomListener</span><span class="p">);</span>
-      <span class="p">}</span>
-    <span class="p">}</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="c1">// Lazy-load isso only when page end is in view</span><span class="w"></span>
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">loadIsso</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">script</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;script&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="nx">script</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;text/javascript&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="nx">script</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;src&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;/prefix/js/embed.min.js&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="c1">// add relevant data-isso attributes here</span><span class="w"></span>
+<span class="w">        </span><span class="nx">script</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;data-isso&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;/prefix/&quot;</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">&quot;head&quot;</span><span class="p">)[</span><span class="mf">0</span><span class="p">].</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">script</span><span class="p">);</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">offset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">50</span><span class="p">;</span><span class="w"> </span><span class="c1">// Start loading 50px before reaching bottom</span><span class="w"></span>
+<span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">scrollBottomListener</span><span class="p">(</span><span class="nx">ev</span><span class="p">)</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="nb">window</span><span class="p">.</span><span class="nx">scrollY</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="p">)</span><span class="w"></span>
+<span class="w">                </span><span class="o">&gt;=</span><span class="w"> </span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">scrollHeight</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">offset</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">            </span><span class="nx">loadIsso</span><span class="p">();</span><span class="w"></span>
+<span class="w">            </span><span class="nb">window</span><span class="p">.</span><span class="nx">removeEventListener</span><span class="p">(</span><span class="s1">&#39;scroll&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">scrollBottomListener</span><span class="p">);</span><span class="w"></span>
+<span class="w">        </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="nb">window</span><span class="p">.</span><span class="nx">onload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">      </span><span class="c1">// If viewport &gt;= page height, load immediately</span><span class="w"></span>
+<span class="w">      </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="nb">window</span><span class="p">.</span><span class="nx">scrollY</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="p">)</span><span class="w"></span>
+<span class="w">                </span><span class="o">&gt;=</span><span class="w"> </span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">scrollHeight</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">offset</span><span class="p">))</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nx">loadIsso</span><span class="p">();</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">          </span><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;scroll&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">scrollBottomListener</span><span class="p">);</span><span class="w"></span>
+<span class="w">      </span><span class="p">}</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 </div>
@@ -147,16 +150,15 @@ SEO. Additionally, users could experience a “jank” effect.</em></p>
 <p>Use lazy-loading only if you are desperately trying to save bandwidth. By
 specifying <code class="docutils literal notranslate"><span class="pre">async</span></code> in the <code class="docutils literal notranslate"><span class="pre">&lt;script</span></code> tag, loading the Isso Javascript will
 not render-block anyway.</p>
-</div>
-<div class="section" id="advanced-migration">
+</section>
+<section id="advanced-migration">
 <span id="id1"></span><h3>Advanced Migration<a class="headerlink" href="#advanced-migration" title="Permalink to this headline">¶</a></h3>
 <p>In quickstart we saw you can import comments from Disqus or WordPress. But there
 are a many other comments system and you could be using one of them.</p>
 <p>Isso provides a way to import such comments, however it’s up to you to to:</p>
 <ul>
-<li><p class="first">dump comments</p>
-</li>
-<li><p class="first">fit the data to the following JSON format:</p>
+<li><p>dump comments</p></li>
+<li><p>fit the data to the following JSON format:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>A list of threads, each item being a dict with the following data:
 
 - id: a text representing the unique thread id (note: by default isso
@@ -180,32 +182,32 @@ are a many other comments system and you could be using one of them.</p>
 </li>
 </ul>
 <p>Example:</p>
-<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
-    <span class="p">{</span>
-        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;/blog/article1&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;First article!&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;comments&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">{</span>
-                <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;James&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;created&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-11-28 17:24:23&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;email@mail.com&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;remote_addr&quot;</span><span class="p">:</span> <span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;Great article!&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;website&quot;</span><span class="p">:</span> <span class="s2">&quot;http://fefzfzef.frzr&quot;</span>
-            <span class="p">},</span>
-            <span class="p">{</span>
-                <span class="nt">&quot;author&quot;</span><span class="p">:</span> <span class="s2">&quot;Harold&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;created&quot;</span><span class="p">:</span> <span class="s2">&quot;2018-11-28 17:58:03&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;email2@mail.com&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;2&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;remote_addr&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;I hated it...&quot;</span><span class="p">,</span>
-                <span class="nt">&quot;website&quot;</span><span class="p">:</span> <span class="s2">&quot;&quot;</span>
-            <span class="p">}</span>
-        <span class="p">]</span>
-    <span class="p">}</span>
-<span class="p">]</span>
+<div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="w"></span>
+<span class="w">    </span><span class="p">{</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/blog/article1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;First article!&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">        </span><span class="nt">&quot;comments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;James&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;created&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2018-11-28 17:24:23&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;email@mail.com&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;remote_addr&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Great article!&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;website&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://fefzfzef.frzr&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">},</span><span class="w"></span>
+<span class="w">            </span><span class="p">{</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Harold&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;created&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2018-11-28 17:58:03&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;email2@mail.com&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;remote_addr&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;I hated it...&quot;</span><span class="p">,</span><span class="w"></span>
+<span class="w">                </span><span class="nt">&quot;website&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="w"></span>
+<span class="w">            </span><span class="p">}</span><span class="w"></span>
+<span class="w">        </span><span class="p">]</span><span class="w"></span>
+<span class="w">    </span><span class="p">}</span><span class="w"></span>
+<span class="p">]</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Keep in mind that isso expects to have an array, so keep the opening and ending square bracket even if you have only one article thread!</p>
@@ -215,7 +217,7 @@ are a many other comments system and you could be using one of them.</p>
 </pre></div>
 </div>
 <div class="admonition attention">
-<p class="first admonition-title">Attention</p>
+<p class="admonition-title">Attention</p>
 <p>This section of the Isso documentation is incomplete. Please help by expanding it.</p>
 <p>Click the <code class="docutils literal notranslate"><span class="pre">Edit</span> <span class="pre">on</span> <span class="pre">GitHub</span></code> button in the top right corner and read the
 GitHub Issue named
@@ -223,14 +225,14 @@ GitHub Issue named
 for further information.</p>
 <p><strong>What’s missing?</strong></p>
 <ul class="simple">
-<li>Removing unused languages</li>
-<li>Importing &amp; exporting comments (integrate migration docs)</li>
-<li>Keeping compat using babel</li>
+<li><p>Removing unused languages</p></li>
+<li><p>Importing &amp; exporting comments (integrate migration docs)</p></li>
+<li><p>Keeping compat using babel</p></li>
 </ul>
-<p class="last">… and other collected tips &amp; tricks, maybe also from the wiki.</p>
+<p>… and other collected tips &amp; tricks, maybe also from the wiki.</p>
 </div>
-</div>
-</div>
+</section>
+</section>
 
                 
                 </div>

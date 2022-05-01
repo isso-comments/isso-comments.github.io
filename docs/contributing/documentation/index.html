@@ -88,7 +88,7 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../../technical-docs/server/">Server</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../technical-docs/client/">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/testing/">Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/testing/">Development &amp; Testing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../technical-docs/testing-client/">Testing the Client</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../technical-docs/testing-server/">Testing the Server</a></li>
 </ul>
@@ -110,15 +110,6 @@
                 
                 <section id="writing-documentation">
 <h2>Writing Documentation<a class="headerlink" href="#writing-documentation" title="Permalink to this headline">¶</a></h2>
-<section id="syntax-standards">
-<h3>Syntax standards<a class="headerlink" href="#syntax-standards" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">(.venv)</span> <span class="pre">$</span> <span class="pre">python</span> <span class="pre">[cmd]</span></code> for things that need to be run inside a
-virtual environment and be consistent, see
-<a class="reference external" href="https://www.sphinx-doc.org/en/master/tutorial/narrative-documentation.html">Sphinx: Narrative Documentation</a></p></li>
-<li><p>Admonitions should only be: <code class="docutils literal notranslate"><span class="pre">note</span></code>, <code class="docutils literal notranslate"><span class="pre">tip</span></code>, <code class="docutils literal notranslate"><span class="pre">warning</span></code>, <code class="docutils literal notranslate"><span class="pre">attention</span></code>,
-(maybe also <code class="docutils literal notranslate"><span class="pre">error</span></code>?). See <a class="reference external" href="https://docutils.sourceforge.io/docs/ref/rst/directives.html#admonitions">docutils: Admonitions</a>.</p></li>
-</ul>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
 <p>This section of the Isso documentation is incomplete. Please help by expanding it.</p>
@@ -128,14 +119,119 @@ GitHub Issue named
 for further information.</p>
 <p><strong>What’s missing?</strong></p>
 <ul class="simple">
-<li><p>How to run Sphinx</p></li>
+<li><p>How to install &amp; run Sphinx (note that latest sphinx from pip is needed by theme)</p></li>
 <li><p>How Sphinx works, what its philosphy is</p></li>
 <li><p>Small reST intro, also link to the
 <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html">reStructuredText Primer</a></p></li>
 <li><p>How to write good documentation, maybe link to a few guides and example sites</p></li>
+<li><p>More syntax standards, and also correct wrong usage across the docs</p></li>
 </ul>
 <p>… and other things about documentation that should be documented.</p>
 </div>
+<section id="introduction">
+<h3>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
+<p>The documentation for Isso is written using the <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a> documentation
+project in a markup language called <code class="docutils literal notranslate"><span class="pre">reStructuredText</span></code> (<code class="docutils literal notranslate"><span class="pre">reST</span></code>). The
+documentation files have have <code class="docutils literal notranslate"><span class="pre">.rst</span></code> as a file extension.</p>
+<p><code class="docutils literal notranslate"><span class="pre">reST</span></code> works a bit like Markdown, but has some differences. Here’s an
+example:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>One asterisk: <span class="ge">*text*</span> for emphasis (italics),
+Two asterisks: <span class="gs">**text**</span> for strong emphasis (boldface), and
+Backquotes: <span class="s">``text``</span> for code samples.
+</pre></div>
+</div>
+</section>
+<section id="building-the-docs">
+<h3>Building the docs<a class="headerlink" href="#building-the-docs" title="Permalink to this headline">¶</a></h3>
+<p>You will need to have the latest version of the <code class="docutils literal notranslate"><span class="pre">Sphinx</span></code> documentation generator installed
+<a class="reference external" href="https://pypi.org/project/Sphinx/">from PyPi</a>.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Please avoid using the version installed by your operating system
+since it may be severely outdated and throw errors with Isso’s theme. Isso’s
+docs need at least version 4.5.0.</p>
+</div>
+<p>Install via pip:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ virtualenv .venv <span class="o">&amp;&amp;</span> $ <span class="nb">source</span> .venv/bin/activate
+<span class="o">(</span>.venv<span class="o">)</span> $ pip install sphinx
+<span class="o">(</span>.venv<span class="o">)</span> $ sphinx-build --version
+~&gt; sphinx-build <span class="m">4</span>.5.0
+</pre></div>
+</div>
+<p>Build the docs:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>.venv<span class="o">)</span> $ make site
+</pre></div>
+</div>
+<p>The stylesheets of the theme are written in a CSS-like language called
+<a class="reference external" href="https://sass-lang.com/guide">sass</a> and have the <code class="docutils literal notranslate"><span class="pre">.scss</span></code> file extension.</p>
+<p>If you have made any changes to the stylesheets, you need to install the
+<a class="reference external" href="https://github.com/sass/sassc">sassc</a> program and then re-generate the CSS file at
+<code class="docutils literal notranslate"><span class="pre">docs/_static/css/site.css</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>apt install sassc
+make css
+</pre></div>
+</div>
+</section>
+<section id="how-to-write-rest">
+<h3>How to write reST<a class="headerlink" href="#how-to-write-rest" title="Permalink to this headline">¶</a></h3>
+<p>First and foremost, see the
+<a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html">reStructuredText Primer</a>.</p>
+<p><strong>Links:</strong></p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>Use <span class="s">`Link text </span><span class="si">&lt;https://domain.invalid/&gt;</span><span class="s">`_</span> for <span class="gs">**inline web links**</span>.
+
+This is a paragraph that contains <span class="s">`a link`_</span> using <span class="gs">**references**</span>.
+
+<span class="p">..</span> <span class="nt">_a link:</span> https://domain.invalid/
+</pre></div>
+</div>
+<p><strong>Referencing other sections:</strong> (see <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#ref-role">:ref:</a>)</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="nt">_my-reference-label:</span>
+
+<span class="gh">Section to cross-reference</span>
+<span class="gh">--------------------------</span>
+
+This is the text of the section.
+
+It refers to the section itself, see <span class="na">:ref:</span><span class="nv">`my-reference-label`</span>.
+</pre></div>
+</div>
+<p><strong>Referencing other documents:</strong> (see <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/roles.html#cross-referencing-documents">:doc:</a>)</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span>See also <span class="na">:doc:</span><span class="nv">`/contributing`</span> or <span class="na">:doc:</span><span class="nv">`the news page &lt;/news&gt;`</span>
+</pre></div>
+</div>
+<p><strong>Code blocks:</strong></p>
+<p>Use <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">code-block::</span> <span class="pre">&lt;language&gt;</span></code> and indent the code by one level:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> <span class="k">bash</span>
+
+     sudo apt install python3 python3-pip python3-virtualenv
+     virtualenv .venv
+     <span class="nb">source</span> .venv/bin/activate
+     <span class="o">(</span>.venv<span class="o">)</span> $ python <span class="o">[</span>cmd<span class="o">]</span>
+</pre></div>
+</div>
+</section>
+<section id="syntax-standards">
+<h3>Syntax standards<a class="headerlink" href="#syntax-standards" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Use at most three levels of headlines:
+<code class="docutils literal notranslate"><span class="pre">===</span></code> for page title, <code class="docutils literal notranslate"><span class="pre">---</span></code> for section headings (h3), <code class="docutils literal notranslate"><span class="pre">^^^</span></code> for
+sub-headings (h4).</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">(.venv)</span> <span class="pre">$</span> <span class="pre">python</span> <span class="pre">[cmd]</span></code> for things that need to be run inside a
+virtual environment and be consistent
+(see <a class="reference external" href="https://www.sphinx-doc.org/en/master/tutorial/narrative-documentation.html">Sphinx: Narrative Documentation</a>)</p></li>
+<li><p>Admonitions should only be: <code class="docutils literal notranslate"><span class="pre">note</span></code>, <code class="docutils literal notranslate"><span class="pre">tip</span></code>, <code class="docutils literal notranslate"><span class="pre">warning</span></code>, <code class="docutils literal notranslate"><span class="pre">attention</span></code>,
+(maybe also <code class="docutils literal notranslate"><span class="pre">error</span></code>?). See <a class="reference external" href="https://docutils.sourceforge.io/docs/ref/rst/directives.html#admonitions">docutils: Admonitions</a>.</p></li>
+</ul>
+</section>
+<section id="inspiration">
+<h3>Inspiration<a class="headerlink" href="#inspiration" title="Permalink to this headline">¶</a></h3>
+<p>The following documentation pages should serve as good examples. They are from
+related projects that also offer commenting functionality.</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://docs.commento.io/">Commento Documentation</a></p></li>
+<li><p><a class="reference external" href="https://remark42.com/docs/getting-started/installation/">Remark42 Documentation</a></p></li>
+<li><p><a class="reference external" href="https://schnack.cool/">Schnack Documentation</a></p></li>
+</ul>
 </section>
 <section id="help">
 <h3>Help<a class="headerlink" href="#help" title="Permalink to this headline">¶</a></h3>

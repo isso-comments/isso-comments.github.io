@@ -111,11 +111,35 @@
                 
                 <section id="testing-the-server">
 <h2>Testing the Server<a class="headerlink" href="#testing-the-server" title="Permalink to this headline">¶</a></h2>
-<p>Isso is tested by the <a class="reference external" href="https://docs.pytest.org/">pytest</a> tool. You should also install the <a class="reference external" href="https://coverage.readthedocs.io/en/latest/">coverage</a>
-module with the <a class="reference external" href="https://github.com/pytest-dev/pytest-cov">pytest-cov</a> plugin to receive code coverage statistics.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pip install pytest pytest-cov coverage
+<p>The server part of Isso is tested by the <a class="reference external" href="https://docs.pytest.org/">pytest</a> tool. You should also
+install the <a class="reference external" href="https://coverage.readthedocs.io/en/latest/">coverage</a> module with the <a class="reference external" href="https://github.com/pytest-dev/pytest-cov">pytest-cov</a> plugin to receive code
+coverage statistics.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install pytest pytest-cov coverage
 </pre></div>
 </div>
+<p>Run Isso’s standard server <strong>test suite</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make tests
+</pre></div>
+</div>
+<p>You can also run tests independently via <code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">[options]</span> <span class="pre">isso/</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Improvements to Isso’s test coverage and/or different testing strategies are
+always welcome! Please see the <a class="reference internal" href="../../contributing/"><span class="doc">Contribute</span></a> page for
+further information.</p>
+</div>
+<p>Generate and view server <strong>test coverage</strong>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make coverage
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The Continuous Integration suite running via
+<a class="reference external" href="https://github.com/posativ/isso/blob/master/.github/workflows/python-tests.yml">GitHub Actions</a>
+will throw an <strong>error</strong> if the code coverage falls <strong>below 70%</strong>.</p>
+</div>
+<section id="distributionnotfound-error">
+<h3>DistributionNotFound error<a class="headerlink" href="#distributionnotfound-error" title="Permalink to this headline">¶</a></h3>
 <p>Pytest needs your Isso package to be installed as a site package to work, else it
 will complain with:</p>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pkg_resources.DistributionNotFound: The <span class="s1">&#39;isso&#39;</span> distribution was not found and is required by the application
@@ -126,8 +150,6 @@ packaged version of Isso in your <code class="docutils literal notranslate"><spa
 your current working directory.</p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> to install Isso as an “editable” package (the package
 in <code class="docutils literal notranslate"><span class="pre">site-packages</span></code> will be a symlink to your current development directory).</p>
-<p>You can run tests independently via <code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">[options]</span> <span class="pre">isso/</span></code> or use Isso’s
-standard test suite via <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">tests</span> <span class="pre">coverage</span></code>.</p>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
 <p>This section of the Isso documentation is incomplete. Please help by expanding it.</p>
@@ -137,11 +159,11 @@ GitHub Issue named
 for further information.</p>
 <p><strong>What’s missing?</strong></p>
 <ul class="simple">
-<li><p>Unit tests: unittest, pytest, coverage</p></li>
 <li><p>Maybe some links to “how to write good python tests”</p></li>
 </ul>
 <p>… and other things about server testing that should be documented.</p>
 </div>
+</section>
 </section>
 
                 

@@ -60,7 +60,58 @@
                 
                 <section id="news">
 <h2>News<a class="headerlink" href="#news" title="Permalink to this headline">¶</a></h2>
-<p>To be written.</p>
+<section id="isso-version-0-12-6-2-released">
+<h3>Isso version 0.12.6.2 released<a class="headerlink" href="#isso-version-0-12-6-2-released" title="Permalink to this headline">¶</a></h3>
+<p><em>Date: 2022-04-23</em></p>
+<ul class="simple">
+<li><p>Hotfix release to note compatibility with werkzeug 2.1+</p></li>
+</ul>
+</section>
+<section id="isso-version-0-12-6-1-released">
+<h3>Isso version 0.12.6.1 released<a class="headerlink" href="#isso-version-0-12-6-1-released" title="Permalink to this headline">¶</a></h3>
+<p><em>Date: 2022-03-20</em></p>
+<ul class="simple">
+<li><p>Hotfix release to restore position of Postbox before comments
+(#815, ix5)</p></li>
+</ul>
+</section>
+<section id="isso-version-0-12-6-released">
+<h3>Isso version 0.12.6 released<a class="headerlink" href="#isso-version-0-12-6-released" title="Permalink to this headline">¶</a></h3>
+<p><em>Date: 2022-03-06</em></p>
+<ul>
+<li><p>Serve isso.css separately to avoid <code class="docutils literal notranslate"><span class="pre">style-src:</span> <span class="pre">unsafe-inline</span></code> CSP and allow
+clients to override fetch location (#704, ix5):</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>data-isso-css-url=&quot;https://comments.example.org/css/isso.css&quot;
+</pre></div>
+</div>
+</li>
+<li><p>New “samesite” option in [server] section to override SameSite header for
+cookies. (#700, ix5)</p></li>
+<li><p>Fallback for SameSite header depending on whether host is served over https
+or http (#700, ix5)</p></li>
+<li><p>Have client read out shared settings from server. (#311, pellenilsson)
+This affects these settings for which <code class="docutils literal notranslate"><span class="pre">data-isso-*</span></code> values will be ignored:</p>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[general]</span><span class="w"></span>
+<span class="na">reply-notifications</span><span class="w"></span>
+<span class="na">gravatar</span><span class="w"></span>
+<span class="k">[guard]</span><span class="w"></span>
+<span class="na">reply-to-self</span><span class="w"></span>
+<span class="na">require-author</span><span class="w"></span>
+<span class="na">require-email</span><span class="w"></span>
+</pre></div>
+</div>
+</li>
+<li><p>Improved detection of browser-supplied language preferences (#521)
+Isso will now honor the newer <code class="docutils literal notranslate"><span class="pre">navigator.languages</span></code> global property
+as well as <code class="docutils literal notranslate"><span class="pre">navigator.language</span></code> and <code class="docutils literal notranslate"><span class="pre">navigator.userLanguage</span></code>.
+There is a new configuration property <code class="docutils literal notranslate"><span class="pre">data-isso-default-lang</span></code>
+that specifies the language to use (instead of English) when none
+of these is available.  (The existing <code class="docutils literal notranslate"><span class="pre">data-isso-lang</span></code> <em>overrides</em>
+browser-supplied language preferences.)</p></li>
+<li><p>Remove <code class="docutils literal notranslate"><span class="pre">ISSO_CORS_ORIGIN</span></code> environ variable, which never worked at all
+(#803, ix5)</p></li>
+</ul>
+</section>
 </section>
 
                 

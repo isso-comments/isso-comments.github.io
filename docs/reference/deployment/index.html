@@ -33,7 +33,6 @@
             </header>
             <nav>
                 <a href="../../">Documentation</a>
-                <a href="../../../news/">News</a>
                 <a href="../../contributing/">Contribute</a>
                 <a href="../../../community/">community</a>
             </nav>
@@ -187,9 +186,7 @@ $ gunicorn -b localhost:8080 -w <span class="m">4</span> --preload isso.run
 <p>First, create a startup script, called <cite>isso.wsgi</cite>. If Isso is in your system module
 search path, then the script is quite simple. This script is included in the
 isso distribution as <cite>run.py</cite>:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">unicode_literals</span>
-
-<span class="kn">import</span> <span class="nn">os</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
 
 <span class="kn">from</span> <span class="nn">isso</span> <span class="kn">import</span> <span class="n">make_app</span>
 <span class="kn">from</span> <span class="nn">isso</span> <span class="kn">import</span> <span class="n">dist</span><span class="p">,</span> <span class="n">config</span>
@@ -203,54 +200,50 @@ isso distribution as <cite>run.py</cite>:</p>
 </div>
 <p>If you have installed Isso in a virtual environment, then you will have to add the path
 of the virtualenv to the site-specific paths of Python:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">unicode_literals</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="hll">  <span class="kn">import</span> <span class="nn">site</span>
+</span><span class="hll">  <span class="n">site</span><span class="o">.</span><span class="n">addsitedir</span><span class="p">(</span><span class="s2">&quot;/path/to/isso_virtualenv&quot;</span><span class="p">)</span>
+</span>
+  <span class="kn">import</span> <span class="nn">os</span>
 
-<span class="kn">import</span> <span class="nn">site</span>
-<span class="n">site</span><span class="o">.</span><span class="n">addsitedir</span><span class="p">(</span><span class="s2">&quot;/path/to/isso_virtualenv&quot;</span><span class="p">)</span>
+  <span class="kn">from</span> <span class="nn">isso</span> <span class="kn">import</span> <span class="n">make_app</span>
+  <span class="kn">from</span> <span class="nn">isso</span> <span class="kn">import</span> <span class="n">dist</span><span class="p">,</span> <span class="n">config</span>
 
-<span class="kn">import</span> <span class="nn">os</span>
-
-<span class="kn">from</span> <span class="nn">isso</span> <span class="kn">import</span> <span class="n">make_app</span>
-<span class="kn">from</span> <span class="nn">isso</span> <span class="kn">import</span> <span class="n">dist</span><span class="p">,</span> <span class="n">config</span>
-
-<span class="n">application</span> <span class="o">=</span> <span class="n">make_app</span><span class="p">(</span>
-<span class="n">config</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
-    <span class="n">config</span><span class="o">.</span><span class="n">default_file</span><span class="p">(),</span>
-    <span class="s2">&quot;/path/to/isso.cfg&quot;</span><span class="p">,</span>
-<span class="n">multiprocessing</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+  <span class="n">application</span> <span class="o">=</span> <span class="n">make_app</span><span class="p">(</span>
+  <span class="n">config</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
+      <span class="n">config</span><span class="o">.</span><span class="n">default_file</span><span class="p">(),</span>
+      <span class="s2">&quot;/path/to/isso.cfg&quot;</span><span class="p">,</span>
+  <span class="n">multiprocessing</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Using the aforementioned script will load system modules when available and modules
 from the virtualenv otherwise. Should you want the opposite behavior, where modules from
 the virtualenv have priority over system modules, the following script does the trick:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">unicode_literals</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>  <span class="kn">import</span> <span class="nn">os</span>
+<span class="hll">  <span class="kn">import</span> <span class="nn">site</span>
+</span><span class="hll">  <span class="kn">import</span> <span class="nn">sys</span>
+</span>
+  <span class="c1"># Remember original sys.path.</span>
+<span class="hll">  <span class="n">prev_sys_path</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+</span>
+  <span class="c1"># Add the new site-packages directory.</span>
+<span class="hll">  <span class="n">site</span><span class="o">.</span><span class="n">addsitedir</span><span class="p">(</span><span class="s2">&quot;/path/to/isso_virtualenv&quot;</span><span class="p">)</span>
+</span>
+  <span class="c1"># Reorder sys.path so new directories at the front.</span>
+<span class="hll">  <span class="n">new_sys_path</span> <span class="o">=</span> <span class="p">[]</span>
+</span><span class="hll">  <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">):</span>
+</span><span class="hll">      <span class="k">if</span> <span class="n">item</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">prev_sys_path</span><span class="p">:</span>
+</span><span class="hll">          <span class="n">new_sys_path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</span><span class="hll">          <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+</span><span class="hll">  <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">[:</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_sys_path</span>
+</span>
+  <span class="kn">from</span> <span class="nn">isso</span> <span class="kn">import</span> <span class="n">make_app</span>
+  <span class="kn">from</span> <span class="nn">isso</span> <span class="kn">import</span> <span class="n">dist</span><span class="p">,</span> <span class="n">config</span>
 
-<span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">site</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-
-<span class="c1"># Remember original sys.path.</span>
-<span class="n">prev_sys_path</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
-
-<span class="c1"># Add the new site-packages directory.</span>
-<span class="n">site</span><span class="o">.</span><span class="n">addsitedir</span><span class="p">(</span><span class="s2">&quot;/path/to/isso_virtualenv&quot;</span><span class="p">)</span>
-
-<span class="c1"># Reorder sys.path so new directories at the front.</span>
-<span class="n">new_sys_path</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">item</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">prev_sys_path</span><span class="p">:</span>
-        <span class="n">new_sys_path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-        <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">[:</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_sys_path</span>
-
-<span class="kn">from</span> <span class="nn">isso</span> <span class="kn">import</span> <span class="n">make_app</span>
-<span class="kn">from</span> <span class="nn">isso</span> <span class="kn">import</span> <span class="n">dist</span><span class="p">,</span> <span class="n">config</span>
-
-<span class="n">application</span> <span class="o">=</span> <span class="n">make_app</span><span class="p">(</span>
-<span class="n">config</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
-    <span class="n">config</span><span class="o">.</span><span class="n">default_file</span><span class="p">(),</span>
-    <span class="s2">&quot;/path/to/isso.cfg&quot;</span><span class="p">,</span>
-<span class="n">multiprocessing</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+  <span class="n">application</span> <span class="o">=</span> <span class="n">make_app</span><span class="p">(</span>
+  <span class="n">config</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
+      <span class="n">config</span><span class="o">.</span><span class="n">default_file</span><span class="p">(),</span>
+      <span class="s2">&quot;/path/to/isso.cfg&quot;</span><span class="p">,</span>
+  <span class="n">multiprocessing</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The last two scripts are based on those given by

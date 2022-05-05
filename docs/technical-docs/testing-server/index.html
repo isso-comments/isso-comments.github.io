@@ -33,7 +33,6 @@
             </header>
             <nav>
                 <a href="../../">Documentation</a>
-                <a href="../../../news/">News</a>
                 <a href="../../contributing/">Contribute</a>
                 <a href="../../../community/">community</a>
             </nav>
@@ -128,6 +127,10 @@ coverage statistics.</p>
 always welcome! Please see the <a class="reference internal" href="../../contributing/"><span class="doc">Contribute</span></a> page for
 further information.</p>
 </div>
+<p><strong>Check Python code style</strong> using <code class="docutils literal notranslate"><span class="pre">flake8</span></code>:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make flakes
+</pre></div>
+</div>
 <p>Generate and view server <strong>test coverage</strong>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make coverage
 </pre></div>
@@ -136,7 +139,8 @@ further information.</p>
 <p class="admonition-title">Note</p>
 <p>The Continuous Integration suite running via
 <a class="reference external" href="https://github.com/posativ/isso/blob/master/.github/workflows/python-tests.yml">GitHub Actions</a>
-will throw an <strong>error</strong> if the code coverage falls <strong>below 70%</strong>.</p>
+will throw an <strong>error</strong> if either the unit tests, the integration tests or
+the <code class="docutils literal notranslate"><span class="pre">flake8</span></code> tests fail or the code coverage falls <strong>below 70%</strong>.</p>
 </div>
 <section id="distributionnotfound-error">
 <h3>DistributionNotFound error<a class="headerlink" href="#distributionnotfound-error" title="Permalink to this headline">¶</a></h3>

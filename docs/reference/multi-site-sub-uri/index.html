@@ -33,7 +33,6 @@
             </header>
             <nav>
                 <a href="../../">Documentation</a>
-                <a href="../../../news/">News</a>
                 <a href="../../contributing/">Contribute</a>
                 <a href="../../../community/">community</a>
             </nav>
@@ -120,17 +119,18 @@ websites on different domains.</p>
 <p>The following example uses <a class="reference external" href="http://gunicorn.org/">gunicorn</a> as WSGI server (
 you can use uWSGI as well). Let’s say you maintain two websites, like
 foo.example and other.bar:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ cat /etc/isso.d/foo.example.cfg
-<span class="o">[</span>general<span class="o">]</span>
-<span class="nv">name</span> <span class="o">=</span> foo
-<span class="nv">host</span> <span class="o">=</span> http://foo.example/
-<span class="nv">dbpath</span> <span class="o">=</span> /var/lib/isso/foo.example.db
-
-$ cat /etc/isso.d/other.bar.cfg
-<span class="o">[</span>general<span class="o">]</span>
-<span class="nv">name</span> <span class="o">=</span> bar
-<span class="nv">host</span> <span class="o">=</span> http://other.bar/
-<span class="nv">dbpath</span> <span class="o">=</span> /var/lib/isso/other.bar.db
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="c1">; /etc/isso.d/foo.example.cfg</span><span class="w"></span>
+<span class="k">[general]</span><span class="w"></span>
+<span class="hll"><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">foo</span><span class="w"></span>
+</span><span class="na">host</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">http://foo.example/</span><span class="w"></span>
+<span class="na">dbpath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/var/lib/isso/foo.example.db</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="c1">; /etc/isso.d/other.bar.cfg</span><span class="w"></span>
+<span class="k">[general]</span><span class="w"></span>
+<span class="hll"><span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">bar</span><span class="w"></span>
+</span><span class="na">host</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">http://other.bar/</span><span class="w"></span>
+<span class="na">dbpath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/var/lib/isso/other.bar.db</span><span class="w"></span>
 </pre></div>
 </div>
 <p>Then you run Isso with gunicorn (separate multiple configuration files by
@@ -151,14 +151,14 @@ $ gunicorn isso.dispatch -b localhost:8080
 </pre></div>
 </div>
 <p>When you now visit <a class="reference external" href="http://comments.example/">http://comments.example/</a>, you will see your different Isso
-configuration separated by /<cite>name</cite>.</p>
+configuration separated by <code class="docutils literal notranslate"><span class="pre">/name</span></code>.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>$ curl http://comments.example/
 /foo
 /bar
 </pre></div>
 </div>
 <p>Just embed the JavaScript including the new relative path, e.g.
-<em>http://comments.example/foo/js/embed.min.js</em>. Make sure, you don’t mix the
+<code class="docutils literal notranslate"><span class="pre">http://comments.example/foo/js/embed.min.js</span></code>. Make sure, you don’t mix the
 URLs on both sites as it will most likely cause CORS-related errors.</p>
 </section>
 <section id="sub-uri">
@@ -174,8 +174,8 @@ originating from <a class="reference external" href="https://developer.mozilla.o
 
 <span class="w">    </span><span class="kn">location</span><span class="w"> </span><span class="s">/isso</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
 <span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-For</span><span class="w"> </span><span class="nv">$proxy_add_x_forwarded_for</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Script-Name</span><span class="w"> </span><span class="s">/isso</span><span class="p">;</span><span class="w"></span>
-<span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Host</span><span class="w"> </span><span class="nv">$host</span><span class="p">;</span><span class="w"></span>
+<span class="hll"><span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Script-Name</span><span class="w"> </span><span class="s">/isso</span><span class="p">;</span><span class="w"></span>
+</span><span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">Host</span><span class="w"> </span><span class="nv">$host</span><span class="p">;</span><span class="w"></span>
 <span class="w">        </span><span class="kn">proxy_set_header</span><span class="w"> </span><span class="s">X-Forwarded-Proto</span><span class="w"> </span><span class="nv">$scheme</span><span class="p">;</span><span class="w"></span>
 <span class="w">        </span><span class="kn">proxy_pass</span><span class="w"> </span><span class="s">http://localhost:8080</span><span class="p">;</span><span class="w"></span>
 <span class="w">    </span><span class="p">}</span><span class="w"></span>

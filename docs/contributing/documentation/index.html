@@ -32,7 +32,6 @@
             </header>
             <nav>
                 <a href="../../">Documentation</a>
-                <a href="../../../news/">News</a>
                 <a href="../">Contribute</a>
                 <a href="../../../community/">community</a>
             </nav>
@@ -134,14 +133,14 @@ since it may be severely outdated and throw errors with Isso’s theme. Isso’s
 docs need at least version 4.5.0.</p>
 </div>
 <p>Install via pip:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ virtualenv .venv <span class="o">&amp;&amp;</span> $ <span class="nb">source</span> .venv/bin/activate
-<span class="o">(</span>.venv<span class="o">)</span> $ pip install sphinx
-<span class="o">(</span>.venv<span class="o">)</span> $ sphinx-build --version
-~&gt; sphinx-build <span class="m">4</span>.5.0
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>virtualenv .venv <span class="o">&amp;&amp;</span> $ <span class="nb">source</span> .venv/bin/activate
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pip install sphinx
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>sphinx-build --version
+<span class="go">~&gt; sphinx-build 4.5.0</span>
 </pre></div>
 </div>
 <p>Build the docs:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="o">(</span>.venv<span class="o">)</span> $ make site
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>make site
 </pre></div>
 </div>
 <p>The stylesheets of the theme are written in a CSS-like language called
@@ -149,8 +148,8 @@ docs need at least version 4.5.0.</p>
 <p>If you have made any changes to the stylesheets, you need to install the
 <a class="reference external" href="https://github.com/sass/sassc">sassc</a> program and then re-generate the CSS file at
 <code class="docutils literal notranslate"><span class="pre">docs/_static/css/site.css</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ apt install sassc
-$ make css
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>apt install sassc
+<span class="gp">$ </span>make css
 </pre></div>
 </div>
 </section>
@@ -203,12 +202,12 @@ It refers to the section itself, see <span class="na">:ref:</span><span class="n
 </div>
 <p><strong>Code blocks:</strong></p>
 <p>Use <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">code-block::</span> <span class="pre">&lt;language&gt;</span></code> and indent the code by one level:</p>
-<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> <span class="k">bash</span>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> <span class="k">console</span>
 
-     $ sudo apt install python3 python3-pip python3-virtualenv
-     $ virtualenv .venv
-     $ <span class="nb">source</span> .venv/bin/activate
-     <span class="o">(</span>.venv<span class="o">)</span> $ python <span class="o">[</span>cmd<span class="o">]</span>
+     <span class="gp">$ </span>sudo apt install python3 python3-pip python3-virtualenv
+     <span class="gp">$ </span>virtualenv .venv
+     <span class="gp">$ </span><span class="nb">source</span> .venv/bin/activate
+     <span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>python <span class="o">[</span>cmd<span class="o">]</span>
 </pre></div>
 </div>
 </section>
@@ -219,12 +218,14 @@ It refers to the section itself, see <span class="na">:ref:</span><span class="n
 <code class="docutils literal notranslate"><span class="pre">===</span></code> for page title, <code class="docutils literal notranslate"><span class="pre">---</span></code> for section headings (h3), <code class="docutils literal notranslate"><span class="pre">^^^</span></code> for
 sub-headings (h4).</p></li>
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">$</span> <span class="pre">/usr/bin/command</span></code> to refer to shell commands and use
-<code class="docutils literal notranslate"><span class="pre">code-block::</span> <span class="pre">bash</span></code> over <code class="docutils literal notranslate"><span class="pre">sh</span></code></p></li>
+<code class="docutils literal notranslate"><span class="pre">code-block::</span> <span class="pre">console</span></code> over <code class="docutils literal notranslate"><span class="pre">bash</span></code> or <code class="docutils literal notranslate"><span class="pre">sh</span></code>.
+For actual shell scripts, use <code class="docutils literal notranslate"><span class="pre">sh</span></code>.</p></li>
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">(.venv)</span> <span class="pre">$</span> <span class="pre">python</span> <span class="pre">[cmd]</span></code> for things that need to be run inside a
 virtual environment and be consistent
 (see <a class="reference external" href="https://www.sphinx-doc.org/en/master/tutorial/narrative-documentation.html">Sphinx: Narrative Documentation</a>)</p></li>
-<li><p>Use <code class="docutils literal notranslate"><span class="pre">/path/to/isso/&lt;thing&gt;</span></code> to refer to items inside Isso’s main directory
-and use <code class="docutils literal notranslate"><span class="pre">comments.db</span></code> as the name for the database</p></li>
+<li><p>Use <code class="docutils literal notranslate"><span class="pre">/path/to/isso/&lt;thing&gt;</span></code> to refer to items inside Isso’s installation
+directory or for user data and use <code class="docutils literal notranslate"><span class="pre">comments.db</span></code> as the name for the
+database</p></li>
 <li><p>Admonitions should only be: <code class="docutils literal notranslate"><span class="pre">note</span></code>, <code class="docutils literal notranslate"><span class="pre">tip</span></code>, <code class="docutils literal notranslate"><span class="pre">warning</span></code>, <code class="docutils literal notranslate"><span class="pre">attention</span></code>,
 (maybe also <code class="docutils literal notranslate"><span class="pre">error</span></code>?). See <a class="reference external" href="https://docutils.sourceforge.io/docs/ref/rst/directives.html#admonitions">docutils: Admonitions</a>.</p></li>
 <li><p>Try to keep line length under 80 characters, but don’t worry when going over

@@ -33,7 +33,6 @@
             </header>
             <nav>
                 <a href="../../">Documentation</a>
-                <a href="../../../news/">News</a>
                 <a href="../../contributing/">Contribute</a>
                 <a href="../../../community/">community</a>
             </nav>
@@ -203,17 +202,17 @@ $ docker build -f Dockerfile -t isso .
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ docker run <span class="se">\</span>
     --mount <span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/package.json,target<span class="o">=</span>/src/package.json,readonly <span class="se">\</span>
     --mount <span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/isso/js/,target<span class="o">=</span>/src/isso/js/,readonly <span class="se">\</span>
-    isso-js-testbed npm run test-unit
-</pre></div>
+<span class="hll">    isso-js-testbed npm run test-unit
+</span></pre></div>
 </div>
 <p>Run <strong>integration tests:</strong></p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ docker run <span class="se">\</span>
     --mount <span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/package.json,target<span class="o">=</span>/src/package.json,readonly <span class="se">\</span>
     --mount <span class="nv">type</span><span class="o">=</span>bind,source<span class="o">=</span><span class="si">${</span><span class="nv">PWD</span><span class="si">}</span>/isso/js/,target<span class="o">=</span>/src/isso/js/,readonly <span class="se">\</span>
-    --env <span class="nv">ISSO_ENDPOINT</span><span class="o">=</span><span class="s1">&#39;http://isso-dev.local:8080&#39;</span> <span class="se">\</span>
-    --network container:isso-server <span class="se">\</span>
-    isso-js-testbed npm run test-integration
-</pre></div>
+<span class="hll">    --env <span class="nv">ISSO_ENDPOINT</span><span class="o">=</span><span class="s1">&#39;http://isso-dev.local:8080&#39;</span> <span class="se">\</span>
+</span><span class="hll">    --network container:isso-server <span class="se">\</span>
+</span><span class="hll">    isso-js-testbed npm run test-integration
+</span></pre></div>
 </div>
 <p>(The <code class="docutils literal notranslate"><span class="pre">--network</span></code> part ensures that the client container can see the server
 part. This is <em>not</em> set automatically by docker since this container is

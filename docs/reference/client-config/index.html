@@ -148,26 +148,26 @@ english translation of the <code class="docutils literal notranslate"><span clas
 <section id="data-isso-directives">
 <h3>data-isso-* directives<a class="headerlink" href="#data-isso-directives" title="Permalink to this headline">¶</a></h3>
 <dl>
-<dt><code class="docutils literal notranslate"><span class="pre">data-isso</span></code></dt><dd><p>Isso usually detects the REST API automatically, but when you serve the JS
+<dt>data-isso</dt><dd><p>Isso usually detects the REST API automatically, but when you serve the JS
 script on a different location, this may fail. Use <cite>data-isso</cite> to
 override the API location:</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-isso</span><span class="o">=</span><span class="s">&quot;/isso&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/path/to/embed.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">data-isso-css-url</span></code></dt><dd><p>Set URL from which to fetch <code class="docutils literal notranslate"><span class="pre">isso.css</span></code>, e.g. from a CDN.
+<dt>data-isso-css-url</dt><dd><p>Set URL from which to fetch <code class="docutils literal notranslate"><span class="pre">isso.css</span></code>, e.g. from a CDN.
 Defaults to fetching from the API endpoint.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;...&quot;</span> <span class="na">data-isso-css-url</span><span class="o">=</span><span class="s">&quot;/path/to/isso.css&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">data-isso-css</span></code></dt><dd><p>Set to <cite>false</cite> prevents Isso from automatically appending the stylesheet.
+<dt>data-isso-css</dt><dd><p>Set to <cite>false</cite> prevents Isso from automatically appending the stylesheet.
 Defaults to <cite>true</cite>.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;...&quot;</span> <span class="na">data-isso-css</span><span class="o">=</span><span class="s">&quot;false&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">data-isso-lang</span></code></dt><dd><p>Always render the Isso UI in this language, ignoring what the
+<dt>data-isso-lang</dt><dd><p>Always render the Isso UI in this language, ignoring what the
 user-agent says is the preferred language.  The default is to
 honor the user-agent’s preferred language, and this can be
 specified explicitly by using <code class="docutils literal notranslate"><span class="pre">data-isso-lang=&quot;&quot;</span></code>.</p>
@@ -179,33 +179,36 @@ the same as same as “pt-BR”).</p>
 <a class="reference external" href="https://github.com/posativ/isso/tree/master/isso/js/app/i18n">i18n directory</a> of
 the source tree.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">data-isso-default-lang</span></code></dt><dd><p>Render the Isso UI in this language when the user-agent does not
+<dt>data-isso-default-lang</dt><dd><p>Render the Isso UI in this language when the user-agent does not
 specify a preferred language, or if the language it specifies is not
 supported.  Like <code class="docutils literal notranslate"><span class="pre">data-isso-lang</span></code>, the value of this property should
 be a BCP 47 language tag.  Defaults to “en”.</p>
 <p>If you specify both <code class="docutils literal notranslate"><span class="pre">data-isso-default-lang</span></code> and <code class="docutils literal notranslate"><span class="pre">data-isso-lang</span></code>,
 <code class="docutils literal notranslate"><span class="pre">data-isso-lang</span></code> takes precedence.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.12.6.</span></p>
+</div>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">data-isso-max-comments-top</span></code> and <code class="docutils literal notranslate"><span class="pre">data-isso-max-comments-nested</span></code></dt><dd><p>Number of top level (or nested) comments to show by default. If some
+<dt>data-isso-max-comments-top, data-isso-max-comments-nested</dt><dd><p>Number of top level (or nested) comments to show by default. If some
 comments are not shown, an “X Hidden” link is shown.</p>
-<p>Set to <cite>“inf”</cite> to show all, or <cite>“0”</cite> to hide all.</p>
+<p>Set to <code class="docutils literal notranslate"><span class="pre">&quot;inf&quot;</span></code> to show all, or <code class="docutils literal notranslate"><span class="pre">&quot;0&quot;</span></code> to hide all.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">data-isso-reveal-on-click</span></code></dt><dd><p>Number of comments to reveal on clicking the “X Hidden” link.</p>
+<dt>data-isso-reveal-on-click</dt><dd><p>Number of comments to reveal on clicking the “X Hidden” link.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">data-isso-avatar</span></code></dt><dd><p>Enable or disable avatar generation. Ignored if gravatar is enabled on
+<dt>data-isso-avatar</dt><dd><p>Enable or disable avatar generation. Ignored if gravatar is enabled on
 server side, since gravatars will take precedence and disable avatar
 generation.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">data-isso-avatar-bg</span></code></dt><dd><p>Set avatar background color. Any valid CSS color will do.</p>
+<dt>data-isso-avatar-bg</dt><dd><p>Set avatar background color. Any valid CSS color will do.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">data-isso-avatar-fg</span></code></dt><dd><p>Set avatar foreground color. Up to 8 colors are possible. The default color
+<dt>data-isso-avatar-fg</dt><dd><p>Set avatar foreground color. Up to 8 colors are possible. The default color
 scheme is based in <a class="reference external" href="http://colrd.com/palette/19308/">this color palette</a>.
 Multiple colors must be separated by space. If you use less than eight colors
 and not a multiple of 2, the color distribution is not even.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">data-isso-vote</span></code></dt><dd><p>Enable or disable voting feature on the client side.</p>
+<dt>data-isso-vote</dt><dd><p>Enable or disable voting feature on the client side.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">data-isso-vote-levels</span></code></dt><dd><p>List of vote levels used to customize comment appearance based on score.
+<dt>data-isso-vote-levels</dt><dd><p>List of vote levels used to customize comment appearance based on score.
 Provide a comma-separated values (eg. <cite>“0,5,10,25,100”</cite>) or a JSON array (eg. <cite>“[-5,5,15]”</cite>).</p>
 <p>For example, the value <cite>“-5,5”</cite> will cause each <cite>isso-comment</cite> to be given one of these 3 classes:</p>
 <ul class="simple">
@@ -215,7 +218,7 @@ Provide a comma-separated values (eg. <cite>“0,5,10,25,100”</cite>) or a JSO
 </ul>
 <p>These classes can then be used to customize the appearance of comments (eg. put a star on popular comments)</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">data-isso-feed</span></code></dt><dd><p>Enable or disable the addition of a link to the feed for the comment
+<dt>data-isso-feed</dt><dd><p>Enable or disable the addition of a link to the feed for the comment
 thread. The link will only be valid if the appropriate setting, in
 <code class="docutils literal notranslate"><span class="pre">[rss]</span></code> section, is also enabled server-side.</p>
 </dd>
@@ -226,16 +229,31 @@ thread. The link will only be valid if the appropriate setting, in
 <p>In earlier versions the following settings had to mirror the
 corresponding settings in the server configuration, but they are now
 read out from the server automatically.</p>
-<dl class="simple">
-<dt><code class="docutils literal notranslate"><span class="pre">data-isso-reply-to-self</span></code></dt><dd><p>Set to <cite>true</cite> when spam guard is configured with <cite>reply-to-self = true</cite>.</p>
+<dl>
+<dt>data-isso-reply-to-self</dt><dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 0.12.6.</span></p>
+</div>
+<p>Set to <cite>true</cite> when spam guard is configured with <cite>reply-to-self = true</cite>.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">data-isso-require-author</span></code></dt><dd><p>Set to <cite>true</cite> when spam guard is configured with <cite>require-author = true</cite>.</p>
+<dt>data-isso-require-author</dt><dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 0.12.6.</span></p>
+</div>
+<p>Set to <cite>true</cite> when spam guard is configured with <cite>require-author = true</cite>.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">data-isso-require-email</span></code></dt><dd><p>Set to <cite>true</cite> when spam guard is configured with <cite>require-email = true</cite>.</p>
+<dt>data-isso-require-email</dt><dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 0.12.6.</span></p>
+</div>
+<p>Set to <cite>true</cite> when spam guard is configured with <cite>require-email = true</cite>.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">data-isso-reply-notifications</span></code></dt><dd><p>Set to <cite>true</cite> when reply notifications is configured with <cite>reply-notifications = true</cite>.</p>
+<dt>data-isso-reply-notifications</dt><dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 0.12.6.</span></p>
+</div>
+<p>Set to <cite>true</cite> when reply notifications is configured with <cite>reply-notifications = true</cite>.</p>
 </dd>
-<dt><code class="docutils literal notranslate"><span class="pre">data-isso-gravatar</span></code></dt><dd><p>Set to <cite>true</cite> when gravatars are enabled with <cite>gravatar = true</cite> in the
+<dt>data-isso-gravatar</dt><dd><div class="deprecated">
+<p><span class="versionmodified deprecated">Deprecated since version 0.12.6.</span></p>
+</div>
+<p>Set to <cite>true</cite> when gravatars are enabled with <cite>gravatar = true</cite> in the
 server configuration.</p>
 </dd>
 </dl>

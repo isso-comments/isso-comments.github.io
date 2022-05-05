@@ -146,22 +146,28 @@ executable or run Isso with an environment variable:</p>
 <section id="general">
 <h3><a class="toc-backref" href="#id5">General</a><a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h3>
 <p id="configure-general">In this section, you configure most comment-related options such as database path,
-session key and hostname. Here are the default values for this section:</p>
+session key and hostname.</p>
+<p>Here are the <strong>default values</strong> for this section:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[general]</span><span class="w"></span>
-<span class="na">dbpath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/tmp/isso.db</span><span class="w"></span>
+<span class="na">dbpath</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/tmp/comments.db</span><span class="w"></span>
 <span class="na">name</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
 <span class="na">host</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
 <span class="na">max-age</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">15m</span><span class="w"></span>
 <span class="na">notify</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">stdout</span><span class="w"></span>
 <span class="na">log-file</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="na">gravatar</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">false</span><span class="w"></span>
+<span class="na">gravatar-url</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">https://www.gravatar.com/avatar/{}?d=identicon&amp;s=55</span><span class="w"></span>
+<span class="na">latest-enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">false</span><span class="w"></span>
 </pre></div>
 </div>
 <dl>
-<dt>dbpath</dt><dd><p>file location to the SQLite3 database, highly recommended to change this
+<dt>dbpath</dt><dd><p>File location to the SQLite3 database, highly recommended to change this
 location to a non-temporary location!</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">/tmp/comments.db</span></code></p>
 </dd>
-<dt>name</dt><dd><p>required to dispatch <a class="reference internal" href="../multi-site-sub-uri/#configure-multiple-sites"><span class="std std-ref">multiple websites</span></a>,
+<dt>name</dt><dd><p>Required to dispatch <a class="reference internal" href="../multi-site-sub-uri/#configure-multiple-sites"><span class="std std-ref">multiple websites</span></a>,
 not used otherwise.</p>
+<p>Default: (empty)</p>
 </dd>
 <dt>host</dt><dd><p>Your website(s). If Isso is unable to connect to at least one site, you’ll
 get a warning during startup and comments are most likely non-functional.</p>
@@ -176,9 +182,11 @@ if Firefox users (and only those) supress their HTTP referer completely.</p>
 <span class="w">    </span><span class="na">https://example.tld/</span><span class="w"></span>
 </pre></div>
 </div>
+<p>Default: (empty)</p>
 </dd>
-<dt>max-age</dt><dd><p>time range that allows users to edit/remove their own comments. See
+<dt>max-age</dt><dd><p>Time range that allows users to edit/remove their own comments. See
 <a class="reference internal" href="#appendum-timedelta"><span class="std std-ref">Appendum: Timedelta</span></a> for valid values.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">15m</span></code></p>
 </dd>
 <dt>notify</dt><dd><p>Select notification backend(s) for new comments, separated by comma.
 Available backends:</p>
@@ -190,24 +198,28 @@ functionality is broken since a few releases.</p>
 moderated) and deletion links.</p>
 </dd>
 </dl>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">stdout</span></code></p>
 </dd>
 <dt>reply-notifications</dt><dd><p>Allow users to request E-mail notifications for replies to their post.</p>
 <p>It is highly recommended to also turn on moderation when enabling this
 setting, as Isso can otherwise be easily exploited for sending spam.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
 </dd>
 <dt>log-file</dt><dd><p>Log console messages to file instead of standard out.</p>
+<p>Default: (empty)</p>
 </dd>
 <dt>gravatar</dt><dd><p>When set to <code class="docutils literal notranslate"><span class="pre">true</span></code> this will add the property “gravatar_image”
 containing the link to a gravatar image to every comment. If a comment
 does not contain an email address, gravatar will render a random icon.
 This is only true when using the default value for “gravatar-url”
 which contains the query string param <code class="docutils literal notranslate"><span class="pre">d=identicon</span></code> …</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
 </dd>
-<dt>gravatar-url</dt><dd><p>Url for gravatar images. The “{}” is where the email hash will be placed.
-Defaults to “<a class="reference external" href="https://www.gravatar.com/avatar">https://www.gravatar.com/avatar</a>/{}?d=identicon&amp;s=55”</p>
+<dt>gravatar-url</dt><dd><p>Url for gravatar images. The <code class="docutils literal notranslate"><span class="pre">{}</span></code> is where the email hash will be placed.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">https://www.gravatar.com/avatar/{}?d=identicon&amp;s=55</span></code></p>
 </dd>
-<dt>latest-enabled</dt><dd><p>If True it will enable the <code class="docutils literal notranslate"><span class="pre">/latest</span></code> endpoint. Optional, defaults
-to False.</p>
+<dt>latest-enabled</dt><dd><p>If true it will enable the <code class="docutils literal notranslate"><span class="pre">/latest</span></code> endpoint.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
 </dd>
 </dl>
 </section>
@@ -220,18 +232,21 @@ to False.</p>
 <span class="na">purge-after</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">30d</span><span class="w"></span>
 </pre></div>
 </div>
-<dl class="simple">
-<dt>enabled</dt><dd><p>enable comment moderation queue. This option only affects new comments.
+<dl>
+<dt>enabled</dt><dd><p>Enable comment moderation queue. This option only affects new comments.
 Comments in moderation queue are not visible to other users until you
 activate them.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
 </dd>
-<dt>approve-if-email-previously-approved</dt><dd><p>automatically approve comments by an email address if that address has
+<dt>approve-if-email-previously-approved</dt><dd><p>Automatically approve comments by an email address if that address has
 had a comment approved within the last 6 months. No ownership verification
 is done on the entered email address. This means that if someone is able
 to guess correctly the email address used by a previously approved author,
 they will be able to have their new comment auto-approved.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
 </dd>
-<dt>purge-after</dt><dd><p>remove unprocessed comments in moderation queue after given time.</p>
+<dt>purge-after</dt><dd><p>Remove unprocessed comments in moderation queue after given time.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">30d</span></code></p>
 </dd>
 </dl>
 </section>
@@ -240,12 +255,15 @@ they will be able to have their new comment auto-approved.</p>
 <p>HTTP server configuration.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[server]</span><span class="w"></span>
 <span class="na">listen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">http://localhost:8080</span><span class="w"></span>
+<span class="na">public-endpoint</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
 <span class="na">reload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">off</span><span class="w"></span>
 <span class="na">profile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">off</span><span class="w"></span>
+<span class="na">trusted-proxies</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
+<span class="na">samesite</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
 </pre></div>
 </div>
 <dl>
-<dt>listen</dt><dd><p>interface to listen on. Isso supports TCP/IP and unix domain sockets:</p>
+<dt>listen</dt><dd><p>Interface to listen on. Isso supports TCP/IP and unix domain sockets:</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="c1">; UNIX domain socket</span><span class="w"></span>
 <span class="na">listen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">unix:///tmp/isso.sock</span><span class="w"></span>
 <span class="c1">; TCP/IP</span><span class="w"></span>
@@ -257,25 +275,30 @@ Currently, gevent can not handle http requests on unix domain socket
 (see <a class="reference external" href="https://github.com/surfly/gevent/issues/295">#295</a> and
 <a class="reference external" href="https://github.com/surfly/gevent/issues/299">#299</a> for details).</p>
 <p>Does not apply for <cite>uWSGI</cite>.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">http://localhost:8080</span></code></p>
 </dd>
-<dt>public-endpoint</dt><dd><p>public URL that Isso is accessed from by end users. Should always be
+<dt>public-endpoint</dt><dd><p>Public URL that Isso is accessed from by end users. Should always be
 a <a class="reference external" href="http://">http://</a> or <a class="reference external" href="https://">https://</a> absolute address. If left blank, automatic
 detection is attempted. Normally only needs to be specified if
-different than the <cite>listen</cite> setting.</p>
+different than the <code class="docutils literal notranslate"><span class="pre">listen</span></code> setting.</p>
+<p>Default: (empty)</p>
 </dd>
-<dt>reload</dt><dd><p>reload application, when the source code has changed. Useful for
+<dt>reload</dt><dd><p>Reload application, when the source code has changed. Useful for
 development. Only works with the internal webserver.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">off</span></code></p>
 </dd>
-<dt>profile</dt><dd><p>show 10 most time consuming function in Isso after each request. Do
+<dt>profile</dt><dd><p>Show 10 most time consuming function in Isso after each request. Do
 not use in production.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">off</span></code></p>
 </dd>
-<dt>trusted-proxies</dt><dd><p>an optional list of reverse proxies IPs behind which you have deployed
+<dt>trusted-proxies</dt><dd><p>An optional list of reverse proxies IPs behind which you have deployed
 your Isso web service (e.g. <cite>127.0.0.1</cite>).
 This allow for proper remote address resolution based on a
 <cite>X-Forwarded-For</cite> HTTP header, which is important for the mechanism
 forbiding several comment votes coming from the same subnet.</p>
+<p>Default: (empty)</p>
 </dd>
-<dt>samesite</dt><dd><p>override <code class="docutils literal notranslate"><span class="pre">Set-Cookie</span></code> header <code class="docutils literal notranslate"><span class="pre">SameSite</span></code> value.
+<dt>samesite</dt><dd><p>Override <code class="docutils literal notranslate"><span class="pre">Set-Cookie</span></code> header <code class="docutils literal notranslate"><span class="pre">SameSite</span></code> value.
 Needed for setups where isso is not hosted on the same domain, e.g. called
 from example.org and hosted under comments.example.org.
 By default, isso will set <code class="docutils literal notranslate"><span class="pre">SameSite=None</span></code> when served over https and
@@ -283,6 +306,7 @@ By default, isso will set <code class="docutils literal notranslate"><span class
 (see <a class="reference external" href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Set-Cookie/SameSite">MDM: SameSite</a>
 and <a class="reference external" href="https://github.com/posativ/isso/issues/682">#682</a> for details).</p>
 <p>Accepted values: <code class="docutils literal notranslate"><span class="pre">None</span></code>, <code class="docutils literal notranslate"><span class="pre">Lax</span></code>, <code class="docutils literal notranslate"><span class="pre">Strict</span></code></p>
+<p>Default: (empty)</p>
 </dd>
 </dl>
 </section>
@@ -302,28 +326,33 @@ also can moderate (=activate or delete) comments. Don’t forget to configure
 <span class="na">timeout</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">10</span><span class="w"></span>
 </pre></div>
 </div>
-<dl class="simple">
-<dt>username</dt><dd><p>self-explanatory, optional</p>
+<dl>
+<dt>username</dt><dd><p>Self-explanatory, <em>optional</em></p>
+<p>Default: (empty)</p>
 </dd>
 <dt>password</dt><dd><p>self-explanatory (yes, plain text, create a dedicated account for
-notifications), optional.</p>
+notifications), <em>optional</em>.</p>
+<p>Default: (empty)</p>
 </dd>
 <dt>host</dt><dd><p>SMTP server</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">localhost</span></code></p>
 </dd>
 <dt>port</dt><dd><p>SMTP port</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">587</span></code></p>
 </dd>
-<dt>security</dt><dd><p>use a secure connection to the server, possible values: <em>none</em>, <em>starttls</em>
-or <em>ssl</em>. Note, that there is no easy way for Python 2.7 and 3.3 to
-implement certification validation and thus the connection is vulnerable to
-Man-in-the-Middle attacks. You should definitely use a dedicated SMTP
-account for Isso in that case.</p>
+<dt>security</dt><dd><p>Use a secure connection to the server.</p>
+<p>Accepted values: <code class="docutils literal notranslate"><span class="pre">none</span></code>, <code class="docutils literal notranslate"><span class="pre">starttls</span></code>, <code class="docutils literal notranslate"><span class="pre">ssl`</span></code></p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">starttls</span></code></p>
 </dd>
-<dt>to</dt><dd><p>recipient address, e.g. your email address</p>
+<dt>to</dt><dd><p>Recipient address, e.g. your email address</p>
+<p>Default: (empty)</p>
 </dd>
-<dt>from</dt><dd><p>sender address, e.g. <cite>“Foo Bar” &lt;isso&#64;example.tld&gt;</cite></p>
+<dt>from</dt><dd><p>Sender address, e.g. <code class="docutils literal notranslate"><span class="pre">&quot;Foo</span> <span class="pre">Bar&quot;</span> <span class="pre">&lt;isso&#64;example.tld&gt;</span></code></p>
+<p>Default: (empty)</p>
 </dd>
-<dt>timeout</dt><dd><p>specify a timeout in seconds for blocking operations like the
+<dt>timeout</dt><dd><p>Specify a timeout in seconds for blocking operations like the
 connection attempt.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">10</span></code></p>
 </dd>
 </dl>
 </section>
@@ -340,24 +369,30 @@ for IPv4, <code class="docutils literal notranslate"><span class="pre">/48</span
 <span class="na">require-email</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">false</span><span class="w"></span>
 </pre></div>
 </div>
-<dl class="simple">
-<dt>enabled</dt><dd><p>enable guard, recommended in production. Not useful for debugging
+<dl>
+<dt>enabled</dt><dd><p>Enable guard, recommended in production. Not useful for debugging
 purposes.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">true</span></code></p>
 </dd>
-<dt>ratelimit</dt><dd><p>limit to N new comments per minute.</p>
+<dt>ratelimit</dt><dd><p>Limit to N new comments per minute.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">2</span></code></p>
 </dd>
-<dt>direct-reply</dt><dd><p>how many comments directly to the thread (prevent a simple
+<dt>direct-reply</dt><dd><p>How many comments directly to the thread (prevent a simple
 <cite>while true; do curl …; done</cite>.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">3</span></code></p>
 </dd>
-<dt>reply-to-self</dt><dd><p>allow commenters to reply to their own comments when they could still edit
+<dt>reply-to-self</dt><dd><p>Allow commenters to reply to their own comments when they could still edit
 the comment. After the editing timeframe is gone, commenters can reply to
 their own comments anyways.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
 </dd>
-<dt>require-author</dt><dd><p>force commenters to enter a value into the author field. No validation is
+<dt>require-author</dt><dd><p>Force commenters to enter a value into the author field. No validation is
 performed on the provided value.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
 </dd>
-<dt>require-email</dt><dd><p>force commenters to enter a value into the email field. No validation is
+<dt>require-email</dt><dd><p>Force commenters to enter a value into the email field. No validation is
 performed on the provided value.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
 </dd>
 </dl>
 </section>
@@ -374,26 +409,50 @@ supported, but new languages are relatively easy to add.</p>
 </div>
 <dl>
 <dt>options</dt><dd><p><a class="reference external" href="https://misaka.61924.nl/#api">Misaka-specific Markdown extensions</a>, all
-extension flags can be used there, separated by comma, either by their name
-or as <code class="docutils literal notranslate"><span class="pre">EXT_</span></code>.</p>
-<p><strong>Careful:</strong> Misaka 1.0 used <code class="docutils literal notranslate"><span class="pre">snake_case</span></code>, but 2.0 needs <code class="docutils literal notranslate"><span class="pre">dashed-case</span></code>!</p>
+extension options can be used there, separated by comma, either by their
+name (<code class="docutils literal notranslate"><span class="pre">fenced-code</span></code>) or as <code class="docutils literal notranslate"><span class="pre">EXT_FENCED_CODE</span></code>.</p>
+<p>The <a class="reference external" href="https://flask-misaka.readthedocs.io/en/latest/#options">flask-misaka docs</a>
+have a good explanation of what each extension options does.</p>
+<p>Note: Use e.g. <code class="docutils literal notranslate"><span class="pre">fenced-code</span></code> (with a <code class="docutils literal notranslate"><span class="pre">-</span></code> dash) instead of
+<code class="docutils literal notranslate"><span class="pre">fenced_code</span></code> (underline) to refer to extension names.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">strikethrough,</span> <span class="pre">superscript,</span> <span class="pre">autolink,</span> <span class="pre">fenced-code</span></code></p>
 </dd>
 <dt>flags</dt><dd><p><a class="reference external" href="https://misaka.61924.nl/#html-render-flags">Misaka-specific HTML rendering flags</a>, all html rendering flags
-can be used here, separated by comma, either by their name or as <code class="docutils literal notranslate"><span class="pre">HTML_</span></code>.
-Per Misaka’s defaults, no flags are set.</p>
+can be used here, separated by comma, either by their name (<code class="docutils literal notranslate"><span class="pre">hard-wrap</span></code>)
+or as e.g. <code class="docutils literal notranslate"><span class="pre">HTML_HARD_WRAP</span></code>.</p>
+<p>Default: (empty)</p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.12.4.</span></p>
+</div>
 </dd>
-<dt>allowed-elements</dt><dd><p>Additional HTML tags to allow in the generated output, comma-separated. By
-default, only <em>a</em>, <em>blockquote</em>, <em>br</em>, <em>code</em>, <em>del</em>, <em>em</em>, <em>h1</em>, <em>h2</em>,
-<em>h3</em>, <em>h4</em>, <em>h5</em>, <em>h6</em>, <em>hr</em>, <em>ins</em>, <em>li</em>, <em>ol</em>, <em>p</em>, <em>pre</em>, <em>strong</em>,
-<em>table</em>, <em>tbody</em>, <em>td</em>, <em>th</em>, <em>thead</em> and <em>ul</em> are allowed.</p>
+<dt>allowed-elements</dt><dd><p><strong>Additional</strong> HTML tags to allow in the generated output, comma-separated.</p>
+<p>By default, only <code class="docutils literal notranslate"><span class="pre">a</span></code>, <code class="docutils literal notranslate"><span class="pre">blockquote</span></code>, <code class="docutils literal notranslate"><span class="pre">br</span></code>, <code class="docutils literal notranslate"><span class="pre">code</span></code>, <code class="docutils literal notranslate"><span class="pre">del</span></code>, <code class="docutils literal notranslate"><span class="pre">em</span></code>,
+<code class="docutils literal notranslate"><span class="pre">h1</span></code>, <code class="docutils literal notranslate"><span class="pre">h2</span></code>, <code class="docutils literal notranslate"><span class="pre">h3</span></code>, <code class="docutils literal notranslate"><span class="pre">h4</span></code>, <code class="docutils literal notranslate"><span class="pre">h5</span></code>, <code class="docutils literal notranslate"><span class="pre">h6</span></code>, <code class="docutils literal notranslate"><span class="pre">hr</span></code>, <code class="docutils literal notranslate"><span class="pre">ins</span></code>, <code class="docutils literal notranslate"><span class="pre">li</span></code>,
+<code class="docutils literal notranslate"><span class="pre">ol</span></code>, <code class="docutils literal notranslate"><span class="pre">p</span></code>, <code class="docutils literal notranslate"><span class="pre">pre</span></code>, <code class="docutils literal notranslate"><span class="pre">strong</span></code>, <code class="docutils literal notranslate"><span class="pre">table</span></code>, <code class="docutils literal notranslate"><span class="pre">tbody</span></code>, <code class="docutils literal notranslate"><span class="pre">td</span></code>, <code class="docutils literal notranslate"><span class="pre">th</span></code>,
+<code class="docutils literal notranslate"><span class="pre">thead</span></code> and <code class="docutils literal notranslate"><span class="pre">ul</span></code> are allowed.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>This option (together with <code class="docutils literal notranslate"><span class="pre">allowed-attributes</span></code>) is frequently
+misunderstood. Setting e.g. this list to only <code class="docutils literal notranslate"><span class="pre">a,</span> <span class="pre">blockquote</span></code> will
+mean that <code class="docutils literal notranslate"><span class="pre">br,</span> <span class="pre">code,</span> <span class="pre">del,</span> <span class="pre">...</span></code> and all other default allowed tags are
+still allowed. You can only add <em>additional</em> elements here.</p>
+<p>It is planned to change this behavior, see
+<a class="reference external" href="https://github.com/posativ/isso/issues/751">this issue</a>.</p>
+</div>
+<p>Default: (empty)</p>
 </dd>
-<dt>allowed-attributes</dt><dd><p>Additional HTML attributes (independent from elements) to allow in the
-generated output, comma-separated. By default, only <em>align</em> and <em>href</em> are
-allowed.</p>
+<dt>allowed-attributes</dt><dd><p><strong>Additional</strong> HTML attributes (independent from elements) to allow in the
+generated output, comma-separated.</p>
+<p>By default, only <code class="docutils literal notranslate"><span class="pre">align</span></code> and <code class="docutils literal notranslate"><span class="pre">href</span></code> are allowed (same caveats as for
+<code class="docutils literal notranslate"><span class="pre">allowed-elements</span></code> above apply)</p>
+<p>Default: (empty)</p>
 </dd>
 </dl>
-<p>To allow images in comments, you just need to add <code class="docutils literal notranslate"><span class="pre">allowed-elements</span> <span class="pre">=</span> <span class="pre">img</span></code> and
-<code class="docutils literal notranslate"><span class="pre">allowed-attributes</span> <span class="pre">=</span> <span class="pre">src</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To allow images in comments, you need to add
+<code class="docutils literal notranslate"><span class="pre">allowed-elements</span> <span class="pre">=</span> <span class="pre">img</span></code> and <em>also</em> <code class="docutils literal notranslate"><span class="pre">allowed-attributes</span> <span class="pre">=</span> <span class="pre">src</span></code>.</p>
+</div>
 </section>
 <section id="hash">
 <h3><a class="toc-backref" href="#id11">Hash</a><a class="headerlink" href="#hash" title="Permalink to this headline">¶</a></h3>
@@ -408,14 +467,16 @@ commenters but still be able to generate an identicon.</p>
 <dt>salt</dt><dd><p>A salt is used to protect against rainbow tables. Isso does not make use of
 pepper (yet). The default value has been in use since the release of Isso
 and generates the same identicons for same addresses across installations.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">Eech7co8Ohloopo9Ol6baimi</span></code></p>
 </dd>
-<dt>algorithm</dt><dd><p>Hash algorithm to use – either from Python’s <cite>hashlib</cite> or PBKDF2 (a
+<dt>algorithm</dt><dd><p>Hash algorithm to use – either from Python’s <code class="docutils literal notranslate"><span class="pre">hashlib</span></code> or PBKDF2 (a
 computational expensive hash function).</p>
-<p>The actual identifier for PBKDF2 is <cite>pbkdf2:1000:6:sha1</cite>, which means 1000
-iterations, 6 bytes to generate and SHA1 as pseudo-random family used for
-key strengthening.
-Arguments have to be in that order, but can be reduced to <cite>pbkdf2:4096</cite>
+<p>The actual identifier for PBKDF2 is <code class="docutils literal notranslate"><span class="pre">pbkdf2:1000:6:sha1</span></code>, which means
+1000 iterations, 6 bytes to generate and SHA1 as pseudo-random family used
+for key strengthening.
+Arguments have to be in that order, but can be reduced to <code class="docutils literal notranslate"><span class="pre">pbkdf2:4096</span></code>
 for example to override the iterations only.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">pbkdf2</span></code></p>
 </dd>
 </dl>
 </section>
@@ -429,10 +490,12 @@ are enabled as soon as there is a base URL defined in this section.</p>
 <span class="na">limit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">100</span><span class="w"></span>
 </pre></div>
 </div>
-<dl class="simple">
-<dt>base</dt><dd><p>base URL to use to build complete URI to pages (by appending the URI from Isso)</p>
+<dl>
+<dt>base</dt><dd><p>Base URL to use to build complete URI to pages (by appending the URI from Isso)</p>
+<p>Default: (empty)</p>
 </dd>
 <dt>limit</dt><dd><p>number of most recent comments to return for a thread</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">100</span></code></p>
 </dd>
 </dl>
 </section>
@@ -442,13 +505,15 @@ are enabled as soon as there is a base URL defined in this section.</p>
 comments. The interface is available under <code class="docutils literal notranslate"><span class="pre">/admin</span></code> on your isso URL.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[admin]</span><span class="w"></span>
 <span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span><span class="w"></span>
-<span class="na">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">secret</span><span class="w"></span>
+<span class="na">password</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">please_choose_a_strong_password</span><span class="w"></span>
 </pre></div>
 </div>
-<dl class="simple">
-<dt>enabled</dt><dd><p>whether to enable the admin interface</p>
+<dl>
+<dt>enabled</dt><dd><p>Whether to enable the admin interface</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
 </dd>
-<dt>password</dt><dd><p>the plain text password to use for logging into the administration interface</p>
+<dt>password</dt><dd><p>The plain text password to use for logging into the administration interface</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">please_choose_a_strong_password</span></code></p>
 </dd>
 </dl>
 </section>

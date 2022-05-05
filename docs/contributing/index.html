@@ -245,7 +245,9 @@ forward!</p></li>
 <li><p>Look at <a class="reference external" href="https://github.com/posativ/isso/labels/good-first-issue">open issues with label “good-first-issue”</a></p></li>
 <li><p>Look at <a class="reference external" href="https://github.com/posativ/isso/labels/needs-decision">open issues with label “needs-decision”</a> and chime in with your
 well thought-out opinion</p></li>
-<li><p>Look at <a class="reference external" href="https://github.com/posativ/isso/milestones">milestones</a></p></li>
+<li><p>Look at <a class="reference external" href="https://github.com/posativ/isso/milestones">milestones</a> - the next release of Isso will be version 0.13, and
+you can help by looking for open issues and PRs that
+<a class="reference external" href="https://github.com/posativ/isso/milestone/5">contribute to 0.13</a></p></li>
 <li><p>Nicer automated testing, via docker or GH actions, of most of the available
 setup options (fastcgi/proxy configs, docker, apachge/nginx, …)</p></li>
 </ul>
@@ -278,36 +280,44 @@ maintainers even more</p></li>
 It is built using many different technologies and moving parts</p>
 <p>Below is a non-exhaustive list of tools, services, dependencies and
 technologies Isso’s contributors and maintainers need to at least peripherally
-be aware of - that’s a lot to demand of someone!</p>
-<dl class="simple">
-<dt>Docs</dt><dd><ul class="simple">
+be aware of - that’s a lot to demand of someone! Your aim should be to reduce
+this complexity, not add to it.</p>
+<table class="hlist"><tr><td><ul class="simple">
+<li><p><strong>Docs</strong></p>
+<ul>
 <li><p>apiDoc</p></li>
 <li><p>sphinx with reST syntax</p></li>
 </ul>
-</dd>
-<dt>Python</dt><dd><ul class="simple">
+</li>
+<li><p><strong>Python</strong></p>
+<ul>
 <li><p>Pallets project: werkzeug, jinja2, flask</p></li>
 <li><p>misaka (and changing config opts)</p></li>
 <li><p>bleach, html5lib</p></li>
-<li><p>different python versions, OS versions</p></li>
-<li><p>flake8</p></li>
+<li><p>Different python versions, OS versions</p></li>
 <li><p>setuptools, pip</p></li>
-<li><p>python package index (pypa) uploading</p></li>
+<li><p>Python Package Index (PyPI) uploading</p></li>
 </ul>
-</dd>
-<dt>Python testing</dt><dd><ul class="simple">
+</li>
+<li><p><strong>Python testing</strong></p>
+<ul>
 <li><p>pytest (unit testing)</p></li>
 <li><p>coverage</p></li>
+<li><p>flake8</p></li>
 </ul>
-</dd>
-<dt>Convenience tools</dt><dd><ul class="simple">
-<li><p>docker</p></li>
-<li><p>vagrant</p></li>
-<li><p>ansible</p></li>
+</li>
+<li><p><strong>Convenience tools</strong></p>
+<ul>
+<li><p>Docker</p></li>
+<li><p>Vagrant</p></li>
+<li><p>Ansible</p></li>
 </ul>
-</dd>
-<dt>Javascript</dt><dd><ul class="simple">
-<li><p>nodejs</p></li>
+</li>
+</ul>
+</td><td><ul class="simple">
+<li><p><strong>Javascript</strong></p>
+<ul>
+<li><p>Node.js</p></li>
 <li><p>npm</p></li>
 <li><p>package.json oddities</p></li>
 <li><p>webpack</p></li>
@@ -315,13 +325,15 @@ be aware of - that’s a lot to demand of someone!</p>
 <li><p>puppeteer</p></li>
 <li><p>Browser compatibility and ES5/ES6 standards</p></li>
 </ul>
-</dd>
-<dt>Development tools</dt><dd><ul class="simple">
+</li>
+<li><p><strong>Development tools</strong></p>
+<ul>
 <li><p>make</p></li>
 <li><p>Github Actions</p></li>
 </ul>
-</dd>
-<dt>Deployment options</dt><dd><ul class="simple">
+</li>
+<li><p><strong>Deployment options</strong></p>
+<ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">isso</span> <span class="pre">run</span> <span class="pre">[opts]</span></code></p></li>
 <li><p>Apache (<code class="docutils literal notranslate"><span class="pre">mod_wsgi</span></code>)</p></li>
 <li><p>Apache (<code class="docutils literal notranslate"><span class="pre">mod_fastcgi</span></code>)</p></li>
@@ -331,13 +343,15 @@ be aware of - that’s a lot to demand of someone!</p>
 <li><p>gunicorn</p></li>
 <li><p>gevent</p></li>
 </ul>
-</dd>
-<dt>Importers</dt><dd><ul class="simple">
+</li>
+<li><p><strong>Importers</strong></p>
+<ul>
 <li><p>Current disqus export format</p></li>
 <li><p>Current and past Wordpress export formats</p></li>
 </ul>
-</dd>
-</dl>
+</li>
+</ul>
+</td></tr></table>
 </section>
 </section>
 </section>

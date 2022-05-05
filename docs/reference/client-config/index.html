@@ -126,6 +126,7 @@ preferably in the script tag which embeds the JS:</p>
         <span class="na">data-isso-vote</span><span class="o">=</span><span class="s">&quot;true&quot;</span>
         <span class="na">data-isso-vote-levels</span><span class="o">=</span><span class="s">&quot;&quot;</span>
         <span class="na">data-isso-feed</span><span class="o">=</span><span class="s">&quot;false&quot;</span>
+        <span class="na">data-isso-reply-notifications-default-enabled</span><span class="o">=</span><span class="s">&quot;false&quot;</span>
         <span class="na">src</span><span class="o">=</span><span class="s">&quot;/prefix/js/embed.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 </div>
@@ -220,6 +221,16 @@ Provide a comma-separated values (eg. <cite>“0,5,10,25,100”</cite>) or a JSO
 <dt>data-isso-feed</dt><dd><p>Enable or disable the addition of a link to the feed for the comment
 thread. The link will only be valid if the appropriate setting, in
 <code class="docutils literal notranslate"><span class="pre">[rss]</span></code> section, is also enabled server-side.</p>
+</dd>
+<dt>data-isso-reply-notifications-default-enabled</dt><dd><p>Set to <code class="docutils literal notranslate"><span class="pre">true</span></code> to make the reply notifications checkbox on the postbox be
+checked by default. Otherwise, the user will have to manually opt-in to
+reply notifications.</p>
+<p>This setting will have no effect if <code class="docutils literal notranslate"><span class="pre">reply-notifications</span></code> are not enabled
+on the server.</p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.13.</span></p>
+</div>
 </dd>
 </dl>
 </section>

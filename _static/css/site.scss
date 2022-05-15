@@ -114,21 +114,12 @@ body {
 }
 
 .outer {
-  background-color: rgb(238, 238, 238);
+  background-color: #eeeeee;
   box-shadow: inset 0 0 0.5em #c0c0c0;
 
   header {
     @include outer-container;
     padding: 1em 0;
-
-    h1 {
-      color: #555;
-      font-weight: 300;
-      font-size: 35px;
-      font-family: Lato, "Helvetica Neue", Helvetica, Arial, sans-serif;
-      text-shadow: 1px 0 #c0c0c0;
-      letter-spacing: 0.05em;
-    }
   }
 
   footer {
@@ -256,8 +247,9 @@ main {
   }
 
   .sidebar {
-    @include span-columns(1 of 5);
+    @include span-columns(2 of 9);
     display: block;
+    font-size: 15px;
 
     strong {
       color: $blue;
@@ -302,7 +294,7 @@ main {
 
     #searchbox {
       color: $text;
-      margin: 0 0 1.4em;
+      margin: 0 0 0.8em;
 
       h2 {
         color: $blue;
@@ -314,7 +306,7 @@ main {
   }
 
   .docs {
-    @include span-columns(4 of 5);
+    @include span-columns(7 of 9);
 
     font-size: 16px;
     color: $text;
@@ -416,15 +408,33 @@ main {
         vertical-align: top;
     }
 
+    table.docutils {
+      margin: 1em 0;
+      border-collapse: collapse;
+
+      th, td {
+        padding: 0.4em 0.5em;
+        border: 1px solid $code-block-border-color;
+        border-collapse: collapse;
+      }
+    }
+
     .versionadded,
     .versionchanged,
     .deprecated {
 
         margin: 0.3em 0;
 
-        span {
+        span.added,
+        span.changed {
             background: $versionchanged;
+        }
+        span.deprecated {
+            background: #ffe0e0;
+        }
+        span.versionmodified {
             font-style: italic;
+            margin-right: 0.6em;
         }
     }
   }
@@ -505,7 +515,7 @@ main {
       }
     }
   }
-  &.hint, &.important, &.tip {
+  &.hint, &.important, &.tip, &.seealso {
     background: #dbfaf4;
 
     .admonition-title {

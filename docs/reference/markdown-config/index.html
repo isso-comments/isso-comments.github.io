@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Configure how comments are rendered</title> 
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/site.css" />
+    
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
+    <script src="../../../_static/jquery.js"></script>
+    <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../../_static/isso.svg"/>
+    <link rel="search" title="Search" href="../../../search/" />
+    <link rel="top" title="Isso  documentation" href="../../../" />
+    <link rel="next" title="Deployment" href="../deployment/" />
+    <link rel="prev" title="Client Configuration" href="../client-config/" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <header>
+                <img class="logo" src="../../../_static/isso.svg" alt="Wynaut by @veekun"/>
+                <div class="title">
+                    <a href="../../.././">
+                        <h1>Isso</h1>
+                        <h2>a commenting server similar to Disqus</h2>
+                    </a>
+                </div>
+            </header>
+            <nav>
+                <a href="../../">Documentation</a>
+                <a href="../../contributing/">Contribute</a>
+                <a href="../../../community/">community</a>
+            </nav>
+        </div>
+
+        <div class="outer">
+            
+    <header>
+    </header>
+
+        </div>
+
+
+        <main>
+        
+            
+          <div role="navigation" class="sidebar">
+<div role="search" id="searchbox" style="display: none">
+  <h2>Quick search</h2>
+    <form class="search" action="../../../search/" method="get">
+      <input type="text"
+             name="q"
+             aria-labelledby="searchlabel"
+             autocomplete="off"
+             autocorrect="off"
+             autocapitalize="off"
+             spellcheck="false"
+      />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+    <p class="caption" role="heading"><span class="caption-text">Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/quickstart/">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/tips-and-tricks/">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/troubleshooting/">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/advanced-integration/">Advanced Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/faq/">FAQ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server-config/">Server Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../client-config/">Client Configuration</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Markdown Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deployment/">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../multi-site-sub-uri/">Multiple Sites &amp; Sub-URI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server-api/">Server API</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Technical documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/server/">Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/client/">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/testing/">Development &amp; Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/testing-client/">Testing the Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/testing-server/">Testing the Server</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/">Contributing to Isso</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/documentation/">Writing Documentation</a></li>
+</ul>
+
+          </div>
+
+            <div class="docs">
+                
+<div class="vcs-edit-container">
+<a href="https://github.com/posativ/isso/blob/master/docs/docs/reference/markdown-config.rst" class="vcs-edit"><img src="../../../_static/github.svg" /> Edit on GitHub</a>
+</div>
+
+                <div role="main">
+                
+                <section id="configure-how-comments-are-rendered">
+<h2>Configure how comments are rendered<a class="headerlink" href="#configure-how-comments-are-rendered" title="Permalink to this headline">¶</a></h2>
+<p>You can use the <a class="reference internal" href="../server-config/#configure-markup"><span class="std std-ref">Markup</span></a> section in your configuration file to
+influence how the <a class="reference external" href="https://daringfireball.net/projects/markdown/">Markdown</a> syntax in comments is rendered and displayed
+to the user.</p>
+<p>Per Isso’s defaults, commenters can use <strong>standard Markdown syntax</strong>, <strong>minus
+footnotes and tables</strong>
+(see <a class="reference internal" href="#available-markdown-options"><span class="std std-ref">below</span></a> on how to activate them).</p>
+<p>Because users can enter untrusted, potentially <strong>malicious text</strong> into the
+comment box, Isso applies some safety precautions so that the rendered comments
+do not contain e.g. malware <code class="docutils literal notranslate"><span class="pre">&lt;script&gt;</span></code> tags or <code class="docutils literal notranslate"><span class="pre">iframes</span></code>. You should not
+blindly change these defaults to allow more elements without knowing what you
+are doing.</p>
+<section id="plain-html-in-comments">
+<h3>Plain HTML in comments<a class="headerlink" href="#plain-html-in-comments" title="Permalink to this headline">¶</a></h3>
+<p>Per Isso’s defaults, commenters can also enter plain HTML instead of or inside
+of Markdown text.</p>
+<p>To disallow user-entered plain HTML, add <code class="docutils literal notranslate"><span class="pre">skip-html</span></code> to <code class="docutils literal notranslate"><span class="pre">[markup]</span> <span class="pre">flags</span></code>.</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 55%" />
+<col style="width: 45%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p>These HTML tags are allowed by default:</p>
+<p><code class="docutils literal notranslate"><span class="pre">&lt;a&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;blockquote&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;br&gt;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&lt;code&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;del&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;em&gt;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&lt;h1&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;h2&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;h3&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;h4&gt;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&lt;h5&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;h6&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;hr&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;ins&gt;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&lt;li&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;ol&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;p&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;pre&gt;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&lt;strong&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;table&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;tbody&gt;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&lt;td&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;th&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;thead&gt;</span></code>,
+<code class="docutils literal notranslate"><span class="pre">&lt;ul&gt;</span></code>.</p>
+</td>
+<td><p>These HTML <em>attributes</em> allowed
+by default:</p>
+<p><code class="docutils literal notranslate"><span class="pre">align</span></code> (for tables) and
+<code class="docutils literal notranslate"><span class="pre">href</span></code> (for <code class="docutils literal notranslate"><span class="pre">&lt;a</span> <span class="pre">href=&quot;...&quot;&gt;</span></code>)</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p>Elements and attributes not in the allowed list will just be stripped.
+<code class="docutils literal notranslate"><span class="pre">&lt;foo</span> <span class="pre">bar=1&gt;text&lt;/foo&gt;</span></code> will simply become <code class="docutils literal notranslate"><span class="pre">text</span></code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Keep in mind that removing an element from the allowed tags will not
+only disallow commenters from entering it as a plain HTML tag, but also
+remove formatting from any markdown that would generate the tag.</p>
+<p>An example: Allowed elements are <code class="docutils literal notranslate"><span class="pre">['a',</span> <span class="pre">'strong']</span></code>. Then <code class="docutils literal notranslate"><span class="pre">Some</span> <span class="pre">*text*</span></code>
+would not be rendered in italics since the <code class="docutils literal notranslate"><span class="pre">em</span></code> element would be
+forbidden.</p>
+</div>
+</section>
+<section id="line-breaks">
+<h3>Line breaks<a class="headerlink" href="#line-breaks" title="Permalink to this headline">¶</a></h3>
+<p>By default, Markdown requires two new lines to create a paragraph break.
+E.g. this block:</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>This is a quite <span class="gs">**long paragraph**</span> that spans multiple lines,
+which is split over multiple lines in the Markdown source code.
+
+Thus, the width remains under about 80 characters and the writer does not
+have to scroll so far to the right.
+</pre></div>
+</div>
+<p>will be rendered as:</p>
+<blockquote>
+<div><p>This is a quite <strong>long paragraph</strong> that spans multiple lines,
+which is split over multiple lines in the Markdown source code.</p>
+<p>Thus, the width remains under about 80 characters and the writer does not
+have to scroll so far to the right.</p>
+</div></blockquote>
+<p>Set <code class="docutils literal notranslate"><span class="pre">hard-wrap</span></code> in <code class="docutils literal notranslate"><span class="pre">[markup]</span> <span class="pre">flags</span></code> to only require a single newline to
+create a line break (<code class="docutils literal notranslate"><span class="pre">&lt;br&gt;</span></code>):</p>
+<div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>One line.
+Another line.
+</pre></div>
+</div>
+<p>will then be rendered as:</p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">One line.</div>
+<div class="line">Another line.</div>
+</div>
+</div></blockquote>
+</section>
+<section id="defaults-and-available-options">
+<h3>Defaults and available options<a class="headerlink" href="#defaults-and-available-options" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note" id="available-markdown-options">
+<p class="admonition-title">Note</p>
+<p>Make sure to use e.g. <code class="docutils literal notranslate"><span class="pre">fenced-code</span></code> (with a <code class="docutils literal notranslate"><span class="pre">-</span></code> dash) instead of
+<code class="docutils literal notranslate"><span class="pre">fenced_code</span></code> (underline) to refer to extension names.</p>
+</div>
+<p>The following behavior is <strong>enabled by default:</strong></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 75%" />
+<col style="width: 25%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Explanation</p></th>
+<th class="head"><p>Extension name</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Automatically convert <code class="docutils literal notranslate"><span class="pre">http://</span></code> links and email
+addresses into clickable links, even if commenters did
+not format them using <code class="docutils literal notranslate"><span class="pre">[text](http://link.site)</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">autolink</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Blocks that are surrounded by triple backticks (<code class="docutils literal notranslate"><span class="pre">```</span></code>)
+at the beginning and at the end are rendered as code
+blocks, without needing to be indented.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">fenced-code</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Text surrounded in two <code class="docutils literal notranslate"><span class="pre">~</span></code> gets a line through:
+<code class="docutils literal notranslate"><span class="pre">Text</span> <span class="pre">~~deleted~~</span></code>
+<span class="raw-html">&rarr; Text <del>deleted</del></span></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">strikethrough</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Text after the <code class="docutils literal notranslate"><span class="pre">^</span></code> character is rendered as
+“superscript”: <code class="docutils literal notranslate"><span class="pre">Intelligence^2</span></code> <span class="raw-html">&rarr;</span>
+Intelligence<sup>2</sup>.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">superscript</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<p>The following <strong>additional options</strong> are available:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 68%" />
+<col style="width: 32%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Explanation</p></th>
+<th class="head"><p>Extension name</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Ignore indented code blocks</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">disable-indented-code</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Parse inline LaTeX-style math blocks, such as
+inline <code class="docutils literal notranslate"><span class="pre">$equations$</span></code> or display <code class="docutils literal notranslate"><span class="pre">$$equations$$</span></code></p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">math</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Normally, everything between two <code class="docutils literal notranslate"><span class="pre">_underscores_</span></code> would
+be rendered with <em>emphasis</em>. This option disables
+parsing of underscores <em>within</em> words.
+<code class="docutils literal notranslate"><span class="pre">A_good_day</span></code> <span class="raw-html">&rarr;</span> A_good_day,
+not A<em>good</em>day</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">no-intra-emphasis</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Parse markdown footnotes. Not recommended because
+multiple footnotes by different commenters on the same
+page could clash due to duplicate links to footnotes.</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">footnotes</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Use two <code class="docutils literal notranslate"><span class="pre">=</span></code> signs like <code class="docutils literal notranslate"><span class="pre">==this==</span></code> to highlight text</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">highlight</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Text inside quotes gets a special “quote” class.
+Perhaps useful for styling in CSS</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">quote</span></code></p></td>
+</tr>
+<tr class="row-even"><td><p>Enable Markdown tables</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">tables</span></code></p></td>
+</tr>
+<tr class="row-odd"><td><p>Instead of <code class="docutils literal notranslate"><span class="pre">_underscore</span></code> resulting in <em>emphasis</em>,
+the resulting text will be… underlined</p></td>
+<td><p><code class="docutils literal notranslate"><span class="pre">underline</span></code></p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p>The <a class="reference external" href="https://flask-misaka.readthedocs.io/en/latest/#options">flask-misaka docs</a>
+also have a good explanation of what each extension options does.</p>
+</div>
+</section>
+</section>
+
+                
+                </div>
+            </div>
+        
+        </main>
+
+        <div class="push"></div>
+    </div>
+
+    <div class="outer footer">
+        <footer>
+        &copy; Copyright 2022, Martin Zimmermann & contributors.
+
+        Made with <a href="http://sphinx-doc.org/">Sphinx</a>.
+        </footer>
+    </div>
+  </body>
+</html>

@@ -41,7 +41,6 @@
         <div class="outer">
             
     <header>
-        <h1>Server Configuration</h1>
     </header>
 
         </div>
@@ -80,6 +79,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Server Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../client-config/">Client Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../markdown-config/">Markdown Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../deployment/">Deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multi-site-sub-uri/">Multiple Sites &amp; Sub-URI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../server-api/">Server API</a></li>
@@ -398,10 +398,11 @@ performed on the provided value.</p>
 <section id="markup">
 <span id="configure-markup"></span><h3><a class="toc-backref" href="#id10">Markup</a><a class="headerlink" href="#markup" title="Permalink to this headline">¶</a></h3>
 <p>Customize markup and sanitized HTML. Currently, only Markdown (via Misaka) is
-supported, but new languages are relatively easy to add.</p>
+supported, but new languages are relatively easy to add.
+For a more detailed explanation, see <a class="reference internal" href="../markdown-config/"><span class="doc">Configure how comments are rendered</span></a>.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[markup]</span><span class="w"></span>
 <span class="na">options</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">strikethrough, superscript, autolink, fenced-code</span><span class="w"></span>
-<span class="na">flags</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">skip-html, escape, hard-wrap</span><span class="w"></span>
+<span class="na">flags</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
 <span class="na">allowed-elements</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
 <span class="na">allowed-attributes</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
 </pre></div>
@@ -410,15 +411,16 @@ supported, but new languages are relatively easy to add.</p>
 <dt>options</dt><dd><p><a class="reference external" href="https://misaka.61924.nl/#api">Misaka-specific Markdown extensions</a>, all
 extension options can be used there, separated by comma, either by their
 name (<code class="docutils literal notranslate"><span class="pre">fenced-code</span></code>) or as <code class="docutils literal notranslate"><span class="pre">EXT_FENCED_CODE</span></code>.</p>
-<p>The <a class="reference external" href="https://flask-misaka.readthedocs.io/en/latest/#options">flask-misaka docs</a>
-have a good explanation of what each extension options does.</p>
 <p>Note: Use e.g. <code class="docutils literal notranslate"><span class="pre">fenced-code</span></code> (with a <code class="docutils literal notranslate"><span class="pre">-</span></code> dash) instead of
 <code class="docutils literal notranslate"><span class="pre">fenced_code</span></code> (underline) to refer to extension names.</p>
+<p>For a more detailed explanation, see
+<a class="reference internal" href="../markdown-config/#available-markdown-options"><span class="std std-ref">Markdown Configuration: Extensions</span></a></p>
 <p>Default: <code class="docutils literal notranslate"><span class="pre">strikethrough,</span> <span class="pre">superscript,</span> <span class="pre">autolink,</span> <span class="pre">fenced-code</span></code></p>
 </dd>
 <dt>flags</dt><dd><p><a class="reference external" href="https://misaka.61924.nl/#html-render-flags">Misaka-specific HTML rendering flags</a>, all html rendering flags
 can be used here, separated by comma, either by their name (<code class="docutils literal notranslate"><span class="pre">hard-wrap</span></code>)
 or as e.g. <code class="docutils literal notranslate"><span class="pre">HTML_HARD_WRAP</span></code>.</p>
+<p>For a more detailed explanation, see <a class="reference internal" href="../markdown-config/"><span class="doc">Configure how comments are rendered</span></a>.</p>
 <p>Default: (empty)</p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.12.4.</span></p>
@@ -429,6 +431,7 @@ or as e.g. <code class="docutils literal notranslate"><span class="pre">HTML_HAR
 <code class="docutils literal notranslate"><span class="pre">h1</span></code>, <code class="docutils literal notranslate"><span class="pre">h2</span></code>, <code class="docutils literal notranslate"><span class="pre">h3</span></code>, <code class="docutils literal notranslate"><span class="pre">h4</span></code>, <code class="docutils literal notranslate"><span class="pre">h5</span></code>, <code class="docutils literal notranslate"><span class="pre">h6</span></code>, <code class="docutils literal notranslate"><span class="pre">hr</span></code>, <code class="docutils literal notranslate"><span class="pre">ins</span></code>, <code class="docutils literal notranslate"><span class="pre">li</span></code>,
 <code class="docutils literal notranslate"><span class="pre">ol</span></code>, <code class="docutils literal notranslate"><span class="pre">p</span></code>, <code class="docutils literal notranslate"><span class="pre">pre</span></code>, <code class="docutils literal notranslate"><span class="pre">strong</span></code>, <code class="docutils literal notranslate"><span class="pre">table</span></code>, <code class="docutils literal notranslate"><span class="pre">tbody</span></code>, <code class="docutils literal notranslate"><span class="pre">td</span></code>, <code class="docutils literal notranslate"><span class="pre">th</span></code>,
 <code class="docutils literal notranslate"><span class="pre">thead</span></code> and <code class="docutils literal notranslate"><span class="pre">ul</span></code> are allowed.</p>
+<p>For a more detailed explanation, see <a class="reference internal" href="../markdown-config/"><span class="doc">Configure how comments are rendered</span></a>.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
 <p>This option (together with <code class="docutils literal notranslate"><span class="pre">allowed-attributes</span></code>) is frequently
@@ -444,6 +447,7 @@ still allowed. You can only add <em>additional</em> elements here.</p>
 generated output, comma-separated.</p>
 <p>By default, only <code class="docutils literal notranslate"><span class="pre">align</span></code> and <code class="docutils literal notranslate"><span class="pre">href</span></code> are allowed (same caveats as for
 <code class="docutils literal notranslate"><span class="pre">allowed-elements</span></code> above apply)</p>
+<p>For a more detailed explanation, see <a class="reference internal" href="../markdown-config/"><span class="doc">Configure how comments are rendered</span></a>.</p>
 <p>Default: (empty)</p>
 </dd>
 </dl>

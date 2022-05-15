@@ -16,7 +16,7 @@
     <link rel="shortcut icon" href="../../../_static/isso.svg"/>
     <link rel="search" title="Search" href="../../../search/" />
     <link rel="top" title="Isso  documentation" href="../../../" />
-    <link rel="next" title="Deployment" href="../deployment/" />
+    <link rel="next" title="Configure how comments are rendered" href="../markdown-config/" />
     <link rel="prev" title="Server Configuration" href="../server-config/" />
 </head>
 <body>
@@ -41,7 +41,6 @@
         <div class="outer">
             
     <header>
-        <h1>Client Configuration</h1>
     </header>
 
         </div>
@@ -80,6 +79,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../server-config/">Server Configuration</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Client Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../markdown-config/">Markdown Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../deployment/">Deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../multi-site-sub-uri/">Multiple Sites &amp; Sub-URI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../server-api/">Server API</a></li>
@@ -126,6 +126,7 @@ preferably in the script tag which embeds the JS:</p>
         <span class="na">data-isso-vote</span><span class="o">=</span><span class="s">&quot;true&quot;</span>
         <span class="na">data-isso-vote-levels</span><span class="o">=</span><span class="s">&quot;&quot;</span>
         <span class="na">data-isso-feed</span><span class="o">=</span><span class="s">&quot;false&quot;</span>
+        <span class="na">data-isso-page-author-hashes</span><span class="o">=</span><span class="s">&quot;f124cf6b2f01,7831fe17a8cd&quot;</span>
         <span class="na">data-isso-reply-notifications-default-enabled</span><span class="o">=</span><span class="s">&quot;false&quot;</span>
         <span class="na">src</span><span class="o">=</span><span class="s">&quot;/prefix/js/embed.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
@@ -221,6 +222,41 @@ Provide a comma-separated values (eg. <cite>“0,5,10,25,100”</cite>) or a JSO
 <dt>data-isso-feed</dt><dd><p>Enable or disable the addition of a link to the feed for the comment
 thread. The link will only be valid if the appropriate setting, in
 <code class="docutils literal notranslate"><span class="pre">[rss]</span></code> section, is also enabled server-side.</p>
+</dd>
+<dt>data-isso-page-author-hashes</dt><dd><p>Provide the hash (or list of hashes) of the current page’s author. Any
+comments made by those authors will be given the <code class="docutils literal notranslate"><span class="pre">isso-is-page-author</span></code>
+class. This can be styled using CSS.</p>
+<p>The hash of a user can be found by checking the <code class="docutils literal notranslate"><span class="pre">data-hash</span></code> parameter on the
+<code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code> tag containing their comment. This is what the element looks like:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;isso-comment isso-no-votes&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;isso-14&quot;</span> <span class="na">data-hash</span><span class="o">=</span><span class="s">&quot;41faef0a49fc&quot;</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>According to this example, your script tag would look something like this:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;...&quot;</span> <span class="na">data-isso-page-author-hashes</span><span class="o">=</span><span class="s">&quot;41faef0a49fc&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>When adding multiple hashes to support multiple page authors, separate the
+hashes by a command and/or space. All of the following are acceptable
+(although the hashes are made up):</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">data-isso-page-author-hashes=&quot;86g7n8g67nm,8m787mg8&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data-isso-page-author-hashes=&quot;86g7n8g67nm</span> <span class="pre">8m787mg8&quot;</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data-isso-page-author-hashes=&quot;86g7n8g67nm,</span> <span class="pre">8m787mg8&quot;</span></code></p></li>
+</ul>
+<p>For example, these CSS rules make the page author’s name a sort of
+turquoise color, and the comment’s background a lighter version of that:</p>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="p">.</span><span class="nc">isso-comment</span><span class="p">.</span><span class="nc">isso-is-page-author</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="p">.</span><span class="nc">isso-text-wrapper</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#bae0ea</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+
+<span class="p">.</span><span class="nc">isso-comment</span><span class="p">.</span><span class="nc">isso-is-page-author</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="p">.</span><span class="nc">isso-text-wrapper</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="p">.</span><span class="nc">isso-comment-header</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="p">.</span><span class="nc">isso-author</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">    </span><span class="k">color</span><span class="p">:</span><span class="w"> </span><span class="mh">#19798d</span><span class="p">;</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified added">New in version 0.13.</span></p>
+</div>
 </dd>
 <dt>data-isso-reply-notifications-default-enabled</dt><dd><p>Set to <code class="docutils literal notranslate"><span class="pre">true</span></code> to make the reply notifications checkbox on the postbox be
 checked by default. Otherwise, the user will have to manually opt-in to

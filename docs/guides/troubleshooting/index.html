@@ -41,7 +41,6 @@
         <div class="outer">
             
     <header>
-        <h1>Troubleshooting</h1>
     </header>
 
         </div>
@@ -80,6 +79,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../reference/installation/">Installation</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../reference/server-config/">Server Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../reference/client-config/">Client Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/markdown-config/">Markdown Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../reference/deployment/">Deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../reference/multi-site-sub-uri/">Multiple Sites &amp; Sub-URI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../reference/server-api/">Server API</a></li>
@@ -129,10 +129,8 @@ to install Isso into the user’s home.</p>
 </section>
 <section id="why-isn-t-markdown-in-my-comments-rendering-as-i-expect">
 <h3>Why isn’t markdown in my comments rendering as I expect?<a class="headerlink" href="#why-isn-t-markdown-in-my-comments-rendering-as-i-expect" title="Permalink to this headline">¶</a></h3>
-<p>Please configure Isso’s markup parser to your requirements as described in
-<a class="reference internal" href="../../reference/server-config/#configure-markup"><span class="std std-ref">Markup</span></a>. As of version 0.12.2, Isso uses misaka 2.0 to render
-markdown. Misaka 2.0 uses <code class="docutils literal notranslate"><span class="pre">dashed-case</span></code> instead of <code class="docutils literal notranslate"><span class="pre">snake_case</span></code> for
-options, you might have to update your config.</p>
+<p>Please <a class="reference internal" href="../../reference/server-config/#configure-markup"><span class="std std-ref">configure</span></a> Isso’s markup parser to your
+requirements as described in <a class="reference internal" href="../../reference/markdown-config/"><span class="doc">Configure how comments are rendered</span></a>.</p>
 </section>
 <section id="unicodedecodeerror-ascii-codec-can-t-decode-byte-0xff">
 <h3>UnicodeDecodeError: ‘ascii’ codec can’t decode byte 0xff<a class="headerlink" href="#unicodedecodeerror-ascii-codec-can-t-decode-byte-0xff" title="Permalink to this headline">¶</a></h3>

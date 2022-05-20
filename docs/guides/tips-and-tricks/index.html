@@ -82,7 +82,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../reference/markdown-config/">Markdown Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../reference/deployment/">Deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../reference/multi-site-sub-uri/">Multiple Sites &amp; Sub-URI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/multi-site-sub-uri/#multiple-sites">Multiple Sites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/multi-site-sub-uri/#sub-uri">Sub-URI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../reference/server-api/">Server API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/releasing/">Releasing</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Technical documentation</span></p>
 <ul>
@@ -250,6 +253,17 @@ N&#39;hésitez pas à partager vos propres réflexions et astuces dans les comme
 <p>From <a class="reference external" href="https://blog.mdosch.de/2018/05/20/isso-ip-adressen-woechentlich-loeschen/">blog.mdosch.de</a>:</p>
 <p><em>Note that Isso already anonymizes the last part of IP addresses by setting
 them to to zero.</em></p>
+</section>
+<section id="change-linked-comment-highlight-color">
+<h3>Change linked comment highlight color<a class="headerlink" href="#change-linked-comment-highlight-color" title="Permalink to this headline">¶</a></h3>
+<p>When you click a link that goes to a specific Isso comment (such as <code class="docutils literal notranslate"><span class="pre">https://example.com/example-post/#isso-43</span></code>),
+the comment will be highlighted yellow and then fade out over a few seconds.</p>
+<p>Add the following CSS to your site to change that color (replace <code class="docutils literal notranslate"><span class="pre">#3f3c1c</span></code> with any color of your choice):</p>
+<div class="highlight-css notranslate"><div class="highlight"><pre><span></span><span class="p">@</span><span class="k">keyframes</span><span class="w"> </span><span class="nt">isso-target-fade</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
+<span class="w">  </span><span class="nt">0</span><span class="o">%</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="k">background-color</span><span class="p">:</span><span class="w"> </span><span class="mh">#3f3c1c</span><span class="p">;</span><span class="w"> </span><span class="p">}</span><span class="w"></span>
+<span class="p">}</span><span class="w"></span>
+</pre></div>
+</div>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
 <p>This section of the Isso documentation is incomplete. Please help by expanding it.</p>

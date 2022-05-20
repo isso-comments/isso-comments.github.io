@@ -82,7 +82,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../reference/markdown-config/">Markdown Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../reference/deployment/">Deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../reference/multi-site-sub-uri/">Multiple Sites &amp; Sub-URI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/multi-site-sub-uri/#multiple-sites">Multiple Sites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/multi-site-sub-uri/#sub-uri">Sub-URI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../reference/server-api/">Server API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/releasing/">Releasing</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Technical documentation</span></p>
 <ul class="current">
@@ -113,14 +116,14 @@
 <p>The server part of Isso is tested by the <a class="reference external" href="https://docs.pytest.org/">pytest</a> tool. You should also
 install the <a class="reference external" href="https://coverage.readthedocs.io/en/latest/">coverage</a> module with the <a class="reference external" href="https://github.com/pytest-dev/pytest-cov">pytest-cov</a> plugin to receive code
 coverage statistics.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ pip install pytest pytest-cov coverage
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pip install pytest pytest-cov coverage
 </pre></div>
 </div>
 <p>Run Isso’s standard server <strong>test suite</strong>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make tests
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="go">make tests</span>
 </pre></div>
 </div>
-<p>You can also run tests independently via <code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">[options]</span> <span class="pre">isso/</span></code>.</p>
+<p>You can also run tests independently via <code class="docutils literal notranslate"><span class="pre">pytest</span> <span class="pre">[options]</span> <span class="pre">isso/tests/</span></code>.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Improvements to Isso’s test coverage and/or different testing strategies are
@@ -128,11 +131,12 @@ always welcome! Please see the <a class="reference internal" href="../../contrib
 further information.</p>
 </div>
 <p><strong>Check Python code style</strong> using <code class="docutils literal notranslate"><span class="pre">flake8</span></code>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make flakes
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pip install flake8
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>make flakes
 </pre></div>
 </div>
 <p>Generate and view server <strong>test coverage</strong>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>make coverage
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>make coverage
 </pre></div>
 </div>
 <div class="admonition note">
@@ -144,16 +148,20 @@ the <code class="docutils literal notranslate"><span class="pre">flake8</span></
 </div>
 <section id="distributionnotfound-error">
 <h3>DistributionNotFound error<a class="headerlink" href="#distributionnotfound-error" title="Permalink to this headline">¶</a></h3>
-<p>Pytest needs your Isso package to be installed as a site package to work, else it
+<p>Pytest needs your Isso package to be visible in its <code class="docutils literal notranslate"><span class="pre">PATH</span></code> to work, else it
 will complain with:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>pkg_resources.DistributionNotFound: The <span class="s1">&#39;isso&#39;</span> distribution was not found and is required by the application
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pkg_resources.DistributionNotFound: The &#39;isso&#39; distribution was not found and is required by the application</span>
 </pre></div>
 </div>
-<p>When running Isso via <code class="docutils literal notranslate"><span class="pre">pytest</span></code>, you need to be aware that it will use the
-packaged version of Isso in your <code class="docutils literal notranslate"><span class="pre">site-packages</span></code>, not the one you have in
+<p>When running <code class="docutils literal notranslate"><span class="pre">pytest</span></code> directly, you need to be aware that it will prioritize
+the packaged version of Isso in your <code class="docutils literal notranslate"><span class="pre">site-packages</span></code>, not the one you have in
 your current working directory.</p>
-<p>Use <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> to install Isso as an “editable” package (the package
-in <code class="docutils literal notranslate"><span class="pre">site-packages</span></code> will be a symlink to your current development directory).</p>
+<p>That is why you should uninstall the <code class="docutils literal notranslate"><span class="pre">pip</span></code> package of Isso and set
+<code class="docutils literal notranslate"><span class="pre">PYTHONPATH=.</span></code> before running tests. The project <code class="docutils literal notranslate"><span class="pre">Makefile</span></code> already does
+the latter for you.</p>
+<p>Alternatively, use <code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">-e</span> <span class="pre">.</span></code> to install Isso as an “editable”
+package (the package in <code class="docutils literal notranslate"><span class="pre">site-packages</span></code> will be a symlink to your current
+development directory).</p>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
 <p>This section of the Isso documentation is incomplete. Please help by expanding it.</p>

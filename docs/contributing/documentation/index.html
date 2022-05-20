@@ -81,7 +81,10 @@
 <li class="toctree-l1"><a class="reference internal" href="../../reference/markdown-config/">Markdown Configuration</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../reference/deployment/">Deployment</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../reference/multi-site-sub-uri/">Multiple Sites &amp; Sub-URI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/multi-site-sub-uri/#multiple-sites">Multiple Sites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/multi-site-sub-uri/#sub-uri">Sub-URI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../reference/server-api/">Server API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/releasing/">Releasing</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Technical documentation</span></p>
 <ul>
@@ -132,7 +135,11 @@ directly edit a page.</p>
 <li><p><a class="reference internal" href="#how-to-write-rest" id="id10">How to write reST</a></p></li>
 <li><p><a class="reference internal" href="#syntax-standards" id="id11">Syntax standards</a></p></li>
 <li><p><a class="reference internal" href="#inspiration" id="id12">Inspiration</a></p></li>
-<li><p><a class="reference internal" href="#help" id="id13">Help</a></p></li>
+<li><p><a class="reference internal" href="#other-tips-tricks" id="id13">Other Tips &amp; Tricks</a></p>
+<ul>
+<li><p><a class="reference internal" href="#automatic-rebuilds" id="id14">Automatic rebuilds</a></p></li>
+</ul>
+</li>
 </ul>
 </div>
 <section id="introduction">
@@ -156,7 +163,7 @@ Double backquotes: <span class="s">``text``</span> for code samples.
 <p class="admonition-title">Warning</p>
 <p>Please avoid using the version installed by your operating system
 since it may be severely outdated and throw errors with Isso’s theme. Isso’s
-docs need at least version 4.5.0.</p>
+docs need <strong>at least Sphinx version 4.5.0</strong>.</p>
 </div>
 <p>Install via pip:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>virtualenv .venv <span class="o">&amp;&amp;</span> $ <span class="nb">source</span> .venv/bin/activate
@@ -169,6 +176,8 @@ docs need at least version 4.5.0.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>make site
 </pre></div>
 </div>
+<p>You can then view the generated docs by starting a local server with
+<code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">docs/_build/html</span> <span class="pre">&amp;&amp;</span> <span class="pre">python</span> <span class="pre">-m</span> <span class="pre">http.server</span></code> and visiting <code class="docutils literal notranslate"><span class="pre">http://localhost:8000</span></code>.</p>
 <section id="styles">
 <h4><a class="toc-backref" href="#id9">Styles</a><a class="headerlink" href="#styles" title="Permalink to this headline">¶</a></h4>
 <p>The stylesheets of the theme are written in a CSS-like language called
@@ -254,7 +263,7 @@ virtual environment and be consistent
 (see <a class="reference external" href="https://www.sphinx-doc.org/en/master/tutorial/narrative-documentation.html">Sphinx: Narrative Documentation</a>)</p></li>
 <li><p>Use <code class="docutils literal notranslate"><span class="pre">/path/to/isso/&lt;thing&gt;</span></code> to refer to items inside Isso’s installation
 directory or for user data and use <code class="docutils literal notranslate"><span class="pre">comments.db</span></code> as the name for the
-database</p></li>
+database, <code class="docutils literal notranslate"><span class="pre">isso.cfg</span></code> (not <code class="docutils literal notranslate"><span class="pre">.conf</span></code>) for (user) config files.</p></li>
 <li><p>Admonitions should only be: <code class="docutils literal notranslate"><span class="pre">note</span></code>, <code class="docutils literal notranslate"><span class="pre">tip</span></code>, <code class="docutils literal notranslate"><span class="pre">warning</span></code>, <code class="docutils literal notranslate"><span class="pre">attention</span></code>,
 (maybe also <code class="docutils literal notranslate"><span class="pre">error</span></code>?). See <a class="reference external" href="https://docutils.sourceforge.io/docs/ref/rst/directives.html#admonitions">docutils: Admonitions</a>.</p></li>
 <li><p>Try to keep line length under 80 characters, but don’t worry when going over
@@ -285,8 +294,8 @@ It divides docs into four clear areas:</p>
 <p>The <a class="reference external" href="https://docs.djangoproject.com/en/dev/#how-the-documentation-is-organized">Django docs</a>
 also follow this system.</p>
 </section>
-<section id="help">
-<h3><a class="toc-backref" href="#id13">Help</a><a class="headerlink" href="#help" title="Permalink to this headline">¶</a></h3>
+<section id="other-tips-tricks">
+<h3><a class="toc-backref" href="#id13">Other Tips &amp; Tricks</a><a class="headerlink" href="#other-tips-tricks" title="Permalink to this headline">¶</a></h3>
 <p>Helpful links:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.readthedocs.io/en/stable/guides/cross-referencing-with-sphinx.html">Cross-referencing with Sphinx</a></p></li>
@@ -300,6 +309,15 @@ also follow this system.</p>
 </div>
 <p>Also make sure you have used <code class="docutils literal notranslate"><span class="pre">:ref:</span></code> or <code class="docutils literal notranslate"><span class="pre">:doc</span></code>
 correctly and not confused the two.</p>
+<section id="automatic-rebuilds">
+<h4><a class="toc-backref" href="#id14">Automatic rebuilds</a><a class="headerlink" href="#automatic-rebuilds" title="Permalink to this headline">¶</a></h4>
+<p>For easier docs development through file watching, automatic rebuilding and
+refreshing the browser, use <a class="reference external" href="https://github.com/executablebooks/sphinx-autobuild">sphinx-autobuild</a>:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pip install sphinx-autobuild
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>sphinx-autobuild -b dirhtml docs/ docs/_build/html
+</pre></div>
+</div>
+<p>Then visit <code class="docutils literal notranslate"><span class="pre">localhost:8000</span></code></p>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
 <p>This section of the Isso documentation could be improved. Please help by expanding it.</p>
@@ -314,6 +332,7 @@ for further information.</p>
 </ul>
 <p>… and other things about documentation that should be documented.</p>
 </div>
+</section>
 </section>
 </section>
 

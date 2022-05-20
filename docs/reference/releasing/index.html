@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Technical Documentation: Client</title> 
+    <title>Releasing steps</title> 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/site.css" />
     
@@ -16,8 +16,8 @@
     <link rel="shortcut icon" href="../../../_static/isso.svg"/>
     <link rel="search" title="Search" href="../../../search/" />
     <link rel="top" title="Isso  documentation" href="../../../" />
-    <link rel="next" title="Development &amp; Testing" href="../testing/" />
-    <link rel="prev" title="Technical Documentation: Server" href="../server/" />
+    <link rel="next" title="Technical Documentation: Server" href="../../technical-docs/server/" />
+    <link rel="prev" title="API" href="../server-api/" />
 </head>
 <body>
     <div class="wrapper">
@@ -75,25 +75,25 @@
 <li class="toctree-l1"><a class="reference internal" href="../../guides/faq/">FAQ</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../../reference/installation/">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../reference/server-config/">Server Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../reference/client-config/">Client Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../reference/markdown-config/">Markdown Configuration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../reference/deployment/">Deployment</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../reference/multi-site-sub-uri/">Multiple Sites &amp; Sub-URI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../reference/multi-site-sub-uri/#multiple-sites">Multiple Sites</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../reference/multi-site-sub-uri/#sub-uri">Sub-URI</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../reference/server-api/">Server API</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../../reference/releasing/">Releasing</a></li>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation/">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server-config/">Server Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../client-config/">Client Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../markdown-config/">Markdown Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deployment/">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../multi-site-sub-uri/">Multiple Sites &amp; Sub-URI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../multi-site-sub-uri/#multiple-sites">Multiple Sites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../multi-site-sub-uri/#sub-uri">Sub-URI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../server-api/">Server API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Releasing</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Technical documentation</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="../server/">Server</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../testing/">Development &amp; Testing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../testing-client/">Testing the Client</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../testing-server/">Testing the Server</a></li>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/server/">Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/client/">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/testing/">Development &amp; Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/testing-client/">Testing the Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/testing-server/">Testing the Server</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
 <ul>
@@ -106,30 +106,22 @@
             <div class="docs">
                 
 <div class="vcs-edit-container">
-<a href="https://github.com/posativ/isso/blob/master/docs/docs/technical-docs/client.rst" class="vcs-edit"><img src="../../../_static/github.svg" /> Edit on GitHub</a>
+<a href="https://github.com/posativ/isso/blob/master/docs/docs/reference/releasing.rst" class="vcs-edit"><img src="../../../_static/github.svg" /> Edit on GitHub</a>
 </div>
 
                 <div role="main">
                 
-                <section id="technical-documentation-client">
-<h2>Technical Documentation: Client<a class="headerlink" href="#technical-documentation-client" title="Permalink to this headline">¶</a></h2>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>This section of the Isso documentation is incomplete. Please help by expanding it.</p>
-<p>Click the <code class="docutils literal notranslate"><span class="pre">Edit</span> <span class="pre">on</span> <span class="pre">GitHub</span></code> button in the top right corner and read the
-GitHub Issue named
-<a class="reference external" href="https://github.com/posativ/isso/issues/797">Improve &amp; Expand Documentation</a>
-for further information.</p>
-<p><strong>What’s missing?</strong></p>
+                <section id="releasing-steps">
+<h2>Releasing steps<a class="headerlink" href="#releasing-steps" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li><p>JS, webpack (explain why each is needed)</p></li>
-<li><p>Coding standards (ES5?), goals (compartmentalization, testability,
-ease of maintenance)</p></li>
-<li><p>Compatibility: Browser/IE versions, used ES versions -
-keep updated for JS and CSS features (e.g. CSS vars)</p></li>
+<li><p>Run <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">test</span></code></p></li>
+<li><p>Update version number in <code class="docutils literal notranslate"><span class="pre">setup.py</span></code> and <code class="docutils literal notranslate"><span class="pre">CHANGES.rst</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span> <span class="pre">&quot;Preparing</span> <span class="pre">${VERSION}&quot;</span> <span class="pre">setup.py</span> <span class="pre">CHANGES.rst</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">tag</span> <span class="pre">-as</span> <span class="pre">${VERSION}</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">init</span> <span class="pre">all</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">python3</span> <span class="pre">setup.py</span> <span class="pre">sdist</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">twine</span> <span class="pre">upload</span> <span class="pre">--sign</span> <span class="pre">dist/isso-${VERSION}.tar.gz</span></code></p></li>
 </ul>
-<p>… and other things about the client that should be documented.</p>
-</div>
 </section>
 
                 

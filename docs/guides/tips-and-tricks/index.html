@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Tips &amp; Tricks</title> 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
@@ -12,6 +12,7 @@
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <link rel="shortcut icon" href="../../../_static/isso.svg"/>
     <link rel="search" title="Search" href="../../../search/" />
@@ -110,9 +111,9 @@
                 <div role="main">
                 
                 <section id="tips-tricks">
-<h2>Tips &amp; Tricks<a class="headerlink" href="#tips-tricks" title="Permalink to this headline">¶</a></h2>
+<h2>Tips &amp; Tricks<a class="headerlink" href="#tips-tricks" title="Permalink to this heading">¶</a></h2>
 <section id="lazy-loading-on-scroll">
-<h3>Lazy-loading on scroll<a class="headerlink" href="#lazy-loading-on-scroll" title="Permalink to this headline">¶</a></h3>
+<h3>Lazy-loading on scroll<a class="headerlink" href="#lazy-loading-on-scroll" title="Permalink to this heading">¶</a></h3>
 <p>You can defer loading the <code class="docutils literal notranslate"><span class="pre">embed.min.js</span></code> script until the user has scrolled
 to the bottom of the page:</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;</span><span class="w"></span>
@@ -152,7 +153,7 @@ specifying <code class="docutils literal notranslate"><span class="pre">async</s
 not render-block anyway.</p>
 </section>
 <section id="advanced-migration">
-<span id="id1"></span><h3>Advanced Migration<a class="headerlink" href="#advanced-migration" title="Permalink to this headline">¶</a></h3>
+<span id="id1"></span><h3>Advanced Migration<a class="headerlink" href="#advanced-migration" title="Permalink to this heading">¶</a></h3>
 <p>In quickstart we saw you can import comments from Disqus or WordPress. But there
 are a many other comments system and you could be using one of them.</p>
 <p>Isso provides a way to import such comments, however it’s up to you to to:</p>
@@ -218,7 +219,7 @@ are a many other comments system and you could be using one of them.</p>
 </div>
 </section>
 <section id="pretty-print-entire-comments-database">
-<h3>Pretty-print entire comments database<a class="headerlink" href="#pretty-print-entire-comments-database" title="Permalink to this headline">¶</a></h3>
+<h3>Pretty-print entire comments database<a class="headerlink" href="#pretty-print-entire-comments-database" title="Permalink to this heading">¶</a></h3>
 <p>The following bash function pretty-print the entire comments DB sorted by
 insertion date.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>get_blog_comments <span class="o">()</span> <span class="o">{</span>
@@ -242,7 +243,7 @@ N&#39;hésitez pas à partager vos propres réflexions et astuces dans les comme
 </div>
 </section>
 <section id="delete-ip-addresses-weekly">
-<h3>Delete IP addresses weekly<a class="headerlink" href="#delete-ip-addresses-weekly" title="Permalink to this headline">¶</a></h3>
+<h3>Delete IP addresses weekly<a class="headerlink" href="#delete-ip-addresses-weekly" title="Permalink to this heading">¶</a></h3>
 <p>Add this to your <code class="docutils literal notranslate"><span class="pre">crontab</span></code> to set all saved commenter IP addresses to
 <code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code> to preserve their privacy under GDPR:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>@weekly /usr/bin/sqlite3 /path/to/isso/comments.db &#39;UPDATE comments SET remote_addr = &quot;127.0.0.1&quot;;&#39;
@@ -253,7 +254,7 @@ N&#39;hésitez pas à partager vos propres réflexions et astuces dans les comme
 them to to zero.</em></p>
 </section>
 <section id="change-linked-comment-highlight-color">
-<h3>Change linked comment highlight color<a class="headerlink" href="#change-linked-comment-highlight-color" title="Permalink to this headline">¶</a></h3>
+<h3>Change linked comment highlight color<a class="headerlink" href="#change-linked-comment-highlight-color" title="Permalink to this heading">¶</a></h3>
 <p>When you click a link that goes to a specific Isso comment (such as <code class="docutils literal notranslate"><span class="pre">https://example.com/example-post/#isso-43</span></code>),
 the comment will be highlighted yellow and then fade out over a few seconds.</p>
 <p>Add the following CSS to your site to change that color (replace <code class="docutils literal notranslate"><span class="pre">#3f3c1c</span></code> with any color of your choice):</p>

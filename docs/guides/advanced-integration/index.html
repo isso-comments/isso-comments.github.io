@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Advanced integration</title> 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
@@ -12,6 +12,7 @@
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <link rel="shortcut icon" href="../../../_static/isso.svg"/>
     <link rel="search" title="Search" href="../../../search/" />
@@ -110,9 +111,9 @@
                 <div role="main">
                 
                 <section id="advanced-integration">
-<h2>Advanced integration<a class="headerlink" href="#advanced-integration" title="Permalink to this headline">¶</a></h2>
+<h2>Advanced integration<a class="headerlink" href="#advanced-integration" title="Permalink to this heading">¶</a></h2>
 <section id="comment-counter">
-<h3>Comment counter<a class="headerlink" href="#comment-counter" title="Permalink to this headline">¶</a></h3>
+<h3>Comment counter<a class="headerlink" href="#comment-counter" title="Permalink to this heading">¶</a></h3>
 <p>If you want to display a comment counter for a given thread, simply
 put a link to that comments thread anchor:</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">a</span> <span class="na">href</span><span class="o">=</span><span class="s">&quot;/my-uri.html#isso-thread&quot;</span><span class="p">&gt;</span>Comments<span class="p">&lt;/</span><span class="nt">a</span><span class="p">&gt;</span>
@@ -129,7 +130,7 @@ counter like <em>“5 comments”</em>.</p>
 merged into a single <cite>GET</cite> request.</p>
 </section>
 <section id="asynchronous-comments-loading">
-<h3>Asynchronous comments loading<a class="headerlink" href="#asynchronous-comments-loading" title="Permalink to this headline">¶</a></h3>
+<h3>Asynchronous comments loading<a class="headerlink" href="#asynchronous-comments-loading" title="Permalink to this heading">¶</a></h3>
 <p>Isso will automatically fetch comments after <cite>DOMContentLoaded</cite> event. However
 in the case where your website is creating content dynamically (eg. via ajax),
 you need to re-fetch comment thread manually. Here is how you can re-fetch the

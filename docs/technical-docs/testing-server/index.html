@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Testing the Server</title> 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
@@ -12,6 +12,7 @@
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <link rel="shortcut icon" href="../../../_static/isso.svg"/>
     <link rel="search" title="Search" href="../../../search/" />
@@ -110,7 +111,7 @@
                 <div role="main">
                 
                 <section id="testing-the-server">
-<h2>Testing the Server<a class="headerlink" href="#testing-the-server" title="Permalink to this headline">¶</a></h2>
+<h2>Testing the Server<a class="headerlink" href="#testing-the-server" title="Permalink to this heading">¶</a></h2>
 <p>The server part of Isso is tested by the <a class="reference external" href="https://docs.pytest.org/">pytest</a> tool. You should also
 install the <a class="reference external" href="https://coverage.readthedocs.io/en/latest/">coverage</a> module with the <a class="reference external" href="https://github.com/pytest-dev/pytest-cov">pytest-cov</a> plugin to receive code
 coverage statistics.</p>
@@ -145,7 +146,7 @@ will throw an <strong>error</strong> if either the unit tests, the integration t
 the <code class="docutils literal notranslate"><span class="pre">flake8</span></code> tests fail or the code coverage falls <strong>below 70%</strong>.</p>
 </div>
 <section id="distributionnotfound-error">
-<h3>DistributionNotFound error<a class="headerlink" href="#distributionnotfound-error" title="Permalink to this headline">¶</a></h3>
+<h3>DistributionNotFound error<a class="headerlink" href="#distributionnotfound-error" title="Permalink to this heading">¶</a></h3>
 <p>Pytest needs your Isso package to be visible in its <code class="docutils literal notranslate"><span class="pre">PATH</span></code> to work, else it
 will complain with:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">pkg_resources.DistributionNotFound: The &#39;isso&#39; distribution was not found and is required by the application</span>

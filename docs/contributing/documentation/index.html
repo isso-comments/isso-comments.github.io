@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Writing Documentation</title> 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
@@ -12,6 +12,7 @@
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <link rel="shortcut icon" href="../../../_static/isso.svg"/>
     <link rel="search" title="Search" href="../../../search/" />
@@ -109,7 +110,7 @@
                 <div role="main">
                 
                 <section id="writing-documentation">
-<h2>Writing Documentation<a class="headerlink" href="#writing-documentation" title="Permalink to this headline">¶</a></h2>
+<h2>Writing Documentation<a class="headerlink" href="#writing-documentation" title="Permalink to this heading">¶</a></h2>
 <p>The documentation for Isso has several purposes: It should help newcomers have
 a good experience in installing and setting up Isso, make it clear how to
 configure for several use cases, and invite people to improve the project by
@@ -122,7 +123,7 @@ documentation is written or click the top right “Edit on GitHub” button to
 directly edit a page.</p>
 </div>
 <p>Sections covered in this document:</p>
-<div class="contents local topic" id="contents">
+<nav class="contents local" id="contents">
 <ul class="simple">
 <li><p><a class="reference internal" href="#introduction" id="id7">Introduction</a></p></li>
 <li><p><a class="reference internal" href="#building-the-docs" id="id8">Building the docs</a></p>
@@ -139,9 +140,9 @@ directly edit a page.</p>
 </ul>
 </li>
 </ul>
-</div>
+</nav>
 <section id="introduction">
-<h3><a class="toc-backref" href="#id7">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this heading">¶</a></h3>
 <p>The documentation for Isso is written using the <a class="reference external" href="https://www.sphinx-doc.org/en/master/">Sphinx</a> documentation
 project in a markup language called <code class="docutils literal notranslate"><span class="pre">reStructuredText</span></code> (<code class="docutils literal notranslate"><span class="pre">reST</span></code>). The
 documentation files have have <code class="docutils literal notranslate"><span class="pre">.rst</span></code> as a file extension.</p>
@@ -154,7 +155,7 @@ Double backquotes: <span class="s">``text``</span> for code samples.
 </div>
 </section>
 <section id="building-the-docs">
-<h3><a class="toc-backref" href="#id8">Building the docs</a><a class="headerlink" href="#building-the-docs" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id8" role="doc-backlink">Building the docs</a><a class="headerlink" href="#building-the-docs" title="Permalink to this heading">¶</a></h3>
 <p>You will need to have the latest version of the <code class="docutils literal notranslate"><span class="pre">Sphinx</span></code> documentation generator installed
 <a class="reference external" href="https://pypi.org/project/Sphinx/">from PyPi</a>.</p>
 <div class="admonition warning">
@@ -177,7 +178,7 @@ docs need <strong>at least Sphinx version 4.5.0</strong>.</p>
 <p>You can then view the generated docs by starting a local server with
 <code class="docutils literal notranslate"><span class="pre">cd</span> <span class="pre">docs/_build/html</span> <span class="pre">&amp;&amp;</span> <span class="pre">python</span> <span class="pre">-m</span> <span class="pre">http.server</span></code> and visiting <code class="docutils literal notranslate"><span class="pre">http://localhost:8000</span></code>.</p>
 <section id="styles">
-<h4><a class="toc-backref" href="#id9">Styles</a><a class="headerlink" href="#styles" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id9" role="doc-backlink">Styles</a><a class="headerlink" href="#styles" title="Permalink to this heading">¶</a></h4>
 <p>The stylesheets of the theme are written in a CSS-like language called
 <a class="reference external" href="https://sass-lang.com/guide">sass</a> and have the <code class="docutils literal notranslate"><span class="pre">.scss</span></code> file extension.</p>
 <p>If you have made any changes to the stylesheets, you need to install the
@@ -190,7 +191,7 @@ docs need <strong>at least Sphinx version 4.5.0</strong>.</p>
 </section>
 </section>
 <section id="how-to-write-rest">
-<h3><a class="toc-backref" href="#id10">How to write reST</a><a class="headerlink" href="#how-to-write-rest" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id10" role="doc-backlink">How to write reST</a><a class="headerlink" href="#how-to-write-rest" title="Permalink to this heading">¶</a></h3>
 <p>First and foremost, see the
 <a class="reference external" href="https://www.sphinx-doc.org/en/master/usage/restructuredtext/basics.html">reStructuredText Primer</a>.</p>
 <p><strong>Links:</strong></p>
@@ -248,7 +249,7 @@ It refers to the section itself, see <span class="na">:ref:</span><span class="n
 </div>
 </section>
 <section id="syntax-standards">
-<h3><a class="toc-backref" href="#id11">Syntax standards</a><a class="headerlink" href="#syntax-standards" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id11" role="doc-backlink">Syntax standards</a><a class="headerlink" href="#syntax-standards" title="Permalink to this heading">¶</a></h3>
 <ul class="simple">
 <li><p>Use at most three levels of headlines:
 <code class="docutils literal notranslate"><span class="pre">===</span></code> for page title, <code class="docutils literal notranslate"><span class="pre">---</span></code> for section headings (h3), <code class="docutils literal notranslate"><span class="pre">^^^</span></code> for
@@ -272,7 +273,7 @@ option or behavior</p></li>
 </ul>
 </section>
 <section id="inspiration">
-<h3><a class="toc-backref" href="#id12">Inspiration</a><a class="headerlink" href="#inspiration" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id12" role="doc-backlink">Inspiration</a><a class="headerlink" href="#inspiration" title="Permalink to this heading">¶</a></h3>
 <p>The following documentation pages should serve as good examples. They are from
 related projects that also offer commenting functionality.</p>
 <ul class="simple">
@@ -293,7 +294,7 @@ It divides docs into four clear areas:</p>
 also follow this system.</p>
 </section>
 <section id="other-tips-tricks">
-<h3><a class="toc-backref" href="#id13">Other Tips &amp; Tricks</a><a class="headerlink" href="#other-tips-tricks" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id13" role="doc-backlink">Other Tips &amp; Tricks</a><a class="headerlink" href="#other-tips-tricks" title="Permalink to this heading">¶</a></h3>
 <p>Helpful links:</p>
 <ul class="simple">
 <li><p><a class="reference external" href="https://docs.readthedocs.io/en/stable/guides/cross-referencing-with-sphinx.html">Cross-referencing with Sphinx</a></p></li>
@@ -308,7 +309,7 @@ also follow this system.</p>
 <p>Also make sure you have used <code class="docutils literal notranslate"><span class="pre">:ref:</span></code> or <code class="docutils literal notranslate"><span class="pre">:doc</span></code>
 correctly and not confused the two.</p>
 <section id="automatic-rebuilds">
-<h4><a class="toc-backref" href="#id14">Automatic rebuilds</a><a class="headerlink" href="#automatic-rebuilds" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id14" role="doc-backlink">Automatic rebuilds</a><a class="headerlink" href="#automatic-rebuilds" title="Permalink to this heading">¶</a></h4>
 <p>For easier docs development through file watching, automatic rebuilding and
 refreshing the browser, use <a class="reference external" href="https://github.com/executablebooks/sphinx-autobuild">sphinx-autobuild</a>:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pip install sphinx-autobuild

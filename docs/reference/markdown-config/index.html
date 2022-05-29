@@ -3,7 +3,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Configure how comments are rendered</title> 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
@@ -12,6 +12,7 @@
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
     <script src="../../../_static/underscore.js"></script>
+    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <link rel="shortcut icon" href="../../../_static/isso.svg"/>
     <link rel="search" title="Search" href="../../../search/" />
@@ -110,7 +111,7 @@
                 <div role="main">
                 
                 <section id="configure-how-comments-are-rendered">
-<h2>Configure how comments are rendered<a class="headerlink" href="#configure-how-comments-are-rendered" title="Permalink to this headline">¶</a></h2>
+<h2>Configure how comments are rendered<a class="headerlink" href="#configure-how-comments-are-rendered" title="Permalink to this heading">¶</a></h2>
 <p>You can use the <a class="reference internal" href="../server-config/#configure-markup"><span class="std std-ref">Markup</span></a> section in your configuration file to
 influence how the <a class="reference external" href="https://daringfireball.net/projects/markdown/">Markdown</a> syntax in comments is rendered and displayed
 to the user.</p>
@@ -123,15 +124,11 @@ do not contain e.g. malware <code class="docutils literal notranslate"><span cla
 blindly change these defaults to allow more elements without knowing what you
 are doing.</p>
 <section id="plain-html-in-comments">
-<h3>Plain HTML in comments<a class="headerlink" href="#plain-html-in-comments" title="Permalink to this headline">¶</a></h3>
+<h3>Plain HTML in comments<a class="headerlink" href="#plain-html-in-comments" title="Permalink to this heading">¶</a></h3>
 <p>Per Isso’s defaults, commenters can also enter plain HTML instead of or inside
 of Markdown text.</p>
 <p>To disallow user-entered plain HTML, add <code class="docutils literal notranslate"><span class="pre">skip-html</span></code> to <code class="docutils literal notranslate"><span class="pre">[markup]</span> <span class="pre">flags</span></code>.</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 55%" />
-<col style="width: 45%" />
-</colgroup>
 <tbody>
 <tr class="row-odd"><td><p>These HTML tags are allowed by default:</p>
 <p><code class="docutils literal notranslate"><span class="pre">&lt;a&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;blockquote&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;br&gt;</span></code>,
@@ -164,7 +161,7 @@ forbidden.</p>
 </div>
 </section>
 <section id="line-breaks">
-<h3>Line breaks<a class="headerlink" href="#line-breaks" title="Permalink to this headline">¶</a></h3>
+<h3>Line breaks<a class="headerlink" href="#line-breaks" title="Permalink to this heading">¶</a></h3>
 <p>By default, Markdown requires two new lines to create a paragraph break.
 E.g. this block:</p>
 <div class="highlight-markdown notranslate"><div class="highlight"><pre><span></span>This is a quite <span class="gs">**long paragraph**</span> that spans multiple lines,
@@ -196,7 +193,7 @@ Another line.
 </div></blockquote>
 </section>
 <section id="defaults-and-available-options">
-<h3>Defaults and available options<a class="headerlink" href="#defaults-and-available-options" title="Permalink to this headline">¶</a></h3>
+<h3>Defaults and available options<a class="headerlink" href="#defaults-and-available-options" title="Permalink to this heading">¶</a></h3>
 <div class="admonition note" id="available-markdown-options">
 <p class="admonition-title">Note</p>
 <p>Make sure to use e.g. <code class="docutils literal notranslate"><span class="pre">fenced-code</span></code> (with a <code class="docutils literal notranslate"><span class="pre">-</span></code> dash) instead of
@@ -204,10 +201,6 @@ Another line.
 </div>
 <p>The following behavior is <strong>enabled by default:</strong></p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 75%" />
-<col style="width: 25%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Explanation</p></th>
 <th class="head"><p>Extension name</p></th>
@@ -238,10 +231,6 @@ Intelligence<sup>2</sup>.</p></td>
 </table>
 <p>The following <strong>additional options</strong> are available:</p>
 <table class="docutils align-default">
-<colgroup>
-<col style="width: 68%" />
-<col style="width: 32%" />
-</colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Explanation</p></th>
 <th class="head"><p>Extension name</p></th>

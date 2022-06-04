@@ -260,8 +260,8 @@ they will be able to have their new comment auto-approved.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[server]</span><span class="w"></span>
 <span class="na">listen</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">http://localhost:8080</span><span class="w"></span>
 <span class="na">public-endpoint</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
-<span class="na">reload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">off</span><span class="w"></span>
-<span class="na">profile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">off</span><span class="w"></span>
+<span class="na">reload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">false</span><span class="w"></span>
+<span class="na">profile</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">false</span><span class="w"></span>
 <span class="na">trusted-proxies</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
 <span class="na">samesite</span><span class="w"> </span><span class="o">=</span><span class="w"></span>
 </pre></div>
@@ -289,11 +289,11 @@ different than the <code class="docutils literal notranslate"><span class="pre">
 </dd>
 <dt>reload</dt><dd><p>Reload application, when the source code has changed. Useful for
 development. Only works with the internal webserver.</p>
-<p>Default: <code class="docutils literal notranslate"><span class="pre">off</span></code></p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
 </dd>
 <dt>profile</dt><dd><p>Show 10 most time consuming function in Isso after each request. Do
 not use in production.</p>
-<p>Default: <code class="docutils literal notranslate"><span class="pre">off</span></code></p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
 </dd>
 <dt>trusted-proxies</dt><dd><p>An optional list of reverse proxies IPs behind which you have deployed
 your Isso web service (e.g. <cite>127.0.0.1</cite>).

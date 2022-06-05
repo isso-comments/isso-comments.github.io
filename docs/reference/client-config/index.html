@@ -162,7 +162,7 @@ Defaults to fetching from the API endpoint.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;...&quot;</span> <span class="na">data-isso-css-url</span><span class="o">=</span><span class="s">&quot;/path/to/isso.css&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<p>Default: <code class="docutils literal notranslate"><span class="pre">{api-endpoint}/css/isso.css</span></code></p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">&quot;{api-endpoint}/css/isso.css&quot;</span></code></p>
 </dd>
 <dt>data-isso-css</dt><dd><p>Set to <code class="docutils literal notranslate"><span class="pre">false</span></code> prevents Isso from automatically appending the stylesheet.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;...&quot;</span> <span class="na">data-isso-css</span><span class="o">=</span><span class="s">&quot;false&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
@@ -189,7 +189,7 @@ supported.  Like <code class="docutils literal notranslate"><span class="pre">da
 be a BCP 47 language tag.</p>
 <p>If you specify both <code class="docutils literal notranslate"><span class="pre">data-isso-default-lang</span></code> and <code class="docutils literal notranslate"><span class="pre">data-isso-lang</span></code>,
 <code class="docutils literal notranslate"><span class="pre">data-isso-lang</span></code> takes precedence.</p>
-<p>Default: <code class="docutils literal notranslate"><span class="pre">en</span></code></p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">&quot;en&quot;</span></code></p>
 <div class="versionadded">
 <p><span class="versionmodified added">New in version 0.12.6.</span></p>
 </div>
@@ -197,7 +197,7 @@ be a BCP 47 language tag.</p>
 <dt>data-isso-max-comments-top</dt><dd><p>Number of top level comments to show by default. If some comments are not
 shown, an “X Hidden” link is shown.</p>
 <p>Set to <code class="docutils literal notranslate"><span class="pre">&quot;inf&quot;</span></code> to show all, or <code class="docutils literal notranslate"><span class="pre">&quot;0&quot;</span></code> to hide all.</p>
-<p>Default: <code class="docutils literal notranslate"><span class="pre">inf</span></code></p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">&quot;inf&quot;</span></code></p>
 </dd>
 <dt>data-isso-max-comments-nested</dt><dd><p>Number of nested comments to show by default. If some comments are not
 shown, an “X Hidden” link is shown.</p>
@@ -213,13 +213,13 @@ generation.</p>
 <p>Default: <code class="docutils literal notranslate"><span class="pre">true</span></code></p>
 </dd>
 <dt>data-isso-avatar-bg</dt><dd><p>Set avatar background color. Any valid CSS color will do.</p>
-<p>Default: <code class="docutils literal notranslate"><span class="pre">#f0f0f0</span></code></p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">&quot;#f0f0f0&quot;</span></code></p>
 </dd>
 <dt>data-isso-avatar-fg</dt><dd><p>Set avatar foreground color. Up to 8 colors are possible. The default color
 scheme is based in <a class="reference external" href="http://colrd.com/palette/19308/">this color palette</a>.
 Multiple colors must be separated by space. If you use less than eight colors
 and not a multiple of 2, the color distribution is not even.</p>
-<p>Default: <code class="docutils literal notranslate"><span class="pre">&quot;#9abf88</span> <span class="pre">#5698c4</span> <span class="pre">#e279a3</span> <span class="pre">#9163b6</span> <span class="pre">#be5168</span> <span class="pre">#f19670</span> <span class="pre">#e4bf80</span> <span class="pre">#447c69&quot;`</span></code></p>
+<p>Default: <code class="docutils literal notranslate"><span class="pre">&quot;#9abf88</span> <span class="pre">#5698c4</span> <span class="pre">#e279a3</span> <span class="pre">#9163b6</span> <span class="pre">#be5168</span> <span class="pre">#f19670</span> <span class="pre">#e4bf80</span> <span class="pre">#447c69&quot;</span></code></p>
 </dd>
 <dt>data-isso-vote</dt><dd><p>Enable or disable voting feature on the client side.</p>
 <p>Default: <code class="docutils literal notranslate"><span class="pre">true</span></code></p>

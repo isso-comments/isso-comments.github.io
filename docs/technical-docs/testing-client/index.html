@@ -268,7 +268,7 @@ end-to-end testing suite also checks before-and-after screenshots.
 These screenshots are stored in the <a class="reference external" href="https://github.com/posativ/isso/tree/master/isso/js/tests/screenshots">integration tests folder</a>.</p>
 <p>To generate updated screenshots, you must run the following commands.
 (For help on setting up Docker, see <a class="reference internal" href="../testing/#testing-docker"><span class="std std-ref">Docker</span></a>)</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>make docker-js-integration
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>make docker-generate-screenshots
 </pre></div>
 </div>
 <p>This will run the test <code class="docutils literal notranslate"><span class="pre">isso/js/tests/screenshots/screenshots.test.js</span></code> and output
@@ -280,7 +280,7 @@ These screenshots are stored in the <a class="reference external" href="https://
 <p>In case you have created a change that causes the resulting images to be
 different (and you are sure the visual changes are desired), you need generate
 new hashes:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>make docker-compare-screenshots -u
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>make docker-update-screenshots
 </pre></div>
 </div>
 <p>Then commit those generated <code class="docutils literal notranslate"><span class="pre">.hash</span></code> files in

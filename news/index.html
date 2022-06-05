@@ -59,6 +59,60 @@
                 
                 <section id="news">
 <h2>News<a class="headerlink" href="#news" title="Permalink to this heading">¶</a></h2>
+<section id="isso-version-0-13-0-beta1-released">
+<h3>Isso version 0.13.0.beta1 released<a class="headerlink" href="#isso-version-0-13-0-beta1-released" title="Permalink to this heading">¶</a></h3>
+<p><em>Date: 2022-06-05</em></p>
+<section id="new-features">
+<h4>New Features<a class="headerlink" href="#new-features" title="Permalink to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">data-isso-reply-notifications-default-enabled</span></code> option to configure
+whether or not the subscribe to replies checkbox should be checked by default.
+(<a class="reference external" href="https://github.com/posativ/isso/pull/846">#846</a>, BBaoVanC)</p></li>
+<li><p>Accessibility: Use labels rather than placeholders for name, email &amp; website
+in post box (<a class="reference external" href="https://github.com/posativ/isso/pull/861">#861</a>, ix5)</p></li>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">data-isso-page-author-hashes</span></code> option to client which makes it possible
+to style comments and replies made by the page’s author(s).</p></li>
+<li><p>Add Ukrainian localisation (<a class="reference external" href="https://github.com/posativ/isso/pull/878">#878</a>, okawo80085)</p></li>
+<li><p>Enable Turkish localisation (<a class="reference external" href="https://github.com/posativ/isso/pull/879">#879</a>)</p></li>
+</ul>
+</section>
+<section id="breaking-changes">
+<h4>Breaking Changes<a class="headerlink" href="#breaking-changes" title="Permalink to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>css, js: Prefix all classes with <code class="docutils literal notranslate"><span class="pre">isso-</span></code> (<a class="reference external" href="https://github.com/posativ/isso/pull/816">#816</a>, ix5)
+Now Isso’s CSS is “namespaced” in order not to conflict with other classes on
+the page.
+This change necessitates adjusting custom CSS files to the new names.</p></li>
+<li><p>Drop support for outdated Python version 3.5 (<a class="reference external" href="https://github.com/posativ/isso/pull/808">#808</a>, l33tname)</p></li>
+<li><p>Strip trailing slash from <code class="docutils literal notranslate"><span class="pre">public-endpoint</span></code>. A trailing slash in <code class="docutils literal notranslate"><span class="pre">[server]</span>
+<span class="pre">public-endpoint</span></code> is now discouraged and throws a warning (<a class="reference external" href="https://github.com/posativ/isso/pull/876">#876</a>, ix5)</p></li>
+</ul>
+</section>
+<section id="bugfixes-improvements">
+<h4>Bugfixes &amp; Improvements<a class="headerlink" href="#bugfixes-improvements" title="Permalink to this heading">¶</a></h4>
+<ul class="simple">
+<li><p>Replace <code class="docutils literal notranslate"><span class="pre">contenteditable</span></code> <code class="docutils literal notranslate"><span class="pre">div</span></code> with <code class="docutils literal notranslate"><span class="pre">textarea</span></code> to fix issues when
+editing messages that contain indented code (<a class="reference external" href="https://github.com/posativ/isso/pull/887">#887</a>, BBaoVanC)</p></li>
+<li><p>Fix avatar sizing, limit default gravatar images to 55px (<a class="reference external" href="https://github.com/posativ/isso/pull/831">#831</a>, l33tname)
+In case of a custom gravatar URL, the <code class="docutils literal notranslate"><span class="pre">&amp;s=55</span></code> size parameter will have
+to be added, see <a class="reference external" href="http://en.gravatar.com/site/implement/images/">Gravatar - Image requests</a>.</p></li>
+<li><p>Re-enable <code class="docutils literal notranslate"><span class="pre">no-intra-emphasis</span></code> misaka extension in default config (<a class="reference external" href="https://github.com/posativ/isso/pull/865">#865</a>, ix5)</p></li>
+<li><p>Allow <code class="docutils literal notranslate"><span class="pre">sup</span></code> and <code class="docutils literal notranslate"><span class="pre">sub</span></code> HTML elements by default (<a class="reference external" href="https://github.com/posativ/isso/pull/865">#865</a>, ix5)</p></li>
+<li><p>Move <code class="docutils literal notranslate"><span class="pre">isso-dev.cfg</span></code> to <code class="docutils literal notranslate"><span class="pre">contrib/</span></code> folder (<a class="reference external" href="https://github.com/posativ/isso/pull/882">#882</a>, ix5)</p></li>
+<li><p>Drop <code class="docutils literal notranslate"><span class="pre">Flask-Caching</span></code> dependency and use drop-in solution instead (<a class="reference external" href="https://github.com/posativ/isso/pull/893">#893</a>, ix5)</p></li>
+<li><p>Run automated screenshot comparisons for testing (<a class="reference external" href="https://github.com/posativ/isso/pull/889">#889</a>, ix5)</p></li>
+<li><p>wsgi: Return HTTP errors as JSON if client prefers it (<a class="reference external" href="https://github.com/posativ/isso/pull/488">#488</a>, sundbry)</p></li>
+<li><p>Verify that parent of new comment is in same thread (<a class="reference external" href="https://github.com/posativ/isso/pull/885">#885</a>, ix5)</p></li>
+<li><p><strong>API:</strong></p>
+<ul>
+<li><p>Add <code class="docutils literal notranslate"><span class="pre">/config</span></code> endpoint for fetching server configuration options that
+affect the client (<a class="reference external" href="https://github.com/posativ/isso/pull/880">#880</a>, ix5)</p></li>
+<li><p>Remove <code class="docutils literal notranslate"><span class="pre">/count</span></code> GET endpoint (use POST instead) (<a class="reference external" href="https://github.com/posativ/isso/pull/883">#883</a>, ix5)</p></li>
+</ul>
+</li>
+</ul>
+</section>
+</section>
 <section id="isso-version-0-12-6-2-released">
 <h3>Isso version 0.12.6.2 released<a class="headerlink" href="#isso-version-0-12-6-2-released" title="Permalink to this heading">¶</a></h3>
 <p><em>Date: 2022-04-23</em></p>

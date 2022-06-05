@@ -282,10 +282,15 @@ Currently, gevent can not handle http requests on unix domain socket
 <p>Default: <code class="docutils literal notranslate"><span class="pre">http://localhost:8080</span></code></p>
 </dd>
 <dt>public-endpoint</dt><dd><p>Public URL that Isso is accessed from by end users. Should always be
-a <a class="reference external" href="http://">http://</a> or <a class="reference external" href="https://">https://</a> absolute address. If left blank, automatic
-detection is attempted. Normally only needs to be specified if
-different than the <code class="docutils literal notranslate"><span class="pre">listen</span></code> setting.</p>
+a <code class="docutils literal notranslate"><span class="pre">http://</span></code> or <code class="docutils literal notranslate"><span class="pre">https://</span></code> absolute address. If left blank, automatic
+detection is attempted. Normally only needs to be specified if different
+than the <code class="docutils literal notranslate"><span class="pre">listen</span></code> setting.</p>
+<p>This URL must not end in a <code class="docutils literal notranslate"><span class="pre">/</span></code> slash, i.e. <code class="docutils literal notranslate"><span class="pre">http://foo.bar:8080/</span></code> is
+forbidden but <code class="docutils literal notranslate"><span class="pre">http://foo/bar:8080</span></code> is fine.</p>
 <p>Default: (empty)</p>
+<div class="versionchanged">
+<p><span class="versionmodified changed">Changed in version 0.13: </span>Trailing slash now forbidden.</p>
+</div>
 </dd>
 <dt>reload</dt><dd><p>Reload application, when the source code has changed. Useful for
 development. Only works with the internal webserver.</p>

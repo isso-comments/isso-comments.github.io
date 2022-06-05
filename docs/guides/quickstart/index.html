@@ -196,7 +196,7 @@ dedicated domain such as <code class="docutils literal notranslate"><span class=
 <p>Assuming both, your website and Isso are on the same server, the nginx
 configuration looks like this:</p>
 <div class="highlight-nginx notranslate"><div class="highlight"><pre><span></span><span class="w">  </span><span class="k">server</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">      </span><span class="kn">listen</span><span class="w"> </span><span class="s">[::]:80</span><span class="w"> </span><span class="s">default</span><span class="w"> </span><span class="s">ipv6only=off</span><span class="p">;</span><span class="w"></span>
+<span class="w">      </span><span class="kn">listen</span><span class="w"> </span><span class="s">[::]:80</span><span class="w"> </span><span class="s">default</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="kn">server_name</span><span class="w"> </span><span class="s">example.tld</span><span class="p">;</span><span class="w"></span>
 <span class="w">      </span><span class="kn">root</span><span class="w"> </span><span class="s">...</span><span class="p">;</span><span class="w"></span>
 <span class="w">  </span><span class="p">}</span><span class="w"></span>
@@ -226,7 +226,7 @@ configuration looks like this:</p>
 <span class="p">&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
 </pre></div>
 </div>
-<p>Note, that <cite>data-isso</cite> is optional, but when a website includes a script using
+<p>Note, that <code class="docutils literal notranslate"><span class="pre">data-isso</span></code> is optional, but when a website includes a script using
 <code class="docutils literal notranslate"><span class="pre">async</span></code> it is no longer possible to determine the script’s external URL.</p>
 <p>That’s it. When you open your website, you should see a commenting form. Leave
 a comment to see if the setup works. If not, see <a class="reference internal" href="../troubleshooting/"><span class="doc">Troubleshooting</span></a>.</p>

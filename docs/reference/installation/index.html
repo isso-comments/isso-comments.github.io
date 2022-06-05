@@ -227,14 +227,14 @@ machines or a shared host (e.g. Uberspace.de).</p>
 </section>
 <section id="using-docker">
 <span id="id3"></span><h3><a class="toc-backref" href="#id9" role="doc-backlink">Using Docker</a><a class="headerlink" href="#using-docker" title="Permalink to this heading">¶</a></h3>
-<p>Assuming you have your configuration in <code class="docutils literal notranslate"><span class="pre">/opt/isso</span></code>, with
+<p>Assuming you have your configuration in <code class="docutils literal notranslate"><span class="pre">/var/lib/isso</span></code>, with
 <code class="docutils literal notranslate"><span class="pre">dbpath=/db/comments.db</span></code> and <code class="docutils literal notranslate"><span class="pre">host</span></code> set properly in <code class="docutils literal notranslate"><span class="pre">isso.cfg</span></code>, you have
 two options for running a Docker container:</p>
 <section id="a-official-docker-image">
 <h4>a) Official Docker image<a class="headerlink" href="#a-official-docker-image" title="Permalink to this heading">¶</a></h4>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker pull ghcr.io/isso-comments/isso:latest
 <span class="gp">$ </span>docker run -d --rm --name isso -p <span class="m">127</span>.0.0.1:8080:8080 <span class="se">\</span>
-    -v /opt/isso:/config -v /opt/isso:/db <span class="se">\</span>
+    -v /var/lib/isso:/config -v /var/lib/isso:/db <span class="se">\</span>
     ghcr.io/isso-comments/isso:latest
 </pre></div>
 </div>

@@ -229,6 +229,8 @@ Time:        <span class="m">0</span>.752 s, estimated <span class="m">21</span>
 Ran all <span class="nb">test</span> suites matching /isso<span class="se">\/</span>js<span class="se">\/</span>tests<span class="se">\/</span>integration<span class="se">\/</span>/i.
 </pre></div>
 </div>
+<p>If you receive an error saying <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">snapshot</span> <span class="pre">failed</span></code> see
+<a class="reference internal" href="#updating-snapshots"><span class="std std-ref">Updating snapshots</span></a></p>
 <section id="troubleshooting-timeouts">
 <h4><a class="toc-backref" href="#id7" role="doc-backlink">Troubleshooting timeouts</a><a class="headerlink" href="#troubleshooting-timeouts" title="Permalink to this heading">¶</a></h4>
 <p>Are you getting the following error?</p>
@@ -332,7 +334,9 @@ which will saved into e.g. <code class="docutils literal notranslate"><span clas
 <p>If you have created a commit which changes the HTML that is generated on the
 client side (and you’re sure it is correct) or written a new test case that
 uses snapshots, check in or update the snapshot file by running
-<code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">run</span> <span class="pre">test-unit</span> <span class="pre">--</span> <span class="pre">-u</span></code>. You should see something like the following:</p>
+<code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">run</span> <span class="pre">test-unit</span> <span class="pre">--</span> <span class="pre">-u</span></code> (or <code class="docutils literal notranslate"><span class="pre">npm</span> <span class="pre">run</span> <span class="pre">test-integration</span> <span class="pre">--</span> <span class="pre">-u</span></code> for
+integration tests with the dev server running). You should see something like
+the following:</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>npx jest --config isso/js/jest-unit.config.js isso/js/tests/unit/ -u
 PASS  isso/js/tests/unit/isso.test.js
 › 1 snapshot updated.

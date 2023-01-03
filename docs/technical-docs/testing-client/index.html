@@ -10,12 +10,8 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/css/site.css" />
     
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/sphinx_highlight.js"></script>
-    <link rel="shortcut icon" href="../../../_static/isso.svg"/>
     <link rel="search" title="Search" href="../../../search/" />
     <link rel="top" title="Isso  documentation" href="../../../" />
     <link rel="next" title="Testing the Server" href="../testing-server/" />
@@ -149,26 +145,26 @@ components are working fine in isolation.</p>
 </div>
 <p>Install the needed <code class="docutils literal notranslate"><span class="pre">Jest</span></code>-related packages
 (listed as <code class="docutils literal notranslate"><span class="pre">optionalDependencies</span></code> in <code class="docutils literal notranslate"><span class="pre">package.json</span></code>):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm install
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>npm<span class="w"> </span>install
 </pre></div>
 </div>
 <p>Then run the unit tests:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm run tests-unit
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>npm<span class="w"> </span>run<span class="w"> </span>tests-unit
 </pre></div>
 </div>
 <p>You should receive output that looks similar to the following:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; test-unit
-&gt; jest --config isso/js/jest-unit.config.js isso/js/tests/unit/
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;<span class="w"> </span>test-unit
+&gt;<span class="w"> </span>jest<span class="w"> </span>--config<span class="w"> </span>isso/js/jest-unit.config.js<span class="w"> </span>isso/js/tests/unit/
 
-PASS  isso/js/tests/unit/isso.test.js
-PASS  isso/js/tests/unit/config.test.js
-PASS  isso/js/tests/unit/utils.test.js
+PASS<span class="w">  </span>isso/js/tests/unit/isso.test.js
+PASS<span class="w">  </span>isso/js/tests/unit/config.test.js
+PASS<span class="w">  </span>isso/js/tests/unit/utils.test.js
 
-Test Suites: <span class="m">3</span> passed, <span class="m">3</span> total
-Tests:       <span class="m">3</span> passed, <span class="m">3</span> total
-Snapshots:   <span class="m">1</span> passed, <span class="m">1</span> total
-Time:        <span class="m">0</span>.907 s, estimated <span class="m">1</span> s
-Ran all <span class="nb">test</span> suites matching /isso<span class="se">\/</span>js<span class="se">\/</span>tests<span class="se">\/</span>unit<span class="se">\/</span>/i.
+Test<span class="w"> </span>Suites:<span class="w"> </span><span class="m">3</span><span class="w"> </span>passed,<span class="w"> </span><span class="m">3</span><span class="w"> </span>total
+Tests:<span class="w">       </span><span class="m">3</span><span class="w"> </span>passed,<span class="w"> </span><span class="m">3</span><span class="w"> </span>total
+Snapshots:<span class="w">   </span><span class="m">1</span><span class="w"> </span>passed,<span class="w"> </span><span class="m">1</span><span class="w"> </span>total
+Time:<span class="w">        </span><span class="m">0</span>.907<span class="w"> </span>s,<span class="w"> </span>estimated<span class="w"> </span><span class="m">1</span><span class="w"> </span>s
+Ran<span class="w"> </span>all<span class="w"> </span><span class="nb">test</span><span class="w"> </span>suites<span class="w"> </span>matching<span class="w"> </span>/isso<span class="se">\/</span>js<span class="se">\/</span>tests<span class="se">\/</span>unit<span class="se">\/</span>/i.
 </pre></div>
 </div>
 <p>If you receive an error saying <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">snapshot</span> <span class="pre">failed</span></code> see
@@ -189,19 +185,19 @@ simulation of user interaction.</p>
 <p>First, ensure all the client files are built and that the server part is ready
 to be run. Refer to <a class="reference internal" href="../../reference/installation/#install-from-source"><span class="std std-ref">Install from Source</span></a> for details. Here’s the
 important part:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ make init
-$ make js
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>make<span class="w"> </span>init
+$<span class="w"> </span>make<span class="w"> </span>js
 </pre></div>
 </div>
 <p>Start the server and ensure that the comment database is empty:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ mv comments.db comments.db.bak
-$ virtualenv .venv
-$ <span class="nb">source</span> .venv/bin/activate
-<span class="o">(</span>.venv<span class="o">)</span> $ isso -c contrib/isso-dev.cfg run
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>mv<span class="w"> </span>comments.db<span class="w"> </span>comments.db.bak
+$<span class="w"> </span>virtualenv<span class="w"> </span>.venv
+$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+<span class="o">(</span>.venv<span class="o">)</span><span class="w"> </span>$<span class="w"> </span>isso<span class="w"> </span>-c<span class="w"> </span>contrib/isso-dev.cfg<span class="w"> </span>run
 </pre></div>
 </div>
 <p>Install the necessary <code class="docutils literal notranslate"><span class="pre">puppeteer</span></code>-related Javascript packages:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm install --no-save jest jest-puppeteer puppeteer
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>npm<span class="w"> </span>install<span class="w"> </span>--no-save<span class="w"> </span>jest<span class="w"> </span>jest-puppeteer<span class="w"> </span>puppeteer
 </pre></div>
 </div>
 <div class="admonition note">
@@ -210,24 +206,24 @@ $ <span class="nb">source</span> .venv/bin/activate
 downloaded, which requires about 400Mb of space.</p>
 </div>
 <p>Then run the integration tests:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ npm run tests-integration
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>npm<span class="w"> </span>run<span class="w"> </span>tests-integration
 </pre></div>
 </div>
 <p>You should receive output that looks similar to the following:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt; test-integration
-&gt; jest --config isso/js/jest-integration.config.js isso/js/tests/integration/
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>&gt;<span class="w"> </span>test-integration
+&gt;<span class="w"> </span>jest<span class="w"> </span>--config<span class="w"> </span>isso/js/jest-integration.config.js<span class="w"> </span>isso/js/tests/integration/
 
-PASS  isso/js/tests/integration/puppet.test.js
- ✓ window.Isso functions should be idempotent <span class="o">(</span><span class="m">87</span> ms<span class="o">)</span>
- ✓ should have correct ISSO_ENDPOINT on page <span class="o">(</span><span class="m">26</span> ms<span class="o">)</span>
- ✓ should display <span class="s2">&quot;Isso Demo&quot;</span> text on page <span class="o">(</span><span class="m">34</span> ms<span class="o">)</span>
- ✓ should fill Postbox with valid data and receive <span class="m">201</span> reply <span class="o">(</span><span class="m">319</span> ms<span class="o">)</span>
+PASS<span class="w">  </span>isso/js/tests/integration/puppet.test.js
+<span class="w"> </span>✓<span class="w"> </span>window.Isso<span class="w"> </span>functions<span class="w"> </span>should<span class="w"> </span>be<span class="w"> </span>idempotent<span class="w"> </span><span class="o">(</span><span class="m">87</span><span class="w"> </span>ms<span class="o">)</span>
+<span class="w"> </span>✓<span class="w"> </span>should<span class="w"> </span>have<span class="w"> </span>correct<span class="w"> </span>ISSO_ENDPOINT<span class="w"> </span>on<span class="w"> </span>page<span class="w"> </span><span class="o">(</span><span class="m">26</span><span class="w"> </span>ms<span class="o">)</span>
+<span class="w"> </span>✓<span class="w"> </span>should<span class="w"> </span>display<span class="w"> </span><span class="s2">&quot;Isso Demo&quot;</span><span class="w"> </span>text<span class="w"> </span>on<span class="w"> </span>page<span class="w"> </span><span class="o">(</span><span class="m">34</span><span class="w"> </span>ms<span class="o">)</span>
+<span class="w"> </span>✓<span class="w"> </span>should<span class="w"> </span>fill<span class="w"> </span>Postbox<span class="w"> </span>with<span class="w"> </span>valid<span class="w"> </span>data<span class="w"> </span>and<span class="w"> </span>receive<span class="w"> </span><span class="m">201</span><span class="w"> </span>reply<span class="w"> </span><span class="o">(</span><span class="m">319</span><span class="w"> </span>ms<span class="o">)</span>
 
-Test Suites: <span class="m">1</span> passed, <span class="m">1</span> total
-Tests:       <span class="m">4</span> passed, <span class="m">4</span> total
-Snapshots:   <span class="m">0</span> total
-Time:        <span class="m">0</span>.752 s, estimated <span class="m">21</span> s
-Ran all <span class="nb">test</span> suites matching /isso<span class="se">\/</span>js<span class="se">\/</span>tests<span class="se">\/</span>integration<span class="se">\/</span>/i.
+Test<span class="w"> </span>Suites:<span class="w"> </span><span class="m">1</span><span class="w"> </span>passed,<span class="w"> </span><span class="m">1</span><span class="w"> </span>total
+Tests:<span class="w">       </span><span class="m">4</span><span class="w"> </span>passed,<span class="w"> </span><span class="m">4</span><span class="w"> </span>total
+Snapshots:<span class="w">   </span><span class="m">0</span><span class="w"> </span>total
+Time:<span class="w">        </span><span class="m">0</span>.752<span class="w"> </span>s,<span class="w"> </span>estimated<span class="w"> </span><span class="m">21</span><span class="w"> </span>s
+Ran<span class="w"> </span>all<span class="w"> </span><span class="nb">test</span><span class="w"> </span>suites<span class="w"> </span>matching<span class="w"> </span>/isso<span class="se">\/</span>js<span class="se">\/</span>tests<span class="se">\/</span>integration<span class="se">\/</span>/i.
 </pre></div>
 </div>
 <p>If you receive an error saying <code class="docutils literal notranslate"><span class="pre">1</span> <span class="pre">snapshot</span> <span class="pre">failed</span></code> see
@@ -271,19 +267,19 @@ end-to-end testing suite also checks before-and-after screenshots.
 These screenshots are stored in the <a class="reference external" href="https://github.com/posativ/isso/tree/master/isso/js/tests/screenshots">integration tests folder</a>.</p>
 <p>To generate updated screenshots, you must run the following commands.
 (For help on setting up Docker, see <a class="reference internal" href="../testing/#testing-docker"><span class="std std-ref">Docker</span></a>)</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>make docker-generate-screenshots
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>make<span class="w"> </span>docker-generate-screenshots
 </pre></div>
 </div>
 <p>This will run the test <code class="docutils literal notranslate"><span class="pre">isso/js/tests/screenshots/screenshots.test.js</span></code> and output
 <code class="docutils literal notranslate"><span class="pre">.png</span></code> files. Now compare those screenshots against the known-to-be-good
 <code class="docutils literal notranslate"><span class="pre">.hash</span></code> files:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>make docker-compare-screenshots
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>make<span class="w"> </span>docker-compare-screenshots
 </pre></div>
 </div>
 <p>In case you have created a change that causes the resulting images to be
 different (and you are sure the visual changes are desired), you need generate
 new hashes:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>make docker-update-screenshots
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>make<span class="w"> </span>docker-update-screenshots
 </pre></div>
 </div>
 <p>Then commit those generated <code class="docutils literal notranslate"><span class="pre">.hash</span></code> files in
@@ -321,15 +317,15 @@ Feel free to suggest improvements and change this!</p>
 </pre></div>
 </div>
 <p>You <em>could</em> write this as:</p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="nx">expected_html</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&lt;div class=&quot;isso-textarea-wrapper&gt; [...]&#39;</span><span class="p">;</span><span class="w"></span>
-<span class="nx">expect</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.isso-textarea-wrapper&quot;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="p">.</span><span class="nx">toBe</span><span class="p">(</span><span class="nx">expected_html</span><span class="p">);</span><span class="w"></span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="kd">let</span><span class="w"> </span><span class="nx">expected_html</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;&lt;div class=&quot;isso-textarea-wrapper&gt; [...]&#39;</span><span class="p">;</span>
+<span class="nx">expect</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.isso-textarea-wrapper&quot;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="p">.</span><span class="nx">toBe</span><span class="p">(</span><span class="nx">expected_html</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>But then your resulting test files would quickly grow quite messy, especially
 for large components where the <code class="docutils literal notranslate"><span class="pre">expected_html</span></code> block would span whole pages.
 That is why <code class="docutils literal notranslate"><span class="pre">Jest</span></code> offers to check in those expected blocks as <code class="docutils literal notranslate"><span class="pre">snapshots</span></code>,
 which will saved into e.g. <code class="docutils literal notranslate"><span class="pre">isso/js/tests/unit/__snapshots__/*.snap</span></code></p>
-<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">expect</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.isso-textarea-wrapper&quot;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="p">).</span><span class="nx">toMatchSnapshot</span><span class="p">();</span><span class="w"></span>
+<div class="highlight-javascript notranslate"><div class="highlight"><pre><span></span><span class="nx">expect</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="s2">&quot;.isso-textarea-wrapper&quot;</span><span class="p">).</span><span class="nx">innerHTML</span><span class="p">).</span><span class="nx">toMatchSnapshot</span><span class="p">();</span>
 </pre></div>
 </div>
 <p>If you have created a commit which changes the HTML that is generated on the

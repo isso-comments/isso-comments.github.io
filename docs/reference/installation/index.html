@@ -10,12 +10,8 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/css/site.css" />
     
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/sphinx_highlight.js"></script>
-    <link rel="shortcut icon" href="../../../_static/isso.svg"/>
     <link rel="search" title="Search" href="../../../search/" />
     <link rel="top" title="Isso  documentation" href="../../../" />
     <link rel="next" title="Server Configuration" href="../server-config/" />
@@ -146,17 +142,17 @@ easy_install carelessly on Debian</a> is worth the read.</p>
 without interfering with your globally installed packages: <code class="docutils literal notranslate"><span class="pre">virtualenv</span></code>. Use
 this <em>always</em> if you are installing software unavailable in your favourite
 package manager.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span><span class="k">for</span> Debian/Ubuntu
-<span class="gp">$ </span>sudo apt-get install python3-setuptools python3-virtualenv python3-dev
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span><span class="k">for</span><span class="w"> </span>Debian/Ubuntu
+<span class="gp">$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>python3-setuptools<span class="w"> </span>python3-virtualenv<span class="w"> </span>python3-dev
 
-<span class="gp"># </span>Fedora/Red Hat
-<span class="gp">$ </span>sudo yum install python3-setuptools python3-virtualenv python3-devel
+<span class="gp"># </span>Fedora/Red<span class="w"> </span>Hat
+<span class="gp">$ </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>python3-setuptools<span class="w"> </span>python3-virtualenv<span class="w"> </span>python3-devel
 </pre></div>
 </div>
 <p>The next steps should be done as regular user, not as root (although possible
 but not recommended):</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>virtualenv /opt/isso
-<span class="gp">$ </span><span class="nb">source</span> /opt/isso/bin/activate
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>virtualenv<span class="w"> </span>/opt/isso
+<span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>/opt/isso/bin/activate
 </pre></div>
 </div>
 <div class="admonition note">
@@ -187,12 +183,12 @@ machines or a shared host (e.g. Uberspace.de).</p>
 <li><p>a working C compiler</p></li>
 </ul>
 <p>For Debian/Ubuntu just <a class="reference external" href="http://thejh.net/misc/website-terminal-copy-paste">copy and paste</a> to your terminal:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo apt-get install python3-dev sqlite3 build-essential
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>python3-dev<span class="w"> </span>sqlite3<span class="w"> </span>build-essential
 </pre></div>
 </div>
 <p>Similar for Fedora (and derivates):</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo yum install python3-devel sqlite
-<span class="gp">$ </span>sudo yum groupinstall “Development Tools”
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>python3-devel<span class="w"> </span>sqlite
+<span class="gp">$ </span>sudo<span class="w"> </span>yum<span class="w"> </span>groupinstall<span class="w"> </span>“Development<span class="w"> </span>Tools”
 </pre></div>
 </div>
 </section>
@@ -200,21 +196,21 @@ machines or a shared host (e.g. Uberspace.de).</p>
 <h4>Installation<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h4>
 <p>Install Isso with <a class="reference external" href="http://www.pip-installer.org/en/latest/">pip</a>, using the
 <code class="docutils literal notranslate"><span class="pre">virtualenv</span></code> set up before:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">source</span> /opt/isso/bin/activate
-<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pip install isso
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>/opt/isso/bin/activate
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>isso
 </pre></div>
 </div>
 <p>For easier execution, you can symlink the executable to a location in your
 <span class="target" id="index-1"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">PATH</span></code>.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ln -s /opt/isso/bin/isso /usr/local/bin/isso
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>ln<span class="w"> </span>-s<span class="w"> </span>/opt/isso/bin/isso<span class="w"> </span>/usr/local/bin/isso
 </pre></div>
 </div>
 </section>
 <section id="upgrade">
 <h4>Upgrade<a class="headerlink" href="#upgrade" title="Permalink to this heading">¶</a></h4>
 <p>To upgrade Isso, activate your virtual environment again, and run</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">source</span> /opt/isso/bin/activate  <span class="c1"># optional</span>
-<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pip install --upgrade isso
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>/opt/isso/bin/activate<span class="w">  </span><span class="c1"># optional</span>
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>isso
 </pre></div>
 </div>
 </section>
@@ -233,10 +229,10 @@ machines or a shared host (e.g. Uberspace.de).</p>
 two options for running a Docker container:</p>
 <section id="a-official-docker-image">
 <h4>a) Official Docker image<a class="headerlink" href="#a-official-docker-image" title="Permalink to this heading">¶</a></h4>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker pull ghcr.io/isso-comments/isso:latest
-<span class="gp">$ </span>docker run -d --rm --name isso -p <span class="m">127</span>.0.0.1:8080:8080 <span class="se">\</span>
-    -v /var/lib/isso:/config -v /var/lib/isso:/db <span class="se">\</span>
-    ghcr.io/isso-comments/isso:latest
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker<span class="w"> </span>pull<span class="w"> </span>ghcr.io/isso-comments/isso:latest
+<span class="gp">$ </span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--rm<span class="w"> </span>--name<span class="w"> </span>isso<span class="w"> </span>-p<span class="w"> </span><span class="m">127</span>.0.0.1:8080:8080<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-v<span class="w"> </span>/var/lib/isso:/config<span class="w"> </span>-v<span class="w"> </span>/var/lib/isso:/db<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>ghcr.io/isso-comments/isso:latest
 </pre></div>
 </div>
 </section>
@@ -244,12 +240,12 @@ two options for running a Docker container:</p>
 <h4>b) Build a Docker image yourself<a class="headerlink" href="#b-build-a-docker-image-yourself" title="Permalink to this heading">¶</a></h4>
 <p>You can build a Docker image by running <code class="docutils literal notranslate"><span class="pre">make</span> <span class="pre">docker</span></code>, which will be tagged
 as <code class="docutils literal notranslate"><span class="pre">isso:latest</span></code>.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mkdir -p config/ db/
-<span class="gp">$ </span>cp contrib/isso.sample.cfg config/isso.cfg
-<span class="gp"># </span>Set <span class="s1">&#39;dbpath&#39;</span> to <span class="s1">&#39;/db/comments.db&#39;</span> and adjust <span class="s1">&#39;host&#39;</span>
-<span class="gp">$ </span>docker run -d --rm --name isso -p <span class="m">127</span>.0.0.1:8080:8080 <span class="se">\</span>
-    -v <span class="nv">$PWD</span>/config:/config -v <span class="nv">$PWD</span>/db:/db <span class="se">\</span>
-    isso:latest
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mkdir<span class="w"> </span>-p<span class="w"> </span>config/<span class="w"> </span>db/
+<span class="gp">$ </span>cp<span class="w"> </span>contrib/isso.sample.cfg<span class="w"> </span>config/isso.cfg
+<span class="gp"># </span>Set<span class="w"> </span><span class="s1">&#39;dbpath&#39;</span><span class="w"> </span>to<span class="w"> </span><span class="s1">&#39;/db/comments.db&#39;</span><span class="w"> </span>and<span class="w"> </span>adjust<span class="w"> </span><span class="s1">&#39;host&#39;</span>
+<span class="gp">$ </span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--rm<span class="w"> </span>--name<span class="w"> </span>isso<span class="w"> </span>-p<span class="w"> </span><span class="m">127</span>.0.0.1:8080:8080<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>-v<span class="w"> </span><span class="nv">$PWD</span>/config:/config<span class="w"> </span>-v<span class="w"> </span><span class="nv">$PWD</span>/db:/db<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>isso:latest
 </pre></div>
 </div>
 <p>Then, you can use a reverse proxy to expose port 8080.</p>
@@ -267,26 +263,26 @@ way to set up Isso. It requires a lot more dependencies and effort:</p>
 <li><p>Node.js, <a class="reference external" href="https://npmjs.org/">NPM</a> - <em>required for frontend</em></p></li>
 </ul>
 <p>Get a fresh copy of Isso:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git clone https://github.com/posativ/isso.git
-<span class="gp">$ </span><span class="nb">cd</span> isso/
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/posativ/isso.git
+<span class="gp">$ </span><span class="nb">cd</span><span class="w"> </span>isso/
 </pre></div>
 </div>
 <p>To create a virtual environment (recommended), run:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>virtualenv .venv
-<span class="gp">$ </span><span class="nb">source</span> .venv/bin/activate
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>virtualenv<span class="w"> </span>.venv
+<span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
 </pre></div>
 </div>
 <p>Install JavaScript modules using <code class="docutils literal notranslate"><span class="pre">npm</span></code>:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>make init
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>make<span class="w"> </span>init
 </pre></div>
 </div>
 <p>Build JavaScript frontend code:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>make js
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>make<span class="w"> </span>js
 </pre></div>
 </div>
 <p>Install Isso and its dependencies:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>python setup.py develop  <span class="c1"># or `pip install -e .`</span>
-<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>isso -c /path/to/isso.cfg run
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>python<span class="w"> </span>setup.py<span class="w"> </span>develop<span class="w">  </span><span class="c1"># or `pip install -e .`</span>
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>isso<span class="w"> </span>-c<span class="w"> </span>/path/to/isso.cfg<span class="w"> </span>run
 </pre></div>
 </div>
 </section>
@@ -320,30 +316,30 @@ will find a very basic SysVinit script which you can use for inspiration:</p>
 <span class="nv">RUNAS</span><span class="o">=</span>isso
 <span class="nv">PIDFILE</span><span class="o">=</span>/var/run/isso.pid
 
-start<span class="o">()</span> <span class="o">{</span>
-  <span class="nb">echo</span> <span class="s1">&#39;Starting service…&#39;</span> &gt;<span class="p">&amp;</span><span class="m">2</span>
-  start-stop-daemon --start --user <span class="s2">&quot;</span><span class="nv">$RUNAS</span><span class="s2">&quot;</span> --background --make-pidfile --pidfile <span class="nv">$PIDFILE</span> <span class="se">\</span>
-                    --exec <span class="nv">$EXEC</span> -- <span class="nv">$EXEC_OPTS</span>
+start<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;Starting service…&#39;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+<span class="w">  </span>start-stop-daemon<span class="w"> </span>--start<span class="w"> </span>--user<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$RUNAS</span><span class="s2">&quot;</span><span class="w"> </span>--background<span class="w"> </span>--make-pidfile<span class="w"> </span>--pidfile<span class="w"> </span><span class="nv">$PIDFILE</span><span class="w"> </span><span class="se">\</span>
+<span class="w">                    </span>--exec<span class="w"> </span><span class="nv">$EXEC</span><span class="w"> </span>--<span class="w"> </span><span class="nv">$EXEC_OPTS</span>
 <span class="o">}</span>
 
-stop<span class="o">()</span> <span class="o">{</span>
-  <span class="nb">echo</span> <span class="s1">&#39;Stopping service…&#39;</span> &gt;<span class="p">&amp;</span><span class="m">2</span>
-  start-stop-daemon --stop --user <span class="s2">&quot;</span><span class="nv">$RUNAS</span><span class="s2">&quot;</span> --pidfile <span class="nv">$PIDFILE</span> --exec <span class="nv">$EXEC</span>
+stop<span class="o">()</span><span class="w"> </span><span class="o">{</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;Stopping service…&#39;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+<span class="w">  </span>start-stop-daemon<span class="w"> </span>--stop<span class="w"> </span>--user<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$RUNAS</span><span class="s2">&quot;</span><span class="w"> </span>--pidfile<span class="w"> </span><span class="nv">$PIDFILE</span><span class="w"> </span>--exec<span class="w"> </span><span class="nv">$EXEC</span>
 <span class="o">}</span>
 
-<span class="k">case</span> <span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span> <span class="k">in</span>
-  start<span class="o">)</span>
-    start
-    <span class="p">;;</span>
-  stop<span class="o">)</span>
-    stop
-    <span class="p">;;</span>
-  restart<span class="o">)</span>
-    stop
-    start
-    <span class="p">;;</span>
-  *<span class="o">)</span>
-    <span class="nb">echo</span> <span class="s2">&quot;Usage: </span><span class="nv">$0</span><span class="s2"> {start|stop|restart}&quot;</span>
+<span class="k">case</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="k">in</span>
+<span class="w">  </span>start<span class="o">)</span>
+<span class="w">    </span>start
+<span class="w">    </span><span class="p">;;</span>
+<span class="w">  </span>stop<span class="o">)</span>
+<span class="w">    </span>stop
+<span class="w">    </span><span class="p">;;</span>
+<span class="w">  </span>restart<span class="o">)</span>
+<span class="w">    </span>stop
+<span class="w">    </span>start
+<span class="w">    </span><span class="p">;;</span>
+<span class="w">  </span>*<span class="o">)</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Usage: </span><span class="nv">$0</span><span class="s2"> {start|stop|restart}&quot;</span>
 <span class="k">esac</span>
 </pre></div>
 </div>

@@ -10,12 +10,8 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/css/site.css" />
     
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/sphinx_highlight.js"></script>
-    <link rel="shortcut icon" href="../../../_static/isso.svg"/>
     <link rel="search" title="Search" href="../../../search/" />
     <link rel="top" title="Isso  documentation" href="../../../" />
     <link rel="next" title="Contribute" href="../../contributing/" />
@@ -116,7 +112,7 @@
 <p>The server part of Isso is tested by the <a class="reference external" href="https://docs.pytest.org/">pytest</a> tool. You should also
 install the <a class="reference external" href="https://coverage.readthedocs.io/en/latest/">coverage</a> module with the <a class="reference external" href="https://github.com/pytest-dev/pytest-cov">pytest-cov</a> plugin to receive code
 coverage statistics.</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pip install pytest pytest-cov coverage
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>pytest<span class="w"> </span>pytest-cov<span class="w"> </span>coverage
 </pre></div>
 </div>
 <p>Run Isso’s standard server <strong>test suite</strong>:</p>
@@ -131,12 +127,12 @@ always welcome! Please see the <a class="reference internal" href="../../contrib
 further information.</p>
 </div>
 <p><strong>Check Python code style</strong> using <code class="docutils literal notranslate"><span class="pre">flake8</span></code>:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pip install flake8
-<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>make flakes
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>flake8
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>make<span class="w"> </span>flakes
 </pre></div>
 </div>
 <p>Generate and view server <strong>test coverage</strong>:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>make coverage
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>make<span class="w"> </span>coverage
 </pre></div>
 </div>
 <div class="admonition note">

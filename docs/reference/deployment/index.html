@@ -10,12 +10,8 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/css/site.css" />
     
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/sphinx_highlight.js"></script>
-    <link rel="shortcut icon" href="../../../_static/isso.svg"/>
     <link rel="search" title="Search" href="../../../search/" />
     <link rel="top" title="Isso  documentation" href="../../../" />
     <link rel="next" title="Multiple Sites &amp; Sub-URI" href="../multi-site-sub-uri/" />
@@ -129,13 +125,13 @@ and web-scale than the built-in web server.</p>
 <section id="gevent">
 <h3><a class="reference external" href="http://www.gevent.org/">gevent</a><a class="headerlink" href="#gevent" title="Permalink to this heading">¶</a></h3>
 <p>Probably the easiest deployment method. Install with PIP (requires libevent):</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pip install gevent
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>gevent
 </pre></div>
 </div>
 <p>Then, just use the <code class="docutils literal notranslate"><span class="pre">isso</span></code> executable as usual. Gevent monkey-patches Python’s
 standard library to work with greenlets.</p>
 <p>To execute Isso, just use the commandline interface:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ isso -c my.cfg run
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>isso<span class="w"> </span>-c<span class="w"> </span>my.cfg<span class="w"> </span>run
 </pre></div>
 </div>
 <p>Unfortunately, gevent 0.13.2 does not support UNIX domain sockets (see <a class="reference external" href="https://github.com/surfly/gevent/issues/295">#295</a> and <a class="reference external" href="https://github.com/surfly/gevent/issues/299">#299</a> for details).</p>
@@ -145,29 +141,29 @@ standard library to work with greenlets.</p>
 <p>Isso has special support for uWSGI, namely fast IPC caching, job spooling and
 delayed jobs. It is the author’s choice, but not the only one. You need
 uWSGI 1.9 or higher, fortunately you can install it from PyPi:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~&gt; apt-get install build-essential python-dev
-~&gt; pip install uwsgi
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~&gt;<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>build-essential<span class="w"> </span>python-dev
+~&gt;<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>uwsgi
 </pre></div>
 </div>
 <p>For convenience, I recommend a INI-style configuration (you can also
 supply everything as command-line arguments):</p>
-<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[uwsgi]</span><span class="w"></span>
-<span class="na">http</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">:8080</span><span class="w"></span>
-<span class="na">master</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span><span class="w"></span>
-<span class="c1">; set to `nproc`</span><span class="w"></span>
-<span class="na">processes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">4</span><span class="w"></span>
-<span class="na">cache2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">name=hash,items=1024,blocksize=32</span><span class="w"></span>
-<span class="c1">; you may change this</span><span class="w"></span>
-<span class="na">spooler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/tmp/isso/mail</span><span class="w"></span>
-<span class="na">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">isso.run</span><span class="w"></span>
-<span class="c1">; uncomment if you use a virtual environment</span><span class="w"></span>
-<span class="c1">; virtualenv = /path/to/isso</span><span class="w"></span>
-<span class="na">env</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">ISSO_SETTINGS=/path/to/isso.cfg</span><span class="w"></span>
+<div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[uwsgi]</span>
+<span class="na">http</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">:8080</span>
+<span class="na">master</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
+<span class="c1">; set to `nproc`</span>
+<span class="na">processes</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">4</span>
+<span class="na">cache2</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">name=hash,items=1024,blocksize=32</span>
+<span class="c1">; you may change this</span>
+<span class="na">spooler</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">/tmp/isso/mail</span>
+<span class="na">module</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">isso.run</span>
+<span class="c1">; uncomment if you use a virtual environment</span>
+<span class="c1">; virtualenv = /path/to/isso</span>
+<span class="na">env</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">ISSO_SETTINGS=/path/to/isso.cfg</span>
 </pre></div>
 </div>
 <p>Then, create the spooling directory and start Isso via uWSGI:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~&gt; mkdir /tmp/isso/mail
-~&gt; uwsgi /path/to/uwsgi.ini
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>~&gt;<span class="w"> </span>mkdir<span class="w"> </span>/tmp/isso/mail
+~&gt;<span class="w"> </span>uwsgi<span class="w"> </span>/path/to/uwsgi.ini
 </pre></div>
 </div>
 </section>
@@ -175,12 +171,12 @@ supply everything as command-line arguments):</p>
 <h3><a class="reference external" href="http://gunicorn.org">gunicorn</a><a class="headerlink" href="#gunicorn" title="Permalink to this heading">¶</a></h3>
 <p>Gunicorn ‘Green Unicorn’ is a Python WSGI HTTP Server for UNIX with a pre-fork
 worker ported from Ruby’s Unicorn project. Install <a class="reference internal" href="#gunicorn">gunicorn</a> via PIP:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pip install gunicorn
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>gunicorn
 </pre></div>
 </div>
 <p>To execute Isso, use a command similar to:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ <span class="nb">export</span> <span class="nv">ISSO_SETTINGS</span><span class="o">=</span><span class="s2">&quot;/path/to/isso.cfg&quot;</span>
-$ gunicorn -b localhost:8080 -w <span class="m">4</span> --preload isso.run
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">ISSO_SETTINGS</span><span class="o">=</span><span class="s2">&quot;/path/to/isso.cfg&quot;</span>
+$<span class="w"> </span>gunicorn<span class="w"> </span>-b<span class="w"> </span>localhost:8080<span class="w"> </span>-w<span class="w"> </span><span class="m">4</span><span class="w"> </span>--preload<span class="w"> </span>isso.run
 </pre></div>
 </div>
 </section>
@@ -252,12 +248,12 @@ the virtualenv have priority over system modules, the following script does the 
 <p>The last two scripts are based on those given by
 <a class="reference external" href="https://code.google.com/p/modwsgi/wiki/VirtualEnvironments">mod_wsgi documentation</a>.</p>
 <p>The Apache configuration will then be similar to the following:</p>
-<div class="highlight-apache notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;VirtualHost</span><span class="w"> </span><span class="s">*</span><span class="nt">&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="nb">ServerName</span><span class="w"> </span>example.org<span class="w"></span>
+<div class="highlight-apache notranslate"><div class="highlight"><pre><span></span><span class="nt">&lt;VirtualHost</span><span class="w"> </span><span class="s">*</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nb">ServerName</span><span class="w"> </span>example.org
 
-<span class="w">    </span><span class="nb">WSGIDaemonProcess</span><span class="w"> </span>isso<span class="w"> </span><span class="k">user</span>=www-data<span class="w"> </span><span class="k">group</span>=www-data<span class="w"> </span>threads=5<span class="w"></span>
-<span class="w">    </span><span class="nb">WSGIScriptAlias</span><span class="w"> </span><span class="sx">/mounted_isso_path</span><span class="w"> </span><span class="sx">/path/to/isso.wsgi</span><span class="w"></span>
-<span class="nt">&lt;/VirtualHost&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nb">WSGIDaemonProcess</span><span class="w"> </span>isso<span class="w"> </span><span class="k">user</span>=www-data<span class="w"> </span><span class="k">group</span>=www-data<span class="w"> </span>threads=5
+<span class="w">    </span><span class="nb">WSGIScriptAlias</span><span class="w"> </span><span class="sx">/mounted_isso_path</span><span class="w"> </span><span class="sx">/path/to/isso.wsgi</span>
+<span class="nt">&lt;/VirtualHost&gt;</span>
 </pre></div>
 </div>
 <p>You will need to adjust the user and group according to your Apache installation and
@@ -277,25 +273,25 @@ please follow these steps:</p>
 to deploy Python via <cite>mod_fastcgi</cite>, consider extending/correcting this section.</p>
 <p>For more information, see <a class="reference external" href="http://flask.pocoo.org/docs/deploying/fastcgi/#configuring-apache">Flask: Configuring Apache</a>.</p>
 </div>
-<div class="highlight-apache notranslate"><div class="highlight"><pre><span></span><span class="nb">LoadModule</span><span class="w"> </span>fastcgi_module<span class="w"> </span><span class="sx">/usr/lib64/httpd/modules/mod_fastcgi.so</span><span class="w"></span>
+<div class="highlight-apache notranslate"><div class="highlight"><pre><span></span><span class="nb">LoadModule</span><span class="w"> </span>fastcgi_module<span class="w"> </span><span class="sx">/usr/lib64/httpd/modules/mod_fastcgi.so</span>
 
-<span class="nb">FastCgiServer</span><span class="w"> </span><span class="sx">/var/www/html/yourapplication/app.fcgi</span><span class="w"> </span>-idle-timeout<span class="w"> </span><span class="m">300</span><span class="w"> </span>-processes<span class="w"> </span><span class="m">5</span><span class="w"></span>
+<span class="nb">FastCgiServer</span><span class="w"> </span><span class="sx">/var/www/html/yourapplication/app.fcgi</span><span class="w"> </span>-idle-timeout<span class="w"> </span><span class="m">300</span><span class="w"> </span>-processes<span class="w"> </span><span class="m">5</span>
 
-<span class="nt">&lt;VirtualHost</span><span class="w"> </span><span class="s">*</span><span class="nt">&gt;</span><span class="w"></span>
-<span class="w">    </span><span class="nb">ServerName</span><span class="w"> </span>example.org<span class="w"></span>
+<span class="nt">&lt;VirtualHost</span><span class="w"> </span><span class="s">*</span><span class="nt">&gt;</span>
+<span class="w">    </span><span class="nb">ServerName</span><span class="w"> </span>example.org
 
-<span class="w">    </span><span class="nb">AddHandler</span><span class="w"> </span>fastcgi-script<span class="w"> </span>fcgi<span class="w"></span>
-<span class="w">    </span><span class="nb">ScriptAlias</span><span class="w"> </span>/<span class="w"> </span><span class="sx">/var/www/isso.fcgi</span><span class="w"></span>
+<span class="w">    </span><span class="nb">AddHandler</span><span class="w"> </span>fastcgi-script<span class="w"> </span>fcgi
+<span class="w">    </span><span class="nb">ScriptAlias</span><span class="w"> </span>/<span class="w"> </span><span class="sx">/var/www/isso.fcgi</span>
 
-<span class="w">    </span><span class="nt">&lt;Location</span><span class="w"> </span><span class="s">/</span><span class="nt">&gt;</span><span class="w"></span>
-<span class="w">        </span><span class="nb">SetHandler</span><span class="w"> </span>fastcgi-script<span class="w"></span>
-<span class="w">    </span><span class="nt">&lt;/Location&gt;</span><span class="w"></span>
-<span class="nt">&lt;/VirtualHost&gt;</span><span class="w"></span>
+<span class="w">    </span><span class="nt">&lt;Location</span><span class="w"> </span><span class="s">/</span><span class="nt">&gt;</span>
+<span class="w">        </span><span class="nb">SetHandler</span><span class="w"> </span>fastcgi-script
+<span class="w">    </span><span class="nt">&lt;/Location&gt;</span>
+<span class="nt">&lt;/VirtualHost&gt;</span>
 </pre></div>
 </div>
 <p>Next, to run isso as a FastCGI script you’ll need to install <code class="docutils literal notranslate"><span class="pre">flup</span></code> with
 PIP:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$ pip install flup
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>flup
 </pre></div>
 </div>
 <p>Finally, copy’n’paste to <cite>/var/www/isso.fcgi</cite> (or whatever location you prefer):</p>

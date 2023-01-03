@@ -10,12 +10,8 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/css/site.css" />
     
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
-    <script src="../../../_static/jquery.js"></script>
-    <script src="../../../_static/underscore.js"></script>
-    <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/sphinx_highlight.js"></script>
-    <link rel="shortcut icon" href="../../../_static/isso.svg"/>
     <link rel="search" title="Search" href="../../../search/" />
     <link rel="top" title="Isso  documentation" href="../../../" />
     <link rel="prev" title="Contribute" href="../" />
@@ -165,14 +161,14 @@ since it may be severely outdated and throw errors with Isso’s theme. Isso’s
 docs need <strong>at least Sphinx version 4.5.0</strong>.</p>
 </div>
 <p>Install via pip:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>virtualenv .venv <span class="o">&amp;&amp;</span> $ <span class="nb">source</span> .venv/bin/activate
-<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pip install sphinx
-<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>sphinx-build --version
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>virtualenv<span class="w"> </span>.venv<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>sphinx
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>sphinx-build<span class="w"> </span>--version
 <span class="go">~&gt; sphinx-build 4.5.0</span>
 </pre></div>
 </div>
 <p>Build the docs:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>make site
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>make<span class="w"> </span>site
 </pre></div>
 </div>
 <p>You can then view the generated docs by starting a local server with
@@ -184,8 +180,8 @@ docs need <strong>at least Sphinx version 4.5.0</strong>.</p>
 <p>If you have made any changes to the stylesheets, you need to install the
 <a class="reference external" href="https://github.com/sass/sassc">sassc</a> program and then re-generate the CSS file at
 <code class="docutils literal notranslate"><span class="pre">docs/_static/css/site.css</span></code>:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>apt install sassc
-<span class="gp">$ </span>make css
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>apt<span class="w"> </span>install<span class="w"> </span>sassc
+<span class="gp">$ </span>make<span class="w"> </span>css
 </pre></div>
 </div>
 </section>
@@ -242,10 +238,10 @@ It refers to the section itself, see <span class="na">:ref:</span><span class="n
 <p>Use <code class="docutils literal notranslate"><span class="pre">..</span> <span class="pre">code-block::</span> <span class="pre">&lt;language&gt;</span></code> and indent the code by one level:</p>
 <div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="p">..</span> <span class="ow">code-block</span><span class="p">::</span> <span class="k">console</span>
 
-     <span class="gp">$ </span>sudo apt install python3 python3-pip python3-virtualenv
-     <span class="gp">$ </span>virtualenv .venv
-     <span class="gp">$ </span><span class="nb">source</span> .venv/bin/activate
-     <span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>python <span class="o">[</span>cmd<span class="o">]</span>
+     <span class="gp">$ </span>sudo<span class="w"> </span>apt<span class="w"> </span>install<span class="w"> </span>python3<span class="w"> </span>python3-pip<span class="w"> </span>python3-virtualenv
+     <span class="gp">$ </span>virtualenv<span class="w"> </span>.venv
+     <span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+     <span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>python<span class="w"> </span><span class="o">[</span>cmd<span class="o">]</span>
 </pre></div>
 </div>
 </section>
@@ -305,7 +301,7 @@ also follow this system.</p>
 <a class="reference external" href="https://sphinx-rtd-theme.readthedocs.io/en/stable/configuring.html">sphinx-rtd-theme internals</a></p></li>
 </ul>
 <p>Debugging cross-references:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python -m sphinx.ext.intersphinx docs/_build/html/objects.inv
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>-m<span class="w"> </span>sphinx.ext.intersphinx<span class="w"> </span>docs/_build/html/objects.inv
 </pre></div>
 </div>
 <p>Also make sure you have used <code class="docutils literal notranslate"><span class="pre">:ref:</span></code> or <code class="docutils literal notranslate"><span class="pre">:doc</span></code>
@@ -314,8 +310,8 @@ correctly and not confused the two.</p>
 <h4><a class="toc-backref" href="#id14" role="doc-backlink">Automatic rebuilds</a><a class="headerlink" href="#automatic-rebuilds" title="Permalink to this heading">¶</a></h4>
 <p>For easier docs development through file watching, automatic rebuilding and
 refreshing the browser, use <a class="reference external" href="https://github.com/executablebooks/sphinx-autobuild">sphinx-autobuild</a>:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pip install sphinx-autobuild
-<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>sphinx-autobuild -b dirhtml docs/ docs/_build/html
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>sphinx-autobuild
+<span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>sphinx-autobuild<span class="w"> </span>-b<span class="w"> </span>dirhtml<span class="w"> </span>docs/<span class="w"> </span>docs/_build/html
 </pre></div>
 </div>
 <p>Then visit <code class="docutils literal notranslate"><span class="pre">localhost:8000</span></code></p>

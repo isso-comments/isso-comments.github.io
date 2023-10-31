@@ -9,9 +9,9 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=983eb2ed" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/site.css?v=decc2ba4" />
     
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=df4b10f6"></script>
+    <script src="../../../_static/documentation_options.js?v=187304be"></script>
     <script src="../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="search" title="Search" href="../../../search/" />
     <link rel="top" title="Isso  documentation" href="../../../" />
     <link rel="next" title="Testing the Client" href="../testing-client/" />
@@ -108,7 +108,7 @@
                 <div role="main">
                 
                 <section id="development-testing">
-<h2>Development &amp; Testing<a class="headerlink" href="#development-testing" title="Permalink to this heading">¶</a></h2>
+<h2>Development &amp; Testing<a class="headerlink" href="#development-testing" title="Link to this heading">¶</a></h2>
 <p>Before submitting a change, you need to verify that it does not inadvertently
 break any existing functionality in Isso.</p>
 <p>A test suite for the <strong>Python server</strong> part ensures that the most basic things
@@ -147,7 +147,7 @@ further information.</p>
 </ul>
 </nav>
 <section id="development-server">
-<span id="id1"></span><h3><a class="toc-backref" href="#id2" role="doc-backlink">Development server</a><a class="headerlink" href="#development-server" title="Permalink to this heading">¶</a></h3>
+<span id="id1"></span><h3><a class="toc-backref" href="#id2" role="doc-backlink">Development server</a><a class="headerlink" href="#development-server" title="Link to this heading">¶</a></h3>
 <p>After you’ve set up Isso according to <a class="reference internal" href="../../reference/installation/#install-from-source"><span class="std std-ref">Install from Source</span></a>, you will have
 a development server available at <code class="docutils literal notranslate"><span class="pre">localhost:8080</span></code>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>virtualenv<span class="w"> </span>.venv
@@ -162,7 +162,7 @@ version of the bundled client code is used (<code class="docutils literal notran
 “Debugger” tab and shows the actual line of source code in any console traces.</p>
 </section>
 <section id="using-docker">
-<span id="testing-docker"></span><h3><a class="toc-backref" href="#id3" role="doc-backlink">Using docker</a><a class="headerlink" href="#using-docker" title="Permalink to this heading">¶</a></h3>
+<span id="testing-docker"></span><h3><a class="toc-backref" href="#id3" role="doc-backlink">Using docker</a><a class="headerlink" href="#using-docker" title="Link to this heading">¶</a></h3>
 <p>Testing via <a class="reference external" href="https://en.wikipedia.org/wiki/Docker_(software)">docker</a> is not
 a requirement, but can make a few tests faster to set up, makes automation
 easier and ensures a consistent testing environment across developer machines.</p>
@@ -170,7 +170,7 @@ easier and ensures a consistent testing environment across developer machines.</
 <a class="reference external" href="https://github.com/posativ/isso/tree/master/docker">docker/ folder</a> are for
 creating a container that can run the unit and integration tests.</p>
 <section id="build-images">
-<h4><a class="toc-backref" href="#id4" role="doc-backlink">Build images</a><a class="headerlink" href="#build-images" title="Permalink to this heading">¶</a></h4>
+<h4><a class="toc-backref" href="#id4" role="doc-backlink">Build images</a><a class="headerlink" href="#build-images" title="Link to this heading">¶</a></h4>
 <p>First, ensure all images are built:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp"># </span>Prepare<span class="w"> </span>testbed<span class="w"> </span>image
 <span class="gp">$ </span>make<span class="w"> </span>docker-testbed
@@ -185,7 +185,7 @@ runs.</p>
 </div>
 </section>
 <section id="start-server">
-<h4><a class="toc-backref" href="#id5" role="doc-backlink">Start server</a><a class="headerlink" href="#start-server" title="Permalink to this heading">¶</a></h4>
+<h4><a class="toc-backref" href="#id5" role="doc-backlink">Start server</a><a class="headerlink" href="#start-server" title="Link to this heading">¶</a></h4>
 <p>Start up server part via <code class="docutils literal notranslate"><span class="pre">docker</span> <span class="pre">compose</span></code>:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>-d
 </pre></div>
@@ -193,7 +193,7 @@ runs.</p>
 <p>Now you should have the Isso server part available at <code class="docutils literal notranslate"><span class="pre">localhost:8080</span></code>.</p>
 </section>
 <section id="running-tests">
-<h4><a class="toc-backref" href="#id6" role="doc-backlink">Running tests</a><a class="headerlink" href="#running-tests" title="Permalink to this heading">¶</a></h4>
+<h4><a class="toc-backref" href="#id6" role="doc-backlink">Running tests</a><a class="headerlink" href="#running-tests" title="Link to this heading">¶</a></h4>
 <p>Run <strong>unit tests:</strong></p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>make<span class="w"> </span>docker-js-unit
 </pre></div>
@@ -214,9 +214,9 @@ can start afresh).</p>
 </section>
 </section>
 <section id="testing-strategies">
-<h3><a class="toc-backref" href="#id7" role="doc-backlink">Testing strategies</a><a class="headerlink" href="#testing-strategies" title="Permalink to this heading">¶</a></h3>
+<h3><a class="toc-backref" href="#id7" role="doc-backlink">Testing strategies</a><a class="headerlink" href="#testing-strategies" title="Link to this heading">¶</a></h3>
 <section id="manual-testing">
-<h4><a class="toc-backref" href="#id8" role="doc-backlink">Manual testing</a><a class="headerlink" href="#manual-testing" title="Permalink to this heading">¶</a></h4>
+<h4><a class="toc-backref" href="#id8" role="doc-backlink">Manual testing</a><a class="headerlink" href="#manual-testing" title="Link to this heading">¶</a></h4>
 <p>Here are a few ideas of how to manually test the client to reveal potentially
 uncovered scenarios:</p>
 <ul class="simple">
@@ -237,7 +237,7 @@ uncovered scenarios:</p>
 </ul>
 </section>
 <section id="performance-testing">
-<h4><a class="toc-backref" href="#id9" role="doc-backlink">Performance testing</a><a class="headerlink" href="#performance-testing" title="Permalink to this heading">¶</a></h4>
+<h4><a class="toc-backref" href="#id9" role="doc-backlink">Performance testing</a><a class="headerlink" href="#performance-testing" title="Link to this heading">¶</a></h4>
 <p>Find a way to have 100, 1,000, 10,000, 100k commments at once.</p>
 <p>Then, test responsiveness, speed of insertion, the updating of all timestamps
 every minute, and whatever else might be performance-related.</p>
@@ -256,7 +256,7 @@ cat<span class="w"> </span>dummy.sql<span class="w"> </span><span class="p">|</s
 </div>
 </section>
 <section id="unconventional-testing">
-<h4><a class="toc-backref" href="#id10" role="doc-backlink">Unconventional testing</a><a class="headerlink" href="#unconventional-testing" title="Permalink to this heading">¶</a></h4>
+<h4><a class="toc-backref" href="#id10" role="doc-backlink">Unconventional testing</a><a class="headerlink" href="#unconventional-testing" title="Link to this heading">¶</a></h4>
 <p>Be a chaos monkey! Think of unconventional ways of breaking Isso.</p>
 <blockquote class="epigraph">
 <div><p>A QA engineer walks into a bar. Orders a beer. Orders 0 beers. Orders

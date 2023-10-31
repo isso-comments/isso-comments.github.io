@@ -9,9 +9,9 @@
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=983eb2ed" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/site.css?v=decc2ba4" />
     
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=df4b10f6"></script>
+    <script src="../../../_static/documentation_options.js?v=187304be"></script>
     <script src="../../../_static/doctools.js?v=888ff710"></script>
-    <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="search" title="Search" href="../../../search/" />
     <link rel="top" title="Isso  documentation" href="../../../" />
     <link rel="next" title="Advanced integration" href="../advanced-integration/" />
@@ -108,9 +108,9 @@
                 <div role="main">
                 
                 <section id="troubleshooting">
-<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this heading">¶</a></h2>
+<h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Link to this heading">¶</a></h2>
 <section id="for-uberspace-users">
-<h3>For uberspace users<a class="headerlink" href="#for-uberspace-users" title="Permalink to this heading">¶</a></h3>
+<h3>For uberspace users<a class="headerlink" href="#for-uberspace-users" title="Link to this heading">¶</a></h3>
 <p>Some uberspace users experienced problems with isso and they solved their
 issues by adding <cite>DirectoryIndex disabled</cite> as the first line in the <cite>.htaccess</cite>
 file for the domain the isso server is running on.</p>
@@ -118,7 +118,7 @@ file for the domain the isso server is running on.</p>
 guide should also be helpful.</p>
 </section>
 <section id="pkg-ressources-distributionnotfound">
-<h3>pkg_ressources.DistributionNotFound<a class="headerlink" href="#pkg-ressources-distributionnotfound" title="Permalink to this heading">¶</a></h3>
+<h3>pkg_ressources.DistributionNotFound<a class="headerlink" href="#pkg-ressources-distributionnotfound" title="Link to this heading">¶</a></h3>
 <p>This is usually caused by messing up the system’s Python with newer packages
 from PyPi (e.g. by executing <cite>easy_install –upgrade pip</cite> as root) and is not
 related to Isso at all.</p>
@@ -127,12 +127,12 @@ related to Isso at all.</p>
 to install Isso into the user’s home.</p>
 </section>
 <section id="why-isn-t-markdown-in-my-comments-rendering-as-i-expect">
-<h3>Why isn’t markdown in my comments rendering as I expect?<a class="headerlink" href="#why-isn-t-markdown-in-my-comments-rendering-as-i-expect" title="Permalink to this heading">¶</a></h3>
+<h3>Why isn’t markdown in my comments rendering as I expect?<a class="headerlink" href="#why-isn-t-markdown-in-my-comments-rendering-as-i-expect" title="Link to this heading">¶</a></h3>
 <p>Please <a class="reference internal" href="../../reference/server-config/#configure-markup"><span class="std std-ref">configure</span></a> Isso’s markup parser to your
 requirements as described in <a class="reference internal" href="../../reference/markdown-config/"><span class="doc">Configure how comments are rendered</span></a>.</p>
 </section>
 <section id="unicodedecodeerror-ascii-codec-can-t-decode-byte-0xff">
-<h3>UnicodeDecodeError: ‘ascii’ codec can’t decode byte 0xff<a class="headerlink" href="#unicodedecodeerror-ascii-codec-can-t-decode-byte-0xff" title="Permalink to this heading">¶</a></h3>
+<h3>UnicodeDecodeError: ‘ascii’ codec can’t decode byte 0xff<a class="headerlink" href="#unicodedecodeerror-ascii-codec-can-t-decode-byte-0xff" title="Link to this heading">¶</a></h3>
 <p>Likely an issue with your environment, check you set your preferred file
 encoding either in <span class="target" id="index-0"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">LANG</span></code>, <span class="target" id="index-1"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">LANGUAGE</span></code>, <span class="target" id="index-2"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">LC_ALL</span></code> or
 <span class="target" id="index-3"></span><code class="xref std std-envvar docutils literal notranslate"><span class="pre">LC_CTYPE</span></code>:</p>
@@ -144,7 +144,7 @@ likely fail (unable to print non-ascii characters to stdout/err, unable to
 parse configuration file with non-ascii characters and so forth).</p>
 </section>
 <section id="the-web-console-shows-404-not-found-responses">
-<h3>The web console shows 404 Not Found responses<a class="headerlink" href="#the-web-console-shows-404-not-found-responses" title="Permalink to this heading">¶</a></h3>
+<h3>The web console shows 404 Not Found responses<a class="headerlink" href="#the-web-console-shows-404-not-found-responses" title="Link to this heading">¶</a></h3>
 <p>Isso returned “404 Not Found” to indicate “No comments” in versions prior to
 0.12.3. This behaviour was changed in
 <a class="reference external" href="https://github.com/posativ/isso/pull/565">a pull request</a> to return a code

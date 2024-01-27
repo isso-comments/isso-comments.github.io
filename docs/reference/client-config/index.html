@@ -112,7 +112,6 @@
 <p>You can configure the client (the JS part) with custom data attributes,
 preferably in the script tag which embeds the JS:</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-isso</span><span class="o">=</span><span class="s">&quot;/prefix/&quot;</span>
-        <span class="na">data-isso-id</span><span class="o">=</span><span class="s">&quot;thread-id&quot;</span>
         <span class="na">data-isso-css</span><span class="o">=</span><span class="s">&quot;true&quot;</span>
         <span class="na">data-isso-css-url</span><span class="o">=</span><span class="s">&quot;null&quot;</span>
         <span class="na">data-isso-lang</span><span class="o">=</span><span class="s">&quot;ru&quot;</span>
@@ -146,7 +145,7 @@ english translation of the <code class="docutils literal notranslate"><span clas
 </section>
 <section id="data-isso-directives">
 <h3>data-isso-* directives<a class="headerlink" href="#data-isso-directives" title="Link to this heading">¶</a></h3>
-<dl>
+<dl id="data-isso">
 <dt>data-isso</dt><dd><p>Isso usually detects the REST API automatically, but when you serve the JS
 script on a different location, this may fail. Use <code class="docutils literal notranslate"><span class="pre">data-isso</span></code> to
 override the API location:</p>
@@ -154,6 +153,8 @@ override the API location:</p>
 </pre></div>
 </div>
 </dd>
+</dl>
+<dl id="data-isso-css-url">
 <dt>data-isso-css-url</dt><dd><p>Set URL from which to fetch <code class="docutils literal notranslate"><span class="pre">isso.css</span></code>, e.g. from a CDN.
 Defaults to fetching from the API endpoint.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;...&quot;</span> <span class="na">data-isso-css-url</span><span class="o">=</span><span class="s">&quot;/path/to/isso.css&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
@@ -161,29 +162,37 @@ Defaults to fetching from the API endpoint.</p>
 </div>
 <p>Default: <code class="docutils literal notranslate"><span class="pre">&quot;{api-endpoint}/css/isso.css&quot;</span></code></p>
 </dd>
+</dl>
+<dl id="data-isso-css">
 <dt>data-isso-css</dt><dd><p>Set to <code class="docutils literal notranslate"><span class="pre">false</span></code> prevents Isso from automatically appending the stylesheet.</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;...&quot;</span> <span class="na">data-isso-css</span><span class="o">=</span><span class="s">&quot;false&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <p>Default: <code class="docutils literal notranslate"><span class="pre">true</span></code></p>
 </dd>
+</dl>
+<dl id="data-isso-lang">
 <dt>data-isso-lang</dt><dd><p>Always render the Isso UI in this language, ignoring what the
 user-agent says is the preferred language.  The default is to
 honor the user-agent’s preferred language, and this can be
 specified explicitly by using <code class="docutils literal notranslate"><span class="pre">data-isso-lang=&quot;&quot;</span></code>.</p>
-<p>The value of this property should be a <a class="reference external" href="https://tools.ietf.org/html/bcp47">BCP 47 language tag</a>, such as “en”, “ru”, or “pt-BR”.
+<p>The value of this property should be a <a class="reference external" href="https://tools.ietf.org/html/bcp47">BCP 47 language tag</a>, such as <code class="docutils literal notranslate"><span class="pre">en</span></code>, <code class="docutils literal notranslate"><span class="pre">ru</span></code>, or
+<code class="docutils literal notranslate"><span class="pre">pt-BR</span></code>.
 Language tags are processed case-insensitively, and may use
-underscores as separators instead of dashes (e.g. “pt_br” is treated
-the same as same as “pt-BR”).</p>
+underscores as separators instead of dashes (e.g. <code class="docutils literal notranslate"><span class="pre">pt_br</span></code> is treated the
+same as same as <code class="docutils literal notranslate"><span class="pre">pt-BR</span></code>).</p>
 <p>You can find a list of all supported languages by browsing the
 <a class="reference external" href="https://github.com/posativ/isso/tree/master/isso/js/app/i18n">i18n directory</a> of
 the source tree.</p>
 <p>Default: <code class="docutils literal notranslate"><span class="pre">null</span></code></p>
 </dd>
+</dl>
+<dl id="data-isso-default-lang">
 <dt>data-isso-default-lang</dt><dd><p>Render the Isso UI in this language when the user-agent does not
 specify a preferred language, or if the language it specifies is not
-supported.  Like <code class="docutils literal notranslate"><span class="pre">data-isso-lang</span></code>, the value of this property should
-be a BCP 47 language tag.</p>
+supported.  Like <a class="reference internal" href="#data-isso-lang"><span class="std std-ref">data-isso-lang</span></a>, the value of this property should
+be a <a class="reference external" href="https://tools.ietf.org/html/bcp47">BCP 47 language tag</a>,
+such as <code class="docutils literal notranslate"><span class="pre">en</span></code>, <code class="docutils literal notranslate"><span class="pre">ru</span></code>, or <code class="docutils literal notranslate"><span class="pre">pt-BR</span></code>.</p>
 <p>If you specify both <code class="docutils literal notranslate"><span class="pre">data-isso-default-lang</span></code> and <code class="docutils literal notranslate"><span class="pre">data-isso-lang</span></code>,
 <code class="docutils literal notranslate"><span class="pre">data-isso-lang</span></code> takes precedence.</p>
 <p>Default: <code class="docutils literal notranslate"><span class="pre">&quot;en&quot;</span></code></p>
@@ -191,36 +200,52 @@ be a BCP 47 language tag.</p>
 <p><span class="versionmodified added">New in version 0.12.6.</span></p>
 </div>
 </dd>
+</dl>
+<dl id="data-isso-max-comments-top">
 <dt>data-isso-max-comments-top</dt><dd><p>Number of top level comments to show by default. If some comments are not
 shown, an “X Hidden” link is shown.</p>
 <p>Set to <code class="docutils literal notranslate"><span class="pre">&quot;inf&quot;</span></code> to show all, or <code class="docutils literal notranslate"><span class="pre">&quot;0&quot;</span></code> to hide all.</p>
 <p>Default: <code class="docutils literal notranslate"><span class="pre">&quot;inf&quot;</span></code></p>
 </dd>
+</dl>
+<dl id="data-isso-max-comments-nested">
 <dt>data-isso-max-comments-nested</dt><dd><p>Number of nested comments to show by default. If some comments are not
 shown, an “X Hidden” link is shown.</p>
 <p>Set to <code class="docutils literal notranslate"><span class="pre">&quot;inf&quot;</span></code> to show all, or <code class="docutils literal notranslate"><span class="pre">&quot;0&quot;</span></code> to hide all.</p>
 <p>Default: <code class="docutils literal notranslate"><span class="pre">5</span></code></p>
 </dd>
+</dl>
+<dl id="data-isso-reveal-on-click">
 <dt>data-isso-reveal-on-click</dt><dd><p>Number of comments to reveal on clicking the “X Hidden” link.</p>
 <p>Default: <code class="docutils literal notranslate"><span class="pre">true</span></code></p>
 </dd>
+</dl>
+<dl id="data-isso-avatar">
 <dt>data-isso-avatar</dt><dd><p>Enable or disable avatar generation. Ignored if gravatar is enabled on
 server side, since gravatars will take precedence and disable avatar
 generation.</p>
 <p>Default: <code class="docutils literal notranslate"><span class="pre">true</span></code></p>
 </dd>
+</dl>
+<dl id="data-isso-avatar-bg">
 <dt>data-isso-avatar-bg</dt><dd><p>Set avatar background color. Any valid CSS color will do.</p>
 <p>Default: <code class="docutils literal notranslate"><span class="pre">&quot;#f0f0f0&quot;</span></code></p>
 </dd>
+</dl>
+<dl id="data-isso-avatar-fg">
 <dt>data-isso-avatar-fg</dt><dd><p>Set avatar foreground color. Up to 8 colors are possible. The default color
 scheme is based in <a class="reference external" href="http://colrd.com/palette/19308/">this color palette</a>.
 Multiple colors must be separated by space. If you use less than eight colors
 and not a multiple of 2, the color distribution is not even.</p>
 <p>Default: <code class="docutils literal notranslate"><span class="pre">&quot;#9abf88</span> <span class="pre">#5698c4</span> <span class="pre">#e279a3</span> <span class="pre">#9163b6</span> <span class="pre">#be5168</span> <span class="pre">#f19670</span> <span class="pre">#e4bf80</span> <span class="pre">#447c69&quot;</span></code></p>
 </dd>
+</dl>
+<dl id="data-isso-vote">
 <dt>data-isso-vote</dt><dd><p>Enable or disable voting feature on the client side.</p>
 <p>Default: <code class="docutils literal notranslate"><span class="pre">true</span></code></p>
 </dd>
+</dl>
+<dl id="data-isso-vote-levels">
 <dt>data-isso-vote-levels</dt><dd><p>List of vote levels used to customize comment appearance based on score.
 Provide a comma-separated values (eg. <code class="docutils literal notranslate"><span class="pre">&quot;0,5,10,25,100&quot;</span></code>) or a JSON array (eg. <code class="docutils literal notranslate"><span class="pre">&quot;[-5,5,15]&quot;</span></code>).</p>
 <p>For example, the value <code class="docutils literal notranslate"><span class="pre">&quot;-5,5&quot;</span></code> will cause each <code class="docutils literal notranslate"><span class="pre">isso-comment</span></code> to be given one of these 3 classes:</p>
@@ -232,6 +257,8 @@ Provide a comma-separated values (eg. <code class="docutils literal notranslate"
 <p>These classes can then be used to customize the appearance of comments (eg. put a star on popular comments)</p>
 <p>Default: <code class="docutils literal notranslate"><span class="pre">null</span></code></p>
 </dd>
+</dl>
+<dl id="data-isso-page-author-hashes">
 <dt>data-isso-page-author-hashes</dt><dd><p>Provide the hash (or list of hashes) of the current page’s author. Any
 comments made by those authors will be given the <code class="docutils literal notranslate"><span class="pre">isso-is-page-author</span></code>
 class. This can be styled using CSS.</p>
@@ -268,6 +295,8 @@ turquoise color, and the comment’s background a lighter version of that:</p>
 <p><span class="versionmodified added">New in version 0.13.</span></p>
 </div>
 </dd>
+</dl>
+<dl id="data-isso-reply-notifications-default-enabled">
 <dt>data-isso-reply-notifications-default-enabled</dt><dd><p>Set to <code class="docutils literal notranslate"><span class="pre">true</span></code> to make the reply notifications checkbox on the postbox be
 checked by default. Otherwise, the user will have to manually opt-in to
 reply notifications.</p>

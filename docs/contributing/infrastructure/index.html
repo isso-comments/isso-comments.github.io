@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="../../../">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Isso Project Infrastructure</title> 
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=983eb2ed" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/css/site.css?v=decc2ba4" />
+    
+    <script src="../../../_static/documentation_options.js?v=187304be"></script>
+    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <link rel="search" title="Search" href="../../../search/" />
+    <link rel="top" title="Isso  documentation" href="../../../" />
+    <link rel="prev" title="Writing Documentation" href="../documentation/" />
+</head>
+<body>
+    <div class="wrapper">
+        <div class="header">
+            <header>
+                <img class="logo" src="../../../_static/isso.svg" alt="Wynaut by @veekun"/>
+                <div class="title">
+                    <a href="../../.././">
+                        <h1>Isso</h1>
+                        <h2>a commenting server similar to Disqus</h2>
+                    </a>
+                </div>
+            </header>
+            <nav>
+                <a href="../../">Documentation</a>
+                <a href="../">Contribute</a>
+                <a href="../../../community/">community</a>
+            </nav>
+        </div>
+
+        <div class="outer">
+            
+    <header>
+    </header>
+
+        </div>
+
+
+        <main>
+        
+            
+          <div role="navigation" class="sidebar">
+<div role="search" id="searchbox" style="display: none">
+  <h2>Quick search</h2>
+    <form class="search" action="../../../search/" method="get">
+      <input type="text"
+             name="q"
+             aria-labelledby="searchlabel"
+             autocomplete="off"
+             autocorrect="off"
+             autocapitalize="off"
+             spellcheck="false"
+      />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+    <p class="caption" role="heading"><span class="caption-text">Guides</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/quickstart/">Quickstart</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/tips-and-tricks/">Tips &amp; Tricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/troubleshooting/">Troubleshooting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/advanced-integration/">Advanced Integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/faq/">FAQ</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/installation/">Installation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/server-config/">Server Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/client-config/">Client Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/markdown-config/">Markdown Configuration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/deployment/">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/multi-site-sub-uri/">Multiple Sites &amp; Sub-URI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/server-api/">Server API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../reference/releasing/">Releasing</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Technical documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/server/">Server</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/client/">Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/testing/">Development &amp; Testing</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/testing-client/">Testing the Client</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../technical-docs/testing-server/">Testing the Server</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../">Contributing to Isso</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../documentation/">Writing Documentation</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Isso Project Infrastructure</a></li>
+</ul>
+
+          </div>
+
+            <div class="docs">
+                
+<div class="vcs-edit-container">
+<a href="https://github.com/posativ/isso/blob/master/docs/docs/contributing/infrastructure.rst" class="vcs-edit"><img src="../../../_static/github.svg" /> Edit on GitHub</a>
+</div>
+
+                <div role="main">
+                
+                <section id="isso-project-infrastructure">
+<h2>Isso Project Infrastructure<a class="headerlink" href="#isso-project-infrastructure" title="Link to this heading">¶</a></h2>
+<p>Conceived initially as  Martin Zimmermann (<a class="reference external" href="https://github.com/posativ">&#64;posativ</a>)’s nimble personal project,
+Isso has grown to encompass a larger community of users and maintainers. With a
+transition away from being controlled solely by Martin, the project
+infrastructure is now largely community-owned.</p>
+<p>This page documents the parts that make up the project and who is responsible
+for them, in order for new or potential maintainers to get a better overview.</p>
+<div class="admonition attention">
+<p class="admonition-title">Attention</p>
+<p>We realize that many of our processes could use an overhaul and would
+benefit from much more automation. If you know how, please open a Pull
+Request or offer your help in an issue!</p>
+</div>
+<section id="website">
+<h3>Website<a class="headerlink" href="#website" title="Link to this heading">¶</a></h3>
+<p>The project website used to be hosted at <a class="reference external" href="https://posativ.org/isso">posativ.org/isso</a>, but now lives at
+its own domain <a class="reference external" href="https://isso-comments.de">isso-comments.de</a>.</p>
+<ul>
+<li><p>The domain <a class="reference external" href="https://isso-comments.de">isso-comments.de</a> is registered by <a class="reference external" href="https://github.com/ix5">&#64;ix5</a> through German registrar
+<a class="reference external" href="https://netcup.de">netcup.de</a>. Costs exactly 1.44€ each year so quite sustainable, but makes
+&#64;ix5 a potential bus factor.</p></li>
+<li><p>Website content is served by GitHub Pages. The <a class="reference external" href="https://www.sphinx-doc.org/">sphinx-doc</a>-built site is
+auto-deployed to <a class="reference external" href="https://github.com/isso-comments/isso-comments.github.io">isso-comments.github.io</a> via a <a class="reference external" href="https://github.com/isso-comments/isso/blob/master/.github/workflows/build-upload-docs.yml">GitHub Action</a> on every push
+to the Isso main repository. Requires appropriate <code class="docutils literal notranslate"><span class="pre">A</span></code> and <code class="docutils literal notranslate"><span class="pre">CNAME</span></code> records
+to GitHub’s servers:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>dig<span class="w"> </span>www.isso-comments.de
+<span class="go">www.isso-comments.de.     300     IN      CNAME   isso-comments.github.io.</span>
+<span class="go">isso-comments.github.io. 3600     IN      A       185.199.108.153</span>
+<span class="go">isso-comments.github.io. 3600     IN      A       185.199.109.153</span>
+<span class="go">isso-comments.github.io. 3600     IN      A       185.199.110.153</span>
+<span class="go">isso-comments.github.io. 3600     IN      A       185.199.111.153</span>
+</pre></div>
+</div>
+</li>
+<li><p>The demo instance of the comment form (on the homepage) lives on <a class="reference external" href="https://github.com/ix5">&#64;ix5</a>’s
+server at <a class="reference external" href="https://comments.isso-comments.de">comments.isso-comments.de</a> and consists of the latest <code class="docutils literal notranslate"><span class="pre">isso</span></code>
+package from <code class="docutils literal notranslate"><span class="pre">PyPI</span></code>, deployed via <code class="docutils literal notranslate"><span class="pre">gunicorn</span></code>.
+The ansible role to set this up is available at <a class="reference external" href="https://git.ix5.org/felix/ansible-role-isso">ansible-role-isso</a>. The
+simple auto-reset feature to curtail vandalism is documented at
+<a class="reference external" href="https://github.com/isso-comments/isso-demo-config">isso-demo-config</a>.</p></li>
+</ul>
+</section>
+<section id="development">
+<h3>Development<a class="headerlink" href="#development" title="Link to this heading">¶</a></h3>
+<p>Development happens under the <a class="reference external" href="https://github.com/isso-comments">isso-comments GitHub organisation</a>, with the
+main <a class="reference external" href="https://github.com/isso-comments/isso">isso-comments/isso</a> repository serving as the source for the Python
+parts, Javascript client, website and documentation, API documentation as well
+as CI/CD configuration.</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">master</span></code> branch has branch protections set up, requiring an approving
+maintainer review before merging.</p>
+</section>
+<section id="packaging">
+<h3>Packaging<a class="headerlink" href="#packaging" title="Link to this heading">¶</a></h3>
+<p>Isso is released “officially” to as an installable Python package on <a class="reference external" href="https://pypi.org/project/isso/">PyPI</a>
+and as a docker image. Other distributors may package releases of Isso natively
+for operating systems (e.g. for the Arch User repository or formerly Debian),
+but support for these releases should be given by the packager.</p>
+<section id="pypi-python-package-index">
+<h4>PyPI (Python Package Index)<a class="headerlink" href="#pypi-python-package-index" title="Link to this heading">¶</a></h4>
+<p>Release rights for the <a class="reference external" href="https://pypi.org/project/isso/">isso PyPI</a> project are held by &#64;jelmer, &#64;posativ, &#64;blatinier and &#64;ix5.</p>
+</section>
+<section id="docker-image">
+<h4>Docker image<a class="headerlink" href="#docker-image" title="Link to this heading">¶</a></h4>
+<p>The <a class="reference external" href="https://github.com/isso-comments/isso/pkgs/container/isso">ghcr.io/isso-comments/isso docker image</a> is rebuilt on every push to
+<code class="docutils literal notranslate"><span class="pre">master</span></code>. Push rights for manually created tags (e.g. <code class="docutils literal notranslate"><span class="pre">:release</span></code>) are
+inherited from the main <code class="docutils literal notranslate"><span class="pre">isso-comments/isso</span></code> GitHub repository (toggle
+<code class="docutils literal notranslate"><span class="pre">Inherit</span> <span class="pre">access</span> <span class="pre">from</span> <span class="pre">source</span> <span class="pre">repository</span></code> turned on).</p>
+<p>The <a class="reference external" href="https://github.com/orgs/isso-comments/packages/container/package/isso-js-testbed">ghcr.io/isso-comments/isso-js-testbed</a> image for running <code class="docutils literal notranslate"><span class="pre">Jest</span></code>-based
+unit and integration tests is built and pushed manually by &#64;ix5 so far.</p>
+</section>
+</section>
+<section id="secrets">
+<h3>Secrets<a class="headerlink" href="#secrets" title="Link to this heading">¶</a></h3>
+<p>There are some “<a class="reference external" href="https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions">secrets</a>” needed to make the auto-deploy feature for GitHub Pages work.</p>
+<ul class="simple">
+<li><p>The main <code class="docutils literal notranslate"><span class="pre">isso-comments/isso</span></code> repository holds a <em>private</em> key in the
+variable <code class="docutils literal notranslate"><span class="pre">ACTIONS_DEPLOY_KEY</span></code> (<a class="reference external" href="https://github.com/isso-comments/isso/settings/secrets/actions">link to action secrets</a>).</p></li>
+<li><p>The deploy repository <code class="docutils literal notranslate"><span class="pre">isso-comments/isso-comments.github.io</span></code> for GitHub
+Pages is set up with a <em>public</em> deploy key (<a class="reference external" href="https://github.com/isso-comments/isso-comments.github.io/settings/keys">link to deploy keys</a>)
+corresponding to the action secrets private key, allowing actions running in
+the source repository to deploy code (the newly generated website) in this
+repository.</p></li>
+</ul>
+<p><em>(The direct links only work for maintainers with full repository access).</em></p>
+<p>The docker actions do not need to be outfitted with any special secrets since
+the main repository is already set up as a source for “Actions access” with
+write access (<a class="reference external" href="https://github.com/orgs/isso-comments/packages/container/isso/settings">link to package settings</a>).</p>
+</section>
+<section id="social">
+<h3>Social<a class="headerlink" href="#social" title="Link to this heading">¶</a></h3>
+<p>There exists an IRC channel (<code class="docutils literal notranslate"><span class="pre">#isso</span></code>) on <a class="reference external" href="https://libera.chat/">Libera.chat</a> but it is seldomly
+active and not used for coordination between maintainers. Most discussion
+happens in public on GitHub Issues; for private communication among each other
+regarding handover of project resources/keys (very rare) the maintainers have
+so far used E-mail.</p>
+</section>
+</section>
+
+                
+                </div>
+            </div>
+        
+        </main>
+
+        <div class="push"></div>
+    </div>
+
+    <div class="outer footer">
+        <footer>
+        &copy; Copyright 2022, Martin Zimmermann & contributors.
+
+        Made with <a href="http://sphinx-doc.org/">Sphinx</a>.
+        </footer>
+    </div>
+  </body>
+</html>

@@ -238,8 +238,15 @@ Intelligence<sup>2</sup>.</p></td>
 <tr class="row-even"><td><p>Ignore indented code blocks</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">disable-indented-code</span></code></p></td>
 </tr>
-<tr class="row-odd"><td><p>Parse inline LaTeX-style math blocks, such as
-inline <code class="docutils literal notranslate"><span class="pre">$equations$</span></code> or display <code class="docutils literal notranslate"><span class="pre">$$equations$$</span></code></p></td>
+<tr class="row-odd"><td><p>Ignore inline LaTeX-style math blocks, such as
+inline <code class="docutils literal notranslate"><span class="pre">$equations$</span></code> or display <code class="docutils literal notranslate"><span class="pre">$$equations$$</span></code>,
+allowing them to be processed separately with a
+JavaScript library.
+<strong>Note:</strong> This extension will <em>not</em> render equations
+or any form of math, it just marks them to be ignored by
+the markdown parser. A library such as
+<a class="reference external" href="https://www.mathjax.org/">MathJax</a>
+or <a class="reference external" href="https://katex.org/">KaTeX</a> is needed for that.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">math</span></code></p></td>
 </tr>
 <tr class="row-even"><td><p>Normally, everything between two <code class="docutils literal notranslate"><span class="pre">_underscores_</span></code> would
@@ -254,18 +261,22 @@ multiple footnotes by different commenters on the same
 page could clash due to duplicate links to footnotes.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">footnotes</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p>Use two <code class="docutils literal notranslate"><span class="pre">=</span></code> signs like <code class="docutils literal notranslate"><span class="pre">==this==</span></code> to highlight text</p></td>
+<tr class="row-even"><td><p>Use two <code class="docutils literal notranslate"><span class="pre">=</span></code> signs like <code class="docutils literal notranslate"><span class="pre">==this==</span></code> to highlight text.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">highlight</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p>Text inside quotes gets a special “quote” class.
 Perhaps useful for styling in CSS</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">quote</span></code></p></td>
 </tr>
-<tr class="row-even"><td><p>Enable Markdown tables</p></td>
+<tr class="row-even"><td><p>Enable Markdown tables.
+<strong>Note:</strong> The <code class="docutils literal notranslate"><span class="pre">&lt;tr&gt;</span></code> and all other <code class="docutils literal notranslate"><span class="pre">&lt;table&gt;</span></code>-related
+tags need to be allowed under <code class="docutils literal notranslate"><span class="pre">allowed-elements</span></code> for
+this to work. Also, a table cannot be surrounded by
+anything other than blank lines to render properly.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">tables</span></code></p></td>
 </tr>
 <tr class="row-odd"><td><p>Instead of <code class="docutils literal notranslate"><span class="pre">_underscore</span></code> resulting in <em>emphasis</em>,
-the resulting text will be… underlined</p></td>
+the resulting text will be… underlined.</p></td>
 <td><p><code class="docutils literal notranslate"><span class="pre">underline</span></code></p></td>
 </tr>
 </tbody>

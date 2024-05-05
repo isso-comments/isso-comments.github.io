@@ -152,7 +152,7 @@ package manager.</p>
 </div>
 <p>The next steps should be done as regular user, not as root (although possible
 but not recommended):</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>virtualenv<span class="w"> </span>/opt/isso
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>virtualenv<span class="w"> </span>--download<span class="w"> </span>/opt/isso
 <span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>/opt/isso/bin/activate
 </pre></div>
 </div>
@@ -179,16 +179,16 @@ machines or a shared host (e.g. Uberspace.de).</p>
 <section id="requirements">
 <h4>Requirements<a class="headerlink" href="#requirements" title="Link to this heading">¶</a></h4>
 <ul class="simple">
-<li><p>Python 3.8+ (+ devel headers)</p></li>
+<li><p>Python 3.8+ (+ devel headers) and Virtualenv</p></li>
 <li><p>SQLite 3.3.8 or later</p></li>
 <li><p>a working C compiler</p></li>
 </ul>
 <p>For Debian/Ubuntu just <a class="reference external" href="http://thejh.net/misc/website-terminal-copy-paste">copy and paste</a> to your terminal:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>python3-dev<span class="w"> </span>sqlite3<span class="w"> </span>build-essential
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>python3-dev<span class="w"> </span>python3-virtualenv<span class="w"> </span>sqlite3<span class="w"> </span>build-essential
 </pre></div>
 </div>
 <p>Similar for Fedora (and derivates):</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>python3-devel<span class="w"> </span>sqlite
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>sudo<span class="w"> </span>yum<span class="w"> </span>install<span class="w"> </span>python3-devel<span class="w"> </span>python3-virtualenv<span class="w"> </span>sqlite
 <span class="gp">$ </span>sudo<span class="w"> </span>yum<span class="w"> </span>groupinstall<span class="w"> </span>“Development<span class="w"> </span>Tools”
 </pre></div>
 </div>
@@ -279,7 +279,7 @@ way to set up Isso. It requires a lot more dependencies and effort:</p>
 </pre></div>
 </div>
 <p>To create a virtual environment (recommended), run:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>virtualenv<span class="w"> </span>.venv
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>virtualenv<span class="w"> </span>--download<span class="w"> </span>.venv
 <span class="gp">$ </span><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
 </pre></div>
 </div>
@@ -292,7 +292,7 @@ way to set up Isso. It requires a lot more dependencies and effort:</p>
 </pre></div>
 </div>
 <p>Install Isso and its dependencies:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>python<span class="w"> </span>setup.py<span class="w"> </span>develop<span class="w">  </span><span class="c1"># or `pip install -e .`</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="w">  </span><span class="c1"># -e = &quot;editable&quot; installation for development</span>
 <span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>isso<span class="w"> </span>-c<span class="w"> </span>/path/to/isso.cfg<span class="w"> </span>run
 </pre></div>
 </div>

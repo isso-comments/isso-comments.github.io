@@ -161,7 +161,7 @@ maintainer review before merging.</p>
 </section>
 <section id="packaging">
 <h3>Packaging<a class="headerlink" href="#packaging" title="Link to this heading">¶</a></h3>
-<p>Isso is released “officially” to as an installable Python package on <a class="reference external" href="https://pypi.org/project/isso/">PyPI</a>
+<p>Isso is released “officially” as an installable Python package on <a class="reference external" href="https://pypi.org/project/isso/">PyPI</a>
 and as a docker image. Other distributors may package releases of Isso natively
 for operating systems (e.g. for the Arch User repository or formerly Debian),
 but support for these releases should be given by the packager.</p>
@@ -175,8 +175,9 @@ but support for these releases should be given by the packager.</p>
 <code class="docutils literal notranslate"><span class="pre">master</span></code>. Push rights for manually created tags (e.g. <code class="docutils literal notranslate"><span class="pre">:release</span></code>) are
 inherited from the main <code class="docutils literal notranslate"><span class="pre">isso-comments/isso</span></code> GitHub repository (toggle
 <code class="docutils literal notranslate"><span class="pre">Inherit</span> <span class="pre">access</span> <span class="pre">from</span> <span class="pre">source</span> <span class="pre">repository</span></code> turned on).</p>
-<p>The <a class="reference external" href="https://github.com/orgs/isso-comments/packages/container/package/isso-js-testbed">ghcr.io/isso-comments/isso-js-testbed</a> image for running <code class="docutils literal notranslate"><span class="pre">Jest</span></code>-based
-unit and integration tests is built and pushed manually by &#64;ix5 so far.</p>
+<p>The <a class="reference external" href="https://github.com/orgs/isso-comments/packages/container/package/isso-js-testbed">ghcr.io/isso-comments/isso-js-testbed</a> image for running <code class="docutils literal notranslate"><span class="pre">Jest</span></code>- and
+<code class="docutils literal notranslate"><span class="pre">puppet</span></code>-based unit and integration tests is rebuilt and pushed every week by
+a GitHub Action.</p>
 </section>
 </section>
 <section id="secrets">

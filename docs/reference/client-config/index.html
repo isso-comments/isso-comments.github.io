@@ -119,6 +119,7 @@ preferably in the script tag which embeds the JS:</p>
         <span class="na">data-isso-max-comments-top</span><span class="o">=</span><span class="s">&quot;10&quot;</span>
         <span class="na">data-isso-max-comments-nested</span><span class="o">=</span><span class="s">&quot;5&quot;</span>
         <span class="na">data-isso-reveal-on-click</span><span class="o">=</span><span class="s">&quot;5&quot;</span>
+        <span class="na">data-isso-sorting</span><span class="o">=</span><span class="s">&quot;newest&quot;</span>
         <span class="na">data-isso-avatar</span><span class="o">=</span><span class="s">&quot;true&quot;</span>
         <span class="na">data-isso-avatar-bg</span><span class="o">=</span><span class="s">&quot;#f0f0f0&quot;</span>
         <span class="na">data-isso-avatar-fg</span><span class="o">=</span><span class="s">&quot;#9abf88 #5698c4 #e279a3 #9163b6 ...&quot;</span>
@@ -306,6 +307,20 @@ on the server.</p>
 <p>Default: <code class="docutils literal notranslate"><span class="pre">false</span></code></p>
 <div class="versionadded">
 <p><span class="versionmodified added">Added in version 0.13.</span></p>
+</div>
+</dd>
+</dl>
+<dl id="data-isso-sorting">
+<dt>data-isso-sorting</dt><dd><p>Sort thread comments by specified sorting method.</p>
+<p>Possible sorting methods:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">newest</span></code>: Bring newest comments to the top</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">oldest</span></code>: Bring oldest comments to the top</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">upvotes</span></code>: Bring most liked comments to the top</p></li>
+</ul>
+<p>Default sorting is <code class="docutils literal notranslate"><span class="pre">oldest</span></code>.</p>
+<div class="versionadded">
+<p><span class="versionmodified added">Added in version 0.13.1.</span></p>
 </div>
 </dd>
 </dl>

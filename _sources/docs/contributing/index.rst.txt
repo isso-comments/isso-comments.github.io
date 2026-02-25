@@ -251,7 +251,7 @@ this complexity, not add to it.
    * **Python**
 
      -  Pallets project: werkzeug, jinja2, flask
-     -  misaka (and changing config opts)
+     -  mistune (and changing config opts)
      -  bleach, html5lib
      -  Different python versions, OS versions
      -  setuptools, pip

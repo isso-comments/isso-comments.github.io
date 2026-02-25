@@ -9,6 +9,7 @@
    Tips & Tricks <guides/tips-and-tricks>
    Troubleshooting <guides/troubleshooting>
    Advanced Integration <guides/advanced-integration>
+   Migration from Misaka to Mistune <guides/mistune>
    FAQ <guides/faq>
 
 .. toctree::

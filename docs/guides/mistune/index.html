@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Frequently asked questions</title> 
+    <title>Migration from Misaka to Mistune</title> 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=9dcc611a" />
     <link rel="stylesheet" type="text/css" href="../../../_static/css/site.css?v=decc2ba4" />
     
@@ -14,8 +14,8 @@
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <link rel="search" title="Search" href="../../../search/" />
     <link rel="top" title="Isso  documentation" href="../../../" />
-    <link rel="next" title="Installation" href="../../reference/installation/" />
-    <link rel="prev" title="Migration from Misaka to Mistune" href="../mistune/" />
+    <link rel="next" title="Frequently asked questions" href="../faq/" />
+    <link rel="prev" title="Advanced integration" href="../advanced-integration/" />
 </head>
 <body>
     <div class="wrapper">
@@ -70,8 +70,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../tips-and-tricks/">Tips &amp; Tricks</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../troubleshooting/">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../advanced-integration/">Advanced Integration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../mistune/">Migration from Misaka to Mistune</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">FAQ</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Migration from Misaka to Mistune</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../faq/">FAQ</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Reference</span></p>
 <ul>
@@ -104,47 +104,74 @@
             <div class="docs">
                 
 <div class="vcs-edit-container">
-<a href="https://github.com/posativ/isso/blob/master/docs/docs/guides/faq.rst" class="vcs-edit"><img src="../../../_static/github.svg" /> Edit on GitHub</a>
+<a href="https://github.com/posativ/isso/blob/master/docs/docs/guides/mistune.rst" class="vcs-edit"><img src="../../../_static/github.svg" /> Edit on GitHub</a>
 </div>
 
                 <div role="main">
                 
-                <section id="frequently-asked-questions">
-<h2>Frequently asked questions<a class="headerlink" href="#frequently-asked-questions" title="Link to this heading">¶</a></h2>
-<section id="why-sqlite3">
-<h3>Why SQLite3?<a class="headerlink" href="#why-sqlite3" title="Link to this heading">¶</a></h3>
-<p>Although partially answered on the index page, here is a more complete answer: If
-you manage massive amounts of comments, Isso is a really bad choice. Isso is
-designed to be simple and easy to setup, it is not optimized for high-traffic
-websites.</p>
-<blockquote>
-<div><p><strong>Comments are not big data.</strong></p>
-</div></blockquote>
-<p>For example, if you have 209 threads and 778 comments in total this only needs 620 kilobytes
-of memory. This is an excellent use case for SQLite.</p>
+                <section id="migration-from-misaka-to-mistune">
+<h2>Migration from Misaka to Mistune<a class="headerlink" href="#migration-from-misaka-to-mistune" title="Link to this heading">¶</a></h2>
+<section id="introduction">
+<h3>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">¶</a></h3>
+<p>Misaka was the rendering engine for converting Markdown to HTML in previous
+versions of Isso. It is being replaced by Mistune. The Markdown syntax and
+options between these engines is differing and this is to document the
+differences.</p>
+<p>See <a class="reference internal" href="../../reference/server-config/"><span class="doc">Server Configuration</span></a> how to set
+Mistune as the new rendering engine.</p>
+<p>For Misaka, plugins are configured with the <code class="docutils literal notranslate"><span class="pre">options</span></code> setting. Misaka
+actually refers to plugins as extensions. The <code class="docutils literal notranslate"><span class="pre">options</span></code> setting must be
+in section <code class="docutils literal notranslate"><span class="pre">[markup.misaka]</span></code> in the server configuration file <code class="docutils literal notranslate"><span class="pre">isso.cfg</span></code>.</p>
+<p>For Mistune, plugins are configured with the <code class="docutils literal notranslate"><span class="pre">plugins</span></code> setting. The <code class="docutils literal notranslate"><span class="pre">plugins</span></code>
+setting must be in section <code class="docutils literal notranslate"><span class="pre">[markup.mistune]</span></code> in the server configuration file
+<code class="docutils literal notranslate"><span class="pre">isso.cfg</span></code>.</p>
 </section>
-<section id="what-does-isso-mean">
-<h3>What does “Isso” mean?<a class="headerlink" href="#what-does-isso-mean" title="Link to this heading">¶</a></h3>
-<p>Isso is an informal, german abbreviation for “Ich schrei sonst!”, which can
-roughly be translated to “I’m yelling otherwise”. It usually ends the
-discussion without any further arguments.</p>
-<p>In germany, Isso <a class="reference external" href="http://bulbapedia.bulbagarden.net/wiki/Wynaut_(Pok%C3%A9mon)">is also pokémon N° 360</a>.</p>
-<div class="admonition attention">
-<p class="admonition-title">Attention</p>
-<p>This section of the Isso documentation is incomplete. Please help by expanding it.</p>
-<p>Click the <code class="docutils literal notranslate"><span class="pre">Edit</span> <span class="pre">on</span> <span class="pre">GitHub</span></code> button in the top right corner and read the
-GitHub Issue named
-<a class="reference external" href="https://github.com/isso-comments/isso/issues/797">Improve &amp; Expand Documentation</a>
-for further information.</p>
-<p><strong>What’s missing?</strong></p>
-<ul class="simple">
-<li><p>How is Isso different from Disqus, Facebook Comments, and the rest?</p></li>
-<li><p>How can I report bugs or request features?</p></li>
-<li><p>In which ways can I contribute?</p></li>
-<li><p>I am seeing an error!</p></li>
-</ul>
-<p>… and other frequently asked questions.</p>
-</div>
+<section id="syntax-differences">
+<h3>Syntax differences<a class="headerlink" href="#syntax-differences" title="Link to this heading">¶</a></h3>
+<section id="html-elements">
+<h4>HTML elements<a class="headerlink" href="#html-elements" title="Link to this heading">¶</a></h4>
+<p>Misaka allows HTML expressions like <code class="docutils literal notranslate"><span class="pre">&lt;em&gt;Hi&lt;/em&gt;</span></code> in Markdown. This expression
+will be rendered to HTML as is: <code class="docutils literal notranslate"><span class="pre">&lt;em&gt;Hi&lt;/em&gt;</span></code>. Mistune takes a stricter approach
+and replaces any HTML element with rendered text like this: <code class="docutils literal notranslate"><span class="pre">&amp;lt;em&amp;gt;Hi&amp;lt;/em&amp;gt;</span></code>.</p>
+</section>
+<section id="strong-and-emphasis">
+<h4>Strong and emphasis<a class="headerlink" href="#strong-and-emphasis" title="Link to this heading">¶</a></h4>
+<p>Misaka interprets asterisks like this:</p>
+<ol class="arabic simple">
+<li><p>**word**: Strong <strong>word</strong></p></li>
+<li><p>*word*: Emphasized <em>word</em></p></li>
+<li><p>**word1***word2*: Strong <strong>word1</strong> and emphasized <em>word2</em></p></li>
+</ol>
+<p>Mistune is the same on the first two points but does not interpret asterisks inside words:</p>
+<ol class="arabic simple" start="3">
+<li><p>**word1***word2*: Renders as **word1***word2*</p></li>
+</ol>
+<p>If you want to have the same rendered result with Mistune, use underscores for emphasis:</p>
+<ol class="arabic simple" start="3">
+<li><p>**word1**_word2_: Strong <strong>word1</strong> and emphasized <em>word2</em></p></li>
+</ol>
+</section>
+<section id="fenced-code">
+<h4>Fenced code<a class="headerlink" href="#fenced-code" title="Link to this heading">¶</a></h4>
+<p>In Misaka, fenced code can be marked by enclosing the code block in three backticks
+<code class="docutils literal notranslate"><span class="pre">```</span></code> or by putting four space characters in front of each code line. Mistune
+only understands three backticks.</p>
+</section>
+</section>
+<section id="plugins">
+<h3>Plugins<a class="headerlink" href="#plugins" title="Link to this heading">¶</a></h3>
+<section id="id1">
+<h4>Fenced-code<a class="headerlink" href="#id1" title="Link to this heading">¶</a></h4>
+<p>Mistune always renders fenced code. The behavior is not configurable and no
+fenced-code plugin exists for Mistune.</p>
+</section>
+<section id="superscript">
+<h4>Superscript<a class="headerlink" href="#superscript" title="Link to this heading">¶</a></h4>
+<p>This plugin exists in both engines with the same name <code class="docutils literal notranslate"><span class="pre">superscript</span></code>. The
+Markdown syntax is different however.</p>
+<p>Misaka: <code class="docutils literal notranslate"><span class="pre">^(superscripted_text)</span></code></p>
+<p>Mistune: <code class="docutils literal notranslate"><span class="pre">^superscripted_text^</span></code></p>
+</section>
 </section>
 </section>
 

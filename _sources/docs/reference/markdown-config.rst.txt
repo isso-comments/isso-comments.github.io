@@ -165,5 +165,5 @@ The following **additional options** are available:
 .. todo:: ``no-intra-emphasis`` should be made default
 
 .. seealso::
-    The `flask-misaka docs <https://flask-misaka.readthedocs.io/en/latest/#options>`_
+    The `mistune built-in plugins docs <https://mistune.lepture.com/en/latest/plugins.html>`_
     also have a good explanation of what each extension options does.

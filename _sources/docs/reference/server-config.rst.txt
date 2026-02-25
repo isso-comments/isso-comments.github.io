@@ -390,42 +390,42 @@ require-email
 Markup
 ------
 
-Customize markup and sanitized HTML. Currently, only Markdown (via Misaka) is
-supported, but new languages are relatively easy to add.
+Customize markup and sanitized HTML. Currently, only Markdown (via Mistune or
+Misaka) is supported, but new languages are relatively easy to add.
 For a more detailed explanation, see :doc:`/docs/reference/markdown-config`.
 
 .. code-block:: ini
 
     [markup]
+    renderer = mistune
     options = strikethrough, superscript, autolink, fenced-code
     flags =
     allowed-elements =
     allowed-attributes =
 
+renderer
+    Set Mistune or Misaka as the Markdown to HTML rendering engine. Misaka
+    is not maintained anymore and we are replacing it with Mistune but you
+    can still choose to use Misaka if you have compatibility issues with
+    Mistune.
+
+    The only allowed values are ``mistune`` and ``misaka``. You can further
+    configure Mistune in :ref:`markup-mistune` and Misaka in
+    :ref:`markup-misaka`.
+
+    Default: ``mistune``
+
+    .. versionadded:: 0.13.1
+
 options
-    `Misaka-specific Markdown extensions <https://misaka.61924.nl/#api>`_, all
-    extension options can be used there, separated by comma, either by their
-    name (``fenced-code``) or as ``EXT_FENCED_CODE``.
-
-    Note: Use e.g. ``fenced-code`` (with a ``-`` dash) instead of
-    ``fenced_code`` (underline) to refer to extension names.
-
-    For a more detailed explanation, see
-    :ref:`Markdown Configuration: Extensions <available-markdown-options>`
-
-    Default: ``strikethrough, superscript, autolink, fenced-code``
+    Moved to :ref:`markup-misaka` but also read from here to maintain
+    backwards compatibility. The setting in :ref:`markup-misaka` will
+    override this one.
 
 flags
-    `Misaka-specific HTML rendering flags
-    <https://misaka.61924.nl/#html-render-flags>`_, all html rendering flags
-    can be used here, separated by comma, either by their name (``hard-wrap``)
-    or as e.g. ``HTML_HARD_WRAP``.
-
-    For a more detailed explanation, see :doc:`/docs/reference/markdown-config`.
-
-    Default: (empty)
-
-    .. versionadded:: 0.12.4
+    Moved to :ref:`markup-misaka` but also read from here to maintain
+    backwards compatibility. The setting in :ref:`markup-misaka` will
+    override this one.
 
 allowed-elements
     **Additional** HTML tags to allow in the generated output, comma-separated.
@@ -462,6 +462,82 @@ allowed-attributes
 
 .. note:: To allow images in comments, you need to add
    ``allowed-elements = img`` and *also* ``allowed-attributes = src``.
+
+.. _markup-misaka:
+
+Markup.misaka
+^^^^^^^^^^^^^
+
+Customize the Misaka Markdown to HTML renderer. Ignored if the renderer has
+been set to Mistune.
+
+.. code-block:: ini
+
+    [markup.misaka]
+    options = strikethrough, superscript, autolink, fenced-code
+    flags =
+
+.. versionadded:: 0.13.1
+
+options
+    `Misaka-specific Markdown extensions <https://misaka.61924.nl/#api>`_, all
+    extension options can be used there, separated by comma, either by their
+    name (``fenced-code``) or as ``EXT_FENCED_CODE``.
+
+    Note: Use e.g. ``fenced-code`` (with a ``-`` dash) instead of
+    ``fenced_code`` (underline) to refer to extension names.
+
+    For a more detailed explanation, see
+    :ref:`Markdown Configuration: Extensions <available-markdown-options>`
+
+    Default: ``strikethrough, superscript, autolink, fenced-code``
+
+flags
+    `Misaka-specific HTML rendering flags
+    <https://misaka.61924.nl/#html-render-flags>`_, all html rendering flags
+    can be used here, separated by comma, either by their name (``hard-wrap``)
+    or as e.g. ``HTML_HARD_WRAP``.
+
+    For a more detailed explanation, see :doc:`/docs/reference/markdown-config`.
+
+    Default: (empty)
+
+    .. versionadded:: 0.12.4
+
+.. _markup-mistune:
+
+Markup.mistune
+^^^^^^^^^^^^^^
+
+Customize the Mistune Markdown to HTML renderer.
+
+.. code-block:: ini
+
+    [markup.mistune]
+    plugins = strikethrough, subscript, superscript
+    parameters = escape, hard_wrap
+
+.. versionadded:: 0.13.1
+
+plugins
+    `Mistune-specific Markdown plugins <https://mistune.lepture.com/en/latest/plugins.html>`_,
+    all extension options can be used there, separated by comma, by their name (``strikethrough``).
+    Unlike the Misaka extensions, an underscore must not be replaced with a ``-`` dash.
+
+    For a more detailed explanation, see
+    :ref:`Markdown Configuration: Extensions <available-markdown-options>`
+
+    Default: ``strikethrough, subscript, superscript``
+
+parameters
+    Mistune-specific HTML rendering parameters, only ``hard-wrap`` is supported. Mistune would
+    support another parameter ``escape`` but that is always enabled for security reasons.
+
+    For a more detailed explanation, see :doc:`/docs/reference/markdown-config`.
+
+    Default: (empty)
+
+    .. versionadded:: 0.13.1
 
 Hash
 ----

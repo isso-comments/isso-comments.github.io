@@ -161,6 +161,23 @@ configuration separated by <code class="docutils literal notranslate"><span clas
 <p>Just embed the JavaScript including the new relative path, e.g.
 <code class="docutils literal notranslate"><span class="pre">http://comments.example/foo/js/embed.min.js</span></code>. Make sure, you don’t mix the
 URLs on both sites as it will most likely cause CORS-related errors.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><strong>Multi-site support in Docker</strong></p>
+<p>Multi-site support (using multiple config files separated by semicolons in <code class="docutils literal notranslate"><span class="pre">ISSO_SETTINGS</span></code>) requires running Isso with the <code class="docutils literal notranslate"><span class="pre">isso.dispatch</span></code> entry point, not <code class="docutils literal notranslate"><span class="pre">isso.run</span></code>.</p>
+<p>The official Docker image runs Isso with <code class="docutils literal notranslate"><span class="pre">isso.run</span></code> by default, which only supports a single config file.</p>
+<p>To enable multi-site in Docker, override the default command to use <code class="docutils literal notranslate"><span class="pre">isso.dispatch</span></code>. For example, in your <code class="docutils literal notranslate"><span class="pre">docker-compose.yml</span></code>:</p>
+<div class="highlight-yaml notranslate"><div class="highlight"><pre><span></span><span class="nt">services</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">isso-comments</span><span class="p">:</span>
+<span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/isso-comments/isso:release</span>
+<span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">ISSO_SETTINGS</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/config/example1.com.cfg;/config/example2.com.cfg&quot;</span>
+<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;isso.dispatch&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">    </span><span class="c1"># ... other options ...</span>
+</pre></div>
+</div>
+<p>This will enable multi-site support as described above.</p>
+</div>
 </section>
 <section id="sub-uri">
 <span id="configure-sub-uri"></span><h3>Sub-URI<a class="headerlink" href="#sub-uri" title="Link to this heading">¶</a></h3>

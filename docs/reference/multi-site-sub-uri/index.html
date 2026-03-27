@@ -200,6 +200,16 @@ originating from <a class="reference external" href="https://developer.mozilla.o
 <span class="p">}</span>
 </pre></div>
 </div>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>When using a sub-URI setup (e.g., serving Isso at <code class="docutils literal notranslate"><span class="pre">/isso</span></code> or any other path), you must ensure the Isso client can correctly detect the API endpoint.</p>
+<p><strong>Recommended approach:</strong> Explicitly set the <code class="docutils literal notranslate"><span class="pre">data-isso</span></code> attribute in your embed script to match your sub-URI:</p>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-isso</span><span class="o">=</span><span class="s">&quot;/isso&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/isso/js/embed.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+<p>This ensures all API requests are correctly prefixed with your sub-URI (e.g., <code class="docutils literal notranslate"><span class="pre">/isso/new</span></code>, <code class="docutils literal notranslate"><span class="pre">/isso/config</span></code>).</p>
+<p>If you omit this attribute, Isso will attempt to auto-detect the endpoint from the script’s <code class="docutils literal notranslate"><span class="pre">src</span></code> path, which may fail or cause requests to be sent to the root path (<code class="docutils literal notranslate"><span class="pre">/</span></code>) instead of your sub-URI. This can result in broken comment functionality or 404 errors.</p>
+</div>
 <p>Now, the website integration is just as described in
 <a class="reference internal" href="../../guides/quickstart/"><span class="doc">Quickstart</span></a> but with a different location.</p>
 </section>

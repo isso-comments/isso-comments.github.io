@@ -122,6 +122,18 @@ and optional, being replaced by mistune, see next point</p></li>
 <li><p><a class="reference external" href="https://mistune.lepture.com/">mistune</a> – a fast yet powerful Python Markdown parser</p></li>
 <li><p><a class="reference external" href="https://github.com/html5lib/html5lib-python">html5lib</a> – HTML(5) parser and sanitizer</p></li>
 </ul>
+</section>
+<section id="security">
+<h3>Security<a class="headerlink" href="#security" title="Link to this heading">¶</a></h3>
+<ul class="simple">
+<li><p><strong>HTML sanitization:</strong> Isso sanitizes the HTML generated from comment
+Markdown with <code class="docutils literal notranslate"><span class="pre">bleach</span></code>. The default renderer (Mistune) also escapes raw
+HTML in comments.</p></li>
+<li><p><strong>Signed cookies:</strong> Isso uses <code class="docutils literal notranslate"><span class="pre">itsdangerous</span></code> to sign the cookies used
+for administrator sessions and comment editing.</p></li>
+<li><p><strong>Field length limits:</strong> Each submitted comment field is limited to 65535
+characters. Some fields like <code class="docutils literal notranslate"><span class="pre">email</span></code> is limited to <a class="reference external" href="http://tools.ietf.org/html/rfc5321#section-4.5.3">254 characters</a>.</p></li>
+</ul>
 <div class="admonition attention">
 <p class="admonition-title">Attention</p>
 <p>This section of the Isso documentation is incomplete. Please help by expanding it.</p>

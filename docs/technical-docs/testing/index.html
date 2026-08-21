@@ -245,15 +245,15 @@ uncovered scenarios:</p>
 every minute, and whatever else might be performance-related.</p>
 <p>Here is an example to insert large amounts of data into an existing database at
 <code class="docutils literal notranslate"><span class="pre">comments.db</span></code> (might be better optimized):</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;INSERT INTO threads (id, uri, title) VALUES (&#39;1&#39;, &#39;/demo/&#39;, &#39;Isso Test&#39;);&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>dummy.sql
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="s2">"INSERT INTO threads (id, uri, title) VALUES ('1', '/demo/', 'Isso Test');"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>dummy.sql
 <span class="k">for</span><span class="w"> </span>f<span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="o">{</span><span class="m">1</span>..500<span class="o">}</span><span class="p">;</span><span class="w"> </span><span class="k">do</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;INSERT INTO comments (tid, created, remote_addr, text, mode, voters) VALUES (1, 100, &#39;127.0.0.1&#39;, &#39;hello&#39;, 1, 0);&quot;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>dummy.sql
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"INSERT INTO comments (tid, created, remote_addr, text, mode, voters) VALUES (1, 100, '127.0.0.1', 'hello', 1, 0);"</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>dummy.sql
 <span class="k">done</span>
 cat<span class="w"> </span>dummy.sql<span class="w"> </span><span class="p">|</span><span class="w"> </span>sqlite3<span class="w"> </span>comments.db
 </pre></div>
 </div>
 <p>Also set the comments to be loaded at once to <code class="docutils literal notranslate"><span class="pre">infinity</span></code>:</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-isso-max-comments-top</span><span class="o">=</span><span class="s">&quot;inf&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;../js/embed.dev.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-isso-max-comments-top</span><span class="o">=</span><span class="s">"inf"</span> <span class="na">src</span><span class="o">=</span><span class="s">"../js/embed.dev.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </section>

@@ -113,27 +113,27 @@
 <h2>Client Configuration<a class="headerlink" href="#client-configuration" title="Link to this heading">¶</a></h2>
 <p>You can configure the client (the JS part) with custom data attributes,
 preferably in the script tag which embeds the JS:</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-isso</span><span class="o">=</span><span class="s">&quot;/prefix/&quot;</span>
-        <span class="na">data-isso-css</span><span class="o">=</span><span class="s">&quot;true&quot;</span>
-        <span class="na">data-isso-css-url</span><span class="o">=</span><span class="s">&quot;null&quot;</span>
-        <span class="na">data-isso-lang</span><span class="o">=</span><span class="s">&quot;ru&quot;</span>
-        <span class="na">data-isso-max-comments-top</span><span class="o">=</span><span class="s">&quot;10&quot;</span>
-        <span class="na">data-isso-max-comments-nested</span><span class="o">=</span><span class="s">&quot;5&quot;</span>
-        <span class="na">data-isso-reveal-on-click</span><span class="o">=</span><span class="s">&quot;5&quot;</span>
-        <span class="na">data-isso-sorting</span><span class="o">=</span><span class="s">&quot;newest&quot;</span>
-        <span class="na">data-isso-avatar</span><span class="o">=</span><span class="s">&quot;true&quot;</span>
-        <span class="na">data-isso-avatar-bg</span><span class="o">=</span><span class="s">&quot;#f0f0f0&quot;</span>
-        <span class="na">data-isso-avatar-fg</span><span class="o">=</span><span class="s">&quot;#9abf88 #5698c4 #e279a3 #9163b6 ...&quot;</span>
-        <span class="na">data-isso-vote</span><span class="o">=</span><span class="s">&quot;true&quot;</span>
-        <span class="na">data-isso-vote-levels</span><span class="o">=</span><span class="s">&quot;&quot;</span>
-        <span class="na">data-isso-page-author-hashes</span><span class="o">=</span><span class="s">&quot;f124cf6b2f01,7831fe17a8cd&quot;</span>
-        <span class="na">data-isso-reply-notifications-default-enabled</span><span class="o">=</span><span class="s">&quot;false&quot;</span>
-        <span class="na">src</span><span class="o">=</span><span class="s">&quot;/prefix/js/embed.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-isso</span><span class="o">=</span><span class="s">"/prefix/"</span>
+        <span class="na">data-isso-css</span><span class="o">=</span><span class="s">"true"</span>
+        <span class="na">data-isso-css-url</span><span class="o">=</span><span class="s">"null"</span>
+        <span class="na">data-isso-lang</span><span class="o">=</span><span class="s">"ru"</span>
+        <span class="na">data-isso-max-comments-top</span><span class="o">=</span><span class="s">"10"</span>
+        <span class="na">data-isso-max-comments-nested</span><span class="o">=</span><span class="s">"5"</span>
+        <span class="na">data-isso-reveal-on-click</span><span class="o">=</span><span class="s">"5"</span>
+        <span class="na">data-isso-sorting</span><span class="o">=</span><span class="s">"newest"</span>
+        <span class="na">data-isso-avatar</span><span class="o">=</span><span class="s">"true"</span>
+        <span class="na">data-isso-avatar-bg</span><span class="o">=</span><span class="s">"#f0f0f0"</span>
+        <span class="na">data-isso-avatar-fg</span><span class="o">=</span><span class="s">"#9abf88 #5698c4 #e279a3 #9163b6 ..."</span>
+        <span class="na">data-isso-vote</span><span class="o">=</span><span class="s">"true"</span>
+        <span class="na">data-isso-vote-levels</span><span class="o">=</span><span class="s">""</span>
+        <span class="na">data-isso-page-author-hashes</span><span class="o">=</span><span class="s">"f124cf6b2f01,7831fe17a8cd"</span>
+        <span class="na">data-isso-reply-notifications-default-enabled</span><span class="o">=</span><span class="s">"false"</span>
+        <span class="na">src</span><span class="o">=</span><span class="s">"/prefix/js/embed.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <p>Furthermore you can override the automatic title detection inside
 the embed tag, as well as the thread ID, e.g.:</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">section</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;isso-thread&quot;</span> <span class="na">data-title</span><span class="o">=</span><span class="s">&quot;Foo!&quot;</span> <span class="na">data-isso-id</span><span class="o">=</span><span class="s">&quot;/path/to/resource&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">section</span> <span class="na">id</span><span class="o">=</span><span class="s">"isso-thread"</span> <span class="na">data-title</span><span class="o">=</span><span class="s">"Foo!"</span> <span class="na">data-isso-id</span><span class="o">=</span><span class="s">"/path/to/resource"</span><span class="p">&gt;&lt;/</span><span class="nt">section</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <section id="overriding-translation-strings">
@@ -142,7 +142,7 @@ the embed tag, as well as the thread ID, e.g.:</p>
 a <code class="docutils literal notranslate"><span class="pre">data-isso-</span></code> attribute that is equal to the translation key (found <a class="reference external" href="https://github.com/isso-comments/isso/blob/master/isso/js/app/i18n/en.js">here</a>) with
 <code class="docutils literal notranslate"><span class="pre">-text-[lang]</span></code> appended to it. So, for example, if you want to override the
 english translation of the <code class="docutils literal notranslate"><span class="pre">postbox-notification</span></code> message, you could add:</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>data-isso-postbox-notification-text-en=&quot;Select to be notified of replies to your comment&quot;
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span>data-isso-postbox-notification-text-en="Select to be notified of replies to your comment"
 </pre></div>
 </div>
 </section>
@@ -152,7 +152,7 @@ english translation of the <code class="docutils literal notranslate"><span clas
 <dt>data-isso</dt><dd><p>Isso usually detects the REST API automatically, but when you serve the JS
 script on a different location, this may fail. Use <code class="docutils literal notranslate"><span class="pre">data-isso</span></code> to
 override the API location:</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-isso</span><span class="o">=</span><span class="s">&quot;/isso&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/path/to/embed.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-isso</span><span class="o">=</span><span class="s">"/isso"</span> <span class="na">src</span><span class="o">=</span><span class="s">"/path/to/embed.min.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </dd>
@@ -160,7 +160,7 @@ override the API location:</p>
 <dl id="data-isso-css-url">
 <dt>data-isso-css-url</dt><dd><p>Set URL from which to fetch <code class="docutils literal notranslate"><span class="pre">isso.css</span></code>, e.g. from a CDN.
 Defaults to fetching from the API endpoint.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;...&quot;</span> <span class="na">data-isso-css-url</span><span class="o">=</span><span class="s">&quot;/path/to/isso.css&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"..."</span> <span class="na">data-isso-css-url</span><span class="o">=</span><span class="s">"/path/to/isso.css"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <p>Default: <code class="docutils literal notranslate"><span class="pre">&quot;{api-endpoint}/css/isso.css&quot;</span></code></p>
@@ -168,7 +168,7 @@ Defaults to fetching from the API endpoint.</p>
 </dl>
 <dl id="data-isso-css">
 <dt>data-isso-css</dt><dd><p>Set to <code class="docutils literal notranslate"><span class="pre">false</span></code> prevents Isso from automatically appending the stylesheet.</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;...&quot;</span> <span class="na">data-isso-css</span><span class="o">=</span><span class="s">&quot;false&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"..."</span> <span class="na">data-isso-css</span><span class="o">=</span><span class="s">"false"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <p>Default: <code class="docutils literal notranslate"><span class="pre">true</span></code></p>
@@ -267,11 +267,11 @@ comments made by those authors will be given the <code class="docutils literal n
 class. This can be styled using CSS.</p>
 <p>The hash of a user can be found by checking the <code class="docutils literal notranslate"><span class="pre">data-hash</span></code> parameter on the
 <code class="docutils literal notranslate"><span class="pre">&lt;div&gt;</span></code> tag containing their comment. This is what the element looks like:</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">&quot;isso-comment isso-no-votes&quot;</span> <span class="na">id</span><span class="o">=</span><span class="s">&quot;isso-14&quot;</span> <span class="na">data-hash</span><span class="o">=</span><span class="s">&quot;41faef0a49fc&quot;</span><span class="p">&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">div</span> <span class="na">class</span><span class="o">=</span><span class="s">"isso-comment isso-no-votes"</span> <span class="na">id</span><span class="o">=</span><span class="s">"isso-14"</span> <span class="na">data-hash</span><span class="o">=</span><span class="s">"41faef0a49fc"</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <p>According to this example, your script tag would look something like this:</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;...&quot;</span> <span class="na">data-isso-page-author-hashes</span><span class="o">=</span><span class="s">&quot;41faef0a49fc&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">src</span><span class="o">=</span><span class="s">"..."</span> <span class="na">data-isso-page-author-hashes</span><span class="o">=</span><span class="s">"41faef0a49fc"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <p>When adding multiple hashes to support multiple page authors, separate the

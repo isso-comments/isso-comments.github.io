@@ -136,7 +136,7 @@ foo.example and other.bar:</p>
 </div>
 <p>Then you run Isso with gunicorn (separate multiple configuration files by
 semicolon):</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">ISSO_SETTINGS</span><span class="o">=</span><span class="s2">&quot;/etc/isso.d/foo.example.cfg;/etc/isso.d/other.bar.cfg&quot;</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">ISSO_SETTINGS</span><span class="o">=</span><span class="s2">"/etc/isso.d/foo.example.cfg;/etc/isso.d/other.bar.cfg"</span>
 $<span class="w"> </span>gunicorn<span class="w"> </span>isso.dispatch<span class="w"> </span>-b<span class="w"> </span>localhost:8080
 </pre></div>
 </div>
@@ -171,8 +171,8 @@ URLs on both sites as it will most likely cause CORS-related errors.</p>
 <span class="w">  </span><span class="nt">isso-comments</span><span class="p">:</span>
 <span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ghcr.io/isso-comments/isso:release</span>
 <span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">ISSO_SETTINGS</span><span class="p">:</span><span class="w"> </span><span class="s">&quot;/config/example1.com.cfg;/config/example2.com.cfg&quot;</span>
-<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;isso.dispatch&quot;</span><span class="p p-Indicator">]</span>
+<span class="w">      </span><span class="nt">ISSO_SETTINGS</span><span class="p">:</span><span class="w"> </span><span class="s">"/config/example1.com.cfg;/config/example2.com.cfg"</span>
+<span class="w">    </span><span class="nt">command</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">"isso.dispatch"</span><span class="p p-Indicator">]</span>
 <span class="w">    </span><span class="c1"># ... other options ...</span>
 </pre></div>
 </div>
@@ -204,7 +204,7 @@ originating from <a class="reference external" href="https://developer.mozilla.o
 <p class="admonition-title">Important</p>
 <p>When using a sub-URI setup (e.g., serving Isso at <code class="docutils literal notranslate"><span class="pre">/isso</span></code> or any other path), you must ensure the Isso client can correctly detect the API endpoint.</p>
 <p><strong>Recommended approach:</strong> Explicitly set the <code class="docutils literal notranslate"><span class="pre">data-isso</span></code> attribute in your embed script to match your sub-URI:</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-isso</span><span class="o">=</span><span class="s">&quot;/isso&quot;</span> <span class="na">src</span><span class="o">=</span><span class="s">&quot;/isso/js/embed.min.js&quot;</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">data-isso</span><span class="o">=</span><span class="s">"/isso"</span> <span class="na">src</span><span class="o">=</span><span class="s">"/isso/js/embed.min.js"</span><span class="p">&gt;&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 <p>This ensures all API requests are correctly prefixed with your sub-URI (e.g., <code class="docutils literal notranslate"><span class="pre">/isso/new</span></code>, <code class="docutils literal notranslate"><span class="pre">/isso/config</span></code>).</p>

@@ -251,7 +251,7 @@ every push to the <code class="docutils literal notranslate"><span class="pre">m
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>docker<span class="w"> </span>pull<span class="w"> </span>ghcr.io/isso-comments/isso:release
 <span class="gp">$ </span>mkdir<span class="w"> </span>-p<span class="w"> </span>config/<span class="w"> </span>db/
 <span class="gp">$ </span>cp<span class="w"> </span>contrib/isso.sample.cfg<span class="w"> </span>config/isso.cfg
-<span class="gp"># </span>Set<span class="w"> </span><span class="s1">&#39;dbpath&#39;</span><span class="w"> </span>to<span class="w"> </span><span class="s1">&#39;/db/comments.db&#39;</span><span class="w"> </span>and<span class="w"> </span>adjust<span class="w"> </span><span class="s1">&#39;host&#39;</span>
+<span class="gp"># </span>Set<span class="w"> </span><span class="s1">'dbpath'</span><span class="w"> </span>to<span class="w"> </span><span class="s1">'/db/comments.db'</span><span class="w"> </span>and<span class="w"> </span>adjust<span class="w"> </span><span class="s1">'host'</span>
 <span class="gp">$ </span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--rm<span class="w"> </span>--name<span class="w"> </span>isso<span class="w"> </span>-p<span class="w"> </span><span class="m">127</span>.0.0.1:8080:8080<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-v<span class="w"> </span>/var/lib/isso:/config<span class="w"> </span>-v<span class="w"> </span>/var/lib/isso:/db<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>ghcr.io/isso-comments/isso:release
@@ -264,7 +264,7 @@ every push to the <code class="docutils literal notranslate"><span class="pre">m
 as <code class="docutils literal notranslate"><span class="pre">isso:latest</span></code>.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">$ </span>mkdir<span class="w"> </span>-p<span class="w"> </span>config/<span class="w"> </span>db/
 <span class="gp">$ </span>cp<span class="w"> </span>contrib/isso.sample.cfg<span class="w"> </span>config/isso.cfg
-<span class="gp"># </span>Set<span class="w"> </span><span class="s1">&#39;dbpath&#39;</span><span class="w"> </span>to<span class="w"> </span><span class="s1">&#39;/db/comments.db&#39;</span><span class="w"> </span>and<span class="w"> </span>adjust<span class="w"> </span><span class="s1">&#39;host&#39;</span>
+<span class="gp"># </span>Set<span class="w"> </span><span class="s1">'dbpath'</span><span class="w"> </span>to<span class="w"> </span><span class="s1">'/db/comments.db'</span><span class="w"> </span>and<span class="w"> </span>adjust<span class="w"> </span><span class="s1">'host'</span>
 <span class="gp">$ </span>docker<span class="w"> </span>run<span class="w"> </span>-d<span class="w"> </span>--rm<span class="w"> </span>--name<span class="w"> </span>isso<span class="w"> </span>-p<span class="w"> </span><span class="m">127</span>.0.0.1:8080:8080<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>-v<span class="w"> </span><span class="nv">$PWD</span>/config:/config<span class="w"> </span>-v<span class="w"> </span><span class="nv">$PWD</span>/db:/db<span class="w"> </span><span class="se">\</span>
 <span class="w">    </span>isso:latest
@@ -303,7 +303,7 @@ way to set up Isso. It requires a lot more dependencies and effort:</p>
 </pre></div>
 </div>
 <p>Install Isso and its dependencies:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="w">  </span><span class="c1"># -e = &quot;editable&quot; installation for development</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.<span class="w">  </span><span class="c1"># -e = "editable" installation for development</span>
 <span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>isso<span class="w"> </span>-c<span class="w"> </span>/path/to/isso.cfg<span class="w"> </span>run
 </pre></div>
 </div>
@@ -333,23 +333,23 @@ will find a very basic SysVinit script which you can use for inspiration:</p>
 <span class="c1">### END INIT INFO</span>
 
 <span class="nv">EXEC</span><span class="o">=</span>/opt/isso/bin/isso
-<span class="nv">EXEC_OPTS</span><span class="o">=</span><span class="s2">&quot;-c /etc/isso.cfg run&quot;</span>
+<span class="nv">EXEC_OPTS</span><span class="o">=</span><span class="s2">"-c /etc/isso.cfg run"</span>
 
 <span class="nv">RUNAS</span><span class="o">=</span>isso
 <span class="nv">PIDFILE</span><span class="o">=</span>/var/run/isso.pid
 
 start<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;Starting service…&#39;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
-<span class="w">  </span>start-stop-daemon<span class="w"> </span>--start<span class="w"> </span>--user<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$RUNAS</span><span class="s2">&quot;</span><span class="w"> </span>--background<span class="w"> </span>--make-pidfile<span class="w"> </span>--pidfile<span class="w"> </span><span class="nv">$PIDFILE</span><span class="w"> </span><span class="se">\</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s1">'Starting service…'</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+<span class="w">  </span>start-stop-daemon<span class="w"> </span>--start<span class="w"> </span>--user<span class="w"> </span><span class="s2">"</span><span class="nv">$RUNAS</span><span class="s2">"</span><span class="w"> </span>--background<span class="w"> </span>--make-pidfile<span class="w"> </span>--pidfile<span class="w"> </span><span class="nv">$PIDFILE</span><span class="w"> </span><span class="se">\</span>
 <span class="w">                    </span>--exec<span class="w"> </span><span class="nv">$EXEC</span><span class="w"> </span>--<span class="w"> </span><span class="nv">$EXEC_OPTS</span>
 <span class="o">}</span>
 
 stop<span class="o">()</span><span class="w"> </span><span class="o">{</span>
-<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s1">&#39;Stopping service…&#39;</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
-<span class="w">  </span>start-stop-daemon<span class="w"> </span>--stop<span class="w"> </span>--user<span class="w"> </span><span class="s2">&quot;</span><span class="nv">$RUNAS</span><span class="s2">&quot;</span><span class="w"> </span>--pidfile<span class="w"> </span><span class="nv">$PIDFILE</span><span class="w"> </span>--exec<span class="w"> </span><span class="nv">$EXEC</span>
+<span class="w">  </span><span class="nb">echo</span><span class="w"> </span><span class="s1">'Stopping service…'</span><span class="w"> </span>&gt;<span class="p">&amp;</span><span class="m">2</span>
+<span class="w">  </span>start-stop-daemon<span class="w"> </span>--stop<span class="w"> </span>--user<span class="w"> </span><span class="s2">"</span><span class="nv">$RUNAS</span><span class="s2">"</span><span class="w"> </span>--pidfile<span class="w"> </span><span class="nv">$PIDFILE</span><span class="w"> </span>--exec<span class="w"> </span><span class="nv">$EXEC</span>
 <span class="o">}</span>
 
-<span class="k">case</span><span class="w"> </span><span class="s2">&quot;</span><span class="nv">$1</span><span class="s2">&quot;</span><span class="w"> </span><span class="k">in</span>
+<span class="k">case</span><span class="w"> </span><span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span><span class="w"> </span><span class="k">in</span>
 <span class="w">  </span>start<span class="o">)</span>
 <span class="w">    </span>start
 <span class="w">    </span><span class="p">;;</span>
@@ -361,7 +361,7 @@ stop<span class="o">()</span><span class="w"> </span><span class="o">{</span>
 <span class="w">    </span>start
 <span class="w">    </span><span class="p">;;</span>
 <span class="w">  </span>*<span class="o">)</span>
-<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Usage: </span><span class="nv">$0</span><span class="s2"> {start|stop|restart}&quot;</span>
+<span class="w">    </span><span class="nb">echo</span><span class="w"> </span><span class="s2">"Usage: </span><span class="nv">$0</span><span class="s2"> {start|stop|restart}"</span>
 <span class="k">esac</span>
 </pre></div>
 </div>

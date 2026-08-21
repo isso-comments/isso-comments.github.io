@@ -126,22 +126,22 @@
 <h3><a class="toc-backref" href="#id2" role="doc-backlink">Lazy-loading on scroll</a><a class="headerlink" href="#lazy-loading-on-scroll" title="Link to this heading">¶</a></h3>
 <p>You can defer loading the <code class="docutils literal notranslate"><span class="pre">embed.min.js</span></code> script until the user has scrolled
 to the bottom of the page:</p>
-<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">&quot;text/javascript&quot;</span><span class="p">&gt;</span>
+<div class="highlight-html notranslate"><div class="highlight"><pre><span></span><span class="p">&lt;</span><span class="nt">script</span> <span class="na">type</span><span class="o">=</span><span class="s">"text/javascript"</span><span class="p">&gt;</span>
 <span class="w">    </span><span class="c1">// Lazy-load isso only when page end is in view</span>
 <span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">loadIsso</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
-<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">script</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">&quot;script&quot;</span><span class="p">);</span>
-<span class="w">        </span><span class="nx">script</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;type&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;text/javascript&quot;</span><span class="p">);</span>
-<span class="w">        </span><span class="nx">script</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;src&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;/prefix/js/embed.min.js&quot;</span><span class="p">);</span>
+<span class="w">        </span><span class="kd">var</span><span class="w"> </span><span class="nx">script</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s2">"script"</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">script</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">"type"</span><span class="p">,</span><span class="w"> </span><span class="s2">"text/javascript"</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">script</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">"src"</span><span class="p">,</span><span class="w"> </span><span class="s2">"/prefix/js/embed.min.js"</span><span class="p">);</span>
 <span class="w">        </span><span class="c1">// add relevant data-isso attributes here</span>
-<span class="w">        </span><span class="nx">script</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">&quot;data-isso&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;/prefix/&quot;</span><span class="p">);</span>
-<span class="w">        </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">&quot;head&quot;</span><span class="p">)[</span><span class="mf">0</span><span class="p">].</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">script</span><span class="p">);</span>
+<span class="w">        </span><span class="nx">script</span><span class="p">.</span><span class="nx">setAttribute</span><span class="p">(</span><span class="s2">"data-isso"</span><span class="p">,</span><span class="w"> </span><span class="s2">"/prefix/"</span><span class="p">);</span>
+<span class="w">        </span><span class="nb">document</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="s2">"head"</span><span class="p">)[</span><span class="mf">0</span><span class="p">].</span><span class="nx">appendChild</span><span class="p">(</span><span class="nx">script</span><span class="p">);</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="kd">let</span><span class="w"> </span><span class="nx">offset</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">50</span><span class="p">;</span><span class="w"> </span><span class="c1">// Start loading 50px before reaching bottom</span>
 <span class="w">    </span><span class="kd">function</span><span class="w"> </span><span class="nx">scrollBottomListener</span><span class="p">(</span><span class="nx">ev</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
 <span class="w">        </span><span class="k">if</span><span class="w"> </span><span class="p">((</span><span class="nb">window</span><span class="p">.</span><span class="nx">scrollY</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="nb">window</span><span class="p">.</span><span class="nx">innerHeight</span><span class="p">)</span>
 <span class="w">                </span><span class="o">&gt;=</span><span class="w"> </span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">scrollHeight</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">offset</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
 <span class="w">            </span><span class="nx">loadIsso</span><span class="p">();</span>
-<span class="w">            </span><span class="nb">window</span><span class="p">.</span><span class="nx">removeEventListener</span><span class="p">(</span><span class="s1">&#39;scroll&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">scrollBottomListener</span><span class="p">);</span>
+<span class="w">            </span><span class="nb">window</span><span class="p">.</span><span class="nx">removeEventListener</span><span class="p">(</span><span class="s1">'scroll'</span><span class="p">,</span><span class="w"> </span><span class="nx">scrollBottomListener</span><span class="p">);</span>
 <span class="w">        </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="w">    </span><span class="nb">window</span><span class="p">.</span><span class="nx">onload</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">function</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
@@ -150,7 +150,7 @@ to the bottom of the page:</p>
 <span class="w">                </span><span class="o">&gt;=</span><span class="w"> </span><span class="p">(</span><span class="nb">document</span><span class="p">.</span><span class="nx">documentElement</span><span class="p">.</span><span class="nx">scrollHeight</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="nx">offset</span><span class="p">))</span><span class="w"> </span><span class="p">{</span>
 <span class="w">          </span><span class="nx">loadIsso</span><span class="p">();</span>
 <span class="w">      </span><span class="p">}</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="p">{</span>
-<span class="w">          </span><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">&#39;scroll&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">scrollBottomListener</span><span class="p">);</span>
+<span class="w">          </span><span class="nb">window</span><span class="p">.</span><span class="nx">addEventListener</span><span class="p">(</span><span class="s1">'scroll'</span><span class="p">,</span><span class="w"> </span><span class="nx">scrollBottomListener</span><span class="p">);</span>
 <span class="w">      </span><span class="p">}</span>
 <span class="w">    </span><span class="p">}</span>
 <span class="p">&lt;/</span><span class="nt">script</span><span class="p">&gt;</span>
@@ -174,7 +174,7 @@ are many other comments system and you could be using one of them.</p>
 
 - id: a text representing the unique thread id (note: by default isso
       associates this ID to the article URL, but it can be changed on
-      client side with &quot;data-isso-id&quot; - see :doc:`client configuration &lt;../configuration/client&gt;` )
+      client side with "data-isso-id" - see :doc:`client configuration &lt;../configuration/client&gt;` )
 - title: the title of the thread
 - comments: the list of comments
 
@@ -183,11 +183,11 @@ are many other comments system and you could be using one of them.</p>
     - id: an integer with the unique id of the comment inside the thread
       (it can be repeated among different threads); this will be used to
       order the comment inside the thread
-    - author: the author&#39;s name
-    - email: the author&#39;s email
-    - website: the author&#39;s website
-    - remote_addr: the author&#39;s IP
-    - created: a timestamp, in the format &quot;%Y-%m-%d %H:%M:%S&quot;
+    - author: the author's name
+    - email: the author's email
+    - website: the author's website
+    - remote_addr: the author's IP
+    - created: a timestamp, in the format "%Y-%m-%d %H:%M:%S"
 </pre></div>
 </div>
 </li>
@@ -195,26 +195,26 @@ are many other comments system and you could be using one of them.</p>
 <p>Example:</p>
 <div class="highlight-json notranslate"><div class="highlight"><pre><span></span><span class="p">[</span>
 <span class="w">    </span><span class="p">{</span>
-<span class="w">        </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;/blog/article1&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;First article!&quot;</span><span class="p">,</span>
-<span class="w">        </span><span class="nt">&quot;comments&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+<span class="w">        </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"/blog/article1"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"First article!"</span><span class="p">,</span>
+<span class="w">        </span><span class="nt">"comments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
 <span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;James&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;created&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2018-11-28 17:24:23&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;email@mail.com&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;1&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;remote_addr&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;127.0.0.1&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Great article!&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;website&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;http://fefzfzef.frzr&quot;</span>
+<span class="w">                </span><span class="nt">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"James"</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-28 17:24:23"</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email@mail.com"</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"remote_addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">"127.0.0.1"</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Great article!"</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"website"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://fefzfzef.frzr"</span>
 <span class="w">            </span><span class="p">},</span>
 <span class="w">            </span><span class="p">{</span>
-<span class="w">                </span><span class="nt">&quot;author&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Harold&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;created&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2018-11-28 17:58:03&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;email&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;email2@mail.com&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;2&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;remote_addr&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;text&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;I hated it...&quot;</span><span class="p">,</span>
-<span class="w">                </span><span class="nt">&quot;website&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;&quot;</span>
+<span class="w">                </span><span class="nt">"author"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Harold"</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"created"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-11-28 17:58:03"</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"email2@mail.com"</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2"</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"remote_addr"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"I hated it..."</span><span class="p">,</span>
+<span class="w">                </span><span class="nt">"website"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span>
 <span class="w">            </span><span class="p">}</span>
 <span class="w">        </span><span class="p">]</span>
 <span class="w">    </span><span class="p">}</span>
@@ -231,10 +231,10 @@ are many other comments system and you could be using one of them.</p>
 <section id="export-comments-as-csv">
 <h3><a class="toc-backref" href="#id4" role="doc-backlink">Export comments as CSV</a><a class="headerlink" href="#export-comments-as-csv" title="Link to this heading">¶</a></h3>
 <p>As suggested by <a class="reference external" href="https://github.com/isso-comments/isso/issues/186#issuecomment-223550325">Joshua Gleitze</a>:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">dbpath</span><span class="o">=</span><span class="s1">&#39;/path/to/your/isso.db&#39;</span>
-<span class="nv">data</span><span class="o">=</span><span class="k">$(</span>sqlite3<span class="w"> </span><span class="si">${</span><span class="nv">dbpath</span><span class="si">}</span><span class="w"> </span>-csv<span class="w"> </span><span class="s1">&#39;SELECT threads.uri, threads.title, comments.id, comments.mode, datetime(comments.created, &quot;unixepoch&quot;, &quot;localtime&quot;), datetime(comments.modified, &quot;unixepoch&quot;, &quot;localtime&quot;), comments.author, comments.email, comments.website, comments.remote_addr, comments.likes, comments.dislikes, comments.voters,comments.text FROM comments INNER JOIN threads ON comments.tid=threads.id&#39;</span><span class="k">)</span>
-<span class="nv">header</span><span class="o">=</span><span class="s1">&#39;&quot;page: URI&quot;,&quot;page: title&quot;,&quot;ID&quot;,&quot;mode&quot;,&quot;created on&quot;,&quot;modified on&quot;,&quot;author: name&quot;,&quot;author: email&quot;,&quot;author: website&quot;,&quot;author: IP&quot;,&quot;likes&quot;,&quot;dislikes&quot;,&quot;voters&quot;,&quot;text&quot;&#39;</span>
-<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;</span><span class="si">${</span><span class="nv">header</span><span class="si">}</span><span class="s2">\n&quot;&quot;</span><span class="si">${</span><span class="nv">data</span><span class="si">}</span><span class="s2">&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>export.csv
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">dbpath</span><span class="o">=</span><span class="s1">'/path/to/your/isso.db'</span>
+<span class="nv">data</span><span class="o">=</span><span class="k">$(</span>sqlite3<span class="w"> </span><span class="si">${</span><span class="nv">dbpath</span><span class="si">}</span><span class="w"> </span>-csv<span class="w"> </span><span class="s1">'SELECT threads.uri, threads.title, comments.id, comments.mode, datetime(comments.created, "unixepoch", "localtime"), datetime(comments.modified, "unixepoch", "localtime"), comments.author, comments.email, comments.website, comments.remote_addr, comments.likes, comments.dislikes, comments.voters,comments.text FROM comments INNER JOIN threads ON comments.tid=threads.id'</span><span class="k">)</span>
+<span class="nv">header</span><span class="o">=</span><span class="s1">'"page: URI","page: title","ID","mode","created on","modified on","author: name","author: email","author: website","author: IP","likes","dislikes","voters","text"'</span>
+<span class="nb">echo</span><span class="w"> </span>-e<span class="w"> </span><span class="s2">"</span><span class="si">${</span><span class="nv">header</span><span class="si">}</span><span class="s2">\n""</span><span class="si">${</span><span class="nv">data</span><span class="si">}</span><span class="s2">"</span><span class="w"> </span>&gt;<span class="w"> </span>export.csv
 </pre></div>
 </div>
 <p>Use <a class="reference external" href="https://github.com/angristan/isso-to-disqus">isso-to-disqus.py</a> and see
@@ -246,9 +246,9 @@ other options as discussed in <a class="reference external" href="https://github
 insertion date.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>get_blog_comments<span class="w"> </span><span class="o">()</span><span class="w"> </span><span class="o">{</span>
 <span class="w">    </span>ssh<span class="w"> </span><span class="nv">$host</span><span class="w"> </span>sqlite3<span class="w"> </span>-line<span class="w"> </span>/path/to/isso/isso.db<span class="w"> </span><span class="se">\</span>
-<span class="w">        </span><span class="s2">&quot;&#39;SELECT t.uri,c.created,c.modified,c.text,c.author,c.email,c.website \</span>
-<span class="s2">          FROM comments AS c, threads as t WHERE c.tid = t.id;&#39;&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="w">        </span><span class="p">|</span><span class="w"> </span>perl<span class="w"> </span>-wpe<span class="w"> </span><span class="s1">&#39;/(created|modified) = ./&amp;&amp;s/= (.*)/&quot;= &quot;.scalar(localtime($1))/e&#39;</span><span class="p">;</span>
+<span class="w">        </span><span class="s2">"'SELECT t.uri,c.created,c.modified,c.text,c.author,c.email,c.website \</span>
+<span class="s2">          FROM comments AS c, threads as t WHERE c.tid = t.id;'"</span><span class="w"> </span><span class="se">\</span>
+<span class="w">        </span><span class="p">|</span><span class="w"> </span>perl<span class="w"> </span>-wpe<span class="w"> </span><span class="s1">'/(created|modified) = ./&amp;&amp;s/= (.*)/"= ".scalar(localtime($1))/e'</span><span class="p">;</span>
 <span class="o">}</span>
 </pre></div>
 </div>
@@ -256,8 +256,8 @@ insertion date.</p>
 <div class="highlight-text notranslate"><div class="highlight"><pre><span></span>     uri = /lucas/blog/2014/12/12/fr-la-tete-dans-le-guidon/
  created = Mon Dec 15 13:10:28 2014
 modified =
-    text = Merci ! Je suis très content d&#39;apprendre que cette lecture a pu plaire à quelqu&#39;un
-N&#39;hésitez pas à partager vos propres réflexions et astuces dans les commentaires.
+    text = Merci ! Je suis très content d'apprendre que cette lecture a pu plaire à quelqu'un
+N'hésitez pas à partager vos propres réflexions et astuces dans les commentaires.
   author = lucas
    email = lucas@chezsoi.org
  website = https://chezsoi.org/lucas/blog
@@ -268,7 +268,7 @@ N&#39;hésitez pas à partager vos propres réflexions et astuces dans les comme
 <h3><a class="toc-backref" href="#id6" role="doc-backlink">Delete IP addresses weekly</a><a class="headerlink" href="#delete-ip-addresses-weekly" title="Link to this heading">¶</a></h3>
 <p>Add this to your <code class="docutils literal notranslate"><span class="pre">crontab</span></code> to set all saved commenter IP addresses to
 <code class="docutils literal notranslate"><span class="pre">127.0.0.1</span></code> to preserve their privacy under GDPR:</p>
-<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>@weekly /usr/bin/sqlite3 /path/to/isso/comments.db &#39;UPDATE comments SET remote_addr = &quot;127.0.0.1&quot;;&#39;
+<div class="highlight-text notranslate"><div class="highlight"><pre><span></span>@weekly /usr/bin/sqlite3 /path/to/isso/comments.db 'UPDATE comments SET remote_addr = "127.0.0.1";'
 </pre></div>
 </div>
 <p>From <a class="reference external" href="https://blog.mdosch.de/2018/05/20/isso-ip-adressen-woechentlich-loeschen/">blog.mdosch.de</a>:</p>

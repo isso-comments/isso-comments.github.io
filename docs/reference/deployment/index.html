@@ -177,7 +177,7 @@ worker ported from Ruby’s Unicorn project. Install <a class="reference interna
 </pre></div>
 </div>
 <p>To execute Isso, use a command similar to:</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">ISSO_SETTINGS</span><span class="o">=</span><span class="s2">&quot;/path/to/isso.cfg&quot;</span>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">ISSO_SETTINGS</span><span class="o">=</span><span class="s2">"/path/to/isso.cfg"</span>
 $<span class="w"> </span>gunicorn<span class="w"> </span>-b<span class="w"> </span>localhost:8080<span class="w"> </span>-w<span class="w"> </span><span class="m">4</span><span class="w"> </span>--preload<span class="w"> </span>isso.run
 </pre></div>
 </div>
@@ -195,14 +195,14 @@ isso distribution as <cite>run.py</cite>:</p>
 <span class="n">application</span> <span class="o">=</span> <span class="n">make_app</span><span class="p">(</span>
 <span class="n">config</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
     <span class="n">config</span><span class="o">.</span><span class="n">default_file</span><span class="p">(),</span>
-    <span class="s2">&quot;/path/to/isso.cfg&quot;</span><span class="p">),</span>
+    <span class="s2">"/path/to/isso.cfg"</span><span class="p">),</span>
 <span class="n">multiprocessing</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>If you have installed Isso in a virtual environment, then you will have to add the path
 of the virtualenv to the site-specific paths of Python:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="hll">  <span class="kn">import</span><span class="w"> </span><span class="nn">site</span>
-</span><span class="hll">  <span class="n">site</span><span class="o">.</span><span class="n">addsitedir</span><span class="p">(</span><span class="s2">&quot;/path/to/isso_virtualenv&quot;</span><span class="p">)</span>
+</span><span class="hll">  <span class="n">site</span><span class="o">.</span><span class="n">addsitedir</span><span class="p">(</span><span class="s2">"/path/to/isso_virtualenv"</span><span class="p">)</span>
 </span>
   <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
 
@@ -212,7 +212,7 @@ of the virtualenv to the site-specific paths of Python:</p>
   <span class="n">application</span> <span class="o">=</span> <span class="n">make_app</span><span class="p">(</span>
   <span class="n">config</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
       <span class="n">config</span><span class="o">.</span><span class="n">default_file</span><span class="p">(),</span>
-      <span class="s2">&quot;/path/to/isso.cfg&quot;</span><span class="p">,</span>
+      <span class="s2">"/path/to/isso.cfg"</span><span class="p">,</span>
   <span class="n">multiprocessing</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -227,7 +227,7 @@ the virtualenv have priority over system modules, the following script does the 
 <span class="hll">  <span class="n">prev_sys_path</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
 </span>
   <span class="c1"># Add the new site-packages directory.</span>
-<span class="hll">  <span class="n">site</span><span class="o">.</span><span class="n">addsitedir</span><span class="p">(</span><span class="s2">&quot;/path/to/isso_virtualenv&quot;</span><span class="p">)</span>
+<span class="hll">  <span class="n">site</span><span class="o">.</span><span class="n">addsitedir</span><span class="p">(</span><span class="s2">"/path/to/isso_virtualenv"</span><span class="p">)</span>
 </span>
   <span class="c1"># Reorder sys.path so new directories at the front.</span>
 <span class="hll">  <span class="n">new_sys_path</span> <span class="o">=</span> <span class="p">[]</span>
@@ -243,7 +243,7 @@ the virtualenv have priority over system modules, the following script does the 
   <span class="n">application</span> <span class="o">=</span> <span class="n">make_app</span><span class="p">(</span>
   <span class="n">config</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
       <span class="n">config</span><span class="o">.</span><span class="n">default_file</span><span class="p">(),</span>
-      <span class="s2">&quot;/path/to/isso.cfg&quot;</span><span class="p">,</span>
+      <span class="s2">"/path/to/isso.cfg"</span><span class="p">,</span>
   <span class="n">multiprocessing</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -298,9 +298,9 @@ PIP:</p>
 </div>
 <p>Finally, copy’n’paste to <cite>/var/www/isso.fcgi</cite> (or whatever location you prefer):</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="ch">#!/usr/bin/env python</span>
-<span class="c1">#: uncomment if you&#39;re using a virtualenv</span>
+<span class="c1">#: uncomment if you're using a virtualenv</span>
 <span class="c1"># import sys</span>
-<span class="c1"># sys.path.insert(0, &#39;&lt;your_local_path&gt;/lib/python3.&lt;ver&gt;/site-packages&#39;)</span>
+<span class="c1"># sys.path.insert(0, '&lt;your_local_path&gt;/lib/python3.&lt;ver&gt;/site-packages')</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">isso</span><span class="w"> </span><span class="kn">import</span> <span class="n">make_app</span><span class="p">,</span> <span class="n">dist</span><span class="p">,</span> <span class="n">config</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
@@ -309,7 +309,7 @@ PIP:</p>
 
 <span class="n">application</span> <span class="o">=</span> <span class="n">make_app</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
     <span class="n">config</span><span class="o">.</span><span class="n">default_file</span><span class="p">(),</span>
-    <span class="s2">&quot;/path/to/isso.cfg&quot;</span><span class="p">))</span>
+    <span class="s2">"/path/to/isso.cfg"</span><span class="p">))</span>
 <span class="n">WSGIServer</span><span class="p">(</span><span class="n">application</span><span class="p">)</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
 </pre></div>
 </div>

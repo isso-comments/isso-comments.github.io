@@ -183,6 +183,14 @@ Try to repair the file using <code class="docutils literal notranslate"><span cl
 <span class="go">[100%]  53 threads, 192 comments</span>
 </pre></div>
 </div>
+<p>By default the Disqus importer keys each thread by its page URL path. If your
+Disqus site used a custom <code class="docutils literal notranslate"><span class="pre">disqus_identifier</span></code> (the <code class="docutils literal notranslate"><span class="pre">&lt;id&gt;</span></code> element in the
+export) and you set <code class="docutils literal notranslate"><span class="pre">data-isso-id</span></code> on your pages, pass <code class="docutils literal notranslate"><span class="pre">--thread-id</span></code> to
+key threads by that identifier instead, falling back to the URL path when a
+thread has no identifier:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp gp-VirtualEnv">(.venv)</span> <span class="gp">$ </span>isso<span class="w"> </span>-c<span class="w"> </span>/path/to/isso.cfg<span class="w"> </span>import<span class="w"> </span>-t<span class="w"> </span>disqus<span class="w"> </span>--thread-id<span class="w"> </span>disqus.xml
+</pre></div>
+</div>
 </section>
 <section id="running-isso">
 <h3><a class="toc-backref" href="#id3" role="doc-backlink">Running Isso</a><a class="headerlink" href="#running-isso" title="Link to this heading">¶</a></h3>

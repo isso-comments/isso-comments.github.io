@@ -404,7 +404,8 @@ connection attempt.</p>
 <section id="guard">
 <h3><a class="toc-backref" href="#id15" role="doc-backlink">Guard</a><a class="headerlink" href="#guard" title="Link to this heading">¶</a></h3>
 <p>Enable basic spam protection features, e.g. rate-limit per IP address (<code class="docutils literal notranslate"><span class="pre">/24</span></code>
-for IPv4, <code class="docutils literal notranslate"><span class="pre">/48</span></code> for IPv6).</p>
+for IPv4, <code class="docutils literal notranslate"><span class="pre">/48</span></code> for IPv6). When a comment is rejected by one of the checks
+below, the commenter is shown an explanatory message in the comment form.</p>
 <div class="highlight-ini notranslate"><div class="highlight"><pre><span></span><span class="k">[guard]</span>
 <span class="na">enabled</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">true</span>
 <span class="na">ratelimit</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">2</span>
